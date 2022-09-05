@@ -1,3 +1,4 @@
+import "antd/dist/antd.css";
 import { AppProps } from "next/app";
 import { Global } from "@emotion/react";
 import { RecoilRoot } from "recoil";

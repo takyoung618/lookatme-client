@@ -60,12 +60,18 @@ time, mark, audio, video {
   body {
     margin: 0;
     box-sizing: border-box;
-    font-family: "NanumSquare";
+    font-family: "hyemin";
     font-size: 16px;
   }
 
   @font-face {
     font-family: "NanumSquare";
     src: url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
+  }
+
+  @font-face {
+    font-family: "hyemin";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2")
+      format("woff");
   }
 `;

@@ -1,3 +1,5 @@
+import CommunityListContainer from "../../src/components/units/community-list/community-list.container";
+
 export default function CommunityListPage() {
-  return <div>커뮤니티 리스트 페이지 입니다.</div>;
+  return <CommunityListContainer></CommunityListContainer>;
 }

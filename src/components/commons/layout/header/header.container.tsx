@@ -35,7 +35,7 @@ export default function HeaderContainer() {
 
   const onClickSignUp = () => {
     setOpen(false);
-    router.push("/signUp/");
+    router.push("/sign-up/");
   };
 
   const onClickCommunity = () => {

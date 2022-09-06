@@ -1,3 +1,5 @@
+import ExpertList from "../../src/components/units/expert/list/ExpertList.container";
+
 export default function ExpertListPage() {
-  return <div>전문가 리스트 페이지입니다.</div>;
+  return <ExpertList/>
 }

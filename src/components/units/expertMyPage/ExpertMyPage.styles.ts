@@ -4,30 +4,33 @@ export const Wrapper = styled.div`
     display: flex;
     text-align: center;
     flex-direction: column;
-    width: 390px;
+    width: 380px;
 `
 
 export const TitleWrapper = styled.div`
     display: flex;
-    text-align: left;
+    text-align: center;
 `
 
 export const Title = styled.div`
-    font-size: 1.25rem;
+    display: flex;
+    font-size: 1.6rem;
     font-weight: 400px;
     margin-top: 15px;
+    margin-left: 140px;
+    font-family: "MiceGodic";
 `
 
 export const ProfileWrapper = styled.div`
     display: flex;
     text-align: center;
     flex-direction: row;
-    width: 390px;
+    width: 380px;
     height: 110px;
     margin-top: 15px;
 
-    border: 2px solid #E5E7E9;
-    box-shadow: 0px 5px 10px #E5E7E9;
+    border: 1px solid #9CD6FF;
+    box-shadow: 0px 5px 5px #9CD6FF;
     border-radius: 10px;
 `
 
@@ -43,9 +46,11 @@ export const InfoWrapper = styled.div`
     text-align: left;
     margin-left: 59px;
     margin-top: 15px;
+    font-size: 0.8125rem;
 `
 
 export const Id = styled.div`
+    
 `
 
 export const Name = styled.div`
@@ -58,26 +63,32 @@ export const Introduce = styled.div`
 
 export const Button = styled.div`
     display: flex;
-    width: 65px;
+    width: 55px;
     height: 20px;
     margin-top: 10px;
-    background-color: #FCE4EC;
-    border: 1px solid #FCE4EC;
     border-radius: 20px;
+
+    background-color: #9cd6ff;
+    border: 1px solid #FCE4EC;
     cursor: pointer;
+
+    :hover {
+    background-color: #6fe5ff;
+  }
 `
 
 export const MemberWrapper = styled.div`
     height: 110px;
-    border: 2px solid #E5E7E9;
-    box-shadow: 0px 5px 10px #E5E7E9;
+    border: 1px solid #9CD6FF;
+    box-shadow: 0px 5px 5px #9CD6FF;
     border-radius: 10px;
     margin-top: 30px;
     text-align: left;
+    font-size: 0.8125rem
 `
 
 export const MemberList = styled.div`
-    font-size: 1rem;
+    font-size: 0.8125rem;
     font-weight: 400;
     margin-top: 10px;
     margin-left: 10px;
@@ -103,15 +114,15 @@ export const CommentListWrapper = styled.div`
     display: flex;
     text-align: left;
     flex-direction: column;
-    border: 2px solid #E5E7E9;
-    box-shadow: 0px 5px 10px #E5E7E9;
+    border: 1px solid #9CD6FF;
+    box-shadow: 0px 5px 5px #9CD6FF;
     border-radius: 10px;
     margin-top: 30px;
     margin-bottom: 30px;
 `
 
 export const CommentList = styled.div`
-    font-size: 1rem;
+    font-size: 0.8125rem;
     font-weight: 400;
     margin-top: 5px;
     margin-left: 10px;
@@ -127,7 +138,7 @@ export const CommentWrapper = styled.div`
     background-color: #E5E7E9;
 
     margin-top: 20px;
-    margin-left: 28px;
+    margin-left: 25px;
 `
 
 export const CommentInfoWrapper = styled.div`

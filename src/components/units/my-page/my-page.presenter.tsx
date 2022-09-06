@@ -1,7 +1,10 @@
 import * as S from "./my-page.styles";
 import { ImHeart } from "react-icons/im";
+import { AiOutlineClose } from "react-icons/ai";
+import { GrMoney } from "react-icons/gr";
+import { IMyPagePresenterProps } from "./my-page.types";
 
-export default function MyPagePresenter() {
+export default function MyPagePresenter(props: IMyPagePresenterProps) {
   return (
     <S.Wrapper>
       <S.ProfileWrapper>
@@ -11,7 +14,36 @@ export default function MyPagePresenter() {
         <S.ProfileContents>철수</S.ProfileContents>
         <S.CategoryTitle>보유 포인트</S.CategoryTitle>
         <S.ProfileContents>0 P</S.ProfileContents>
+        <S.ExpertButtonWrapper>
+          <S.ExpertButton onClick={() => props.setModalIsOpen(true)}>
+            충전하기
+          </S.ExpertButton>
+          <S.ExpertButton>수정하기</S.ExpertButton>
+        </S.ExpertButtonWrapper>
       </S.ProfileWrapper>
+
+      <S.ModalStyle isOpen={props.modalIsOpen}>
+        <S.ModalCloseButton onClick={() => props.setModalIsOpen(false)}>
+          <AiOutlineClose style={{ width: "20px", height: "20px" }} />
+        </S.ModalCloseButton>
+        <S.ModalTitle>
+          <GrMoney style={{ marginRight: "5px" }} /> 포인트 충전하기
+          <GrMoney style={{ marginLeft: "5px" }} />
+        </S.ModalTitle>
+        <S.ModalSelect
+          value={props.selected}
+          onChange={props.onChangeSelectedPoint}
+        >
+          <option value="">충전 포인트 선택</option>
+          <option value="5000">5000 포인트</option>
+          <option value="10000">10,000 포인트</option>
+          <option value="50000">50,000 포인트</option>
+          <option value="100000">100,000 포인트</option>
+        </S.ModalSelect>
+        <S.ModalChargeButton isActive={props.isActive}>
+          충전하기
+        </S.ModalChargeButton>
+      </S.ModalStyle>
 
       <S.CategoryWrapper>
         <S.CategoryTitle>내 전문가</S.CategoryTitle>

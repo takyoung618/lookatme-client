@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
+import Modal from "react-modal";
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 390px;
+  width: 380px;
 `;
 
 export const ProfileWrapper = styled.div`
@@ -14,6 +15,80 @@ export const ProfileWrapper = styled.div`
   border-bottom: 1.5px solid #f8f8f8;
   padding: 10px 0px;
   margin-bottom: 20px;
+`;
+
+export const ModalStyle = styled(Modal)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 350px;
+  height: 250px;
+
+  background-color: #f8f8f8;
+  border: 1px solid #bdbdbd;
+  border-radius: 15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+`;
+
+export const ModalCloseButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 350px;
+  height: 15px;
+  padding: 10px;
+  cursor: pointer;
+`;
+
+export const ModalTitle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 464px;
+  height: 30px;
+  padding: 20px;
+  font-size: 1rem;
+  margin-bottom: 40px;
+`;
+
+export const ModalSelect = styled.select`
+  width: 200px;
+  height: 35px;
+  padding: 5px;
+  border: 1px solid #999;
+  background: url("/modal-arrow.jpeg/") no-repeat 100% 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-bottom: 15px;
+
+  ::-ms-expand {
+    display: none;
+  }
+`;
+
+export const ModalChargeButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 120px;
+  height: 35px;
+  background-color: ${(props) => (props.isActive ? "#b8f2ef" : "#b2b2b2")};
+  border: none;
+  border-radius: 15px;
+  font-size: 0.85rem;
 `;
 
 export const CategoryTitle = styled.div`

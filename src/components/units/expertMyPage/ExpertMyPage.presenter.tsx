@@ -33,7 +33,7 @@ export default function ExpertMyPageUI(){
                 <S.CommentWrapper>
                     <S.CommentInfoWrapper>
                         <S.Comment>제가 생각하기에 00님은 아마...</S.Comment>
-                        <S.Time>5시간 전</S.Time>
+                        <S.Time>4시간 전</S.Time>
                         <S.SympathyWrapper>
                             <ImHeart
                             style={{ width: "15px", height: "15px", color: "#F293A3" }}

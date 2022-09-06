@@ -11,10 +11,21 @@ export const Wrapper = styled.div`
 export const ProfileWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   border-bottom: 1.5px solid #f8f8f8;
   padding: 10px 0px;
   margin-bottom: 20px;
+`;
+
+export const MyPageTitle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  font-family: "MiceGodic";
+  font-size: 1.6rem;
+  padding: 10px;
 `;
 
 export const ModalStyle = styled(Modal)`
@@ -116,7 +127,8 @@ export const CategoryWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  border: 1px solid #8cccc9;
+  border: 1px solid #9cd6ff;
+  box-shadow: 0px 5px 5px #9cd6ff;
   border-radius: 10px;
   padding: 10px 0px;
   margin-bottom: 20px;
@@ -156,17 +168,16 @@ export const CategoryContents = styled.div`
   flex-direction: row;
   justify-content: flex-start;
 
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   padding: 10px 13px;
 `;
 
 export const ExpertButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 
-  width: 200px;
+  width: 390px;
   padding: 5px 10px;
 `;
 
@@ -178,13 +189,14 @@ export const ExpertButton = styled.div`
 
   width: 80px;
   height: 25px;
+  margin-right: 15px;
   font-size: 0.85rem;
   background-color: #f5f7fa;
   border-radius: 20px;
   cursor: pointer;
 
   :hover {
-    background-color: #b8f2ef;
+    background-color: #6fe5ff;
   }
 `;
 

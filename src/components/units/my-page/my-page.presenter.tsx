@@ -8,6 +8,7 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
   return (
     <S.Wrapper>
       <S.ProfileWrapper>
+        <S.MyPageTitle>마이 페이지</S.MyPageTitle>
         <S.CategoryTitle>아이디</S.CategoryTitle>
         <S.ProfileContents>aaa@aaa.com</S.ProfileContents>
         <S.CategoryTitle>닉네임</S.CategoryTitle>

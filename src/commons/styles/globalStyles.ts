@@ -65,8 +65,9 @@ time, mark, audio, video {
   }
 
   @font-face {
-    font-family: "NanumSquare";
-    src: url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
+    font-family: "MiceGodic";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2")
+      format("woff2");
   }
 
   @font-face {

@@ -1,3 +1,5 @@
+import LoginAdmin from "../../../src/components/units/admin-login/login.container";
+
 export default function AdminLoginPage() {
-  return <div>어드민 로그인 페이지입니다.</div>;
+  return <LoginAdmin />;
 }

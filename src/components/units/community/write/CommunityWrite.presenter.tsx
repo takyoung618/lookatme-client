@@ -1,12 +1,11 @@
 import * as S from "./CommunityWrite.styles"
 import { BsCamera } from "react-icons/bs"
-import {IoIosArrowBack, IoIosArrowDown } from "react-icons/io"
+import {IoIosArrowDown } from "react-icons/io"
 
-export default function CommunityWriteUi(){
+export default function CommunityWriteUi(props){
     return (
         <S.Wrapper>
         <S.HeaderWrapper>
-            <IoIosArrowBack style={{ width: "30px", height: "30px" }}/>
             <S.Title>사연 등록</S.Title>
         </S.HeaderWrapper>
         <S.Category>
@@ -15,19 +14,22 @@ export default function CommunityWriteUi(){
         </S.Category>
         <S.ImageWrapper>
            <S.Image>
-           <BsCamera style={{ width: "30px", height: "30px", color: "gray", marginTop: "50.5px"}}/>
+           <BsCamera style={{ width: "30px", height: "30px", color: "gray", marginTop: "135px"}}/>
            </S.Image>
            <S.Image>
-           <BsCamera style={{ width: "30px", height: "30px", color: "gray", marginTop: "50.5px" }}/>
+           <BsCamera style={{ width: "30px", height: "30px", color: "gray", marginTop: "135px" }}/>
            </S.Image>
            <S.Image>
-            <BsCamera style={{ width: "30px", height: "30px", color: "gray", marginTop: "50.5px" }}/>
+            <BsCamera style={{ width: "30px", height: "30px", color: "gray", marginTop: "135px" }}/>
            </S.Image>
         </S.ImageWrapper>
         <S.ContentsWrapper>
             <S.Contents></S.Contents>
         </S.ContentsWrapper>
         <S.ButtonWrapper>
+            <S.ListButton onClick={props.onClickList}>
+                목록으로
+            </S.ListButton>
             <S.SubmitButton>
                 작성하기
             </S.SubmitButton>
@@ -35,6 +37,3 @@ export default function CommunityWriteUi(){
     </S.Wrapper>
     ) 
 }
-
-
-// 카테고리 구현, 아이콘 styles 로 밀어버리고 가운데 정렬,

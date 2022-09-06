@@ -15,11 +15,18 @@ export const ButtonWrapper = styled.div`
 export const Button = styled.button`
     width: 120px;
     height: 30px;
-    background-color: #FCE4EC;
-    border: 1px solid #FCE4EC;
     border-radius: 20px;
     cursor: pointer;
     font-size: 1.2rem;
+
+
+    background-color: #9cd6ff;
+    border: 1px solid #FCE4EC;
+    cursor: pointer;
+
+    :hover {
+    background-color: #6fe5ff;
+  }
 `
 
 export const ListWrapper = styled.div`
@@ -44,18 +51,18 @@ export const InfoWrapper = styled.div`
 `
 
 export const Name = styled.div`
-    font-size: 1.563rem;
+    font-size: 0.8125rem;
     font-weight: 400;
 `
 
 export const Introduce = styled.div`
-    font-size: 1.563rem;
+    font-size: 0.8125rem;
     font-weight: 400;
-    margin-top: 20px;
+    margin-top: 40px;
 `
 
 export const Price = styled.div`
-    font-size: 1.563rem;
+    font-size: 0.8125rem;
     font-weight: 400;
-    margin-top: 20px;
+    margin-top: 40px;
 `

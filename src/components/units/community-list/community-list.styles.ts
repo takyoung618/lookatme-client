@@ -4,37 +4,37 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  width: 390px;
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 390px;
+  column-gap: 15px;
+  padding: 10px 0px;
 
-  width: 390px;
-  margin: 3px 0px;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Button = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 
-  width: 90px;
-  height: 30px;
+  height: 40px;
   color: rgba(42, 47, 61, 0.64);
-  font-size: 0.8125rem;
+  font-size: 1rem;
   background-color: #f5f7fa;
-  border-radius: 20px;
-  padding: 8px 16px;
-  margin-right: 10px;
+  border-radius: 18px;
+  padding: 20px;
+
   cursor: pointer;
 
   :hover {
-    background-color: #b8f2ef;
+    background-color: #6fe5ff;
   }
 `;
 
@@ -50,8 +50,8 @@ export const FilterWrapper = styled.div`
 `;
 
 export const FilterButton = styled.div`
-  width: 80px;
-  font-size: 0.7rem;
+  width: 25%;
+  font-size: 1rem;
   cursor: pointer;
 `;
 
@@ -66,7 +66,7 @@ export const BodyWrapper = styled.div`
 export const Category = styled.div`
   padding: 10px;
   color: rgba(42, 47, 61, 0.64);
-  font-size: 0.8rem;
+  font-size: 0.8125rem;
 `;
 
 export const Title = styled.div`
@@ -76,7 +76,7 @@ export const Title = styled.div`
 
 export const Contents = styled.div`
   padding: 5px 10px;
-  font-size: 0.7rem;
+  font-size: 0.8125rem;
 `;
 
 export const BodyBottomWrapper = styled.div`
@@ -104,7 +104,7 @@ export const LikeButton = styled.div`
 
 export const LikeInfo = styled.div`
   width: 100px;
-  font-size: 0.68rem;
+  font-size: 0.75rem;
 `;
 
 export const UserInfo = styled.div`
@@ -122,7 +122,7 @@ export const UserProfile = styled.div`
 `;
 
 export const UserName = styled.div`
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 `;
 
 export const WriteButtonWrapper = styled.div`
@@ -149,6 +149,6 @@ export const WriteButton = styled.div`
   cursor: pointer;
 
   :hover {
-    background-color: #b8f2ef;
+    background-color: #6fe5ff;
   }
 `;

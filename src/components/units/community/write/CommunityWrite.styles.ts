@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-top: 4px;
 `;
 
@@ -21,7 +21,7 @@ export const HeaderWrapper = styled.div`
 
 
 export const Category = styled.button`
-    width: 370px;
+    width: 380px;
     height: 52px;
     text-align: left;
     flex-direction: row;
@@ -29,13 +29,13 @@ export const Category = styled.button`
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
-    border: 2px solid #E5E7E9;
-    box-shadow: 0px 5px 10px #E5E7E9;
+    border: 1px solid #9CD6FF;
+    box-shadow: 0px 5px 5px #9CD6FF;
     background-color: white;
 `;
 
 export const CategoryTitle =styled.div`
-    font-size: 25px;
+    font-size: 1.6rem;
     font-weight: 700;
     margin-top: 10px;
 `
@@ -48,11 +48,12 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.div`
-    width: 370px;
-    height: 141px;
-    background-color: #FCE4EC;
+    width: 300px;
+    height: 300px;
+    background-color: #E5E7E9;
     border: 2px dotted white;
     margin-top: 20px;
+    margin-left: 40px;
     align-items: center;
 
     border-radius: 10px;
@@ -61,30 +62,54 @@ export const Image = styled.div`
 export const ContentsWrapper = styled.div``;
 
 export const Contents = styled.input`
-    width: 370px;
-    height: 236px;
+    width: 380px;
+    height: 380px;
     margin-top: 20px;
     border-radius: 10px;
-    border: 2px solid #E5E7E9;
-    box-shadow: 0px 5px 10px #E5E7E9;
+    border: 1px solid #9CD6FF;
+    box-shadow: 0px 5px 5px #9CD6FF;
 `;
 
 export const ButtonWrapper = styled.div`
     text-align: right;
 `;
 
-export const SubmitButton = styled.button`
+export const ListButton = styled.button`
     width: 128px;
     height: 52px;
-    font-size: 25px;
+    font-size: 1.25rem;
     font-weight: 700;
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
 
-    background-color: #FCE4EC;
+    background-color: #9cd6ff;
     border: 1px solid #FCE4EC;
     cursor: pointer;
+
+    :hover {
+    background-color: #6fe5ff;
+  }
 `;
 
-export const IconCamera = styled
+export const SubmitButton = styled.button`
+    width: 128px;
+    height: 52px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+
+    background-color: #9cd6ff;
+    border: 1px solid #FCE4EC;
+    cursor: pointer;
+
+    :hover {
+    background-color: #6fe5ff;
+  }
+`;
+
+
+

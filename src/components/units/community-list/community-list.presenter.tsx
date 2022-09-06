@@ -3,20 +3,21 @@ import { ImHeart } from "react-icons/im";
 import { FaLeaf } from "react-icons/fa";
 import { BsPencilSquare } from "react-icons/bs";
 
-const ButtonList1 = ["전체", "직업,진로", "연애,결혼"];
-
-const ButtonList2 = ["대인관계", "자아,성격", "가족", "자유주제"];
+const ButtonList = [
+  "전체",
+  "직업,진로",
+  "연애,결혼",
+  "대인관계",
+  "자아,성격",
+  "가족",
+  "자유주제",
+];
 
 export default function CommunityListPresenter() {
   return (
     <S.Wrapper>
       <S.ButtonWrapper>
-        {ButtonList1.map((el) => (
-          <S.Button key={el}>{el}</S.Button>
-        ))}
-      </S.ButtonWrapper>
-      <S.ButtonWrapper>
-        {ButtonList2.map((el) => (
+        {ButtonList.map((el) => (
           <S.Button key={el}>{el}</S.Button>
         ))}
       </S.ButtonWrapper>

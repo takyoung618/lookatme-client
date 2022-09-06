@@ -5,7 +5,7 @@ export default function LoginUI(props: ILoginUIProps) {
   return (
     <form onSubmit={props.handleSubmit(props.onClickLogin)}>
       <S.Wrapper>
-        <S.Title>유저 로그인</S.Title>
+        <S.Title>로그인</S.Title>
         <S.Main>
           <S.InputWrapper>
             <S.Label>이메일</S.Label>
@@ -31,6 +31,12 @@ export default function LoginUI(props: ILoginUIProps) {
         </S.Main>
         <S.Footer>
           <S.InnerFooter>
+            멤버가 아니신가요?
+            <button type="button" onClick={props.onClickMoveToSignup}>
+              회원가입
+            </button>
+          </S.InnerFooter>
+          <S.InnerFooter>
             <button type="button" onClick={props.onClickMoveToIdFind}>
               아이디찾기
             </button>
@@ -39,28 +45,11 @@ export default function LoginUI(props: ILoginUIProps) {
               비밀번호찾기
             </button>
           </S.InnerFooter>
-          <S.InnerFooter>SNS계정으로 로그인하기</S.InnerFooter>
           <S.ImgFooter>
             <S.SocialImg src="/구글.png" />
             <S.SocialImg src="/네이버.png" />
             <S.SocialImg src="/카카오.png" />
           </S.ImgFooter>
-          <S.InnerFooter>
-            멤버가 아니신가요?
-            <button type="button" onClick={props.onClickMoveToSignup}>
-              회원가입
-            </button>
-          </S.InnerFooter>
-          <S.InnerFooter>
-            <button type="button" onClick={props.onClickMoveToExpert}>
-              전문가 로그인
-            </button>
-          </S.InnerFooter>
-          <S.InnerFooter>
-            <button type="button" onClick={props.onClickMoveToAdmin}>
-              관리자 로그인
-            </button>
-          </S.InnerFooter>
         </S.Footer>
       </S.Wrapper>
     </form>

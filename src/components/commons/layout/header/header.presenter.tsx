@@ -34,6 +34,10 @@ export default function HeaderPresenter(props: IHeaderPresenterProps) {
         <S.DrawerButton onClick={props.onClickExpert}>
           전문가 찾기
         </S.DrawerButton>
+        <S.LoginWrapper>
+          <button onClick={props.onClickMoveToExpert}>전문가 로그인</button>
+          <button onClick={props.onClickMoveToAdmin}>관리자 로그인</button>
+        </S.LoginWrapper>
       </Drawer>
     </S.Wrapper>
   );

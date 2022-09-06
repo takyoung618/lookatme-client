@@ -24,10 +24,13 @@ export const IdFindBtn = styled.button`
 export const PwFindBtn = styled.button`
   width: 136px;
   height: 40px;
-  background: #000000;
+  background: #9cd6ff;
+  border: none;
   color: white;
-  border: 1px solid #000000;
   border-radius: 0 40px 40px 0;
+  &:hover {
+    background: #6fe5ff;
+  }
 `;
 
 export const Email = styled.input`
@@ -60,17 +63,6 @@ export const PhoneWrapper = styled.div`
   width: 345px;
 `;
 
-export const MobileCarrier = styled.select`
-  width: 60px;
-  height: 48px;
-  background: #f6f6f6;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border: none;
-  padding-left: 10px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-`;
-
 export const PhoneNumber = styled.input`
   width: 267px;
   height: 48px;
@@ -95,31 +87,40 @@ export const AuthNumber = styled.input`
 export const AuthBtn = styled.button`
   width: 140px;
   height: 40px;
-  background: #000000;
+  background: #9cd6ff;
   border-radius: 40px;
   color: white;
   border: none;
   font-size: 12px;
+  &:hover {
+    background: #6fe5ff;
+  }
 `;
 
 export const OkBtn = styled.button`
   width: 89px;
   height: 40px;
-  background: #000000;
+  background: #9cd6ff;
   border-radius: 40px;
   color: white;
   border: none;
   font-size: 12px;
+  &:hover {
+    background: #6fe5ff;
+  }
 `;
 
 export const FindBtn = styled.button`
   width: 333px;
   height: 40px;
-  background: #000000;
+  background: #9cd6ff;
   border-radius: 40px;
   color: white;
   margin-bottom: 32px;
   border: none;
+  &:hover {
+    background: #6fe5ff;
+  }
 `;
 
 export const Password = styled.input`

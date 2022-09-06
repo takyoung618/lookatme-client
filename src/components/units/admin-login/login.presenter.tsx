@@ -39,22 +39,15 @@ export default function LoginAdminUI(props: ILoginUIProps) {
               비밀번호찾기
             </button>
           </S.InnerFooter>
-          <S.InnerFooter>SNS계정으로 로그인하기</S.InnerFooter>
+          <S.InnerFooter>
+            멤버가 아니신가요?
+            <button onClick={props.onClickMoveToSignup}>회원가입</button>
+          </S.InnerFooter>
           <S.ImgFooter>
             <S.SocialImg src="/구글.png" />
             <S.SocialImg src="/네이버.png" />
             <S.SocialImg src="/카카오.png" />
           </S.ImgFooter>
-          <S.InnerFooter>
-            멤버가 아니신가요?
-            <button onClick={props.onClickMoveToSignup}>회원가입</button>
-          </S.InnerFooter>
-          <S.InnerFooter>
-            <button onClick={props.onClickMoveToExpert}>전문가 로그인</button>
-          </S.InnerFooter>
-          <S.InnerFooter>
-            <button onClick={props.onClickMoveToAdmin}>관리자 로그인</button>
-          </S.InnerFooter>
         </S.Footer>
       </S.Wrapper>
     </form>

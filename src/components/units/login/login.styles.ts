@@ -6,12 +6,14 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 50px;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
 `;
 
 export const Title = styled.h1`
   margin-bottom: 30px;
+  font-size: 1.6rem;
   text-align: center;
+  font-family: "MiceGodic";
 `;
 
 export const Main = styled.div`
@@ -20,13 +22,16 @@ export const Main = styled.div`
     height: 40px;
     text-align: center;
     padding: 12px 14px;
-    background-color: #000000;
+    background-color: #9cd6ff;
     border-radius: 40px;
     margin-top: 32px;
     color: white;
     border: none;
     margin: 0 0 32px 5px;
     cursor: pointer;
+    :hover {
+      background-color: #6fe5ff;
+    }
   }
 `;
 

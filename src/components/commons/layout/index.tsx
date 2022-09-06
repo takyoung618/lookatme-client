@@ -35,13 +35,16 @@ export default function Layout(props: ILayoutProps) {
   const isLookBanner = MAIN_PAGE.includes(router.asPath);
 
   return (
-    !landingPage && (
-      <Wrapper>
-        <HeaderContainer></HeaderContainer>
-        {isLookBanner && <BannerContainer></BannerContainer>}
-        <Body>{props.children}</Body>
-        <FooterContainer></FooterContainer>
-      </Wrapper>
-    )
+    <>
+      {!landingPage && (
+        <Wrapper>
+          <HeaderContainer></HeaderContainer>
+          {isLookBanner && <BannerContainer></BannerContainer>}
+          <Body>{props.children}</Body>
+          <FooterContainer></FooterContainer>
+        </Wrapper>
+      )}
+      {landingPage && <div>{props.children}</div>}
+    </>
   );
 }

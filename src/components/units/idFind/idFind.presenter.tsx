@@ -11,12 +11,6 @@ export default function IdFindUI() {
         <S.InputWrapper>
           <S.Label>전화번호</S.Label>
           <S.PhoneWrapper>
-            <S.MobileCarrier>
-              <option>SKT</option>
-              <option>KT</option>
-              <option>LG U+</option>
-              <option>알뜰폰</option>
-            </S.MobileCarrier>
             <S.PhoneNumber />
             <S.AuthBtn>인증번호</S.AuthBtn>
           </S.PhoneWrapper>

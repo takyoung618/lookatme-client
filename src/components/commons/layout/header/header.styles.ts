@@ -60,3 +60,18 @@ export const DrawerButton = styled.div`
   margin-bottom: 20px;
   cursor: pointer;
 `;
+
+export const LoginWrapper = styled.div`
+  margin-top: 400px;
+  display: flex;
+  justify-content: space-around;
+
+  & button {
+    border: none;
+    background: none;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+`;

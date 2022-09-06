@@ -19,16 +19,19 @@ export const HeaderBtns = styled.div`
 export const IdFindBtn = styled.button`
   width: 136px;
   height: 40px;
-  background: #000000;
-  color: white;
   border: none;
+  background: #9cd6ff;
+  color: white;
   border-radius: 40px 0 0 40px;
+  &:hover {
+    background: #6fe5ff;
+  }
 `;
 
 export const PwFindBtn = styled.button`
   width: 136px;
   height: 40px;
-  border: 1px solid #000000;
+  border: none;
   border-radius: 0 40px 40px 0;
 `;
 
@@ -47,17 +50,6 @@ export const PhoneWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 345px;
-`;
-
-export const MobileCarrier = styled.select`
-  width: 60px;
-  height: 48px;
-  background: #f6f6f6;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border: none;
-  padding-left: 10px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
 `;
 
 export const PhoneNumber = styled.input`
@@ -83,31 +75,40 @@ export const AuthNumber = styled.input`
 export const AuthBtn = styled.button`
   width: 140px;
   height: 40px;
-  background: #000000;
+  background: #9cd6ff;
   border-radius: 40px;
   color: white;
   border: none;
   font-size: 12px;
+  &:hover {
+    background: #6fe5ff;
+  }
 `;
 
 export const OkBtn = styled.button`
   width: 89px;
   height: 40px;
-  background: #000000;
+  background: #9cd6ff;
   border-radius: 40px;
   color: white;
   border: none;
   font-size: 12px;
+  &:hover {
+    background: #6fe5ff;
+  }
 `;
 
 export const FindBtn = styled.button`
   width: 333px;
   height: 40px;
-  background: #000000;
+  background: #9cd6ff;
   border-radius: 40px;
   color: white;
   margin-bottom: 32px;
   border: none;
+  &:hover {
+    background: #6fe5ff;
+  }
 `;
 
 export const Footer = styled.div``;

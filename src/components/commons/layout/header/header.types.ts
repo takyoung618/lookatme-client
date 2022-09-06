@@ -11,4 +11,6 @@ export interface IHeaderPresenterProps {
   onClickSignUp: () => void;
   onClickCommunity: () => void;
   onClickExpert: () => void;
+  onClickMoveToAdmin: () => void;
+  onClickMoveToExpert: () => void;
 }

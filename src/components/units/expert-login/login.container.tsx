@@ -83,20 +83,12 @@ export default function LoginExpert() {
     router.push("/sign-up");
   };
 
-  const onClickMoveToAdmin = () => {
-    router.push("/login/admin");
-  };
-
-  const onClickMoveToExpert = () => {
-    router.push("/login/expert");
-  };
-
   const onClickMoveToIdFind = () => {
-    router.push("/login/id-find");
+    router.push("/id-find");
   };
 
   const onClickMoveToPasswordFind = () => {
-    router.push("/login/pw-find");
+    router.push("/password-find");
   };
 
   return (
@@ -110,8 +102,6 @@ export default function LoginExpert() {
       onClickMoveToSignup={onClickMoveToSignup}
       onClickMoveToIdFind={onClickMoveToIdFind}
       onClickMoveToPasswordFind={onClickMoveToPasswordFind}
-      onClickMoveToAdmin={onClickMoveToAdmin}
-      onClickMoveToExpert={onClickMoveToExpert}
     />
   );
 }

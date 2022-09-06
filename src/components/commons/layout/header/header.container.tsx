@@ -48,6 +48,16 @@ export default function HeaderContainer() {
     router.push("/expert/");
   };
 
+  const onClickMoveToAdmin = () => {
+    setOpen(false);
+    router.push("/login/admin");
+  };
+
+  const onClickMoveToExpert = () => {
+    setOpen(false);
+    router.push("/login/expert");
+  };
+
   return (
     <HeaderPresenter
       onClickLogo={onClickLogo}
@@ -60,6 +70,8 @@ export default function HeaderContainer() {
       onClickSignUp={onClickSignUp}
       onClickCommunity={onClickCommunity}
       onClickExpert={onClickExpert}
+      onClickMoveToAdmin={onClickMoveToAdmin}
+      onClickMoveToExpert={onClickMoveToExpert}
     ></HeaderPresenter>
   );
 }

@@ -11,6 +11,4 @@ export interface ILoginUIProps {
   onClickMoveToSignup: () => void;
   onClickMoveToIdFind: () => void;
   onClickMoveToPasswordFind: () => void;
-  onClickMoveToExpert: () => void;
-  onClickMoveToAdmin: () => void;
 }

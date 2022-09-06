@@ -83,14 +83,6 @@ export default function Login() {
     router.push("/sign-up");
   };
 
-  const onClickMoveToAdmin = () => {
-    router.push("/login/admin");
-  };
-
-  const onClickMoveToExpert = () => {
-    router.push("/login/expert");
-  };
-
   const onClickMoveToIdFind = () => {
     router.push("/id-find");
   };
@@ -110,8 +102,6 @@ export default function Login() {
       onClickMoveToSignup={onClickMoveToSignup}
       onClickMoveToIdFind={onClickMoveToIdFind}
       onClickMoveToPasswordFind={onClickMoveToPasswordFind}
-      onClickMoveToAdmin={onClickMoveToAdmin}
-      onClickMoveToExpert={onClickMoveToExpert}
     />
   );
 }

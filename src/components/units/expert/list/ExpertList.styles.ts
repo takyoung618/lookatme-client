@@ -20,7 +20,7 @@ export const Button = styled.button`
     font-size: 1.2rem;
 
 
-    background-color: #9cd6ff;
+    background-color: #e9e9e9;
     border: 1px solid #FCE4EC;
     cursor: pointer;
 

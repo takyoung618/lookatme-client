@@ -36,8 +36,8 @@ export const ModalStyle = styled(Modal)`
   width: 350px;
   height: 250px;
 
-  background-color: #f8f8f8;
-  border: 1px solid #bdbdbd;
+  background-color: #e9f6ff;
+  border: 2px dashed #d6eeff;
   border-radius: 15px;
   position: fixed;
   top: 50%;
@@ -68,7 +68,8 @@ export const ModalTitle = styled.div`
   width: 464px;
   height: 30px;
   padding: 20px;
-  font-size: 1rem;
+  font-size: 1.3rem;
+  font-family: "MiceGodic";
   margin-bottom: 40px;
 `;
 
@@ -77,11 +78,12 @@ export const ModalSelect = styled.select`
   height: 35px;
   padding: 5px;
   border: 1px solid #999;
+  border-radius: 5px;
   background: url("/modal-arrow.jpeg/") no-repeat 100% 50%;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 
   ::-ms-expand {
     display: none;
@@ -96,7 +98,7 @@ export const ModalChargeButton = styled.div`
 
   width: 120px;
   height: 35px;
-  background-color: ${(props) => (props.isActive ? "#b8f2ef" : "#b2b2b2")};
+  background-color: ${(props) => (props.isActive ? "#6fe5ff" : "#9cd6ff")};
   border: none;
   border-radius: 15px;
   font-size: 0.85rem;
@@ -187,11 +189,11 @@ export const ExpertButton = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 80px;
-  height: 25px;
+  width: 100px;
+  height: 30px;
   margin-right: 15px;
   font-size: 0.85rem;
-  background-color: #f5f7fa;
+  background-color: #9cd6ff;
   border-radius: 20px;
   cursor: pointer;
 

@@ -1,7 +1,10 @@
 import * as S from "./my-page.styles";
 import { ImHeart } from "react-icons/im";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineWechat } from "react-icons/ai";
 import { GrMoney } from "react-icons/gr";
+import { FaLeaf, FaUserEdit } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
+import { MdOutlineRateReview } from "react-icons/md";
 import { IMyPagePresenterProps } from "./my-page.types";
 
 export default function MyPagePresenter(props: IMyPagePresenterProps) {
@@ -10,16 +13,44 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
       <S.ProfileWrapper>
         <S.MyPageTitle>마이 페이지</S.MyPageTitle>
         <S.CategoryTitle>아이디</S.CategoryTitle>
-        <S.ProfileContents>aaa@aaa.com</S.ProfileContents>
+        <S.ProfileContents>
+          <HiOutlineMail
+            style={{
+              width: "15px",
+              height: "15px",
+              marginRight: "7px",
+            }}
+          />
+          aaa@aaa.com
+        </S.ProfileContents>
         <S.CategoryTitle>닉네임</S.CategoryTitle>
-        <S.ProfileContents>철수</S.ProfileContents>
+        <S.ProfileContents>
+          <FaLeaf
+            style={{
+              width: "15px",
+              height: "15px",
+              color: "#74D579",
+              marginRight: "7px",
+            }}
+          />
+          철수
+        </S.ProfileContents>
         <S.CategoryTitle>보유 포인트</S.CategoryTitle>
-        <S.ProfileContents>0 P</S.ProfileContents>
+        <S.ProfileContents>
+          <GrMoney style={{ marginRight: "10px" }} />0 P
+        </S.ProfileContents>
         <S.ExpertButtonWrapper>
           <S.ExpertButton onClick={() => props.setModalIsOpen(true)}>
-            충전하기
+            <GrMoney style={{ marginRight: "10px" }} /> 충전하기
           </S.ExpertButton>
-          <S.ExpertButton>수정하기</S.ExpertButton>
+          <S.ExpertButton>
+            <GrMoney style={{ marginRight: "10px" }} /> 환불하기
+          </S.ExpertButton>
+          <S.ExpertButton>
+            {" "}
+            <FaUserEdit style={{ marginRight: "7px" }} />
+            수정하기
+          </S.ExpertButton>
         </S.ExpertButtonWrapper>
       </S.ProfileWrapper>
 
@@ -59,8 +90,26 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
           </S.ExpertBody>
 
           <S.ExpertButtonWrapper>
-            <S.ExpertButton>상담하기</S.ExpertButton>
-            <S.ExpertButton>리뷰쓰기</S.ExpertButton>
+            <S.ExpertButton>
+              <AiOutlineWechat
+                style={{
+                  width: "15px",
+                  height: "15px",
+                  marginRight: "7px",
+                }}
+              />
+              상담하기
+            </S.ExpertButton>
+            <S.ExpertButton>
+              <MdOutlineRateReview
+                style={{
+                  width: "15px",
+                  height: "15px",
+                  marginRight: "7px",
+                }}
+              />
+              리뷰쓰기
+            </S.ExpertButton>
           </S.ExpertButtonWrapper>
         </S.ExpertWrapper>
 
@@ -75,8 +124,26 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
           </S.ExpertBody>
 
           <S.ExpertButtonWrapper>
-            <S.ExpertButton>상담하기</S.ExpertButton>
-            <S.ExpertButton>리뷰쓰기</S.ExpertButton>
+            <S.ExpertButton>
+              <AiOutlineWechat
+                style={{
+                  width: "15px",
+                  height: "15px",
+                  marginRight: "7px",
+                }}
+              />
+              상담하기
+            </S.ExpertButton>
+            <S.ExpertButton>
+              <MdOutlineRateReview
+                style={{
+                  width: "15px",
+                  height: "15px",
+                  marginRight: "7px",
+                }}
+              />
+              리뷰쓰기
+            </S.ExpertButton>
           </S.ExpertButtonWrapper>
         </S.ExpertWrapper>
       </S.CategoryWrapper>

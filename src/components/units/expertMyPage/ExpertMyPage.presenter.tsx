@@ -4,11 +4,9 @@ import { ImHeart } from "react-icons/im";
 export default function ExpertMyPageUI(){
     return (
         <S.Wrapper>
-            <S.TitleWrapper>
-                <S.Title>
-                    내 정보
-                </S.Title>
-            </S.TitleWrapper>
+            <S.Title>
+                전문가 페이지
+            </S.Title>
             <S.ProfileWrapper>
                 <S.Image/>
                 <S.InfoWrapper>

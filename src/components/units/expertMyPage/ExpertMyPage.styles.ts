@@ -7,17 +7,12 @@ export const Wrapper = styled.div`
     width: 380px;
 `
 
-export const TitleWrapper = styled.div`
-    display: flex;
-    text-align: center;
-`
-
 export const Title = styled.div`
     display: flex;
     font-size: 1.6rem;
     font-weight: 400px;
     margin-top: 15px;
-    margin-left: 140px;
+    margin-left: 120px;
     font-family: "MiceGodic";
 `
 

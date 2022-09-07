@@ -80,18 +80,8 @@ export const PhoneWrapper = styled.div`
   width: 345px;
 `;
 
-export const MobileCarrier = styled.select`
-  width: 78px;
-  height: 48px;
-  background: #f6f6f6;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border: none;
-  padding-left: 10px;
-`;
-
 export const PhoneNumber = styled.input`
-  width: 267px;
+  width: 345px;
   height: 48px;
   background: #f6f6f6;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);

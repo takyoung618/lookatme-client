@@ -104,7 +104,7 @@ export default function SignUp() {
       });
       Modal.info({ title: "회원가입 완료" });
       console.log(result);
-      router.push("/login");
+      router.push("/login/user");
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }

@@ -1,8 +1,9 @@
+import LoginUI from "./login.presenter";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
-import { useApolloClient, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/store";
 import { LOGIN } from "./login.queries";
@@ -10,10 +11,8 @@ import {
   IMutation,
   IMutationLoginArgs,
 } from "../../../commons/types/generated/types";
-import { ChangeEvent } from "react";
 import { Modal } from "antd";
 import "antd/dist/antd.css";
-import LoginAdminUI from "./login.presenter";
 
 const schema = yup.object({
   email: yup
@@ -32,7 +31,7 @@ const schema = yup.object({
     ),
 });
 
-export default function LoginAdmin() {
+export default function Login() {
   const router = useRouter();
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
@@ -40,22 +39,10 @@ export default function LoginAdmin() {
     LOGIN
   );
 
-  const { register, handleSubmit, setValue, trigger, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
   });
-
-  const onChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue("email", event.target.value);
-
-    trigger("email");
-  };
-
-  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue("password", event.target.value);
-
-    trigger("password");
-  };
 
   const onClickLogin = async (data: any) => {
     if (!data.email && !data.password) return;
@@ -92,12 +79,10 @@ export default function LoginAdmin() {
   };
 
   return (
-    <LoginAdminUI
+    <LoginUI
       register={register}
       handleSubmit={handleSubmit}
       formState={formState}
-      onChangeEmail={onChangeEmail}
-      onChangePassword={onChangePassword}
       onClickLogin={onClickLogin}
       onClickMoveToSignup={onClickMoveToSignup}
       onClickMoveToIdFind={onClickMoveToIdFind}

@@ -13,7 +13,6 @@ export default function LoginExpertUI(props: ILoginUIProps) {
               type="text"
               placeholder="이메일 입력하기"
               {...props.register("email")}
-              onChange={props.onChangeEmail}
             />
             <S.Error>{props.formState.errors.email?.message}</S.Error>
           </S.InputWrapper>
@@ -23,7 +22,6 @@ export default function LoginExpertUI(props: ILoginUIProps) {
               type="password"
               placeholder="비밀번호 입력하기"
               {...props.register("password")}
-              onChange={props.onChangePassword}
             />
             <S.Error>{props.formState.errors.password?.message}</S.Error>
           </S.InputWrapper>

@@ -1,7 +1,7 @@
 import * as S from "./login.styles";
 import { ILoginUIProps } from "./login.types";
 
-export default function LoginAdminUI(props: ILoginUIProps) {
+export default function LoginUI(props: ILoginUIProps) {
   return (
     <form onSubmit={props.handleSubmit(props.onClickLogin)}>
       <S.Wrapper>
@@ -13,7 +13,6 @@ export default function LoginAdminUI(props: ILoginUIProps) {
               type="text"
               placeholder="이메일 입력하기"
               {...props.register("email")}
-              onChange={props.onChangeEmail}
             />
             <S.Error>{props.formState.errors.email?.message}</S.Error>
           </S.InputWrapper>
@@ -23,13 +22,18 @@ export default function LoginAdminUI(props: ILoginUIProps) {
               type="password"
               placeholder="비밀번호 입력하기"
               {...props.register("password")}
-              onChange={props.onChangePassword}
             />
             <S.Error>{props.formState.errors.password?.message}</S.Error>
           </S.InputWrapper>
-          <button onClick={props.onClickLogin}>로그인</button>
+          <button>로그인</button>
         </S.Main>
         <S.Footer>
+          <S.InnerFooter>
+            멤버가 아니신가요?
+            <button type="button" onClick={props.onClickMoveToSignup}>
+              회원가입
+            </button>
+          </S.InnerFooter>
           <S.InnerFooter>
             <button type="button" onClick={props.onClickMoveToIdFind}>
               아이디찾기
@@ -38,10 +42,6 @@ export default function LoginAdminUI(props: ILoginUIProps) {
             <button type="button" onClick={props.onClickMoveToPasswordFind}>
               비밀번호찾기
             </button>
-          </S.InnerFooter>
-          <S.InnerFooter>
-            멤버가 아니신가요?
-            <button onClick={props.onClickMoveToSignup}>회원가입</button>
           </S.InnerFooter>
           <S.ImgFooter>
             <S.SocialImg src="/구글.png" />

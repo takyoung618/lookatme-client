@@ -14,7 +14,6 @@ export default function SignUpUI(props: ISignUpUIProps) {
                 type="text"
                 placeholder="닉네임을 입력해주세요"
                 {...props.register("name")}
-                onChange={props.onChangeName}
               />
               <S.Error>{props.formState.errors.name?.message}</S.Error>
             </S.InputWrapper>
@@ -24,7 +23,6 @@ export default function SignUpUI(props: ISignUpUIProps) {
                 type="email"
                 placeholder="이메일을 입력해주세요"
                 {...props.register("email")}
-                onChange={props.onChangeEmail}
               />
               <S.Error>{props.formState.errors.email?.message}</S.Error>
             </S.InputWrapper>
@@ -34,7 +32,6 @@ export default function SignUpUI(props: ISignUpUIProps) {
                 type="password"
                 placeholder="비밀번호를 입력해주세요"
                 {...props.register("password")}
-                onChange={props.onChangePassword}
               />
               <S.Error>{props.formState.errors.password?.message}</S.Error>
             </S.InputWrapper>
@@ -44,7 +41,6 @@ export default function SignUpUI(props: ISignUpUIProps) {
                 type="password"
                 placeholder="비밀번호를 다시 입력해주세요"
                 {...props.register("password2")}
-                onChange={props.onChangePassword2}
               />
               <S.Error>{props.formState.errors.password2?.message}</S.Error>
             </S.InputWrapper>
@@ -54,7 +50,6 @@ export default function SignUpUI(props: ISignUpUIProps) {
                 <S.PhoneNumber
                   type="number"
                   {...props.register("phoneNumber")}
-                  onChange={props.onChangePhoneNumber}
                 />
               </S.PhoneWrapper>
               <S.Error>{props.formState.errors.phoneNumber?.message}</S.Error>

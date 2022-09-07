@@ -12,9 +12,7 @@ import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { onError } from "@apollo/client/link/error";
 import {
   accessTokenState,
-  isLoadedState,
   restoreAccessTokenLoadable,
-  userInfoState,
 } from "../../../commons/store";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
 
@@ -26,7 +24,7 @@ interface IApolloSettingProps {
 
 export default function ApolloSetting(props: IApolloSettingProps) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+  // const [userInfo, setUserInfo] = useRecoilState(userInfoState);
   // const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState);
   const aaa = useRecoilValueLoadable(restoreAccessTokenLoadable);
 

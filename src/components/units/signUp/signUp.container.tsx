@@ -9,7 +9,6 @@ import {
 } from "../../../commons/types/generated/types";
 import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "./signUp.queries";
-import { ChangeEvent } from "react";
 import { Modal } from "antd";
 
 const schema = yup.object({
@@ -53,42 +52,12 @@ export default function SignUp() {
     IMutationCreateUserArgs
   >(CREATE_USER);
 
-  const { register, handleSubmit, setValue, trigger, formState } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
   });
 
-  const onChangeName = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue("name", event.target.value);
-
-    trigger("name");
-  };
-
-  const onChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue("email", event.target.value);
-
-    trigger("email");
-  };
-
-  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue("password", event.target.value);
-
-    trigger("password");
-  };
-
-  const onChangePassword2 = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue("password2", event.target.value);
-
-    trigger("password2");
-  };
-
-  const onChangePhoneNumber = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue("phoneNumber", event.target.value);
-
-    trigger("phoneNumber");
-  };
-
-  const onClickSignUp = async (data) => {
+  const onClickSignUp = async (data: any) => {
     if (!data.name && !data.email && !data.password && !data.phoneNumber)
       return;
     try {
@@ -116,11 +85,6 @@ export default function SignUp() {
       handleSubmit={handleSubmit}
       formState={formState}
       onClickSignUp={onClickSignUp}
-      onChangePhoneNumber={onChangePhoneNumber}
-      onChangeName={onChangeName}
-      onChangeEmail={onChangeEmail}
-      onChangePassword={onChangePassword}
-      onChangePassword2={onChangePassword2}
     />
   );
 }

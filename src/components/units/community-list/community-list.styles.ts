@@ -143,7 +143,7 @@ export const WriteButton = styled.div`
 
   width: 100px;
   height: 30px;
-  background-color: #f5f7fa;
+  background-color: #9cd6ff;
   font-size: 1rem;
   border-radius: 10px;
   cursor: pointer;

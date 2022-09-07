@@ -1,7 +1,10 @@
 import * as S from "./expert-detail.styles";
 import { Rate } from "antd";
+import { IExpertDetailPresenterProps } from "./expert-detail.types";
 
-export default function ExpertDetailPresenter() {
+export default function ExpertDetailPresenter(
+  props: IExpertDetailPresenterProps
+) {
   return (
     <S.Wrapper>
       <S.TopWrapper>
@@ -30,7 +33,7 @@ export default function ExpertDetailPresenter() {
       </S.BottomWrapper>
 
       <S.ButtonWrapper>
-        <S.ListButton>목록으로</S.ListButton>
+        <S.ListButton onClick={props.onClickMoveToList}>목록으로</S.ListButton>
       </S.ButtonWrapper>
     </S.Wrapper>
   );

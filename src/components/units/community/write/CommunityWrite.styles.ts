@@ -7,18 +7,10 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
-    font-size: 1.25rem;
-    margin-top: 4px;
-`;
-
-export const HeaderWrapper = styled.div`
-    display: flex;
-    text-align: left;
-    flex-direction: row;
+    font-size: 1.6rem;
     margin-top: 20px;
-    
+    font-family: "MiceGodic";
 `;
-
 
 export const Category = styled.button`
     width: 380px;
@@ -35,7 +27,7 @@ export const Category = styled.button`
 `;
 
 export const CategoryTitle =styled.div`
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     margin-top: 10px;
 `
@@ -48,12 +40,12 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.div`
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     background-color: #E5E7E9;
     border: 2px dotted white;
     margin-top: 20px;
-    margin-left: 40px;
+    margin-left: 65px;
     align-items: center;
 
     border-radius: 10px;
@@ -71,7 +63,7 @@ export const Contents = styled.input`
 `;
 
 export const ButtonWrapper = styled.div`
-    text-align: right;
+    text-align: center
 `;
 
 export const ListButton = styled.button`

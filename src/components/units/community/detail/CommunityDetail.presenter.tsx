@@ -1,5 +1,4 @@
 import * as S from "./CommunityDetail.styles"
-import {IoIosArrowBack } from "react-icons/io"
 import {AiOutlineUser, AiOutlineClockCircle} from "react-icons/ai"
 import { ImHeart } from "react-icons/im";
 import {GiSiren} from "react-icons/gi"
@@ -7,10 +6,7 @@ import {GiSiren} from "react-icons/gi"
 export default function CommunityDetailUi(){
     return (
         <S.Wrapper>
-            <S.ListWrapper>
-                <IoIosArrowBack style={{ width: "30px", height: "30px" }}/>
-                <S.Title>목록으로 돌아가기</S.Title>
-            </S.ListWrapper>
+                <S.Title>상세 페이지</S.Title>
             <S.DetailWrapper>
                 <S.HeaderWrapper>
                     <S.Category>
@@ -60,22 +56,23 @@ export default function CommunityDetailUi(){
                         <S.Name>전문가이름</S.Name>
                     </S.NameWrapper>
                 </S.CommentTitleWrapper>
-                <S.Comment>
+                <S.CommentExpert>
                     힘내세요
-                </S.Comment>
+                </S.CommentExpert>
+                <S.CommentInputExpert/>
             </S.ExpertCommentWrapper>
-
             <S.CommentWrapper>
                 <S.CommentTitleWrapper>
                     <S.Expert>일반 댓글 보기</S.Expert>
                     <S.NameWrapper>
                         <AiOutlineUser/>
-                        <S.Name>전문가이름</S.Name>
+                        <S.Name>닉네임</S.Name>
                     </S.NameWrapper>
                 </S.CommentTitleWrapper>
-                <S.Comment>
+                <S.CommentUser>
                     힘내세요
-                </S.Comment>
+                </S.CommentUser>
+                <S.CommentInput/>
             </S.CommentWrapper>
         </S.Wrapper>
     )

@@ -7,6 +7,7 @@ export default function SignUpUI(props: ISignUpUIProps) {
       <form onSubmit={props.handleSubmit(props.onClickSignUp)}>
         <S.Wrapper>
           <S.Main>
+            <S.Title>회원가입</S.Title>
             <S.InputWrapper>
               <S.Label>이름</S.Label>
               <S.Name

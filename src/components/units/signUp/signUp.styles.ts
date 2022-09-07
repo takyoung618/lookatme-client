@@ -11,6 +11,13 @@ export const Wrapper = styled.div`
 
 export const Main = styled.div``;
 
+export const Title = styled.h1`
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: "MiceGodic";
+  font-size: 1.6rem;
+`;
+
 export const InputWrapper = styled.div`
   margin-bottom: 32px;
 `;
@@ -177,13 +184,16 @@ export const Footer = styled.div`
     height: 40px;
     text-align: center;
     padding: 12px 14px;
-    background-color: #000000;
+    background-color: #9cd6ff;
     border-radius: 40px;
     margin-top: 32px;
     color: white;
     border: none;
     margin-bottom: 30px;
     cursor: pointer;
+    :hover {
+      background-color: #6fe5ff;
+    }
   }
 `;
 

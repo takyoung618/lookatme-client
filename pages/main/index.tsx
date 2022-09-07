@@ -1,3 +1,5 @@
+import Main from "../../src/components/units/main/main.container";
+
 export default function MainPage() {
-  return <div>메인 페이지 입니다.</div>;
+  return <Main />;
 }

@@ -49,7 +49,7 @@ export const Label = styled.div`
 export const Email = styled.input`
   width: 345px;
   height: 48px;
-  background: #f6f6f6 url("/mail.png") no-repeat left;
+  background: #f6f6f6 url("/mail.png/") no-repeat left;
   background-position-x: 10px;
   background-position-y: 13px;
   padding: 10px 35px;
@@ -61,7 +61,7 @@ export const Email = styled.input`
 export const Password = styled.input`
   width: 345px;
   height: 48px;
-  background: #f6f6f6 url("/lock.png") no-repeat left;
+  background: #f6f6f6 url("/lock.png/") no-repeat left;
   background-position-x: 10px;
   background-position-y: 13px;
   padding: 10px 35px;

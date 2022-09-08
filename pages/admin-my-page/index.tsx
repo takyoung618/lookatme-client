@@ -1,5 +1,8 @@
+import { withAuth } from "../../src/components/commons/hocs/withAuth";
 import AdminMyPageContainer from "../../src/components/units/adminMyPage/adminMyPage.container";
 
-export default function AdminMyPage() {
+function AdminMyPage() {
   return <AdminMyPageContainer />;
 }
+
+export default withAuth(AdminMyPage);

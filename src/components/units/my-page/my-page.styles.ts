@@ -102,6 +102,7 @@ export const ModalChargeButton = styled.div`
   border: none;
   border-radius: 15px;
   font-size: 0.85rem;
+  cursor: pointer;
 `;
 
 export const CategoryTitle = styled.div`

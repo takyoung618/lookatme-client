@@ -1,6 +1,8 @@
 import { RadioChangeEvent } from "antd";
+import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IHeaderPresenterProps {
+  UserInfo: Pick<IQuery, "fetchLoginUser">;
   onClickLogo: () => void;
   showMenu: () => void;
   onClose: () => void;
@@ -9,6 +11,8 @@ export interface IHeaderPresenterProps {
   open: boolean;
   onClickLogin: () => void;
   onClickSignUp: () => void;
+  onClickLogOut: () => void;
+  onClickMyPage: () => void;
   onClickCommunity: () => void;
   onClickExpert: () => void;
   onClickMoveToAdmin: () => void;

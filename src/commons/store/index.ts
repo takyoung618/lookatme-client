@@ -31,3 +31,8 @@ export const restoreAccessTokenLoadable = selector({
     return newAccessToken;
   },
 });
+
+export const logInStatusState = atom({
+  key: "logInStatusState",
+  default: false,
+});

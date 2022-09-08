@@ -5,7 +5,7 @@ import * as yup from "yup";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../commons/store";
+import { accessTokenState, logInStatusState } from "../../../commons/store";
 import { LOGIN } from "./login.queries";
 import {
   IMutation,
@@ -34,6 +34,7 @@ const schema = yup.object({
 export default function Login() {
   const router = useRouter();
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [logInStatus, setLogInStatus] = useRecoilState(logInStatusState);
 
   const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
     LOGIN
@@ -51,7 +52,7 @@ export default function Login() {
         variables: { email: data.email, password: data.password },
       });
       const accessToken = result.data?.login;
-      console.log(accessToken);
+      setLogInStatus(true);
       if (!accessToken) {
         Modal.info({ title: "로그인 실패" });
         return;

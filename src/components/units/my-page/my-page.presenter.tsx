@@ -21,7 +21,7 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
               marginRight: "7px",
             }}
           />
-          aaa@aaa.com
+          {props.UserInfo?.fetchLoginUser.email}
         </S.ProfileContents>
         <S.CategoryTitle>닉네임</S.CategoryTitle>
         <S.ProfileContents>
@@ -33,11 +33,12 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
               marginRight: "7px",
             }}
           />
-          철수
+          {props.UserInfo?.fetchLoginUser.nickname}
         </S.ProfileContents>
         <S.CategoryTitle>보유 포인트</S.CategoryTitle>
         <S.ProfileContents>
-          <GrMoney style={{ marginRight: "10px" }} />0 P
+          <GrMoney style={{ marginRight: "10px" }} />
+          {props.UserInfo?.fetchLoginUser.point} P
         </S.ProfileContents>
         <S.ExpertButtonWrapper>
           <S.ExpertButton onClick={() => props.setModalIsOpen(true)}>

@@ -1,10 +1,34 @@
 import { useRouter } from "next/router";
 import HeaderPresenter from "./header.presenter";
-import type { DrawerProps, RadioChangeEvent } from "antd";
-import { useState } from "react";
+import { DrawerProps, Modal, RadioChangeEvent } from "antd";
+import { useEffect, useState } from "react";
+import { getUserInfo } from "../../../../commons/libraries/getUserInfo";
+import { useMutation } from "@apollo/client";
+import { LOGOUT } from "./header.queries";
+import { useRecoilState } from "recoil";
+import { logInStatusState } from "../../../../commons/store";
 
 export default function HeaderContainer() {
   const router = useRouter();
+
+  const UserInfo = getUserInfo();
+
+  const [logout] = useMutation(LOGOUT);
+
+  const [logInStatus, setLogInStatus] = useRecoilState(logInStatusState);
+
+  const deleteCookie = (name) => {
+    document.cookie =
+      name + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=C.kr;path=/;";
+  };
+
+  useEffect(() => {
+    if (UserInfo) {
+      setLogInStatus(true);
+    } else if (!UserInfo) {
+      setLogInStatus(false);
+    }
+  }, [logInStatus]);
 
   // 로고 클릭 시 메인으로 이동
   const onClickLogo = () => {
@@ -38,6 +62,23 @@ export default function HeaderContainer() {
     router.push("/sign-up/");
   };
 
+  const onClickLogOut = () => {
+    try {
+      deleteCookie("refreshToken");
+      setOpen(false);
+      setLogInStatus(false);
+      router.push("/login/user/");
+      Modal.success({ content: "로그아웃 되었습니다." });
+    } catch (error) {
+      if (error instanceof Error) Modal.error({ content: error.message });
+    }
+  };
+
+  const onClickMyPage = () => {
+    setOpen(false);
+    router.push("/my-page/");
+  };
+
   const onClickCommunity = () => {
     setOpen(false);
     router.push("/community/");
@@ -60,6 +101,7 @@ export default function HeaderContainer() {
 
   return (
     <HeaderPresenter
+      UserInfo={UserInfo}
       onClickLogo={onClickLogo}
       showMenu={showMenu}
       onClose={onClose}
@@ -68,6 +110,8 @@ export default function HeaderContainer() {
       open={open}
       onClickLogin={onClickLogin}
       onClickSignUp={onClickSignUp}
+      onClickLogOut={onClickLogOut}
+      onClickMyPage={onClickMyPage}
       onClickCommunity={onClickCommunity}
       onClickExpert={onClickExpert}
       onClickMoveToAdmin={onClickMoveToAdmin}

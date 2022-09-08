@@ -4,7 +4,7 @@ import { IQuery } from "../../../commons/types/generated/types";
 export interface IMyPagePresenterProps {
   modalIsOpen: boolean;
   setModalIsOpen: Dispatch<SetStateAction<boolean>>;
-  selected: string;
+  selected: Number | undefined;
   isActive: boolean;
   onChangeSelectedPoint: (event: ChangeEvent<HTMLSelectElement>) => void;
   onClickChargePoint: () => void;

@@ -1,21 +1,24 @@
 import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useRecoilValueLoadable } from "recoil";
-import { restoreAccessTokenLoadable } from "../../../commons/store";
+import { useRecoilState, useRecoilValueLoadable } from "recoil";
+import {
+  accessTokenState,
+  isLoadedState,
+  restoreAccessTokenLoadable,
+} from "../../../commons/store";
 
 export const withAuth = (Component) => (props) => {
   const router = useRouter();
-  const aaa = useRecoilValueLoadable(restoreAccessTokenLoadable);
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState);
 
   useEffect(() => {
-    aaa.toPromise().then((newAccessToken) => {
-      if (!newAccessToken) {
-        Modal.info({ title: "로그인 후 이용 가능합니다!!" });
-        router.push("/login/user");
-      }
-    });
-  }, []);
+    if (isLoaded && !accessToken) {
+      alert("로그인 후 이용 가능합니다!!");
+      router.push("/login/user");
+    }
+  }, [isLoaded]);
 
   return <Component {...props} />;
 };

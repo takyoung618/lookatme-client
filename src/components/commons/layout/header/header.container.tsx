@@ -64,14 +64,16 @@ export default function HeaderContainer() {
 
   const onClickLogOut = () => {
     try {
+      logout();
       deleteCookie("refreshToken");
       setOpen(false);
       setLogInStatus(false);
-      router.push("/login/user/");
       Modal.success({ content: "로그아웃 되었습니다." });
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
+    router.push("/main");
+    window.location.reload();
   };
 
   const onClickMyPage = () => {

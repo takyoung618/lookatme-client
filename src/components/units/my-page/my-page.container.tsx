@@ -3,10 +3,12 @@ import { message } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
+import { useRecoilState } from "recoil";
 import { getUserInfo } from "../../../commons/libraries/getUserInfo";
+import { profileEditState } from "../../../commons/store";
 import { IMutation } from "../../../commons/types/generated/types";
 import MyPagePresenter from "./my-page.presenter";
-import { CREATE_PAYMENT } from "./my-page.queries";
+import { CREATE_PAYMENT, FETCH_LOGIN_USER } from "./my-page.queries";
 
 declare const window: typeof globalThis & {
   IMP: any;
@@ -21,7 +23,6 @@ export default function MyPageContainer() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selected, setSelected] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  const [charged, setCharged] = useState(false);
 
   const [createPayment] =
     useMutation<Pick<IMutation, "createPayment">>(CREATE_PAYMENT);
@@ -58,6 +59,7 @@ export default function MyPageContainer() {
         if (rsp.success) {
           await createPayment({
             variables: { impUid: rsp.imp_uid, amount: selected },
+            refetchQueries: [{ query: FETCH_LOGIN_USER }],
           });
           setModalIsOpen(false);
           router.push(`/my-page/`);
@@ -67,6 +69,13 @@ export default function MyPageContainer() {
         }
       }
     );
+  };
+
+  // 프로필 수정 버튼
+  const [profileEdit, setProfileEdit] = useRecoilState(profileEditState);
+
+  const onClickEditButton = () => {
+    setProfileEdit(true);
   };
 
   return (
@@ -89,6 +98,8 @@ export default function MyPageContainer() {
         onChangeSelectedPoint={onChangeSelectedPoint}
         onClickChargePoint={onClickChargePoint}
         UserInfo={UserInfo}
+        profileEdit={profileEdit}
+        onClickEditButton={onClickEditButton}
       ></MyPagePresenter>
     </>
   );

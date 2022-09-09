@@ -6,53 +6,71 @@ import { FaLeaf, FaUserEdit } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdOutlineRateReview } from "react-icons/md";
 import { IMyPagePresenterProps } from "./my-page.types";
+import UpdateProfileContainer from "./update-profile/update-profile.container";
 
 export default function MyPagePresenter(props: IMyPagePresenterProps) {
   return (
     <S.Wrapper>
       <S.ProfileWrapper>
         <S.MyPageTitle>마이 페이지</S.MyPageTitle>
-        <S.CategoryTitle>아이디</S.CategoryTitle>
-        <S.ProfileContents>
-          <HiOutlineMail
-            style={{
-              width: "15px",
-              height: "15px",
-              marginRight: "7px",
-            }}
-          />
-          {props.UserInfo?.fetchLoginUser.email}
-        </S.ProfileContents>
-        <S.CategoryTitle>닉네임</S.CategoryTitle>
-        <S.ProfileContents>
-          <FaLeaf
-            style={{
-              width: "15px",
-              height: "15px",
-              color: "#74D579",
-              marginRight: "7px",
-            }}
-          />
-          {props.UserInfo?.fetchLoginUser.nickname}
-        </S.ProfileContents>
-        <S.CategoryTitle>보유 포인트</S.CategoryTitle>
-        <S.ProfileContents>
-          <GrMoney style={{ marginRight: "10px" }} />
-          {props.UserInfo?.fetchLoginUser.point} P
-        </S.ProfileContents>
-        <S.ExpertButtonWrapper>
-          <S.ExpertButton onClick={() => props.setModalIsOpen(true)}>
-            <GrMoney style={{ marginRight: "10px" }} /> 충전하기
-          </S.ExpertButton>
-          <S.ExpertButton>
-            <GrMoney style={{ marginRight: "10px" }} /> 환불하기
-          </S.ExpertButton>
-          <S.ExpertButton>
-            {" "}
-            <FaUserEdit style={{ marginRight: "7px" }} />
-            수정하기
-          </S.ExpertButton>
-        </S.ExpertButtonWrapper>
+        {!props.profileEdit && (
+          <>
+            <S.CategoryTitle>아이디</S.CategoryTitle>
+            <S.ProfileContents>
+              <HiOutlineMail
+                style={{
+                  width: "15px",
+                  height: "15px",
+                  marginRight: "7px",
+                }}
+              />
+              {props.UserInfo?.fetchLoginUser.email}
+            </S.ProfileContents>
+            <S.CategoryTitle>닉네임</S.CategoryTitle>
+            <S.ProfileContents>
+              <FaLeaf
+                style={{
+                  width: "15px",
+                  height: "15px",
+                  color: "#74D579",
+                  marginRight: "7px",
+                }}
+              />
+              {props.UserInfo?.fetchLoginUser.nickname}
+            </S.ProfileContents>
+            <S.CategoryTitle>핸드폰 번호</S.CategoryTitle>
+            <S.ProfileContents>
+              {props.UserInfo?.fetchLoginUser.phone_number}
+            </S.ProfileContents>
+            <S.CategoryTitle>보유 포인트</S.CategoryTitle>
+            <S.ProfileContents>
+              <GrMoney style={{ marginRight: "10px" }} />
+              {props.UserInfo?.fetchLoginUser.point} P
+            </S.ProfileContents>
+            <S.ExpertButtonWrapper>
+              <S.ButtonRowWrapper>
+                <S.ExpertButton onClick={() => props.setModalIsOpen(true)}>
+                  <GrMoney style={{ marginRight: "10px" }} /> 충전하기
+                </S.ExpertButton>
+                <S.ExpertButton>
+                  <GrMoney style={{ marginRight: "10px" }} /> 환불하기
+                </S.ExpertButton>
+              </S.ButtonRowWrapper>
+              <S.ButtonRowWrapper>
+                <S.ExpertButton onClick={props.onClickEditButton}>
+                  <FaUserEdit style={{ marginRight: "7px" }} />
+                  프로필 수정
+                </S.ExpertButton>
+                <S.ExpertButton>
+                  <FaUserEdit style={{ marginRight: "7px" }} />
+                  비밀번호 변경
+                </S.ExpertButton>
+              </S.ButtonRowWrapper>
+            </S.ExpertButtonWrapper>
+          </>
+        )}
+
+        {props.profileEdit && <UpdateProfileContainer></UpdateProfileContainer>}
       </S.ProfileWrapper>
 
       <S.ModalStyle isOpen={props.modalIsOpen}>
@@ -94,26 +112,28 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
           </S.ExpertBody>
 
           <S.ExpertButtonWrapper>
-            <S.ExpertButton>
-              <AiOutlineWechat
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  marginRight: "7px",
-                }}
-              />
-              상담하기
-            </S.ExpertButton>
-            <S.ExpertButton>
-              <MdOutlineRateReview
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  marginRight: "7px",
-                }}
-              />
-              리뷰쓰기
-            </S.ExpertButton>
+            <S.ButtonRowWrapper>
+              <S.ExpertButton>
+                <AiOutlineWechat
+                  style={{
+                    width: "15px",
+                    height: "15px",
+                    marginRight: "7px",
+                  }}
+                />
+                상담하기
+              </S.ExpertButton>
+              <S.ExpertButton>
+                <MdOutlineRateReview
+                  style={{
+                    width: "15px",
+                    height: "15px",
+                    marginRight: "7px",
+                  }}
+                />
+                리뷰쓰기
+              </S.ExpertButton>
+            </S.ButtonRowWrapper>
           </S.ExpertButtonWrapper>
         </S.ExpertWrapper>
 
@@ -128,26 +148,28 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
           </S.ExpertBody>
 
           <S.ExpertButtonWrapper>
-            <S.ExpertButton>
-              <AiOutlineWechat
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  marginRight: "7px",
-                }}
-              />
-              상담하기
-            </S.ExpertButton>
-            <S.ExpertButton>
-              <MdOutlineRateReview
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  marginRight: "7px",
-                }}
-              />
-              리뷰쓰기
-            </S.ExpertButton>
+            <S.ButtonRowWrapper>
+              <S.ExpertButton>
+                <AiOutlineWechat
+                  style={{
+                    width: "15px",
+                    height: "15px",
+                    marginRight: "7px",
+                  }}
+                />
+                상담하기
+              </S.ExpertButton>
+              <S.ExpertButton>
+                <MdOutlineRateReview
+                  style={{
+                    width: "15px",
+                    height: "15px",
+                    marginRight: "7px",
+                  }}
+                />
+                리뷰쓰기
+              </S.ExpertButton>
+            </S.ButtonRowWrapper>
           </S.ExpertButtonWrapper>
         </S.ExpertWrapper>
       </S.CategoryWrapper>

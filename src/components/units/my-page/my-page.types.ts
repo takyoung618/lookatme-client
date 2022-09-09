@@ -9,4 +9,6 @@ export interface IMyPagePresenterProps {
   onChangeSelectedPoint: (event: ChangeEvent<HTMLSelectElement>) => void;
   onClickChargePoint: () => void;
   UserInfo: Pick<IQuery, "fetchLoginUser"> | undefined;
+  profileEdit: boolean;
+  onClickEditButton: () => void;
 }

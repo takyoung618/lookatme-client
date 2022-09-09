@@ -36,3 +36,8 @@ export const logInStatusState = atom({
   key: "logInStatusState",
   default: false,
 });
+
+export const profileEditState = atom({
+  key: "profileEditState",
+  default: false,
+});

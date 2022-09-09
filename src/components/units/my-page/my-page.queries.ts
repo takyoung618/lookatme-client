@@ -7,3 +7,13 @@ export const CREATE_PAYMENT = gql`
     }
   }
 `;
+
+export const FETCH_LOGIN_USER = gql`
+  query fetchLoginUser {
+    fetchLoginUser {
+      email
+      nickname
+      point
+    }
+  }
+`;

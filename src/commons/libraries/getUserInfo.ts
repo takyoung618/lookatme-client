@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { IQuery } from "../types/generated/types";
 
 const FETCH_LOGIN_USER = gql`
   query fetchLoginUser {
@@ -30,7 +31,7 @@ const FETCH_LOGIN_USER = gql`
 `;
 
 export function getUserInfo() {
-  const { data } = useQuery(FETCH_LOGIN_USER);
+  const { data } = useQuery<Pick<IQuery, "fetchLoginUser">>(FETCH_LOGIN_USER);
 
   return data;
 }

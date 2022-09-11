@@ -1,12 +1,12 @@
-import { useMutation } from "@apollo/client";
+// import { useMutation } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { isEditState } from "../../../commons/store";
+// import { isEditState } from "../../../commons/store";
 import CommunityWriteUi from "./CommunityWrite.presenter";
-import { CREATE_STORY, UPDATE_STORY } from "./CommunityWrite.queries";
+// import { CREATE_STORY, UPDATE_STORY } from "./CommunityWrite.queries";
 
 const schema = yup.object({
     text: yup.string().required("내용을 입력해주세요."),
@@ -20,8 +20,8 @@ export default function CommunityWrite(){
         mode: "onChange",
     });
 
-    const [createStory] = useMutation(CREATE_STORY)
-    const [updateStory] = useMutation(UPDATE_STORY)
+    // const [createStory] = useMutation(CREATE_STORY)
+    // const [updateStory] = useMutation(UPDATE_STORY)
 
 
     // 이미지 업로드
@@ -86,8 +86,8 @@ export default function CommunityWrite(){
         handleSubmit={handleSubmit}
         formState={formState}
 
-        onClickCreate={onClickCreate}
-        onClickUpdate={onClickUpdate}
+        // onClickCreate={onClickCreate}
+        // onClickUpdate={onClickUpdate}
         onClickList={onClickList}
         // isEdit={props.isEdit}
         />

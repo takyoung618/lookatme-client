@@ -5,29 +5,24 @@ import UploadImageContainer from "../../../commons/uploadImage/UploadImage.conta
 
 export default function CommunityWriteUi(props){
     return (
-        // <form
-        //     onSubmit={
-        //     props.isEdit
-        //     ? props.handleSubmit(props.onClickUpdateButton)
-        //     : props.handleSubmit(props.onClickCreateButton)
-        // }
-        // >
         <S.Wrapper>
-            <S.Title>{props.isEdit ? "사연 등록" : "상품 등록"}</S.Title>
+            <S.Title>사연 등록</S.Title>
         <S.Category>
             <S.CategoryTitle
             >카테고리 선택</S.CategoryTitle>
-            <IoIosArrowDown style={{ width: "30px", height: "30px", marginTop: "6px" }}/>
-            <S.CategoryNameInput
-                // {...props.register("category.name")}
-            />
+            <IoIosArrowDown style={{ width: "16px", height: "16px", marginTop: "10px", marginRight: "10px" }}/>
         </S.Category>
         <S.TitleWrapper>
-            <S.Title>사연제목</S.Title>
-            <S.TitleInput
-            // {...props.register("title")}
-            />
+            <S.StoryTitle>고민제목</S.StoryTitle>
+            <S.StoryTitleInput/>
         </S.TitleWrapper>
+        <S.ContentsWrapper>
+            <S.StoryText>고민내용</S.StoryText>
+            <S.TextInput
+            // {...props.register("text")}
+            />
+        
+        </S.ContentsWrapper>
         <S.ImageWrapper>
            {props.fileUrls.map((el, index) => (
                 <UploadImageContainer
@@ -38,12 +33,7 @@ export default function CommunityWriteUi(props){
                 ></UploadImageContainer>
               ))}
         </S.ImageWrapper>
-        <S.ContentsWrapper>
-            <S.Contents
-            // {...props.register("text")}
-            >
-            </S.Contents>
-        </S.ContentsWrapper>
+        
         <S.ButtonWrapper>
             <S.ListButton type="button" onClick={props.onClickList}>
                 목록으로

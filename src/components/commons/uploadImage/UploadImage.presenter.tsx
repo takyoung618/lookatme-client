@@ -14,10 +14,10 @@ const PhotoInput = styled.button`
   justify-content: center;
   align-items: center;
 
-  width: 180px;
-  height: 180px;
-  background-color: #bdbdbd;
-  border: none;
+  width: 4.861vw;
+  height: 4.861vw;
+  background-color: gray;
+  border: solid 1px #c5c5c5;
   margin-right: 30px;
   cursor: pointer;
 `;
@@ -40,8 +40,8 @@ export default function UploadImagePresenter(
         <PhotoInput onClick={props.onClickUpload} type="button">
           <FiUpload
             style={{
-              width: "50px",
-              height: "50px",
+              width: "70px",
+              height: "70px",
             }}
           />
         </PhotoInput>

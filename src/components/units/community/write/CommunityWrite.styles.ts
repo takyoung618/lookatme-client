@@ -7,39 +7,46 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
-    font-size: 1.6rem;
-    margin-top: 20px;
+    font-size: 1.469rem;
+    margin-top: 16px;
     font-family: "MiceGodic";
 `;
 
 export const TitleWrapper = styled.div`
     display: flex;
-    text-align: center;
-`
-
-export const TitleInput = styled.input`
-    width: 200px;
-    height: 50px;
-`
-
-export const Category = styled.button`
-    width: 380px;
-    height: 52px;
     text-align: left;
+    flex-direction: column;
+`
+
+export const StoryTitle = styled.div`
+    font-size: 1.063rem;
+    margin-top: 17px;
+`
+
+export const StoryTitleInput = styled.input`
+    width: 100vw;
+    height: 2.778vw;
+    border: solid 1px #c5c5c5;
+    margin-top: 11px;
+`
+
+export const Category = styled.div`
+    width: 18.958vw;
+    height: 40px;
     flex-direction: row;
     border-radius: 20px;
-    margin-top: 20px;
+    margin-top: 7px;
     display: flex;
     justify-content: space-between;
-    border: 1px solid #9CD6FF;
-    box-shadow: 0px 5px 5px #9CD6FF;
-    background-color: white;
+    background-color: #73bea8;
+    margin-left: 44px;
 `;
 
 export const CategoryTitle =styled.div`
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-top: 10px;
+    font-size: 1.063rem;
+    margin-top: 12px;
+    margin-left: 22px;
+    color: #fff;
 `
 
 export const CategoryNameInput = styled.input`
@@ -50,35 +57,31 @@ export const CategoryNameInput = styled.input`
 export const ImageWrapper = styled.div`
     display: flex;
     text-align: center;
-    flex-direction: column;
+    flex-direction: row;
     line-height: center;
+    margin-top: 10px;
 `;
 
-// export const Image = styled.div`
-//     width: 250px;
-//     height: 250px;
-//     background-color: #E5E7E9;
-//     border: 2px dotted white;
-//     margin-top: 20px;
-//     margin-left: 65px;
-//     align-items: center;
+export const ContentsWrapper = styled.div`
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+`;
 
-//     border-radius: 10px;
-// `;
+export const StoryText = styled.div`
+    font-size: 1.063rem;
+    margin-top: 17px;
+`
 
-export const ContentsWrapper = styled.div``;
-
-export const Contents = styled.input`
-    width: 380px;
+export const TextInput = styled.input`
+    width: 19.028vw;
     height: 380px;
-    margin-top: 20px;
-    border-radius: 10px;
-    border: 1px solid #9CD6FF;
-    box-shadow: 0px 5px 5px #9CD6FF;
+    margin-top: 10px;
+    border: solid 1px #c5c5c5;
 `;
 
 export const ButtonWrapper = styled.div`
-    text-align: center
+    text-align: center;
 `;
 
 export const ListButton = styled.button`

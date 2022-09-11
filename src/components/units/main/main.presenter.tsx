@@ -5,8 +5,10 @@ import * as S from "./main.styles";
 
 export default function MainUI() {
   const settings = {
+    dots: true,
     infinite: true,
     speed: 500,
+    arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
@@ -17,6 +19,7 @@ export default function MainUI() {
         dots={settings.dots}
         infinite={settings.infinite}
         speed={settings.speed}
+        arrows={settings.arrows}
         slidesToShow={settings.slidesToShow}
         slidesToScroll={settings.slidesToScroll}
       >

@@ -11,16 +11,21 @@ export default function HeaderPresenter(props: IHeaderPresenterProps) {
   return (
     <S.Wrapper>
       <S.ButtonWrapper>
-        <S.Logo onClick={props.onClickLogo}>
-          <S.LogoImage src="/Logo.jpg/"></S.LogoImage>
+        <S.Logo>
+          <S.LogoImage
+            src="/logo.png/"
+            onClick={props.onClickLogo}
+          ></S.LogoImage>
         </S.Logo>
         <Space>
           <S.MenuButton type="primary" onClick={props.showMenu}>
-            <GiHamburgerMenu style={{ width: "25px", height: "25px" }} />
+            <GiHamburgerMenu
+              style={{ width: "25px", height: "25px", color: "white" }}
+            />
           </S.MenuButton>
         </Space>
       </S.ButtonWrapper>
-      <Drawer
+      <S.DrawerStyle
         placement={props.placement}
         onClose={props.onClose}
         open={props.open}
@@ -28,26 +33,23 @@ export default function HeaderPresenter(props: IHeaderPresenterProps) {
       >
         {!accessToken && (
           <>
-            <S.DrawerLoginButton onClick={props.onClickLogin}>
-              로그인
-            </S.DrawerLoginButton>
-            <S.DrawerSignUpButton onClick={props.onClickSignUp}>
+            <S.DrawerButton onClick={props.onClickLogin}>로그인</S.DrawerButton>
+            <S.DrawerButton onClick={props.onClickSignUp}>
               회원가입
-            </S.DrawerSignUpButton>
+            </S.DrawerButton>
           </>
         )}
 
         {accessToken && (
           <>
-            <S.DrawerLoginButton onClick={props.onClickLogOut}>
+            <S.DrawerButton onClick={props.onClickLogOut}>
               로그아웃
-            </S.DrawerLoginButton>
-            <S.DrawerSignUpButton onClick={props.onClickMyPage}>
+            </S.DrawerButton>
+            <S.DrawerButton onClick={props.onClickMyPage}>
               마이페이지
-            </S.DrawerSignUpButton>
+            </S.DrawerButton>
           </>
         )}
-
         <S.DrawerButton onClick={props.onClickCommunity}>
           커뮤니티
         </S.DrawerButton>
@@ -55,10 +57,15 @@ export default function HeaderPresenter(props: IHeaderPresenterProps) {
           전문가 찾기
         </S.DrawerButton>
         <S.LoginWrapper>
-          <button onClick={props.onClickMoveToExpert}>전문가 로그인</button>
-          <button onClick={props.onClickMoveToAdmin}>관리자 로그인</button>
+          <S.LoginButton onClick={props.onClickMoveToExpert}>
+            전문가 로그인
+          </S.LoginButton>
+          <S.LoginButton>|</S.LoginButton>
+          <S.LoginButton onClick={props.onClickMoveToAdmin}>
+            관리자 로그인
+          </S.LoginButton>
         </S.LoginWrapper>
-      </Drawer>
+      </S.DrawerStyle>
     </S.Wrapper>
   );
 }

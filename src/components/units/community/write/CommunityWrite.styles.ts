@@ -12,6 +12,16 @@ export const Title = styled.div`
     font-family: "MiceGodic";
 `;
 
+export const TitleWrapper = styled.div`
+    display: flex;
+    text-align: center;
+`
+
+export const TitleInput = styled.input`
+    width: 200px;
+    height: 50px;
+`
+
 export const Category = styled.button`
     width: 380px;
     height: 52px;
@@ -32,6 +42,11 @@ export const CategoryTitle =styled.div`
     margin-top: 10px;
 `
 
+export const CategoryNameInput = styled.input`
+    width: 200px;
+    height: 50px;
+`
+
 export const ImageWrapper = styled.div`
     display: flex;
     text-align: center;
@@ -39,17 +54,17 @@ export const ImageWrapper = styled.div`
     line-height: center;
 `;
 
-export const Image = styled.div`
-    width: 250px;
-    height: 250px;
-    background-color: #E5E7E9;
-    border: 2px dotted white;
-    margin-top: 20px;
-    margin-left: 65px;
-    align-items: center;
+// export const Image = styled.div`
+//     width: 250px;
+//     height: 250px;
+//     background-color: #E5E7E9;
+//     border: 2px dotted white;
+//     margin-top: 20px;
+//     margin-left: 65px;
+//     align-items: center;
 
-    border-radius: 10px;
-`;
+//     border-radius: 10px;
+// `;
 
 export const ContentsWrapper = styled.div``;
 

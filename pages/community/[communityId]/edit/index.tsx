@@ -1,3 +1,5 @@
+import CommunityWrite from "../../../../src/components/units/community/write/CommunityWrite.container";
+
 export default function CommunityEditPage() {
-  return <div>커뮤니티 수정 페이지 입니다.</div>;
+  return <CommunityWrite isEdit={true}/>
 }

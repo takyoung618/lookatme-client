@@ -2,8 +2,10 @@ import * as S from "./CommunityDetail.styles"
 import {AiOutlineUser, AiOutlineClockCircle} from "react-icons/ai"
 import { ImHeart } from "react-icons/im";
 import {GiSiren} from "react-icons/gi"
+import CommentUI from "../../comment/write/CommentWrite.presenter";
+import CommentWriteContainer from "../../comment/write/CommentWrite.container";
 
-export default function CommunityDetailUi(){
+export default function CommunityDetailUi(props){
     return (
         <S.Wrapper>
                 <S.Title>상세 페이지</S.Title>
@@ -15,16 +17,16 @@ export default function CommunityDetailUi(){
                     <S.InfoWrapper>
                         <S.NicknameWrapper>
                             <AiOutlineUser/>
-                            <S.NickName>닉네임</S.NickName>
+                            <S.NickName> {props.data?.fetchLoginUser.nickname}</S.NickName>
                         </S.NicknameWrapper>
                         <S.TimeWrapper>
                             <AiOutlineClockCircle/>
-                            <S.Time>5분전</S.Time>
+                            <S.Time>{props.data?.fetchStory.createAt}</S.Time>
                         </S.TimeWrapper>
                     </S.InfoWrapper>
                 </S.HeaderWrapper>
                 <S.ContentsWrapper>
-                    내용들내용들내용들 
+                    {props.data?.fetchStory.text}
                 </S.ContentsWrapper>
                 <S.FooterWrapper>
                     <S.SympathyWrapper>
@@ -37,43 +39,19 @@ export default function CommunityDetailUi(){
                 </S.FooterWrapper>
             </S.DetailWrapper>
             <S.ButtonWrapper>
-                <S.Button>
+                <S.Button onClick={props.onClickMoveToList}>
                     목록으로
                 </S.Button>
-                <S.Button>
+                <S.Button onClick={props.onClickMoveToEdit}>
                     수정하기
                 </S.Button>
-                <S.Button>
+                <S.Button onClick={props.onClickDeleteStory}>
                     삭제하기
                 </S.Button>
             </S.ButtonWrapper>
 
-            <S.ExpertCommentWrapper>
-                <S.CommentTitleWrapper>
-                    <S.Expert>전문가 댓글 보기</S.Expert>
-                    <S.NameWrapper>
-                        <AiOutlineUser/>
-                        <S.Name>전문가이름</S.Name>
-                    </S.NameWrapper>
-                </S.CommentTitleWrapper>
-                <S.CommentExpert>
-                    힘내세요
-                </S.CommentExpert>
-                <S.CommentInputExpert/>
-            </S.ExpertCommentWrapper>
-            <S.CommentWrapper>
-                <S.CommentTitleWrapper>
-                    <S.Expert>일반 댓글 보기</S.Expert>
-                    <S.NameWrapper>
-                        <AiOutlineUser/>
-                        <S.Name>닉네임</S.Name>
-                    </S.NameWrapper>
-                </S.CommentTitleWrapper>
-                <S.CommentUser>
-                    힘내세요
-                </S.CommentUser>
-                <S.CommentInput/>
-            </S.CommentWrapper>
+            <CommentWriteContainer/>
+            
         </S.Wrapper>
     )
 }

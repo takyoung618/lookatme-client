@@ -102,6 +102,7 @@ export const ModalChargeButton = styled.div`
   border: none;
   border-radius: 15px;
   font-size: 0.85rem;
+  cursor: pointer;
 `;
 
 export const CategoryTitle = styled.div`
@@ -176,11 +177,17 @@ export const CategoryContents = styled.div`
 
 export const ExpertButtonWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
 
   width: 390px;
   padding: 5px 10px;
+`;
+
+export const ButtonRowWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 5px 0px;
 `;
 
 export const ExpertButton = styled.div`
@@ -189,7 +196,7 @@ export const ExpertButton = styled.div`
   align-items: center;
   justify-content: center;
 
-  width: 100px;
+  width: 110px;
   height: 30px;
   margin-right: 15px;
   font-size: 0.85rem;

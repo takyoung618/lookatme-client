@@ -5,14 +5,15 @@ import * as yup from "yup";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { useRecoilState } from "recoil";
-import { accessTokenState } from "../../../commons/store";
+import { accessTokenState, logInStatusState } from "../../../commons/store";
 import { LOGIN } from "./login.queries";
 import {
   IMutation,
   IMutationLoginArgs,
 } from "../../../commons/types/generated/types";
-import { Modal } from "antd";
+import { message, Modal } from "antd";
 import "antd/dist/antd.css";
+import { getUserInfo } from "../../../commons/libraries/getUserInfo";
 
 const schema = yup.object({
   email: yup
@@ -34,6 +35,8 @@ const schema = yup.object({
 export default function Login() {
   const router = useRouter();
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [logInStatus, setLogInStatus] = useRecoilState(logInStatusState);
+  const UserInfo = getUserInfo();
 
   const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
     LOGIN
@@ -51,7 +54,7 @@ export default function Login() {
         variables: { email: data.email, password: data.password },
       });
       const accessToken = result.data?.login;
-      console.log(accessToken);
+      setLogInStatus(true);
       if (!accessToken) {
         Modal.info({ title: "로그인 실패" });
         return;
@@ -59,7 +62,9 @@ export default function Login() {
 
       setAccessToken(accessToken);
 
-      Modal.info({ title: "로그인 성공" });
+      Modal.success({
+        title: "로그인이 완료되었습니다.",
+      });
       router.push("/community");
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });

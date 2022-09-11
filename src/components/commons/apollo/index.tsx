@@ -12,6 +12,7 @@ import { useRecoilState, useRecoilValueLoadable } from "recoil";
 import { onError } from "@apollo/client/link/error";
 import {
   accessTokenState,
+  isLoadedState,
   restoreAccessTokenLoadable,
 } from "../../../commons/store";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
@@ -24,16 +25,13 @@ interface IApolloSettingProps {
 
 export default function ApolloSetting(props: IApolloSettingProps) {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-  // const [userInfo, setUserInfo] = useRecoilState(userInfoState);
-  // const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState);
-  const aaa = useRecoilValueLoadable(restoreAccessTokenLoadable);
+  const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState);
 
   useEffect(() => {
-    aaa.toPromise().then((newAccessToken) => setAccessToken(newAccessToken));
-    // getAccessToken().then((newAccessToken) => {
-    //   setAccessToken(newAccessToken);
-    //   setIsLoaded(true);
-    // });
+    getAccessToken().then((newAccessToken) => {
+      setAccessToken(newAccessToken);
+      setIsLoaded(true);
+    });
   }, []);
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {

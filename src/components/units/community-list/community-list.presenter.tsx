@@ -2,6 +2,7 @@ import * as S from "./community-list.styles";
 import { ImHeart } from "react-icons/im";
 import { FaLeaf } from "react-icons/fa";
 import { BsPencilSquare } from "react-icons/bs";
+import { ICommunityListPresenterProps } from "./community-list.types";
 
 const ButtonList = [
   "전체",
@@ -13,7 +14,9 @@ const ButtonList = [
   "자유주제",
 ];
 
-export default function CommunityListPresenter() {
+export default function CommunityListPresenter(
+  props: ICommunityListPresenterProps
+) {
   return (
     <S.Wrapper>
       <S.ButtonWrapper>
@@ -83,7 +86,7 @@ export default function CommunityListPresenter() {
       </S.BodyWrapper>
 
       <S.WriteButtonWrapper>
-        <S.WriteButton>
+        <S.WriteButton onClick={props.onClickWriteButton}>
           <BsPencilSquare
             style={{ width: "15px", height: "15px", marginRight: "5px" }}
           />

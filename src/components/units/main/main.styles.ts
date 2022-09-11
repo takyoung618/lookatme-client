@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 380px;
-  display: flex;
-  flex-direction: column;
+  width: 100vw;
+  max-width: 414px;
 
   & button {
     cursor: pointer;

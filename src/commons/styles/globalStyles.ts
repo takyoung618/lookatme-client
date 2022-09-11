@@ -21,7 +21,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
+  margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -60,19 +60,12 @@ time, mark, audio, video {
   body {
     margin: 0;
     box-sizing: border-box;
-    font-family: "hyemin";
+    font-family: "NanumSquare";
     font-size: 16px;
   }
 
   @font-face {
-    font-family: "MiceGodic";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2")
-      format("woff2");
-  }
-
-  @font-face {
-    font-family: "hyemin";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2")
-      format("woff");
+    font-family: "NanumSquare";
+    src: url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
   }
 `;

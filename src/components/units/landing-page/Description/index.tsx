@@ -13,6 +13,7 @@ export default function Description() {
     align-items: center;
     padding: 90px 20px 100px 20px;
     color: #fff;
+    border-bottom: 1px solid #73c0a9;
   `;
 
   const Image = styled.img`

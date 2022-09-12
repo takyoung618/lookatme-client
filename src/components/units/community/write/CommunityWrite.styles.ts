@@ -1,107 +1,134 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
+    width: 100%;
     display: flex;
     text-align: center;
     flex-direction: column;
 `;
 
-export const Title = styled.div`
-    font-size: 1.6rem;
-    margin-top: 20px;
+export const Header = styled.div`
+    font-size: 1.438rem;
+    margin-top: 16px;
     font-family: "MiceGodic";
 `;
 
-export const Category = styled.button`
-    width: 380px;
-    height: 52px;
-    text-align: left;
-    flex-direction: row;
-    border-radius: 20px;
-    margin-top: 20px;
+export const CategoryWrapper = styled.div`
+    width: 85.5%;
     display: flex;
     justify-content: space-between;
-    border: 1px solid #9CD6FF;
-    box-shadow: 0px 5px 5px #9CD6FF;
-    background-color: white;
-`;
+    flex-direction: row;
+    height: 43px;
+    background-color: #73bea8;
+    border-radius: 20px;
 
-export const CategoryTitle =styled.div`
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-top: 10px;
+    margin-top: 7px;
+    margin-left: 25px;
+`
+
+export const CategoryTitle = styled.div`
+    font-size: 1.063;
+    color: #fff;
+
+    margin: 15px 0px 0px 22px;
+`
+
+export const TitleWrapper = styled.div`
+    flex-direction:column;
+`
+
+export const Title = styled.div`
+    font-size: 1.063;
+    margin-top: 17px;
+    margin-right: 215px;
+`
+
+export const TitleInput = styled.input`
+    width: 85.5%;
+    height: 40px;
+    margin-top: 11px;
+    background-color: #f5f5f5;
+    border: solid 1px #c5c5c5;
+
+    ::placeholder {
+        color: #7f7f7f;
+        text-indent: 8px;
+    }
+`
+
+export const TextWrapper = styled.div`
+    flex-direction:column;
+`
+
+export const Text = styled.div`
+    font-size: 1.063;
+    margin-top: 17px;
+    margin-right: 215px;
+`
+
+export const TextInput = styled.textarea`
+    display: flex;
+    width: 85.5%;
+    height: 316px;
+    margin-top: 11px;
+    margin-left: 25px;
+    background-color: #f5f5f5;
+    border: solid 1px #c5c5c5;
+    text-align: start;
+ 
+    ::placeholder {
+        color: #7f7f7f;
+        text-indent: 8px;
+        padding-top: 14px;
+    }
 `
 
 export const ImageWrapper = styled.div`
+    width: 85.5%;
     display: flex;
     text-align: center;
-    flex-direction: column;
-    line-height: center;
-`;
-
-export const Image = styled.div`
-    width: 250px;
-    height: 250px;
-    background-color: #E5E7E9;
-    border: 2px dotted white;
-    margin-top: 20px;
-    margin-left: 65px;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 
-    border-radius: 10px;
-`;
-
-export const ContentsWrapper = styled.div``;
-
-export const Contents = styled.input`
-    width: 380px;
-    height: 380px;
-    margin-top: 20px;
-    border-radius: 10px;
-    border: 1px solid #9CD6FF;
-    box-shadow: 0px 5px 5px #9CD6FF;
-`;
+    margin-top: 10px;
+    margin-left: 25px;
+`
 
 export const ButtonWrapper = styled.div`
-    text-align: center
-`;
+    display: flex;
+    text-align: center;
+   
+    margin-bottom: 35px;
+    margin-left: 55px;
+`
 
 export const ListButton = styled.button`
-    width: 128px;
-    height: 52px;
-    font-size: 1.25rem;
-    font-weight: 700;
+    width: 90px;
+    height: 40px;
+    font-size: 17px;
     border-radius: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-right: 30px;
 
-    background-color: #9cd6ff;
+    font-size: 1.063;
+    background-color: #73bea8;
     border: 1px solid #FCE4EC;
     cursor: pointer;
+    color: #fff !important;
+`
 
-    :hover {
-    background-color: #6fe5ff;
-  }
-`;
-
-export const SubmitButton = styled.button`
-    width: 128px;
-    height: 52px;
-    font-size: 1.25rem;
-    font-weight: 700;
+export const CreateButton = styled.button`
+    width: 90px;
+    height: 40px;
+    font-size: 1.063;
     border-radius: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 10px;
+    margin-top: 15px;
 
-    background-color: #9cd6ff;
+    font-size: 1.063;
+    background-color: #73bea8;
     border: 1px solid #FCE4EC;
     cursor: pointer;
-
-    :hover {
-    background-color: #6fe5ff;
-  }
-`;
-
-
+    color: #fff !important;
+`
 

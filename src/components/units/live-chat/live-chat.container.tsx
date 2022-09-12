@@ -1,27 +1,24 @@
-import io from "socket.io-client";
+import io, { Socket } from "socket.io-client";
 import { useQuery } from "@apollo/client";
-import { useEffect, useState } from "react";
 import { IQuery } from "../../../commons/types/generated/types";
 import LiveChatPresenter from "./live-chat.presenter";
 import { FETCH_CHAT_LOGS } from "./live-chat.queries";
 import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
 import { getUserInfo } from "../../../commons/libraries/getUserInfo";
+import { useForm } from "react-hook-form";
 
-interface Message {
-  author: String;
-  message: String;
-}
+const url = "http://localhost:3000/chat";
 
 export default function LiveChatContainer() {
-  const socket = io("http://localhost:3000/chat");
-
   const router = useRouter();
   const userInfo = getUserInfo();
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const [username, setUsername] = useState("");
-  const [chosenUsername, setChosenUsername] = useState("");
-  const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState<Array<Message>>([]);
+  const [nickname, setNickname] = useState<string | undefined>("");
+  const [ticketId, setTicketId] = useState<string | undefined>("");
+  const [userId, setUserId] = useState<string | undefined>("");
+  const [resultMsg, setResultMsg] = useState<string[]>([]);
 
   const { data } = useQuery<Pick<IQuery, "fetchChatLogs">>(FETCH_CHAT_LOGS, {
     variables: {
@@ -29,51 +26,58 @@ export default function LiveChatContainer() {
     },
   });
 
+  const socket: Socket = io(url, { transports: ["websocket"] });
+
+  const delay = (ms: number) => {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  };
+
+  const { register, handleSubmit, resetField } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      contents: "",
+    },
+  });
+
   useEffect(() => {
-    socketInitializer();
-  }, []);
+    socket.on(ticketId, (data) => {
+      setResultMsg((prev: string[]) => [...prev, data]);
+    });
+  }, [ticketId]);
 
-  const socketInitializer = async () => {
-    socket.on("newIncomingMessage", (msg) => {
-      setMessages((currentMsg) => [
-        ...currentMsg,
-        { author: msg.author, message: msg.message },
-      ]);
+  useEffect(() => {
+    setUserId(userInfo?.fetchLoginUser.id);
+    setTicketId(userInfo?.fetchLoginUser.id);
+    setNickname(userInfo?.fetchLoginUser.nickname);
+  }, [userInfo]);
+
+  const onClickSendMessage = async (data) => {
+    const message = await data.contents;
+    socket.emit("sent", ticketId, nickname, message, userId);
+    resetField("contents");
+    await delay(100);
+    return messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
     });
   };
 
-  const sendMessage = async () => {
-    socket.emit("createMessage", {
-      author: chosenUsername,
-      message,
-    });
-    setMessages((currentMsg) => [
-      ...currentMsg,
-      { author: chosenUsername, message },
-    ]);
-    setMessage("");
-  };
-
-  const handleKeypress = (e) => {
-    if (e.keyCode === 13) {
-      if (message) {
-        sendMessage();
-      }
+  const onKeyDown = (event: KeyboardEvent) => (data) => {
+    if (event.key === "Enter") {
+      onClickSendMessage(data);
     }
   };
 
   return (
     <LiveChatPresenter
-      username={username}
-      setUsername={setUsername}
-      chosenUsername={chosenUsername}
-      setChosenUsername={setChosenUsername}
-      messages={messages}
-      message={message}
-      setMessage={setMessage}
-      handleKeypress={handleKeypress}
-      sendMessage={sendMessage}
+      resultMsg={resultMsg}
+      userId={userId}
+      register={register}
+      handleSubmit={handleSubmit}
+      onClickSendMessage={onClickSendMessage}
+      onKeyDown={onKeyDown}
       data={data}
+      messagesEndRef={messagesEndRef}
     ></LiveChatPresenter>
   );
 }

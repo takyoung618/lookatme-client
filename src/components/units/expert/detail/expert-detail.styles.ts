@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  width: 390px;
+  width: 100%;
 `;
 
 export const TopWrapper = styled.div`
@@ -14,17 +14,19 @@ export const TopWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 340px;
-  padding: 20px 10px;
-  margin-bottom: 10px;
-  border-bottom: 1.5px solid #f8f8f8;
+  width: 90%;
+  padding: 20px 26px;
+  margin-top: 16px;
+  margin-bottom: 15px;
+  background-color: #f5f5f5;
+  border: 1px solid #c5c5c5;
 `;
 
 export const TopLeft = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 220px;
+  width: 67%;
 `;
 
 export const LeftWrapper = styled.div`
@@ -32,14 +34,30 @@ export const LeftWrapper = styled.div`
   flex-direction: column;
 `;
 
+export const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+`;
+
 export const LeftTitle = styled.div`
-  font-size: 1rem;
-  padding: 15px 0px;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  padding: 0px 10px 0px 0px;
+  width: 30%;
 `;
 
 export const LeftContents = styled.div`
-  font-size: 0.8125rem;
-  padding: 0px 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 70%;
+`;
+
+export const ExpertPhoto = styled.div`
+  width: 30%;
+  height: 100px;
+
+  background-color: #bdbdbd;
 `;
 
 export const ChatButton = styled.div`
@@ -48,47 +66,46 @@ export const ChatButton = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 120px;
-  height: 30px;
-  background-color: #9cd6ff;
+  width: 70%;
+  height: 40px;
+  background-color: #73bea8;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #fff;
   border-radius: 20px;
-  margin-top: 20px;
   cursor: pointer;
-
-  :hover {
-    background-color: #6fe5ff;
-  }
-`;
-
-export const ExpertPhoto = styled.div`
-  width: 90px;
-  height: 110px;
-
-  background-color: #bdbdbd;
 `;
 
 export const BottomWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #9cd6ff;
-  box-shadow: 0px 5px 5px #9cd6ff;
-  border-radius: 10px;
-  width: 380px;
-  margin: 20px 0px 30px 0px;
+
+  width: 100%;
+  margin-top: 15px;
 `;
 
 export const CategoryWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 
-  width: 330px;
-  padding: 20px;
+  width: 100%;
+  height: 40px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #c5c5c5;
+  border-bottom: 1px solid #c5c5c5;
 `;
 
 export const CategoryButton = styled.div`
-  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 30%;
+  font-size: 0.9375rem;
+  font-weight: 600;
   cursor: pointer;
 `;
 
@@ -96,12 +113,10 @@ export const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 350px;
-  border: 1px solid #9cd6ff;
-  border-radius: 10px;
-  padding: 10px 15px;
-  font-size: 0.8125rem;
-  margin-bottom: 20px;
+  width: 100%;
+  border-bottom: 1px dashed #c5c5c5;
+  padding: 15px;
+  font-size: 0.9375rem;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -109,22 +124,6 @@ export const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
 
-  width: 390px;
-`;
-
-export const ListButton = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  width: 120px;
-  height: 30px;
-  background-color: #9cd6ff;
-  border-radius: 20px;
-  margin-bottom: 20px;
-
-  :hover {
-    background-color: #6fe5ff;
-  }
+  width: 100%;
+  margin: 20px 0px;
 `;

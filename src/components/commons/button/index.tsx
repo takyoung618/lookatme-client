@@ -12,13 +12,13 @@ export default function BasicButton(props: IBasicButtonProps) {
         justifyContent: "center",
         alignItems: "center",
         fontSize: "0.9375rem",
-        fontWeight: "500",
+        fontWeight: "600",
+        padding: "15px",
         border: "none",
         backgroundColor: "#73bea8",
         color: "#fff",
         borderRadius: "13px",
         height: "30px",
-        padding: "10px",
         cursor: "pointer",
       }}
       onClick={props.onClick}

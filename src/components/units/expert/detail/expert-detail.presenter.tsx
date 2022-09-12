@@ -1,6 +1,7 @@
 import * as S from "./expert-detail.styles";
 import { Rate } from "antd";
 import { IExpertDetailPresenterProps } from "./expert-detail.types";
+import BasicButton from "../../../commons/button";
 
 export default function ExpertDetailPresenter(
   props: IExpertDetailPresenterProps
@@ -10,15 +11,21 @@ export default function ExpertDetailPresenter(
       <S.TopWrapper>
         <S.TopLeft>
           <S.LeftWrapper>
-            <S.LeftTitle>이름</S.LeftTitle>
-            <S.LeftContents>철수</S.LeftContents>
-            <S.LeftTitle>소개</S.LeftTitle>
-            <S.LeftContents>철수입니다</S.LeftContents>
-            <S.ChatButton>상담 신청하기</S.ChatButton>
+            <S.InfoWrapper>
+              <S.LeftTitle>이름</S.LeftTitle>
+              <S.LeftContents>철수</S.LeftContents>
+            </S.InfoWrapper>
+            <S.InfoWrapper>
+              <S.LeftTitle>소개</S.LeftTitle>
+              <S.LeftContents>
+                내용내용내용내용내용내용내용내용내용내용
+              </S.LeftContents>
+            </S.InfoWrapper>
           </S.LeftWrapper>
         </S.TopLeft>
         <S.ExpertPhoto></S.ExpertPhoto>
       </S.TopWrapper>
+      <S.ChatButton>상담 신청하기</S.ChatButton>
 
       <S.BottomWrapper>
         <S.CategoryWrapper>
@@ -27,13 +34,28 @@ export default function ExpertDetailPresenter(
           <S.CategoryButton>후기</S.CategoryButton>
         </S.CategoryWrapper>
         <S.ContentsWrapper>
-          <Rate defaultValue={2} disabled style={{ marginBottom: "10px" }} />
+          <Rate
+            defaultValue={2}
+            disabled
+            style={{ marginBottom: "10px", color: "#73bea8" }}
+          />
           내용내용내용
+        </S.ContentsWrapper>
+        <S.ContentsWrapper>
+          <Rate
+            defaultValue={2}
+            disabled
+            style={{ marginBottom: "10px", color: "#73bea8" }}
+          />
+          내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
         </S.ContentsWrapper>
       </S.BottomWrapper>
 
       <S.ButtonWrapper>
-        <S.ListButton onClick={props.onClickMoveToList}>목록으로</S.ListButton>
+        <BasicButton
+          title="목록으로"
+          onClick={props.onClickMoveToList}
+        ></BasicButton>
       </S.ButtonWrapper>
     </S.Wrapper>
   );

@@ -33,7 +33,7 @@ const schema = yup.object({
   name: yup
     .string()
     .required("이름을 입력해주세요")
-    .max(15, "이름은 15자리 이하여야 합니다.")
+    .max(10, "이름은 10자리 이하여야 합니다.")
     .min(2, "이름은 2자리 이상이어야 합니다."),
   phoneNumber: yup
     .string()

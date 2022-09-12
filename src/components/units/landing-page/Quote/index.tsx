@@ -74,15 +74,17 @@ const HeaderBar = styled.div`
   background-color: #73c0a9;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
+  border-top: 1px solid #73c0a9;
 `;
 
 const Quote = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  font-size: 1.4rem;
+  line-height: 2.5;
+  padding: 0 30px 0 30px;
 `;
 
 export default function QuotePage() {

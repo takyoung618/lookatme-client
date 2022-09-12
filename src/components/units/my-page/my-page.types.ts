@@ -11,4 +11,11 @@ export interface IMyPagePresenterProps {
   UserInfo: Pick<IQuery, "fetchLoginUser"> | undefined;
   profileEdit: boolean;
   onClickEditButton: () => void;
+  reviewModalIsOpen: boolean;
+  setReviewModalIsOpen: Dispatch<SetStateAction<boolean>>;
+  rate: Number;
+  onChangeRate: (rate: SetStateAction<number>) => void;
+  onChangeReview: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  reviewIsActive: boolean;
+  onClickReviewSubmit: () => void;
 }

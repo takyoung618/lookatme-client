@@ -1,4 +1,3 @@
-import { OmitProps } from "antd/lib/transfer/ListBody"
 import BasicButton from "../../../commons/button"
 import CommentWrite from "../../comment/write/CommentWrite.container"
 import * as S from "./CommunityDetail.styles"

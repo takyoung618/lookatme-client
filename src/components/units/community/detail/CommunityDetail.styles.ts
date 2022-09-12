@@ -106,11 +106,11 @@ export const NickNameUser = styled.div`
 `
 
 export const ButtonWrapper = styled.div`
+    width: 65%;
     display: flex;
     margin-top: 8px;
     justify-content: space-around;
-    width: 56%;
-    margin-left: 80px;
+    margin-left: 58px;
 `
 
 export const CommentWrapper = styled.div`

@@ -1,7 +1,6 @@
 import * as S from "./community-list.styles";
-import { ImHeart } from "react-icons/im";
-import { FaLeaf } from "react-icons/fa";
-import { BsPencilSquare } from "react-icons/bs";
+import { FaHeartbeat } from "react-icons/fa";
+import { BsFillPersonFill } from "react-icons/bs";
 import { ICommunityListPresenterProps } from "./community-list.types";
 
 const ButtonList = [
@@ -40,8 +39,13 @@ export default function CommunityListPresenter(
         <S.BodyBottomWrapper>
           <S.ContentsInfo>
             <S.LikeButton>
-              <ImHeart
-                style={{ width: "15px", height: "15px", color: "#F293A3" }}
+              <FaHeartbeat
+                style={{
+                  width: "27px",
+                  height: "23px",
+                  color: "#73bea8",
+                  marginRight: "5px",
+                }}
               />
             </S.LikeButton>
             <S.LikeInfo>0명 공감 댓글 0개</S.LikeInfo>
@@ -49,8 +53,8 @@ export default function CommunityListPresenter(
 
           <S.UserInfo>
             <S.UserProfile>
-              <FaLeaf
-                style={{ width: "15px", height: "15px", color: "#74D579" }}
+              <BsFillPersonFill
+                style={{ width: "27px", height: "23px", color: "#73bea8" }}
               />
             </S.UserProfile>
             <S.UserName>닉네임</S.UserName>
@@ -67,8 +71,13 @@ export default function CommunityListPresenter(
         <S.BodyBottomWrapper>
           <S.ContentsInfo>
             <S.LikeButton>
-              <ImHeart
-                style={{ width: "15px", height: "15px", color: "#F293A3" }}
+              <FaHeartbeat
+                style={{
+                  width: "27px",
+                  height: "23px",
+                  color: "#73bea8",
+                  marginRight: "5px",
+                }}
               />
             </S.LikeButton>
             <S.LikeInfo>0명 공감 댓글 0개</S.LikeInfo>
@@ -76,20 +85,17 @@ export default function CommunityListPresenter(
 
           <S.UserInfo>
             <S.UserProfile>
-              <FaLeaf
-                style={{ width: "15px", height: "15px", color: "#74D579" }}
+              <BsFillPersonFill
+                style={{ width: "27px", height: "23px", color: "#73bea8" }}
               />
             </S.UserProfile>
-            <S.UserName>닉네임</S.UserName>
+            <S.UserName>닉네임닉네임닉네임</S.UserName>
           </S.UserInfo>
         </S.BodyBottomWrapper>
       </S.BodyWrapper>
 
       <S.WriteButtonWrapper>
         <S.WriteButton onClick={props.onClickWriteButton}>
-          <BsPencilSquare
-            style={{ width: "15px", height: "15px", marginRight: "5px" }}
-          />
           작성하기
         </S.WriteButton>
       </S.WriteButtonWrapper>

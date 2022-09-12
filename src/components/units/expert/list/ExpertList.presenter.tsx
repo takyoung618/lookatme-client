@@ -1,7 +1,6 @@
 import * as S from "./ExpertList.styles"
 
-export default function ExpertListUi(props){
-    console.log(props.data?.fetchSpecialists)
+export default function ExpertListUi(){
     return (
         <S.Wrapper>
             <S.FetchWrapper>

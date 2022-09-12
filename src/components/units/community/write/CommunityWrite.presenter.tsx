@@ -38,11 +38,10 @@ export default function CommunityWriteUi(props){
                ))}
             </S.ImageWrapper>
             <S.ButtonWrapper>
-                <S.ListButton>목록으로</S.ListButton>
+                <S.ListButton onClick={props.onClickList}>목록으로</S.ListButton>
                 <S.CreateButton>작성하기</S.CreateButton>
             </S.ButtonWrapper>
         </S.Wrapper>
     ) 
 }
-// placeholder css 적용하기
-// imagewrapper 정렬하고 아이콘 크기에 맞게 삽입
+

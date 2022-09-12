@@ -1,8 +1,9 @@
+import { OmitProps } from "antd/lib/transfer/ListBody"
 import BasicButton from "../../../commons/button"
 import CommentWrite from "../../comment/write/CommentWrite.container"
 import * as S from "./CommunityDetail.styles"
 
-export default function CommunityDetailUi(){
+export default function CommunityDetailUi(props){
     return (
         <S.Wrapper>
             <S.HeaderWrapper>
@@ -33,7 +34,7 @@ export default function CommunityDetailUi(){
                 </S.UserWrapper>
             </S.FooterWrapper>
             <S.ButtonWrapper>
-                <BasicButton title="목록으로"></BasicButton>
+                <BasicButton onClick={props.onClickMoveToList} title="목록으로"></BasicButton>
                 <BasicButton title="수정하기"></BasicButton>
                 <BasicButton title="삭제하기"></BasicButton>
             </S.ButtonWrapper>

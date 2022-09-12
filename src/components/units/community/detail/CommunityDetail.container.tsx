@@ -1,18 +1,18 @@
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import CommunityDetailUi from "./CommunityDetail.presenter";
 
 export default function CommunityDetail() {
-    // const router = useRouter();
+    const router = useRouter();
 
 
     // 페이지 이동
-    // const onClickMoveToList = () => {
-    //     router.push("/community")
-    // }
+    const onClickMoveToList = () => {
+        router.push("/community")
+    }
 
     return (
     <CommunityDetailUi
-        // onClickMoveToList={onClickMoveToList}
+        onClickMoveToList={onClickMoveToList}
     />
     )
 }

@@ -1,125 +1,134 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
+    width: 100%;
     display: flex;
     text-align: center;
     flex-direction: column;
 `;
 
-export const Title = styled.div`
-    font-size: 1.469rem;
+export const Header = styled.div`
+    font-size: 1.438rem;
     margin-top: 16px;
     font-family: "MiceGodic";
 `;
 
-export const TitleWrapper = styled.div`
-    display: flex;
-    text-align: left;
-    flex-direction: column;
-`
-
-export const StoryTitle = styled.div`
-    font-size: 1.063rem;
-    margin-top: 17px;
-`
-
-export const StoryTitleInput = styled.input`
-    width: 100vw;
-    height: 2.778vw;
-    border: solid 1px #c5c5c5;
-    margin-top: 11px;
-`
-
-export const Category = styled.div`
-    width: 18.958vw;
-    height: 40px;
-    flex-direction: row;
-    border-radius: 20px;
-    margin-top: 7px;
+export const CategoryWrapper = styled.div`
+    width: 85.5%;
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    height: 43px;
     background-color: #73bea8;
-    margin-left: 44px;
-`;
+    border-radius: 20px;
 
-export const CategoryTitle =styled.div`
-    font-size: 1.063rem;
-    margin-top: 12px;
-    margin-left: 22px;
-    color: #fff;
+    margin-top: 7px;
+    margin-left: 25px;
 `
 
-export const CategoryNameInput = styled.input`
-    width: 200px;
-    height: 50px;
+export const CategoryTitle = styled.div`
+    font-size: 1.063;
+    color: #fff;
+
+    margin: 15px 0px 0px 22px;
+`
+
+export const TitleWrapper = styled.div`
+    flex-direction:column;
+`
+
+export const Title = styled.div`
+    font-size: 1.063;
+    margin-top: 17px;
+    margin-right: 215px;
+`
+
+export const TitleInput = styled.input`
+    width: 85.5%;
+    height: 40px;
+    margin-top: 11px;
+    background-color: #f5f5f5;
+    border: solid 1px #c5c5c5;
+
+    ::placeholder {
+        color: #7f7f7f;
+        text-indent: 8px;
+    }
+`
+
+export const TextWrapper = styled.div`
+    flex-direction:column;
+`
+
+export const Text = styled.div`
+    font-size: 1.063;
+    margin-top: 17px;
+    margin-right: 215px;
+`
+
+export const TextInput = styled.textarea`
+    display: flex;
+    width: 85.5%;
+    height: 316px;
+    margin-top: 11px;
+    margin-left: 25px;
+    background-color: #f5f5f5;
+    border: solid 1px #c5c5c5;
+    text-align: start;
+ 
+    ::placeholder {
+        color: #7f7f7f;
+        text-indent: 8px;
+        padding-top: 14px;
+    }
 `
 
 export const ImageWrapper = styled.div`
+    width: 85.5%;
     display: flex;
     text-align: center;
     flex-direction: row;
-    line-height: center;
+    justify-content: space-between;
+    align-items: center;
+
     margin-top: 10px;
-`;
-
-export const ContentsWrapper = styled.div`
-    display: flex;
-    text-align: left;
-    flex-direction: column;
-`;
-
-export const StoryText = styled.div`
-    font-size: 1.063rem;
-    margin-top: 17px;
+    margin-left: 25px;
 `
 
-export const TextInput = styled.input`
-    width: 19.028vw;
-    height: 380px;
-    margin-top: 10px;
-    border: solid 1px #c5c5c5;
-`;
-
 export const ButtonWrapper = styled.div`
+    display: flex;
     text-align: center;
-`;
+   
+    margin-bottom: 35px;
+    margin-left: 55px;
+`
 
 export const ListButton = styled.button`
-    width: 128px;
-    height: 52px;
-    font-size: 1.25rem;
-    font-weight: 700;
+    width: 90px;
+    height: 40px;
+    font-size: 17px;
     border-radius: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-right: 30px;
 
-    background-color: #9cd6ff;
+    font-size: 1.063;
+    background-color: #73bea8;
     border: 1px solid #FCE4EC;
     cursor: pointer;
+    color: #fff !important;
+`
 
-    :hover {
-    background-color: #6fe5ff;
-  }
-`;
-
-export const SubmitButton = styled.button`
-    width: 128px;
-    height: 52px;
-    font-size: 1.25rem;
-    font-weight: 700;
+export const CreateButton = styled.button`
+    width: 90px;
+    height: 40px;
+    font-size: 1.063;
     border-radius: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 10px;
+    margin-top: 15px;
 
-    background-color: #9cd6ff;
+    font-size: 1.063;
+    background-color: #73bea8;
     border: 1px solid #FCE4EC;
     cursor: pointer;
-
-    :hover {
-    background-color: #6fe5ff;
-  }
-`;
-
-
+    color: #fff !important;
+`
 

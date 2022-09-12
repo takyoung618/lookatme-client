@@ -10,15 +10,15 @@ const PhotoUpload = styled.img`
 
 const PhotoInput = styled.button`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-
-  width: 4.861vw;
-  height: 4.861vw;
-  background-color: gray;
+  background-color: #f5f5f5;
   border: solid 1px #c5c5c5;
-  margin-right: 30px;
+
+  width: 70px;
+  height: 70px;
+  border: solid 1px #c5c5c5;
   cursor: pointer;
 `;
 
@@ -38,10 +38,10 @@ export default function UploadImagePresenter(
         ></PhotoUpload>
       ) : (
         <PhotoInput onClick={props.onClickUpload} type="button">
-          <FiUpload
+          <img src="/사진업로드.png/"
             style={{
-              width: "70px",
-              height: "70px",
+              width: "27px",
+              height: "28px",
             }}
           />
         </PhotoInput>

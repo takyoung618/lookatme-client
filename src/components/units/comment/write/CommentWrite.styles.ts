@@ -4,97 +4,103 @@ export const Wrapper = styled.div`
     display: flex;
     text-align: center;
     flex-direction: column;
+    width: 100%;
 `;
 
 
-export const ExpertCommentWrapper = styled.div`
+export const HeaderWrapper = styled.div`
     display: flex;
-    text-align: left;
-    flex-direction: column;
-    width: 370px;
-
-    border: 1px solid  #9cd6ff;
-    box-shadow: 0px 5px 5px  #9cd6ff;
-    border-radius: 10px;
-    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid #c5c5c5;
+    border-bottom: 1px solid #c5c5c5;
+    background-color: #f5f5f5;
+    font-size: 1.031rem;
 `
 
-export const CommentTitleWrapper = styled.div``
-
-export const Expert = styled.div`
-    margin-left: 15px;
-    margin-top: 15px;
-    font-size: 1rem;
-    font-weight: 500;
+export const ExpertHeader = styled.div`
+    color: #00428d;
+    margin-left: 19px;
 `
 
-export const NameWrapper = styled.div`
-    display: flex;
-    margin-top: 10px;
-    margin-left: 10px;
-`
-
-export const Name = styled.div`
-    margin-left: 3px;
-    font-size: 0.825rem;
-    font-weight: 500;
-`
-
-
-export const CommentExpert = styled.div`
-    width: 360px;
-    height: 120px;
-    margin-left: 4px;
-    margin-top: 10px;
-    font-size: 0.825rem;
-    border: 1px solid #9cd6ff;
-    border-radius: 10px;
-`
-
-export const CommentInputExpert = styled.textarea`
-    width: 360px;
-    height: 120px;
-    margin-left: 4px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 0.825rem;
-    border: 1px solid #9cd6ff;
-    border-radius: 10px;
-`
 export const CommentWrapper = styled.div`
-    display: flex;
     text-align: left;
-    flex-direction: column;
-    width: 370px;
-
-    border: 1px solid  #9cd6ff;
-    box-shadow: 0px 5px 5px  #9cd6ff;
-    border-radius: 10px;
-    margin-top: 15px;
-    margin-bottom: 20px;
 `
 
-export const CommentUser = styled.div`
-    width: 360px;
-    height: 50px;
-    margin-left: 4px;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-size: 0.825rem;
-    border: 1px solid #9cd6ff;
-    border-radius: 10px;
+
+export const UserWrapper = styled.div`
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    margin: 13px 0px 0px 19px;
+
 `
 
-export const CommentInput = styled.textarea`
-    width: 360px;
-    height: 50px;
-    margin-left: 4px;
-    margin-top: 2px;
-    margin-bottom: 5px;
-    font-size: 0.825rem;
-    border: 1px solid #9cd6ff;
-    border-radius: 10px;
+export const UserInfoWrapper = styled.div`
+    display: flex;
+    text-align: center;
+    align-items: center;
 `
 
-export const CommentContents = styled.div`
+export const NickNameUser = styled.div`
+    color:  #7f7f7f;
+    margin: 0px 19px 0px 7px;
+`
+export const Comment = styled.div`
+    margin: 10px 15px 10px 19px;
+`
+
+
+export const UserHeader = styled.div`
+    color: #3ea083;
+    margin-left: 19px;
+`
+
+export const TimeWrapper = styled.div`
+    display: flex;
+    text-align: center;
+    margin-left: 11px;
+    margin-right: 20px;
+`
+
+
+
+export const Circle = styled.div`
+    background-color: #7f7f7f;
+    width: 5px;
+    height: 5px;
+    border-radius: 10px;
+    margin-top: 3px;
+`
+
+export const Time = styled.div`
+    margin-left: 6px;
+    color:  #7f7f7f;
+`
+export const FooterWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    font-size: 1.031rem;
+`
+
+export const SympathyWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 19px;
+`
+
+export const Sympathy = styled.div`
+    color:  #7f7f7f;
+    margin-left: 7px;
+`
+
+export const SirenWrapper = styled.div`
+    display: flex;
+    margin: 0px 18px 13px 0px;
 `

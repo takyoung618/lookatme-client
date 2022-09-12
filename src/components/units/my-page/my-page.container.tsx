@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import { message } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, SetStateAction, useState } from "react";
 import { useRecoilState } from "recoil";
 import { getUserInfo } from "../../../commons/libraries/getUserInfo";
 import { profileEditState } from "../../../commons/store";
@@ -78,6 +78,24 @@ export default function MyPageContainer() {
     setProfileEdit(true);
   };
 
+  // 후기 작성 모달
+  const [reviewModalIsOpen, setReviewModalIsOpen] = useState(false);
+  const [rate, setRate] = useState(0);
+  const [review, setReview] = useState("");
+  const [reviewIsActive, setReviewIsActive] = useState(false);
+
+  const onChangeRate = (rate: SetStateAction<number>) => {
+    setRate(rate);
+  };
+
+  const onChangeReview = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setReview(event.target.value);
+  };
+
+  const onClickReviewSubmit = () => {
+    // 리뷰 작성
+  };
+
   return (
     <>
       <Head>
@@ -100,6 +118,13 @@ export default function MyPageContainer() {
         UserInfo={UserInfo}
         profileEdit={profileEdit}
         onClickEditButton={onClickEditButton}
+        reviewModalIsOpen={reviewModalIsOpen}
+        setReviewModalIsOpen={setReviewModalIsOpen}
+        rate={rate}
+        onChangeRate={onChangeRate}
+        onChangeReview={onChangeReview}
+        reviewIsActive={reviewIsActive}
+        onClickReviewSubmit={onClickReviewSubmit}
       ></MyPagePresenter>
     </>
   );

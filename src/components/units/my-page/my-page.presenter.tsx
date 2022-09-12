@@ -1,72 +1,97 @@
 import * as S from "./my-page.styles";
-import { ImHeart } from "react-icons/im";
-import { AiOutlineClose, AiOutlineWechat } from "react-icons/ai";
-import { GrMoney } from "react-icons/gr";
-import { FaLeaf, FaUserEdit } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
-import { MdOutlineRateReview } from "react-icons/md";
+import { AiOutlineClose, AiFillPhone } from "react-icons/ai";
+import { FaHeartbeat } from "react-icons/fa";
+import { HiMail } from "react-icons/hi";
+import { BiWon } from "react-icons/bi";
+import { BsFillPersonFill } from "react-icons/bs";
 import { IMyPagePresenterProps } from "./my-page.types";
 import UpdateProfileContainer from "./update-profile/update-profile.container";
+import BasicButton from "../../commons/button";
 
 export default function MyPagePresenter(props: IMyPagePresenterProps) {
   return (
     <S.Wrapper>
       <S.ProfileWrapper>
-        <S.MyPageTitle>마이 페이지</S.MyPageTitle>
+        <S.MyPageTitle>마이페이지</S.MyPageTitle>
         {!props.profileEdit && (
           <>
-            <S.CategoryTitle>아이디</S.CategoryTitle>
-            <S.ProfileContents>
-              <HiOutlineMail
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  marginRight: "7px",
-                }}
-              />
-              {props.UserInfo?.fetchLoginUser.email}
-            </S.ProfileContents>
-            <S.CategoryTitle>닉네임</S.CategoryTitle>
-            <S.ProfileContents>
-              <FaLeaf
-                style={{
-                  width: "15px",
-                  height: "15px",
-                  color: "#74D579",
-                  marginRight: "7px",
-                }}
-              />
-              {props.UserInfo?.fetchLoginUser.nickname}
-            </S.ProfileContents>
-            <S.CategoryTitle>핸드폰 번호</S.CategoryTitle>
-            <S.ProfileContents>
-              {props.UserInfo?.fetchLoginUser.phone_number}
-            </S.ProfileContents>
-            <S.CategoryTitle>보유 포인트</S.CategoryTitle>
-            <S.ProfileContents>
-              <GrMoney style={{ marginRight: "10px" }} />
-              {props.UserInfo?.fetchLoginUser.point} P
-            </S.ProfileContents>
-            <S.ExpertButtonWrapper>
-              <S.ButtonRowWrapper>
-                <S.ExpertButton onClick={() => props.setModalIsOpen(true)}>
-                  <GrMoney style={{ marginRight: "10px" }} /> 충전하기
-                </S.ExpertButton>
-                <S.ExpertButton>
-                  <GrMoney style={{ marginRight: "10px" }} /> 환불하기
-                </S.ExpertButton>
-              </S.ButtonRowWrapper>
-              <S.ButtonRowWrapper>
-                <S.ExpertButton onClick={props.onClickEditButton}>
-                  <FaUserEdit style={{ marginRight: "7px" }} />
-                  프로필 수정
-                </S.ExpertButton>
-                <S.ExpertButton>
-                  <FaUserEdit style={{ marginRight: "7px" }} />
-                  비밀번호 변경
-                </S.ExpertButton>
-              </S.ButtonRowWrapper>
-            </S.ExpertButtonWrapper>
+            <S.ProfileContentsWrapper>
+              <S.ProfileBody>
+                <S.CategoryTitle>
+                  <HiMail
+                    style={{
+                      width: "25px",
+                      height: "23px",
+                      marginRight: "5px",
+                      color: "#808080",
+                    }}
+                  />
+                  아이디
+                </S.CategoryTitle>
+                <S.ProfileContents>
+                  {props.UserInfo?.fetchLoginUser.email}
+                </S.ProfileContents>
+              </S.ProfileBody>
+              <S.ProfileBody>
+                <S.CategoryTitle>
+                  <BsFillPersonFill
+                    style={{
+                      width: "25px",
+                      height: "23px",
+                      marginRight: "5px",
+                      color: "#808080",
+                    }}
+                  />
+                  닉네임
+                </S.CategoryTitle>
+                <S.ProfileContents>
+                  {props.UserInfo?.fetchLoginUser.nickname}
+                </S.ProfileContents>
+              </S.ProfileBody>
+              <S.ProfileBody>
+                <S.CategoryTitle>
+                  <AiFillPhone
+                    style={{
+                      width: "25px",
+                      height: "23px",
+                      marginRight: "5px",
+                      color: "#808080",
+                    }}
+                  />
+                  핸드폰
+                </S.CategoryTitle>
+                <S.ProfileContents>
+                  {props.UserInfo?.fetchLoginUser.phone_number}
+                </S.ProfileContents>
+              </S.ProfileBody>
+              <S.ProfileBody>
+                <S.CategoryTitle>
+                  <BiWon
+                    style={{
+                      width: "25px",
+                      height: "23px",
+                      marginRight: "5px",
+                      color: "#808080",
+                    }}
+                  />
+                  포인트
+                </S.CategoryTitle>
+                <S.ProfileContents>
+                  {props.UserInfo?.fetchLoginUser.point} P
+                </S.ProfileContents>
+              </S.ProfileBody>
+            </S.ProfileContentsWrapper>
+            <S.ButtonWrapper>
+              <BasicButton
+                title="충전하기"
+                onClick={() => props.setModalIsOpen(true)}
+              ></BasicButton>
+              <BasicButton title="환불하기"></BasicButton>
+              <BasicButton
+                title="수정하기"
+                onClick={props.onClickEditButton}
+              ></BasicButton>
+            </S.ButtonWrapper>
           </>
         )}
 
@@ -74,12 +99,21 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
       </S.ProfileWrapper>
 
       <S.ModalStyle isOpen={props.modalIsOpen}>
-        <S.ModalCloseButton onClick={() => props.setModalIsOpen(false)}>
-          <AiOutlineClose style={{ width: "20px", height: "20px" }} />
+        <S.ModalCloseButton>
+          <AiOutlineClose
+            style={{ width: "20px", height: "20px", cursor: "pointer" }}
+            onClick={() => props.setModalIsOpen(false)}
+          />
         </S.ModalCloseButton>
         <S.ModalTitle>
-          <GrMoney style={{ marginRight: "5px" }} /> 포인트 충전하기
-          <GrMoney style={{ marginLeft: "5px" }} />
+          <BiWon
+            style={{
+              marginRight: "7px",
+              border: "1px solid #fff",
+              borderRadius: "20px",
+            }}
+          />
+          포인트 충전하기
         </S.ModalTitle>
         <S.ModalSelect
           value={props.selected}
@@ -99,108 +133,100 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
         </S.ModalChargeButton>
       </S.ModalStyle>
 
+      <S.MyPageSubTitle>내 전문가</S.MyPageSubTitle>
       <S.CategoryWrapper>
-        <S.CategoryTitle>내 전문가</S.CategoryTitle>
         <S.ExpertWrapper>
           <S.ExpertBody>
             <S.ExpertPhoto></S.ExpertPhoto>
             <S.ExpertDetail>
-              <S.CategoryContents>이름 : </S.CategoryContents>
-              <S.CategoryContents>소개 : </S.CategoryContents>
-              <S.CategoryContents>상담 비용 : </S.CategoryContents>
+              <S.ProfileBody>
+                <S.CategoryTitle>이름</S.CategoryTitle>
+                <S.ProfileContents>김박사</S.ProfileContents>
+              </S.ProfileBody>
+              <S.ExpertDetailWrapper>
+                <S.CategoryTitle>소개</S.CategoryTitle>
+                <S.ProfileContents>
+                  내용내용내용내용내용내용내용내용내용내용내용내용
+                </S.ProfileContents>
+              </S.ExpertDetailWrapper>
+              <S.ProfileBody>
+                <S.CategoryTitle>비용</S.CategoryTitle>
+                <S.ProfileContents>10000원</S.ProfileContents>
+              </S.ProfileBody>
             </S.ExpertDetail>
           </S.ExpertBody>
 
           <S.ExpertButtonWrapper>
-            <S.ButtonRowWrapper>
-              <S.ExpertButton>
-                <AiOutlineWechat
-                  style={{
-                    width: "15px",
-                    height: "15px",
-                    marginRight: "7px",
-                  }}
-                />
-                상담하기
-              </S.ExpertButton>
-              <S.ExpertButton>
-                <MdOutlineRateReview
-                  style={{
-                    width: "15px",
-                    height: "15px",
-                    marginRight: "7px",
-                  }}
-                />
-                리뷰쓰기
-              </S.ExpertButton>
-            </S.ButtonRowWrapper>
-          </S.ExpertButtonWrapper>
-        </S.ExpertWrapper>
-
-        <S.ExpertWrapper>
-          <S.ExpertBody>
-            <S.ExpertPhoto></S.ExpertPhoto>
-            <S.ExpertDetail>
-              <S.CategoryContents>이름 : </S.CategoryContents>
-              <S.CategoryContents>소개 : </S.CategoryContents>
-              <S.CategoryContents>상담 비용 : </S.CategoryContents>
-            </S.ExpertDetail>
-          </S.ExpertBody>
-
-          <S.ExpertButtonWrapper>
-            <S.ButtonRowWrapper>
-              <S.ExpertButton>
-                <AiOutlineWechat
-                  style={{
-                    width: "15px",
-                    height: "15px",
-                    marginRight: "7px",
-                  }}
-                />
-                상담하기
-              </S.ExpertButton>
-              <S.ExpertButton>
-                <MdOutlineRateReview
-                  style={{
-                    width: "15px",
-                    height: "15px",
-                    marginRight: "7px",
-                  }}
-                />
-                리뷰쓰기
-              </S.ExpertButton>
-            </S.ButtonRowWrapper>
+            <BasicButton title="상담하기"></BasicButton>
+            <BasicButton
+              title="리뷰쓰기"
+              onClick={() => props.setReviewModalIsOpen(true)}
+            ></BasicButton>
           </S.ExpertButtonWrapper>
         </S.ExpertWrapper>
       </S.CategoryWrapper>
 
+      <S.ReviewModal isOpen={props.reviewModalIsOpen}>
+        <S.ReviewModalCloseButton>
+          <S.ReviewModalTitle>후기 작성하기</S.ReviewModalTitle>
+          <AiOutlineClose
+            style={{ width: "20px", height: "20px", cursor: "pointer" }}
+            onClick={() => props.setReviewModalIsOpen(false)}
+          />
+        </S.ReviewModalCloseButton>
+        <S.ModalBottomWrapper>
+          <S.ModalExpertBody>
+            <S.ExpertPhoto></S.ExpertPhoto>
+            <S.ModalExpertDetail>
+              <S.ModalExpertProfile>
+                <S.ModalExpertTitle>이름</S.ModalExpertTitle>
+                <S.ModalExpertContents>김박사</S.ModalExpertContents>
+              </S.ModalExpertProfile>
+              <S.ModalExpertProfile>
+                <S.ModalExpertTitle>소개</S.ModalExpertTitle>
+                <S.ModalExpertContents>
+                  내용내용내용내용내용내용내용내용내용내용내용내용내용
+                </S.ModalExpertContents>
+              </S.ModalExpertProfile>
+            </S.ModalExpertDetail>
+          </S.ModalExpertBody>
+
+          <S.ModalExpertBody>
+            <S.ReviewWrapper>
+              <S.ReviewRate
+                allowHalf
+                onChange={props.onChangeRate}
+              ></S.ReviewRate>
+              <S.ReviewContents
+                onChange={props.onChangeReview}
+              ></S.ReviewContents>
+            </S.ReviewWrapper>
+          </S.ModalExpertBody>
+          <S.ModalButtonWrapper>
+            <S.ModalReviewButton isActive={props.reviewIsActive}>
+              작성하기
+            </S.ModalReviewButton>
+          </S.ModalButtonWrapper>
+        </S.ModalBottomWrapper>
+      </S.ReviewModal>
+
+      <S.MyPageSubTitle>활동 기록</S.MyPageSubTitle>
+
+      <S.HistoryCategoryWrapper>
+        <S.HistoryButton>사연 목록</S.HistoryButton>
+        <S.HistoryButton>댓글 목록</S.HistoryButton>
+        <S.HistoryButton>공감 목록</S.HistoryButton>
+      </S.HistoryCategoryWrapper>
       <S.CategoryWrapper>
-        <S.CategoryTitle>활동 기록</S.CategoryTitle>
-        <S.HistoryCategoryWrapper>
-          <S.HistoryButton>사연 목록</S.HistoryButton>
-          <S.HistoryButton>댓글 목록</S.HistoryButton>
-          <S.HistoryButton>공감 목록</S.HistoryButton>
-        </S.HistoryCategoryWrapper>
         <S.HistoryBody>
-          <S.CategoryContents>
+          <S.HistoryContents>
             왜 자꾸 기분이 가라앉는지 모르겠어요...
-          </S.CategoryContents>
+          </S.HistoryContents>
           <S.HistoryInfoWrapper>
-            <ImHeart
-              style={{ width: "13px", height: "13px", color: "#F293A3" }}
+            <FaHeartbeat
+              style={{ width: "27px", height: "23px", color: "#73bea8" }}
             />
-            <S.HistoryInfo>1 명이 공감</S.HistoryInfo>
-          </S.HistoryInfoWrapper>
-        </S.HistoryBody>
-        <S.HistoryBody>
-          <S.CategoryContents>
-            왜 자꾸 기분이 가라앉는지 모르겠어요...
-          </S.CategoryContents>
-          <S.HistoryInfoWrapper>
-            <ImHeart
-              style={{ width: "13px", height: "13px", color: "#F293A3" }}
-            />
-            <S.HistoryInfo>1 명이 공감</S.HistoryInfo>
+            <S.HistoryInfo>1 명 공감</S.HistoryInfo>
           </S.HistoryInfoWrapper>
         </S.HistoryBody>
       </S.CategoryWrapper>

@@ -1,57 +1,49 @@
+import BasicButton from "../../../commons/button"
+import CommentWrite from "../../comment/write/CommentWrite.container"
 import * as S from "./CommunityDetail.styles"
-import {AiOutlineUser, AiOutlineClockCircle} from "react-icons/ai"
-import { ImHeart } from "react-icons/im";
-import {GiSiren} from "react-icons/gi"
-import CommentUI from "../../comment/write/CommentWrite.presenter";
-import CommentWriteContainer from "../../comment/write/CommentWrite.container";
 
-export default function CommunityDetailUi(props){
+export default function CommunityDetailUi(){
     return (
         <S.Wrapper>
-                <S.Title>상세 페이지</S.Title>
-            <S.DetailWrapper>
-                <S.HeaderWrapper>
-                    <S.Category>
-                        가족
-                    </S.Category>
-                    <S.InfoWrapper>
-                        <S.NicknameWrapper>
-                            <AiOutlineUser/>
-                            <S.NickName> {props.data?.fetchLoginUser.nickname}</S.NickName>
-                        </S.NicknameWrapper>
-                        <S.TimeWrapper>
-                            <AiOutlineClockCircle/>
-                            <S.Time>{props.data?.fetchStory.createAt}</S.Time>
-                        </S.TimeWrapper>
-                    </S.InfoWrapper>
-                </S.HeaderWrapper>
-                <S.ContentsWrapper>
-                    {props.data?.fetchStory.text}
-                </S.ContentsWrapper>
-                <S.FooterWrapper>
-                    <S.SympathyWrapper>
-                        <ImHeart
-                        style={{ width: "15px", height: "15px", color: "#F293A3" }}
-                        />
-                        <S.Sympathy>0명 공감</S.Sympathy>
-                    </S.SympathyWrapper>
-                    <GiSiren style={{ width: "25px", height: "25px", color: "red", marginRight: "9px", marginBottom: "5px"}}/>
-                </S.FooterWrapper>
-            </S.DetailWrapper>
+            <S.HeaderWrapper>
+                <S.TitleWrapper>
+                    <S.Title>
+                        가족 고민
+                    </S.Title>
+                    <S.TimeWrapper>
+                        <S.Circle></S.Circle>
+                        <S.Time>5분전</S.Time>
+                    </S.TimeWrapper>             
+                </S.TitleWrapper>
+                <S.NickNameWriter>닉네임</S.NickNameWriter>
+            </S.HeaderWrapper>
+            <S.TextBoxWrapper>
+                <S.TextTitle>고민이 너무 많습니다.</S.TextTitle>
+                <S.Text>내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들</S.Text>
+                </S.TextBoxWrapper>
+            <S.FooterWrapper>
+                <S.SympathyWrapper>
+                    <img src="/녹색하트.png"/>
+                    <S.Sympathy>0명 공감</S.Sympathy>
+                    <S.Comment>댓글 0개</S.Comment>
+                </S.SympathyWrapper>
+                <S.UserWrapper>
+                    <img src="/녹색유저.png"/>
+                    <S.NickNameUser>닉네임</S.NickNameUser>
+                </S.UserWrapper>
+            </S.FooterWrapper>
             <S.ButtonWrapper>
-                <S.Button onClick={props.onClickMoveToList}>
-                    목록으로
-                </S.Button>
-                <S.Button onClick={props.onClickMoveToEdit}>
-                    수정하기
-                </S.Button>
-                <S.Button onClick={props.onClickDeleteStory}>
-                    삭제하기
-                </S.Button>
+                <BasicButton title="목록으로"></BasicButton>
+                <BasicButton title="수정하기"></BasicButton>
+                <BasicButton title="삭제하기"></BasicButton>
             </S.ButtonWrapper>
-
-            <CommentWriteContainer/>
+            <S.CommentWrapper>
+                <S.CommentInput/>
+                <S.CommentButton>댓글작성</S.CommentButton>
+            </S.CommentWrapper>
             
+            <CommentWrite/>
         </S.Wrapper>
+        
     )
 }

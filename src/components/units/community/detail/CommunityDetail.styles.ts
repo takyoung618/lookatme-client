@@ -5,109 +5,135 @@ export const Wrapper = styled.div`
     display: flex;
     text-align: center;
     flex-direction: column;
+    width: 100%;
 `;
-
-export const Title = styled.div`
-    font-size: 1.6rem;
-    margin-top: 20px;
-    font-family: "MiceGodic";
-`;
-export const DetailWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 370px;
-    height: 447px;
-    border: 1px solid  #9cd6ff;
-    box-shadow: 0px 5px 5px  #9cd6ff;
-
-    margin-top: 20px;
-    border-radius: 10px;
-`
 
 export const HeaderWrapper = styled.div`
     display: flex;
-    height: 70px;
-    border-bottom: 3px dotted #9cd6ff;
+    align-items: center;
     justify-content: space-between;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid #c5c5c5;
+    border-bottom: 1px solid #c5c5c5;
+    background-color: #f5f5f5;
+    font-size: 1.031rem;
 `
 
-export const Category = styled.div`
-    margin-left: 15px;
-    margin-top: 12px;
-    font-size: 1rem;
-    font-weight: 400;
-`
-
-export const InfoWrapper = styled.div`
+export const TitleWrapper = styled.div`
     display: flex;
-    text-align: right;
-    flex-direction: column;
-    vertical-align: middle;
-    margin-right: 15px;
-    margin-bottom: 10px;
+    text-align: center;
+    margin-left: 19px;
 `
 
-export const NicknameWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-`
-
-export const NickName = styled.div`
-    font-size: 1rem;
-    font-weight: 500;
+export const Title = styled.div`
 `
 
 export const TimeWrapper = styled.div`
     display: flex;
-    flex-direction: row;
-    margin-top: 10px;
+    text-align: center;
+    margin-left: 11px;
+`
+
+
+
+export const Circle = styled.div`
+    background-color: #7f7f7f;
+    width: 5px;
+    height: 5px;
+    border-radius: 10px;
+    margin-top: 3px;
 `
 
 export const Time = styled.div`
-    font-size: 1rem;
-    font-weight: 500;
+    margin-left: 6px;
+    color:  #7f7f7f;
 `
 
-export const ContentsWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin-left: 0.8125rem;
+export const NickNameWriter = styled.div`
+    margin-right: 20px;
+`
+
+export const TextBoxWrapper = styled.div`
+    text-align: left;
+`
+
+export const TextTitle = styled.div`
+    margin: 20px 18px 0px 19px;
+`
+
+export const Text = styled.div`
+    margin: 20px 18px 20px 18px;
 `
 
 export const FooterWrapper = styled.div`
-    margin-top: 320px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    vertical-align: bottom;
-    
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid #c5c5c5;
+    border-bottom: 1px solid #c5c5c5;
+    background-color: #f5f5f5;
+    font-size: 1.031rem;
 `
+
 export const SympathyWrapper = styled.div`
     display: flex;
-    margin-left: 9px;
+    align-items: center;
+    margin-left: 19px;
 `
+
 export const Sympathy = styled.div`
-    margin-left: 5px;
+    color:  #7f7f7f;
+    margin-left: 7px;
+`
+
+export const Comment = styled.div`
+    margin-left: 10px;
+    color: gray;
+`
+
+export const UserWrapper = styled.div`
+    display: flex;
+    text-align: center;
+    align-items: center;
+`
+
+export const NickNameUser = styled.div`
+    color:  #7f7f7f;
+    margin: 0px 19px 0px 7px;
 `
 
 export const ButtonWrapper = styled.div`
-    margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    margin-top: 8px;
+    justify-content: space-around;
+    width: 56%;
+    margin-left: 80px;
 `
 
-export const Button = styled.button`
-    width: 100px;
-    height: 30px;
-    
-    background-color: #9cd6ff;
-    border: 1px solid #FCE4EC;
-    border-radius: 20px;
-    cursor: pointer;
-
-    :hover {
-    background-color: #6fe5ff;
-  }
+export const CommentWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 37px 0px 13px 0px;
 `
+
+export const CommentInput = styled.textarea`
+    background-color: #f5f5f5;
+    border: 1px solid #c5c5c5;
+    width: 58.5%;
+`
+
+export const CommentButton = styled.button`
+    width: 18.1%;
+    height: 39px;
+    background-color: #73bea8;
+    border: 1px solid #73bea8;
+    margin-left: 4px;
+    color: #fff;
+`
+
+
+
+

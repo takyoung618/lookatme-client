@@ -2,67 +2,91 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
     display: flex;
-    text-align: center;
     flex-direction: column;
+
+    width: 100%;
 `;
 
-export const ButtonWrapper = styled.div`
-    margin-top: 20px;
+export const FetchWrapper = styled.div`
+    height: 40px;
     display: flex;
-    justify-content: space-between;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #c5c5c5;
+    border-top: 1px solid #c5c5c5;
+    
 `
 
-export const Button = styled.button`
-    width: 120px;
-    height: 30px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1.2rem;
-
-
-    background-color: #e9e9e9;
-    border: 1px solid #FCE4EC;
-    cursor: pointer;
-
-    :hover {
-    background-color: #6fe5ff;
-  }
+export const Fetch = styled.div`
+    font-size: 0.938rem;
 `
 
 export const ListWrapper = styled.div`
-    display: flex;
-    width: 390px;
-    flex-direction: row;
-    border-bottom: 2px dotted #E5E7E9;
+    border-bottom: 1px dotted #c5c5c5;
+`
 
-    margin-top: 20px;
+export const SpecialistWrapper = styled.div`
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 16px 0px 18px 20px;
 `
 
 export const Image = styled.div`
-    width: 120px;
-    height: 120px;
-    background-color: #BDBDBD;
-    margin-bottom: 20px;
+    width: 87px;
+    height: 87px;
+    background-color: gray;
 `
 
-export const InfoWrapper = styled.div`
+export const ProfileWrapper = styled.div`
+    width: 60%;
+    display: flex;
     text-align: left;
-    margin-left: 30px;
+    flex-direction: column;
+    margin-left: 31px;
+`
+
+export const NameWrapper = styled.div`
+    display: flex;
+`
+
+export const NameTitle = styled.div`
+    font-weight: bold;
 `
 
 export const Name = styled.div`
-    font-size: 0.8125rem;
-    font-weight: 400;
+   margin-left: 14px;
 `
 
-export const Introduce = styled.div`
-    font-size: 0.8125rem;
-    font-weight: 400;
-    margin-top: 40px;
+export const IntroductionWrapper = styled.div`
+    display: flex;
+    margin-top: 7px;
+`
+
+export const IntroductionTitle = styled.div`
+    font-weight: bold;
+`
+
+export const Introduction = styled.div`
+    width: 80%;
+    margin-left: 14px;
+    
+    
+`
+
+export const PriceWrapper = styled.div`
+    display: flex;
+    margin-top: 7px;
+`
+export const PriceTitle = styled.div`
+    font-weight: bold;
 `
 
 export const Price = styled.div`
-    font-size: 0.8125rem;
-    font-weight: 400;
-    margin-top: 40px;
+    margin-left: 14px;
 `
+
+

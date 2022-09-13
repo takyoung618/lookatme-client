@@ -2,11 +2,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import * as S from "./main.styles";
+import { IMainUIProps } from "./main.types";
+import { getDate } from "../../../commons/libraries/utils";
 
-export default function MainUI() {
-  const list = [1, 2, 3, 4];
-  const title = ["전문가 상담", "커뮤니티", "마이페이지", "포스트잇"];
-
+export default function MainUI(props: IMainUIProps) {
   const settings = {
     speed: 500,
     arrows: false,
@@ -39,12 +38,22 @@ export default function MainUI() {
         </div>
       </Slider>
       <S.Category>
-        {list.map((el) => (
-          <div key={el}>
-            <img src={`/main/icon${el}.png`} />
-            <span>{`${title[el - 1]}`}</span>
-          </div>
-        ))}
+        <div onClick={props.onClickMoveToExpert}>
+          <img src="/main/icon1.png" />
+          <span>전문가 상담</span>
+        </div>
+        <div onClick={props.onClickMoveToCommunity}>
+          <img src="/main/icon2.png" />
+          <span>커뮤니티</span>
+        </div>
+        <div onClick={props.onClickMoveToMyPage}>
+          <img src="/main/icon3.png" />
+          <span>마이페이지</span>
+        </div>
+        <div onClick={props.onClickMoveToPostIt}>
+          <img src="/main/icon4.png" />
+          <span>포스트잇</span>
+        </div>
       </S.Category>
       <S.Reviews>
         <S.Title>베스트 사연</S.Title>
@@ -54,28 +63,19 @@ export default function MainUI() {
           slidesToShow={settings.slidesToShow}
           slidesToScroll={settings.slidesToScroll}
         >
-          <div>
-            <S.ReviewItem>
-              <S.ExpertName>오박사</S.ExpertName>
-              <S.ReviewCont>피카츄 주셔서 감사합니다~!!</S.ReviewCont>
+          {props.data?.fetchBestStories?.map((el) => (
+            <S.StoryItem key={el.id}>
+              <S.StoryTitle>{el.title}</S.StoryTitle>
+              <S.StoryCont>{el.text}</S.StoryCont>
               <S.UserProfile>
-                <S.NickName>지우</S.NickName>
-                <S.CreatedAt>22년 9월 12일</S.CreatedAt>
+                <S.NickName>{el.user.nickname}</S.NickName>
+                <S.CreatedAt>{getDate(el.createAt)}</S.CreatedAt>
               </S.UserProfile>
-              <S.MoveBtn>해당 전문가 보러 가기</S.MoveBtn>
-            </S.ReviewItem>
-          </div>
-          <div>
-            <S.ReviewItem>
-              <S.ExpertName>오박사</S.ExpertName>
-              <S.ReviewCont>피카츄 주셔서 감사합니다~!!</S.ReviewCont>
-              <S.UserProfile>
-                <S.NickName>지우</S.NickName>
-                <S.CreatedAt>22년 9월 12일</S.CreatedAt>
-              </S.UserProfile>
-              <S.MoveBtn>해당 전문가 보러 가기</S.MoveBtn>
-            </S.ReviewItem>
-          </div>
+              <S.MoveBtn id={el.id} onClick={props.onClickMoveToDetail}>
+                해당 사연 보러 가기
+              </S.MoveBtn>
+            </S.StoryItem>
+          ))}
         </Slider>
       </S.Reviews>
       <S.Experts>
@@ -89,30 +89,16 @@ export default function MainUI() {
           slidesToShow={settings.slidesToShow}
           slidesToScroll={settings.slidesToScroll}
         >
-          <div>
-            <S.ExpertsItem>
+          {props.SpecialListData?.fetchSpecialists?.map((el) => (
+            <S.ExpertsItem key={el.id}>
               <S.Shape>
                 <S.ItemImage src="/main/오박사.jpeg" />
               </S.Shape>
-              <h3>오박사</h3>
-              <S.Job>포켓몬 박사</S.Job>
-              <S.Carrier>
-                온갖 포켓몬을 30년간 연구해서 잘 알고 있습니다.
-              </S.Carrier>
+              <h3>{el.name}</h3>
+              <S.Job>{el.career}</S.Job>
+              <S.Carrier>{el.summary}</S.Carrier>
             </S.ExpertsItem>
-          </div>
-          <div>
-            <S.ExpertsItem>
-              <S.Shape>
-                <S.ItemImage src="/main/오박사.jpeg" />
-              </S.Shape>
-              <h3>오박사</h3>
-              <S.Job>포켓몬 박사</S.Job>
-              <S.Carrier>
-                온갖 포켓몬을 30년간 연구해서 잘 알고 있습니다.
-              </S.Carrier>
-            </S.ExpertsItem>
-          </div>
+          ))}
         </Slider>
       </S.Experts>
       <S.Buttons>
@@ -121,7 +107,7 @@ export default function MainUI() {
           <span>공지사항</span>
         </div>
         <div>
-          <S.FaqBtn></S.FaqBtn>
+          <S.FaqBtn onClick={props.onClickMoveToFAQ}></S.FaqBtn>
           <span>FAQ</span>
         </div>
       </S.Buttons>

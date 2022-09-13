@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
 export const Header = styled.div`
     font-size: 1.438rem;
     margin-top: 16px;
-    font-family: "MiceGodic";
 `;
 
 export const CategoryWrapper = styled.div`

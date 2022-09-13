@@ -137,6 +137,15 @@ export const ProfileBody = styled.div`
   padding: 5px 5px 0px 25px;
 `;
 
+export const PointBody = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 100%;
+  padding: 5px 5px 0px 25px;
+`;
+
 export const CategoryTitle = styled.div`
   display: flex;
   flex-direction: row;
@@ -157,6 +166,24 @@ export const ProfileContents = styled.div`
   width: 70%;
   font-size: 1.0625rem;
   padding: 5px 13px;
+`;
+
+export const PointContents = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 30%;
+  font-size: 1.0625rem;
+  padding: 5px 12px;
+`;
+
+export const PointButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 40%;
 `;
 
 export const MyPageSubTitle = styled.div`
@@ -231,15 +258,14 @@ export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
-  padding: 5px 50px;
+  width: 60%;
 `;
 
 export const ExpertButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px;
+  padding: 5px 2px;
   width: 55%;
 `;
 
@@ -386,7 +412,7 @@ export const HistoryCategoryWrapper = styled.div`
   justify-content: space-between;
 
   width: 100%;
-  padding: 10px 25px;
+  padding: 10px 20px;
   border-bottom: 1px dashed #c5c5c5;
   margin-bottom: 10px;
 `;

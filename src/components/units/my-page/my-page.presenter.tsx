@@ -7,13 +7,14 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { IMyPagePresenterProps } from "./my-page.types";
 import UpdateProfileContainer from "./update-profile/update-profile.container";
 import BasicButton from "../../commons/button";
+import PwdUpdateContainer from "./pwd-update/pwd-update.container";
 
 export default function MyPagePresenter(props: IMyPagePresenterProps) {
   return (
     <S.Wrapper>
       <S.ProfileWrapper>
         <S.MyPageTitle>마이페이지</S.MyPageTitle>
-        {!props.profileEdit && (
+        {!props.profileEdit && !props.pwdEdit && (
           <>
             <S.ProfileContentsWrapper>
               <S.ProfileBody>
@@ -64,7 +65,7 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
                   {props.UserInfo?.fetchLoginUser.phone_number}
                 </S.ProfileContents>
               </S.ProfileBody>
-              <S.ProfileBody>
+              <S.PointBody>
                 <S.CategoryTitle>
                   <BiWon
                     style={{
@@ -76,26 +77,34 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
                   />
                   포인트
                 </S.CategoryTitle>
-                <S.ProfileContents>
+                <S.PointContents>
                   {props.UserInfo?.fetchLoginUser.point} P
-                </S.ProfileContents>
-              </S.ProfileBody>
+                </S.PointContents>
+                <S.PointButtonWrapper>
+                  <BasicButton
+                    title="충전"
+                    onClick={() => props.setModalIsOpen(true)}
+                  ></BasicButton>
+                  <BasicButton title="환불"></BasicButton>
+                </S.PointButtonWrapper>
+              </S.PointBody>
             </S.ProfileContentsWrapper>
             <S.ButtonWrapper>
               <BasicButton
-                title="충전하기"
-                onClick={() => props.setModalIsOpen(true)}
-              ></BasicButton>
-              <BasicButton title="환불하기"></BasicButton>
-              <BasicButton
-                title="수정하기"
+                title="프로필수정"
                 onClick={props.onClickEditButton}
+              ></BasicButton>
+              <BasicButton
+                title="비밀번호수정"
+                onClick={props.onClickPwdButton}
               ></BasicButton>
             </S.ButtonWrapper>
           </>
         )}
 
         {props.profileEdit && <UpdateProfileContainer></UpdateProfileContainer>}
+
+        {props.pwdEdit && <PwdUpdateContainer></PwdUpdateContainer>}
       </S.ProfileWrapper>
 
       <S.ModalStyle isOpen={props.modalIsOpen}>

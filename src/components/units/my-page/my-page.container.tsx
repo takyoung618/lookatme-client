@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { ChangeEvent, SetStateAction, useState } from "react";
 import { useRecoilState } from "recoil";
 import { getUserInfo } from "../../../commons/libraries/getUserInfo";
-import { profileEditState } from "../../../commons/store";
+import { profileEditState, pwdEditState } from "../../../commons/store";
 import { IMutation } from "../../../commons/types/generated/types";
 import MyPagePresenter from "./my-page.presenter";
 import { CREATE_PAYMENT, FETCH_LOGIN_USER } from "./my-page.queries";
@@ -78,6 +78,13 @@ export default function MyPageContainer() {
     setProfileEdit(true);
   };
 
+  // 비밀번호 수정 버튼
+  const [pwdEdit, setPwdEdit] = useRecoilState(pwdEditState);
+
+  const onClickPwdButton = () => {
+    setPwdEdit(true);
+  };
+
   // 후기 작성 모달
   const [reviewModalIsOpen, setReviewModalIsOpen] = useState(false);
   const [rate, setRate] = useState(0);
@@ -118,6 +125,8 @@ export default function MyPageContainer() {
         UserInfo={UserInfo}
         profileEdit={profileEdit}
         onClickEditButton={onClickEditButton}
+        pwdEdit={pwdEdit}
+        onClickPwdButton={onClickPwdButton}
         reviewModalIsOpen={reviewModalIsOpen}
         setReviewModalIsOpen={setReviewModalIsOpen}
         rate={rate}

@@ -1,18 +1,15 @@
 import BasicButton from "../../../commons/button";
-import * as S from "./update-profile.styles";
-import { HiMail } from "react-icons/hi";
-import { BsFillPersonFill } from "react-icons/bs";
-import { IUpdateProfilePresenterProps } from "./update-profile.types";
+import * as S from "./pwd-update.styles";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { IPwdUpdatePresenterProps } from "./pwd-update.types";
 
-export default function UpdateProfilePresenter(
-  props: IUpdateProfilePresenterProps
-) {
+export default function PwdUpdatePresenter(props: IPwdUpdatePresenterProps) {
   return (
-    <form onSubmit={props.handleSubmit(props.onClickProfileEditButton)}>
+    <form onSubmit={props.handleSubmit(props.onClickPwdEditButton)}>
       <S.Wrapper>
         <S.ProfileBody>
           <S.CategoryTitle>
-            <HiMail
+            <RiLockPasswordFill
               style={{
                 width: "25px",
                 height: "23px",
@@ -20,34 +17,36 @@ export default function UpdateProfilePresenter(
                 color: "#808080",
               }}
             />
-            아이디
+            비밀번호
           </S.CategoryTitle>
           <S.EditInput
-            {...props.register("email")}
-            defaultValue={props.UserInfo?.fetchLoginUser.email}
-          ></S.EditInput>
-        </S.ProfileBody>
-        <S.ErrorMessage>{props.formState.errors.email?.message}</S.ErrorMessage>
-
-        <S.ProfileBody>
-          <S.CategoryTitle>
-            <BsFillPersonFill
-              style={{
-                width: "25px",
-                height: "23px",
-                marginRight: "5px",
-                color: "#808080",
-              }}
-            />
-            닉네임
-          </S.CategoryTitle>
-          <S.EditInput
-            {...props.register("nickname")}
-            defaultValue={props.UserInfo?.fetchLoginUser.nickname}
+            {...props.register("newPassword")}
+            type="password"
           ></S.EditInput>
         </S.ProfileBody>
         <S.ErrorMessage>
-          {props.formState.errors.nickname?.message}
+          {props.formState.errors.newPassword?.message}
+        </S.ErrorMessage>
+
+        <S.ProfileBody>
+          <S.CategoryTitle>
+            <RiLockPasswordFill
+              style={{
+                width: "25px",
+                height: "23px",
+                marginRight: "5px",
+                color: "#808080",
+              }}
+            />
+            비밀번호 확인
+          </S.CategoryTitle>
+          <S.EditInput
+            {...props.register("newPassword2")}
+            type="password"
+          ></S.EditInput>
+        </S.ProfileBody>
+        <S.ErrorMessage>
+          {props.formState.errors.newPassword2?.message}
         </S.ErrorMessage>
       </S.Wrapper>
 
@@ -57,7 +56,7 @@ export default function UpdateProfilePresenter(
           onClick={props.onClickBackButton}
           title="돌아가기"
         ></BasicButton>
-        <BasicButton type="submit" title="프로필 수정"></BasicButton>
+        <BasicButton type="submit" title="비밀번호 수정"></BasicButton>
       </S.ButtonWrapper>
     </form>
   );

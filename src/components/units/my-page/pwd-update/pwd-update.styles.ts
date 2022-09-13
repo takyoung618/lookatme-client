@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   height: 170px;
   background-color: #f5f5f5;
   border: 1px solid #c5c5c5;
-  padding: 10px 50px;
+  padding: 10px 30px;
   margin-bottom: 10px;
 `;
 
@@ -40,14 +40,14 @@ export const EditInput = styled.input`
   flex-direction: row;
   justify-content: flex-start;
 
-  width: 70%;
+  width: 50%;
   height: 30px;
   border: 2px solid #73c7a9;
 `;
 
 export const ErrorMessage = styled.div`
-  width: 70%;
-  margin-left: 43%;
+  width: 50%;
+  margin-left: 50%;
   color: red;
   font-size: 0.7rem;
   margin-bottom: 20px;

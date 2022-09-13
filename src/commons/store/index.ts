@@ -41,3 +41,8 @@ export const profileEditState = atom({
   key: "profileEditState",
   default: false,
 });
+
+export const pwdEditState = atom({
+  key: "pwdEditState",
+  default: false,
+});

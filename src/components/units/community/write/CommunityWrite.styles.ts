@@ -12,24 +12,32 @@ export const Header = styled.div`
     margin-top: 16px;
 `;
 
-export const CategoryWrapper = styled.div`
+export const CategoryWrapper = styled.select`
     width: 85.5%;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     height: 43px;
     background-color: #73bea8;
+    border: 1px solid #73bea8;
     border-radius: 20px;
+    font-size: 1.063;
+    color: #fff;
+    /* -webkit-appearance: none; */
+    /* -moz-appearance: none; */
+    /* appearance: none; */
+    /* background: url("/arrow.png/") no-repeat 95% 50%; */
 
     margin-top: 7px;
     margin-left: 25px;
+
+    ::-ms-expand {
+    display: none;
+  }
 `
 
-export const CategoryTitle = styled.div`
-    font-size: 1.063;
-    color: #fff;
+export const DropDown = styled.div`
 
-    margin: 15px 0px 0px 22px;
 `
 
 export const TitleWrapper = styled.div`

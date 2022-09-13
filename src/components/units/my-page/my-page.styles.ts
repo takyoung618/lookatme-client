@@ -265,8 +265,8 @@ export const ExpertButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5px 2px;
-  width: 55%;
+  padding: 5px 65px;
+  width: 100%;
 `;
 
 export const ReviewModal = styled(Modal)`

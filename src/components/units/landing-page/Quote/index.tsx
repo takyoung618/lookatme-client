@@ -1,6 +1,9 @@
+import { useQuery } from "@apollo/client";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
 import useScrollFadeIn from "../../../../commons/libraries/useScrollFadeIn";
+import { FETCH_SELECTED_QUOTE } from "./quote.queries";
 
 const ZoominOut = keyframes`
   from{
@@ -14,7 +17,7 @@ const ZoominOut = keyframes`
 const Container = styled.section`
   background-color: #f7f9f3;
   display: flex;
-  width: 100vw;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
@@ -58,6 +61,7 @@ const Button = styled.button`
 `;
 
 const ImageContainer = styled.div`
+  width: 100%;
   margin-bottom: 50px;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -68,41 +72,62 @@ const ImageContainer = styled.div`
   margin: 40px 0 50px 0;
 `;
 
-const HeaderBar = styled.div`
-  width: 100%;
-  height: 22px;
-  background-color: #73c0a9;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  border-top: 1px solid #73c0a9;
-`;
-
 const Quote = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.4rem;
-  line-height: 2.5;
-  padding: 0 30px 0 30px;
+  line-height: 2;
+
+  & div {
+    width: 100%;
+    height: 500px;
+    background: url("/landing/quote.png/") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem;
+  }
 `;
 
-export default function QuotePage() {
+const QuoteMessage = styled.span`
+  font-size: 1.2rem;
+`;
+
+const QuoteAuthor = styled.span`
+  font-size: 1.2rem;
+`;
+
+export default function QuoteUI() {
   const firstAnimated = useScrollFadeIn("up", 0.6, 0.5);
   const secondAnimated = useScrollFadeIn("up", 0.3, 0.7);
+  const thirdAnimated = useScrollFadeIn("up", 1, 0);
+
+  const router = useRouter();
+
+  const { data } = useQuery(FETCH_SELECTED_QUOTE);
+
+  const onClickMoveToMain = () => {
+    router.push("/main");
+  };
 
   return (
     <Container>
-      <HeaderBar></HeaderBar>
       <Wrapper>
         <Title {...firstAnimated}>오늘의 명언</Title>
         <ImageContainer>
           <Quote {...secondAnimated}>
-            다른 사람의 행동이 당신 마음의 평온을 깨트리도록 내버려 두지 마라
+            <div {...thirdAnimated}>
+              <QuoteMessage>{data?.fetchSelectedQuote?.message}</QuoteMessage>
+              <QuoteAuthor>by. {data?.fetchSelectedQuote?.author}</QuoteAuthor>
+            </div>
           </Quote>
-          <img src="/landing/icon.png" width={400} />
         </ImageContainer>
-        <Button>LOOK AT ME</Button>
+        <Button onClick={onClickMoveToMain}>LOOK AT ME</Button>
       </Wrapper>
     </Container>
   );

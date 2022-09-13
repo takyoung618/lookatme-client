@@ -1,7 +1,7 @@
 import { GiSiren } from "react-icons/gi";
 import * as S from "./adminMyPage.styles";
 
-export default function AdminMyPageUI() {
+export default function AdminMyPageUI(props) {
   return (
     <S.Wrapper>
       <S.InnerWrapper>
@@ -41,6 +41,8 @@ export default function AdminMyPageUI() {
           </S.ReportDetail>
         </S.Report>
       </S.InnerWrapper>
+      <button onClick={props.onClickStart}>명언 시작 버튼</button>
+      <button onClick={props.onClickStop}>명언 정지 버튼</button>
     </S.Wrapper>
   );
 }

@@ -1,17 +1,8 @@
 import * as S from "./community-list.styles";
-import { FaHeartbeat } from "react-icons/fa";
-import { BsFillPersonFill } from "react-icons/bs";
 import { ICommunityListPresenterProps } from "./community-list.types";
-
-const ButtonList = [
-  "전체",
-  "직업,진로",
-  "연애,결혼",
-  "대인관계",
-  "자아,성격",
-  "가족",
-  "자유주제",
-];
+import TimeList from "./time-list";
+import LikeList from "./like-list";
+import CommentList from "./comment-list";
 
 export default function CommunityListPresenter(
   props: ICommunityListPresenterProps
@@ -19,80 +10,71 @@ export default function CommunityListPresenter(
   return (
     <S.Wrapper>
       <S.ButtonWrapper>
-        {ButtonList.map((el) => (
-          <S.Button key={el}>{el}</S.Button>
-        ))}
+        <S.TotalButton onClick={props.onClickTotal} total={props.total}>
+          전체
+        </S.TotalButton>
+        <S.JobButton id="직업,진로" onClick={props.onClickJob} job={props.job}>
+          직업,진로
+        </S.JobButton>
+        <S.LoveButton
+          id="연애,결혼"
+          onClick={props.onClickLove}
+          love={props.love}
+        >
+          연애,결혼
+        </S.LoveButton>
+        <S.PersonButton
+          id="대인관계"
+          onClick={props.onClickPerson}
+          person={props.person}
+        >
+          대인관계
+        </S.PersonButton>
+        <S.MySelfButton
+          id="자아,성격"
+          onClick={props.onClickMySelf}
+          mySelf={props.mySelf}
+        >
+          자아,성격
+        </S.MySelfButton>
+        <S.FamilyButton
+          id="가족"
+          onClick={props.onClickFamily}
+          family={props.family}
+        >
+          가족
+        </S.FamilyButton>
+        <S.FreeButton
+          id="자유주제"
+          onClick={props.onClickFree}
+          free={props.free}
+        >
+          자유주제
+        </S.FreeButton>
       </S.ButtonWrapper>
 
       <S.FilterWrapper>
-        <S.FilterButton>시간순</S.FilterButton>
-        <S.FilterButton>좋아요순</S.FilterButton>
-        <S.FilterButton>댓글순</S.FilterButton>
+        <S.TimeFilterButton onClick={props.onClickTime} time={props.time}>
+          시간순
+        </S.TimeFilterButton>
+        <S.LikeFilterButton onClick={props.onClickLike} like={props.like}>
+          좋아요순
+        </S.LikeFilterButton>
+        <S.CommentFilterButton
+          onClick={props.onClickComment}
+          comment={props.comment}
+        >
+          댓글순
+        </S.CommentFilterButton>
       </S.FilterWrapper>
 
-      <S.BodyWrapper>
-        <S.Category>직업, 진로</S.Category>
-        <S.Title>취업을 어디로 해야 할까요?</S.Title>
-        <S.Contents>
-          취업을 어디로 해야 할지 너무 고민이에요. 답을 알려주세요!
-        </S.Contents>
-        <S.BodyBottomWrapper>
-          <S.ContentsInfo>
-            <S.LikeButton>
-              <FaHeartbeat
-                style={{
-                  width: "27px",
-                  height: "23px",
-                  color: "#73bea8",
-                  marginRight: "5px",
-                }}
-              />
-            </S.LikeButton>
-            <S.LikeInfo>0명 공감 댓글 0개</S.LikeInfo>
-          </S.ContentsInfo>
+      {props.time && <TimeList timeData={props.timeData}></TimeList>}
 
-          <S.UserInfo>
-            <S.UserProfile>
-              <BsFillPersonFill
-                style={{ width: "27px", height: "23px", color: "#73bea8" }}
-              />
-            </S.UserProfile>
-            <S.UserName>닉네임</S.UserName>
-          </S.UserInfo>
-        </S.BodyBottomWrapper>
-      </S.BodyWrapper>
+      {props.like && <LikeList likeData={props.likeData}></LikeList>}
 
-      <S.BodyWrapper>
-        <S.Category>직업, 진로</S.Category>
-        <S.Title>취업을 어디로 해야 할까요?</S.Title>
-        <S.Contents>
-          취업을 어디로 해야 할지 너무 고민이에요. 답을 알려주세요!
-        </S.Contents>
-        <S.BodyBottomWrapper>
-          <S.ContentsInfo>
-            <S.LikeButton>
-              <FaHeartbeat
-                style={{
-                  width: "27px",
-                  height: "23px",
-                  color: "#73bea8",
-                  marginRight: "5px",
-                }}
-              />
-            </S.LikeButton>
-            <S.LikeInfo>0명 공감 댓글 0개</S.LikeInfo>
-          </S.ContentsInfo>
-
-          <S.UserInfo>
-            <S.UserProfile>
-              <BsFillPersonFill
-                style={{ width: "27px", height: "23px", color: "#73bea8" }}
-              />
-            </S.UserProfile>
-            <S.UserName>닉네임닉네임닉네임</S.UserName>
-          </S.UserInfo>
-        </S.BodyBottomWrapper>
-      </S.BodyWrapper>
+      {props.comment && (
+        <CommentList commentData={props.commentData}></CommentList>
+      )}
 
       <S.WriteButtonWrapper>
         <S.WriteButton onClick={props.onClickWriteButton}>

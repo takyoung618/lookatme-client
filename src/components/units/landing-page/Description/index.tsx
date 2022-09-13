@@ -2,11 +2,12 @@ import styled from "@emotion/styled";
 import useScrollFadeIn from "../../../../commons/libraries/useScrollFadeIn";
 
 export default function Description() {
-  const firstAnimated = useScrollFadeIn("up", 1, 0);
-  const secondAnimated = useScrollFadeIn("up", 0.5, 0);
+  const firstAnimated = useScrollFadeIn("up", 0.6, 0.5);
+  const secondAnimated = useScrollFadeIn("up", 0.3, 0.7);
 
   const Container = styled.div`
-    width: 100vw;
+    width: 100%;
+    height: 100vh;
     background-color: #73c0a9;
     display: flex;
     flex-direction: column;

@@ -4,10 +4,11 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
 
-    width: 100%;
+    width: 106.5%;
 `;
 
 export const FetchWrapper = styled.div`
+    width: 106.5%;
     height: 40px;
     display: flex;
     text-align: center;
@@ -26,6 +27,7 @@ export const Fetch = styled.div`
 
 export const ListWrapper = styled.div`
     border-bottom: 1px dotted #c5c5c5;
+    width: 106.5%;
 `
 
 export const SpecialistWrapper = styled.div`
@@ -42,7 +44,7 @@ export const Image = styled.div`
 `
 
 export const ProfileWrapper = styled.div`
-    width: 60%;
+    width: 180px;
     display: flex;
     text-align: left;
     flex-direction: column;
@@ -68,13 +70,12 @@ export const IntroductionWrapper = styled.div`
 
 export const IntroductionTitle = styled.div`
     font-weight: bold;
+    width: 30px;
 `
 
 export const Introduction = styled.div`
-    width: 80%;
+    width: 140px;
     margin-left: 14px;
-    
-    
 `
 
 export const PriceWrapper = styled.div`

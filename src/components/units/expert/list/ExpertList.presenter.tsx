@@ -18,7 +18,7 @@ export default function ExpertListUi(){
                         </S.NameWrapper>
                         <S.IntroductionWrapper>
                             <S.IntroductionTitle>소개</S.IntroductionTitle>
-                            <S.Introduction>안녕하세요안녕하세요안녕하세요
+                            <S.Introduction>안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
                             </S.Introduction>
                         </S.IntroductionWrapper>
                         <S.PriceWrapper>

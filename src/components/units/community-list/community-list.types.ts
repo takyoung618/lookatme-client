@@ -24,6 +24,9 @@ export interface ICommunityListPresenterProps {
   timeData: Pick<IQuery, "fetchStoriesByTime"> | undefined;
   likeData: Pick<IQuery, "fetchStoriesByLike"> | undefined;
   commentData: Pick<IQuery, "fetchStoriesByComment"> | undefined;
+  FetchMoreTimeData: () => void;
+  FetchMoreLikeData: () => void;
+  FetchMoreCommentData: () => void;
   onClickWriteButton: () => void;
 }
 

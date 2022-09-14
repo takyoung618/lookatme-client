@@ -29,6 +29,7 @@ export default function CommunityListContainer() {
   const [like, setLike] = useState(false);
   const [comment, setComment] = useState(false);
 
+  // 시간순 query, 무한스크롤용 fetchMore
   const {
     data: timeData,
     refetch: timeRefetch,
@@ -38,6 +39,29 @@ export default function CommunityListContainer() {
     IQueryFetchStoriesByTimeArgs
   >(FETCH_STORIES_BY_TIME);
 
+  const FetchMoreTimeData = () => {
+    if (!timeData) return;
+
+    timeFetchMore({
+      variables: {
+        page: Math.ceil(timeData?.fetchStoriesByTime.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchStoriesByTime) {
+          return { fetchStoriesByTime: [...prev.fetchStoriesByTime] };
+        }
+
+        return {
+          fetchStoriesByTime: [
+            ...prev.fetchStoriesByTime,
+            ...fetchMoreResult.fetchStoriesByTime,
+          ],
+        };
+      },
+    });
+  };
+
+  // 좋아요순 query, 무한스크롤용 fetchMore
   const {
     data: likeData,
     refetch: likeRefetch,
@@ -47,6 +71,29 @@ export default function CommunityListContainer() {
     IQueryFetchStoriesByLikeArgs
   >(FETCH_STORIES_BY_LIKE);
 
+  const FetchMoreLikeData = () => {
+    if (!likeData) return;
+
+    likeFetchMore({
+      variables: {
+        page: Math.ceil(likeData?.fetchStoriesByLike.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchStoriesByLike) {
+          return { fetchStoriesByLike: [...prev.fetchStoriesByLike] };
+        }
+
+        return {
+          fetchStoriesByLike: [
+            ...prev.fetchStoriesByLike,
+            ...fetchMoreResult.fetchStoriesByLike,
+          ],
+        };
+      },
+    });
+  };
+
+  // 댓글순 query, 무한스크롤용 fetchMore
   const {
     data: commentData,
     refetch: commentRefetch,
@@ -55,6 +102,28 @@ export default function CommunityListContainer() {
     Pick<IQuery, "fetchStoriesByComment">,
     IQueryFetchStoriesByCommentArgs
   >(FETCH_STORIES_BY_COMMENT);
+
+  const FetchMoreCommentData = () => {
+    if (!commentData) return;
+
+    commentFetchMore({
+      variables: {
+        page: Math.ceil(commentData?.fetchStoriesByComment.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchStoriesByComment) {
+          return { fetchStoriesByComment: [...prev.fetchStoriesByComment] };
+        }
+
+        return {
+          fetchStoriesByComment: [
+            ...prev.fetchStoriesByComment,
+            ...fetchMoreResult.fetchStoriesByComment,
+          ],
+        };
+      },
+    });
+  };
 
   const onClickTotal = () => {
     timeRefetch({
@@ -259,8 +328,11 @@ export default function CommunityListContainer() {
       onClickComment={onClickComment}
       onClickWriteButton={onClickWriteButton}
       timeData={timeData}
+      FetchMoreTimeData={FetchMoreTimeData}
       likeData={likeData}
+      FetchMoreLikeData={FetchMoreLikeData}
       commentData={commentData}
+      FetchMoreCommentData={FetchMoreCommentData}
     ></CommunityListPresenter>
   );
 }

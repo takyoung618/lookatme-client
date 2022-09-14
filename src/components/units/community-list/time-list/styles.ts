@@ -5,6 +5,20 @@ export const BodyWrapper = styled.div`
   flex-direction: column;
 
   width: 100%;
+  height: 600px;
+  overflow: auto;
+`;
+
+export const MapWrapper = styled.div`
+  cursor: pointer;
+`;
+
+export const InfiniteScrollDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 1000px;
 `;
 
 export const Category = styled.div`

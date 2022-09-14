@@ -68,13 +68,28 @@ export default function CommunityListPresenter(
         </S.CommentFilterButton>
       </S.FilterWrapper>
 
-      {props.time && <TimeList timeData={props.timeData}></TimeList>}
+      <S.ListWrapper>
+        {props.time && (
+          <TimeList
+            timeData={props.timeData}
+            FetchMoreTimeData={props.FetchMoreTimeData}
+          ></TimeList>
+        )}
 
-      {props.like && <LikeList likeData={props.likeData}></LikeList>}
+        {props.like && (
+          <LikeList
+            likeData={props.likeData}
+            FetchMoreLikeData={props.FetchMoreLikeData}
+          ></LikeList>
+        )}
 
-      {props.comment && (
-        <CommentList commentData={props.commentData}></CommentList>
-      )}
+        {props.comment && (
+          <CommentList
+            commentData={props.commentData}
+            FetchMoreCommentData={props.FetchMoreCommentData}
+          ></CommentList>
+        )}
+      </S.ListWrapper>
 
       <S.WriteButtonWrapper>
         <S.WriteButton onClick={props.onClickWriteButton}>

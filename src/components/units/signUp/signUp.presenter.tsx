@@ -1,3 +1,4 @@
+import { printIntrospectionSchema } from "graphql";
 import BasicButton from "../../commons/button";
 import * as S from "./signUp.styles";
 import { ISignUpUIProps } from "./signUp.types";
@@ -49,7 +50,11 @@ export default function SignUpUI(props: ISignUpUIProps) {
               <S.Label>전화번호</S.Label>
               <S.PhoneWrapper>
                 <S.FrontNumber>010</S.FrontNumber>
-                <S.PhoneNumber type="text" {...props.register("phoneNumber")} />
+                <S.PhoneNumber
+                  type="text"
+                  {...props.register("phoneNumber")}
+                  placeholder="-를 빼고 입력해주세요"
+                />
                 <S.AuthButton onClick={props.onClickSendToken} type="button">
                   인증
                 </S.AuthButton>

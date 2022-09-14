@@ -9,4 +9,5 @@ export interface ISignUpUIProps {
   onClickCheckToken: (data: any) => Promise<void>;
   minutes: Number;
   seconds: Number;
+  isCheck: boolean;
 }

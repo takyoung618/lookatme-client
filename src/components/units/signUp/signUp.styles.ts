@@ -102,6 +102,7 @@ export const PhoneNumber = styled.input`
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   border: none;
+  padding-left: 10px;
 `;
 
 export const Footer = styled.div`

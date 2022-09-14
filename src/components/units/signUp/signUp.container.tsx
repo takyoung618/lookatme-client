@@ -49,6 +49,7 @@ const schema = yup.object({
 export default function SignUp() {
   const router = useRouter();
   const [valid, setValid] = useState(false);
+  const [isStart, setIsStart] = useState(false);
 
   const [createUser] = useMutation<
     Pick<IMutation, "createUser">,
@@ -67,27 +68,47 @@ export default function SignUp() {
   const token = watch("checkToken");
 
   const onClickSendToken = async (data: any) => {
+    if (phoneNumber === "010" || phoneNumber.includes("-") === true) {
+      Modal.error({
+        content: "핸드폰 번호를 입력해주세요",
+      });
+      return;
+    }
+
     try {
+      setMinutes(3);
+      setSeconds(0);
+      setIsStart(true);
       await sendTokenToSMS({
         variables: { phoneNumber },
       });
       Modal.success({ content: "인증번호를 전송하였습니다." });
-      setIsStart(true);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
 
   const onClickCheckToken = async (data: any) => {
-    const result = await checkToken({
-      variables: { token, phoneNumber },
-    });
-    if (!result.data?.checkToken) {
-      setValid(false);
-      Modal.error({ content: "인증번호가 일치하지 않습니다." });
-    } else {
-      setValid(true);
-      Modal.success({ content: "인증 완료" });
+    if (token === "") {
+      Modal.error({
+        content: "인증번호를 입력해주세요",
+      });
+      return;
+    }
+
+    try {
+      const result = await checkToken({
+        variables: { token, phoneNumber },
+      });
+      if (!result.data?.checkToken) {
+        setValid(false);
+        Modal.error({ content: "인증번호가 일치하지 않습니다." });
+      } else {
+        setValid(true);
+        Modal.success({ content: "인증 완료" });
+      }
+    } catch (error) {
+      if (error instanceof Error) Modal.error({ content: error.message });
     }
   };
 
@@ -122,11 +143,9 @@ export default function SignUp() {
   // 타이머
   const [minutes, setMinutes] = useState(3);
   const [seconds, setSeconds] = useState(0);
-  const [isStart, setIsStart] = useState(false);
 
   useEffect(() => {
     if (isStart === false) return;
-
     const countdown = setInterval(() => {
       if (Number(seconds) > 0) {
         setSeconds(Number(seconds) - 1);

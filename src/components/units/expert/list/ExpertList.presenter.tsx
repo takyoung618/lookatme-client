@@ -15,7 +15,7 @@ export default function ExpertListUi(props: IExpertListPresenterProps) {
           리뷰순
         </S.ReviewFilterButton>
         <S.PriceFilterButton price={props.price} onClick={props.onClickPrice}>
-          높은가격순
+          가격순
         </S.PriceFilterButton>
       </S.FetchWrapper>
       <S.ListWrapper>

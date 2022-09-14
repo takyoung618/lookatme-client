@@ -47,6 +47,12 @@ export default function CommunityListContainer() {
         page: Math.ceil(timeData?.fetchStoriesByTime.length / 10) + 1,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
+        if (prev.fetchStoriesByTime === undefined) {
+          return {
+            fetchStoriesByTime: [],
+          };
+        }
+
         if (!fetchMoreResult.fetchStoriesByTime) {
           return { fetchStoriesByTime: [...prev.fetchStoriesByTime] };
         }
@@ -79,6 +85,12 @@ export default function CommunityListContainer() {
         page: Math.ceil(likeData?.fetchStoriesByLike.length / 10) + 1,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
+        if (prev.fetchStoriesByLike === undefined) {
+          return {
+            fetchStoriesByLike: [],
+          };
+        }
+
         if (!fetchMoreResult.fetchStoriesByLike) {
           return { fetchStoriesByLike: [...prev.fetchStoriesByLike] };
         }
@@ -111,6 +123,12 @@ export default function CommunityListContainer() {
         page: Math.ceil(commentData?.fetchStoriesByComment.length / 10) + 1,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
+        if (prev.fetchStoriesByComment === undefined) {
+          return {
+            fetchStoriesByComment: [],
+          };
+        }
+
         if (!fetchMoreResult.fetchStoriesByComment) {
           return { fetchStoriesByComment: [...prev.fetchStoriesByComment] };
         }

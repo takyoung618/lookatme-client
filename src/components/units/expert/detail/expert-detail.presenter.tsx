@@ -9,45 +9,59 @@ export default function ExpertDetailPresenter(
   return (
     <S.Wrapper>
       <S.TopWrapper>
-        <S.TopLeft>
-          <S.LeftWrapper>
-            <S.InfoWrapper>
-              <S.LeftTitle>이름</S.LeftTitle>
-              <S.LeftContents>철수</S.LeftContents>
-            </S.InfoWrapper>
-            <S.InfoWrapper>
-              <S.LeftTitle>소개</S.LeftTitle>
-              <S.LeftContents>
-                내용내용내용내용내용내용내용내용내용내용
-              </S.LeftContents>
-            </S.InfoWrapper>
-          </S.LeftWrapper>
-        </S.TopLeft>
         <S.ExpertPhoto></S.ExpertPhoto>
+        <S.TopRight>
+          <S.RightWrapper>
+            <S.InfoWrapper>
+              <S.RightTitle>이름</S.RightTitle>
+              <S.RightContents>철수</S.RightContents>
+            </S.InfoWrapper>
+            <S.InfoWrapper>
+              <S.RightTitle>소개</S.RightTitle>
+              <S.RightContents>
+                내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+              </S.RightContents>
+            </S.InfoWrapper>
+            <S.InfoWrapper>
+              <S.RightTitle>비용</S.RightTitle>
+              <S.RightContents>1000원</S.RightContents>
+            </S.InfoWrapper>
+          </S.RightWrapper>
+        </S.TopRight>
       </S.TopWrapper>
       <S.ChatButton>상담 신청하기</S.ChatButton>
 
       <S.BottomWrapper>
         <S.CategoryWrapper>
-          <S.CategoryButton>소개</S.CategoryButton>
-          <S.CategoryButton>내용</S.CategoryButton>
-          <S.CategoryButton>후기</S.CategoryButton>
+          <S.CategoryTitle>소개</S.CategoryTitle>
+        </S.CategoryWrapper>
+        <S.ContentsWrapper>내용내용내용</S.ContentsWrapper>
+
+        <S.CategoryWrapper>
+          <S.CategoryTitle>내용</S.CategoryTitle>
+        </S.CategoryWrapper>
+        <S.ContentsWrapper>내용내용내용</S.ContentsWrapper>
+
+        <S.CategoryWrapper>
+          <S.CategoryTitle>후기</S.CategoryTitle>
         </S.CategoryWrapper>
         <S.ContentsWrapper>
-          <Rate
-            defaultValue={2}
-            disabled
-            style={{ marginBottom: "10px", color: "#73bea8" }}
-          />
-          내용내용내용
-        </S.ContentsWrapper>
-        <S.ContentsWrapper>
-          <Rate
-            defaultValue={2}
-            disabled
-            style={{ marginBottom: "10px", color: "#73bea8" }}
-          />
-          내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+          <S.ReviewWrapper>
+            <Rate
+              defaultValue={2}
+              disabled
+              style={{ marginBottom: "15px", color: "#73bea8" }}
+            />
+            내용내용내용
+          </S.ReviewWrapper>
+          <S.ReviewWrapper>
+            <Rate
+              defaultValue={2}
+              disabled
+              style={{ marginBottom: "15px", color: "#73bea8" }}
+            />
+            내용내용내용
+          </S.ReviewWrapper>
         </S.ContentsWrapper>
       </S.BottomWrapper>
 

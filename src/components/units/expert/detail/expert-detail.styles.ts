@@ -14,22 +14,24 @@ export const TopWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 90%;
-  padding: 20px 26px;
+  width: 95%;
+  padding: 20px 20px;
   margin-top: 16px;
   margin-bottom: 15px;
   background-color: #f5f5f5;
   border: 1px solid #c5c5c5;
 `;
 
-export const TopLeft = styled.div`
+export const TopRight = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   width: 67%;
+  padding-top: 10px;
 `;
 
-export const LeftWrapper = styled.div`
+export const RightWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -40,14 +42,14 @@ export const InfoWrapper = styled.div`
   margin-bottom: 10px;
 `;
 
-export const LeftTitle = styled.div`
+export const RightTitle = styled.div`
   font-size: 1.0625rem;
   font-weight: 700;
   padding: 0px 10px 0px 0px;
   width: 30%;
 `;
 
-export const LeftContents = styled.div`
+export const RightContents = styled.div`
   font-size: 1rem;
   font-weight: 500;
   width: 70%;
@@ -88,7 +90,7 @@ export const BottomWrapper = styled.div`
 export const CategoryWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   width: 100%;
@@ -98,15 +100,15 @@ export const CategoryWrapper = styled.div`
   border-bottom: 1px solid #c5c5c5;
 `;
 
-export const CategoryButton = styled.div`
+export const CategoryTitle = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
 
-  width: 30%;
-  font-size: 0.9375rem;
+  padding: 0px 15px;
+  font-size: 1.031rem;
   font-weight: 600;
-  cursor: pointer;
+  color: #00428d;
 `;
 
 export const ContentsWrapper = styled.div`
@@ -114,9 +116,18 @@ export const ContentsWrapper = styled.div`
   flex-direction: column;
 
   width: 100%;
-  border-bottom: 1px dashed #c5c5c5;
-  padding: 15px;
+  padding: 20px 15px;
   font-size: 0.9375rem;
+`;
+
+export const ReviewWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding: 0px 0px 15px 0px;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed #c5c5c5;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -125,5 +136,5 @@ export const ButtonWrapper = styled.div`
   justify-content: center;
 
   width: 100%;
-  margin: 20px 0px;
+  margin-bottom: 20px;
 `;

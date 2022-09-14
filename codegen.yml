@@ -1,4 +1,4 @@
-schema: https://x0ng120x.shop/graphql
+schema: https://lookatmeserver.shop/graphql
 generates:
   ./src/commons/types/generated/types.ts:
     plugins:

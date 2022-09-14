@@ -7,14 +7,10 @@ import {
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
 import { ReactNode, useEffect } from "react";
-import { useRecoilState, useRecoilValueLoadable } from "recoil";
+import { useRecoilState } from "recoil";
 
 import { onError } from "@apollo/client/link/error";
-import {
-  accessTokenState,
-  isLoadedState,
-  restoreAccessTokenLoadable,
-} from "../../../commons/store";
+import { accessTokenState, isLoadedState } from "../../../commons/store";
 import { getAccessToken } from "../../../commons/libraries/getAccessToken";
 
 const APOLLO_CACHE = new InMemoryCache();
@@ -61,7 +57,7 @@ export default function ApolloSetting(props: IApolloSettingProps) {
   });
 
   const uploadLink = createUploadLink({
-    uri: "https://x0ng120x.shop/graphql",
+    uri: "https://lookatmeserver.shop/graphql",
     headers: { Authorization: `Bearer ${accessToken}` },
     credentials: "include",
   });

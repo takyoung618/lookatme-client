@@ -18,7 +18,7 @@ export const ButtonWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 80vw;
+  width: 98vw;
   max-width: 414px;
   min-width: 320px;
 `;
@@ -94,6 +94,13 @@ export const LoginWrapper = styled.div`
 `;
 
 export const LoginButton = styled.div`
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #7f7f7f;
+  cursor: pointer;
+`;
+
+export const LoginLine = styled.div`
   font-size: 1.0625rem;
   font-weight: 600;
   color: #7f7f7f;

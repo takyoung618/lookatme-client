@@ -11,11 +11,11 @@ export default function FooterPresenter() {
         </S.TopWrapper>
 
         <S.BottomWrapper>
-          <S.BottomBody>사업자 등록번호 : 123-45-67890</S.BottomBody>
-          <S.BottomBody>통신판매업신고 : 제 2022-서울구로-00001호</S.BottomBody>
           <S.BottomBody>대표 : team 6</S.BottomBody>
+          <S.BottomBody>사업자 등록번호 : 123-45-67890</S.BottomBody>
           <S.BottomBody>주소 : 서울특별시 구로구 디지털로 300 13F</S.BottomBody>
-          <S.BottomBody>고객센터 : 1234-5678</S.BottomBody>
+          <S.BottomBody>통신판매업신고 : 제 2022-서울구로-00001호</S.BottomBody>
+          <S.CSBody>고객센터 : 1234-5678</S.CSBody>
           <S.BottomBody>
             (평일 09:00 ~ 18:00 / 점심시간 13:00~14:00)
           </S.BottomBody>

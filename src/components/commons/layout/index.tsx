@@ -10,6 +10,8 @@ interface ILayoutProps {
 
 const LANDING_PAGE = "/";
 
+const LIVE_CHATING_PAGE = "/live-chat";
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,16 +28,26 @@ export default function Layout(props: ILayoutProps) {
 
   const landingPage = LANDING_PAGE.includes(router.asPath);
 
+  const liveChatingPage = router.asPath.includes(LIVE_CHATING_PAGE);
+
   return (
     <>
-      {!landingPage && (
+      {!landingPage && !liveChatingPage && (
         <Wrapper>
           <HeaderContainer></HeaderContainer>
           <Body>{props.children}</Body>
           <FooterContainer></FooterContainer>
         </Wrapper>
       )}
+
       {landingPage && <div>{props.children}</div>}
+
+      {liveChatingPage && (
+        <Wrapper>
+          <HeaderContainer></HeaderContainer>
+          <Body>{props.children}</Body>
+        </Wrapper>
+      )}
     </>
   );
 }

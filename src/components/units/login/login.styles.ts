@@ -1,4 +1,6 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import BasicButton from "../../commons/button";
 
 export const Wrapper = styled.div`
   width: 335px;

@@ -1,3 +1,4 @@
+import BasicButton from "../../commons/button";
 import * as S from "./signUp.styles";
 import { ISignUpUIProps } from "./signUp.types";
 
@@ -47,16 +48,33 @@ export default function SignUpUI(props: ISignUpUIProps) {
             <S.InputWrapper>
               <S.Label>전화번호</S.Label>
               <S.PhoneWrapper>
-                <S.PhoneNumber
-                  type="number"
-                  {...props.register("phoneNumber")}
-                />
+                <S.FrontNumber>010</S.FrontNumber>
+                <S.PhoneNumber type="text" {...props.register("phoneNumber")} />
+                <S.AuthButton onClick={props.onClickSendToken} type="button">
+                  인증
+                </S.AuthButton>
               </S.PhoneWrapper>
               <S.Error>{props.formState.errors.phoneNumber?.message}</S.Error>
+              <S.TokenWrapper>
+                <S.Token type="text" {...props.register("checkToken")} />
+                <S.TokenTimer>
+                  {`${String(props.minutes).padStart(2, "0")} : ${String(
+                    props.seconds
+                  ).padStart(2, "0")}`}
+                </S.TokenTimer>
+
+                <button onClick={props.onClickCheckToken} type="button">
+                  인증 완료
+                </button>
+              </S.TokenWrapper>
             </S.InputWrapper>
           </S.Main>
           <S.Footer>
-            <button>회원가입</button>
+            <BasicButton
+              title={"회원가입"}
+              isBig
+              onClick={props.onClickSignUp}
+            />
           </S.Footer>
         </S.Wrapper>
       </form>

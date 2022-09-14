@@ -60,7 +60,7 @@ export default function HeaderPresenter(props: IHeaderPresenterProps) {
           <S.LoginButton onClick={props.onClickMoveToExpert}>
             전문가 로그인
           </S.LoginButton>
-          <S.LoginButton>|</S.LoginButton>
+          <S.LoginLine>|</S.LoginLine>
           <S.LoginButton onClick={props.onClickMoveToAdmin}>
             관리자 로그인
           </S.LoginButton>

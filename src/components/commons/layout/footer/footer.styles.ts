@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   align-items: center;
 
   width: 100vw;
-  padding: 26px 0px;
+  padding: 30px 0px;
   background-color: #f5f5f5;
 `;
 
@@ -24,12 +24,12 @@ export const FooterBody = styled.div`
 export const TopWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 
-  width: 80vw;
+  width: 100%;
   max-width: 414px;
   min-width: 320px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 `;
 
 export const FooterButton = styled.div`
@@ -43,10 +43,19 @@ export const BottomWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
+  width: 100%;
 `;
 
 export const BottomBody = styled.div`
   font-size: 0.8125rem;
   font-weight: 600;
-  padding: 2px 0px;
+  padding: 5px 0px;
+`;
+
+export const CSBody = styled.div`
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding-top: 15px;
+  padding-bottom: 5px;
 `;

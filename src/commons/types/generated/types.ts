@@ -88,6 +88,12 @@ export type ICreateSpecialistInput = {
   summary: Scalars['String'];
 };
 
+export type ICreateSpecialistReviewInput = {
+  rate: Scalars['Float'];
+  specialistId: Scalars['String'];
+  text: Scalars['String'];
+};
+
 export type ICreateStoryInput = {
   categoryName: Scalars['String'];
   imgUrl?: InputMaybe<Array<Scalars['String']>>;
@@ -124,6 +130,8 @@ export type IMutation = {
   createSpecialist: ISpecialist;
   /** 전문가 답변 등록 */
   createSpecialistComment: ISpecialistComment;
+  /** 전문가 후기 등록 */
+  createSpecialistReview: ISpecialistReview;
   /** 사연 등록 */
   createStory: IStory;
   createTicket: ITicket;
@@ -237,6 +245,11 @@ export type IMutationCreateSpecialistArgs = {
 
 export type IMutationCreateSpecialistCommentArgs = {
   createSpecialistCommentInput: ICreateSpecialistCommentInput;
+};
+
+
+export type IMutationCreateSpecialistReviewArgs = {
+  createSpecialistReviewInput: ICreateSpecialistReviewInput;
 };
 
 
@@ -433,8 +446,12 @@ export type IQuery = {
   fetchSelectedQuote: IQuote;
   /** 전문가 조회 */
   fetchSpecialist: ISpecialist;
+  /** 높은가격순 전문가 조회 */
+  fetchSpecialistByPrice: Array<ISpecialist>;
   /** 전문가 전체 목록 조회 */
   fetchSpecialists: Array<ISpecialist>;
+  /** 별점순 전문가 조회 */
+  fetchSpecialsitByRate: Array<ISpecialist>;
   /** 댓글순으로 사연 조회 */
   fetchStoriesByComment: Array<IStory>;
   /** 좋아요순으로 사연 조회 */
@@ -466,6 +483,16 @@ export type IQueryFetchQuoteArgs = {
 
 export type IQueryFetchSpecialistArgs = {
   id: Scalars['String'];
+};
+
+
+export type IQueryFetchSpecialistByPriceArgs = {
+  page?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type IQueryFetchSpecialsitByRateArgs = {
+  page?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -512,6 +539,7 @@ export type IQuote = {
 export type ISpecialist = {
   __typename?: 'Specialist';
   account: Scalars['String'];
+  averageRate: Scalars['Float'];
   career: Scalars['String'];
   id: Scalars['String'];
   imgUrl: Scalars['String'];

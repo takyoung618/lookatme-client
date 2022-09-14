@@ -14,7 +14,7 @@ export default function CommentList(props: ICommentListProps) {
   const router = useRouter();
 
   const onClickMoveToDetail = (commentList: IStory) => () => {
-    router.push(`/community/${commentList.id}`);
+    router.push(`/community/${commentList.id}/`);
   };
 
   return (

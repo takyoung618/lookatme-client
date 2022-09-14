@@ -10,7 +10,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  width: 100%;
+  max-width: 100%;
+  width: 100vw;
 `;
 
 export const FetchWrapper = styled.div`
@@ -55,13 +56,30 @@ export const PriceFilterButton = styled.div`
 
 export const ListWrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+  max-width: 100vw;
+  width: 100%;
+  height: 600px;
+  overflow: auto;
+`;
+
+export const MapWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 
   width: 100%;
-  border-bottom: 1px dotted #c5c5c5;
-  padding: 20px 5px;
+`;
+
+export const TopWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding: 20px 0px;
   cursor: pointer;
 `;
 
@@ -69,15 +87,15 @@ export const Image = styled.div`
   width: 25%;
   height: 100px;
   background-color: gray;
-  margin-left: 2%;
+  margin-left: 3%;
 `;
 
 export const ProfileWrapper = styled.div`
-  width: 75%;
+  width: 70%;
   display: flex;
   text-align: left;
   flex-direction: column;
-  padding-left: 20px;
+  padding-left: 5%;
 `;
 
 export const NameWrapper = styled.div`
@@ -88,13 +106,13 @@ export const NameWrapper = styled.div`
 export const NameTitle = styled.div`
   font-size: 1.0625rem;
   font-weight: 700;
-  width: 30%;
+  width: 15%;
 `;
 
 export const Name = styled.div`
   font-size: 1rem;
   font-weight: 500;
-  width: 70%;
+  width: 85%;
 `;
 
 export const IntroductionWrapper = styled.div`
@@ -105,13 +123,13 @@ export const IntroductionWrapper = styled.div`
 export const IntroductionTitle = styled.div`
   font-size: 1.0625rem;
   font-weight: 700;
-  width: 30%;
+  width: 15%;
 `;
 
 export const Introduction = styled.div`
   font-size: 1rem;
   font-weight: 500;
-  width: 70%;
+  width: 85%;
 `;
 
 export const PriceWrapper = styled.div`
@@ -122,12 +140,27 @@ export const PriceWrapper = styled.div`
 export const PriceTitle = styled.div`
   font-size: 1.0625rem;
   font-weight: 700;
-  padding: 0px 10px 0px 0px;
-  width: 30%;
+  width: 15%;
 `;
 
 export const Price = styled.div`
   font-size: 1rem;
   font-weight: 500;
-  width: 70%;
+  width: 85%;
+`;
+
+export const BottomWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 100%;
+  padding: 10px;
+  height: 40px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #c5c5c5;
+  border-bottom: 1px solid #c5c5c5;
+  font-size: 0.9375rem;
+  color: #7f7f7f;
+  font-weight: 500;
 `;

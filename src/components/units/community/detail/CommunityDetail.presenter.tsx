@@ -1,5 +1,6 @@
 import BasicButton from "../../../commons/button"
 import CommentWrite from "../../comment/write/CommentWrite.container"
+import { getDate } from "../../../../../src/commons/libraries/utils";
 import * as S from "./CommunityDetail.styles"
 
 export default function CommunityDetailUi(props){
@@ -12,7 +13,7 @@ export default function CommunityDetailUi(props){
                     </S.Title>
                     <S.TimeWrapper>
                         <S.Circle></S.Circle>
-                        <S.Time>{props.data?.fetchStory.createAt}</S.Time>
+                        <S.Time>{getDate(props.data?.fetchStory.createAt)}</S.Time>
                     </S.TimeWrapper>             
                 </S.TitleWrapper>
                 <S.NickNameWriter>{props.data?.fetchStory.user.nickname}</S.NickNameWriter>

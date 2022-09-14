@@ -4,18 +4,20 @@ import { gql } from "@apollo/client"
 
 export const FETCH_STORY = gql`
     query fetchStory($storyId: String!){
-        id
-        likes
-        commentCounts
-        title
-        text
-        createAt
-        user {
-            nickname
-        }
-        category {
-            name
-        }
+        fetchStory(storyId: $storyId){
+            id
+            likes
+            commentCounts
+            title
+            text
+            createAt
+            user {
+                nickname
+            }
+            category {
+                name
+            }
+        }   
     }
 `
 

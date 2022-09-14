@@ -14,7 +14,7 @@ export default function CommunityDetail() {
     Pick<IQuery, "fetchStory">,
     IQueryFetchStoryArgs
     >(FETCH_STORY, {
-        variables: { storyId: router.query.communityId },
+        variables:  {storyId: String(router.query.communityId)}
     });
 
     const [deleteOwnStory] = useMutation<

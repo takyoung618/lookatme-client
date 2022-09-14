@@ -5,4 +5,8 @@ export interface ISignUpUIProps {
   handleSubmit: UseFormReturn["handleSubmit"];
   formState: UseFormReturn["formState"];
   onClickSignUp: (data: any) => Promise<void>;
+  onClickSendToken: (data: any) => Promise<void>;
+  onClickCheckToken: (data: any) => Promise<void>;
+  minutes: Number;
+  seconds: Number;
 }

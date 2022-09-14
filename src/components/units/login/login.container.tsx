@@ -11,7 +11,7 @@ import {
   IMutation,
   IMutationLoginArgs,
 } from "../../../commons/types/generated/types";
-import { message, Modal } from "antd";
+import { Modal } from "antd";
 import "antd/dist/antd.css";
 import { getUserInfo } from "../../../commons/libraries/getUserInfo";
 

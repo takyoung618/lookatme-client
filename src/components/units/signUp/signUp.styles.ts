@@ -80,6 +80,20 @@ export const PhoneWrapper = styled.div`
   width: 345px;
 `;
 
+export const FrontNumber = styled.div`
+  width: 100px;
+  height: 48px;
+  background: #f6f6f6;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+`;
+
 export const PhoneNumber = styled.input`
   width: 345px;
   height: 48px;
@@ -90,84 +104,6 @@ export const PhoneNumber = styled.input`
   border: none;
 `;
 
-export const Zipcode = styled.input`
-  width: 140px;
-  height: 48px;
-  margin: 0 8px 8px 0;
-  background: #f6f6f6;
-  border-radius: 4px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-  border: none;
-  padding-left: 10px;
-`;
-
-export const SearchButton = styled.button`
-  width: 79px;
-  height: 40px;
-  border-radius: 40px;
-  padding: 12px 14px;
-  background-color: #000000;
-  color: white;
-  border: none;
-  cursor: pointer;
-`;
-
-export const HeightWrapper = styled.div`
-  display: flex;
-  width: 345px;
-  align-items: center;
-  margin-bottom: 5px;
-  border: none;
-`;
-
-export const HeightInput = styled.input`
-  width: 345px;
-  height: 48px;
-  margin-left: 8px;
-  background: #f6f6f6;
-  border-radius: 4px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-  border: none;
-  padding-left: 10px;
-  letter-spacing: 0.02cm;
-`;
-
-export const GenderWrapper = styled.div`
-  width: 200px;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding-top: 20px;
-
-  & input[type="radio"] {
-    display: none;
-  }
-
-  & input[type="radio"] + label {
-    display: inline-block;
-    cursor: pointer;
-    height: 24px;
-    width: 90px;
-    border: 1px solid #333;
-    border-radius: 15px;
-    line-height: 24px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 13px;
-  }
-
-  & input[type="radio"] + label {
-    background-color: #fff;
-    color: #333;
-  }
-
-  & input[type="radio"]:checked + label {
-    background-color: #333;
-    color: #fff;
-  }
-`;
-
 export const Footer = styled.div`
   & button {
     width: 333px;
@@ -176,10 +112,9 @@ export const Footer = styled.div`
     padding: 12px 14px;
     background-color: #9cd6ff;
     border-radius: 40px;
-    margin-top: 32px;
+    margin: 30px auto;
     color: white;
     border: none;
-    margin-bottom: 30px;
     cursor: pointer;
     :hover {
       background-color: #6fe5ff;
@@ -187,29 +122,56 @@ export const Footer = styled.div`
   }
 `;
 
-export const Address = styled.input`
-  width: 345px;
-  height: 48px;
-  background: #f6f6f6;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-  border: none;
-  margin-bottom: 10px;
-`;
-
-export const AddressDetail = styled.input`
-  width: 345px;
-  height: 48px;
-  background: #f6f6f6;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-  border: none;
-`;
-
 export const Error = styled.div`
   padding-top: 10px;
   font-size: 14px;
   color: red;
+`;
+
+export const AuthButton = styled.button`
+  width: 100px;
+  border: none;
+  background: #73c7a9;
+  cursor: pointer;
+  color: white;
+`;
+
+export const TokenWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 345px;
+  margin-top: 30px;
+
+  & button {
+    width: 100px;
+    border: none;
+    background: #73c7a9;
+    cursor: pointer;
+    color: white;
+  }
+`;
+
+export const Token = styled.input`
+  width: 240px;
+  height: 48px;
+  background: #f6f6f6;
+  /* box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.2); */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: none;
+`;
+
+export const TokenTimer = styled.div`
+  width: 100px;
+  height: 48px;
+  background: #f6f6f6;
+  /* box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2); */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #73c7a9;
 `;

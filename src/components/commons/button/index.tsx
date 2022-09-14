@@ -1,6 +1,7 @@
 interface IBasicButtonProps {
   title: String;
   onClick: () => void;
+  isBig: Boolean;
 }
 
 export default function BasicButton(props: IBasicButtonProps) {
@@ -18,7 +19,7 @@ export default function BasicButton(props: IBasicButtonProps) {
         backgroundColor: "#73bea8",
         color: "#fff",
         borderRadius: "13px",
-        height: "30px",
+        height: props.isBig ? "50px" : "30px",
         cursor: "pointer",
       }}
       onClick={props.onClick}

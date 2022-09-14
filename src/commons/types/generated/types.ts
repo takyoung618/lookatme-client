@@ -435,20 +435,14 @@ export type IQuery = {
   fetchSpecialist: ISpecialist;
   /** 전문가 전체 목록 조회 */
   fetchSpecialists: Array<ISpecialist>;
-
-  /** 사연 전체 목록 조회 */
-  fetchStories: Array<IStory>;
-
   /** 댓글순으로 사연 조회 */
   fetchStoriesByComment: Array<IStory>;
   /** 좋아요순으로 사연 조회 */
   fetchStoriesByLike: Array<IStory>;
   /** 시간순으로 사연 조회 */
   fetchStoriesByTime: Array<IStory>;
-
   /** ID로 사연 조회 */
   fetchStory: IStory;
-
   /** 이메일로 회원 조회 */
   fetchUserWithEmail: IUser;
   /** 전화번호로 회원 조회 */
@@ -495,28 +489,6 @@ export type IQueryFetchStoriesByTimeArgs = {
 
 export type IQueryFetchStoryArgs = {
   storyId: Scalars['String'];
-}
-
-export type IQueryFetchStoriesArgs = {
-  page?: InputMaybe<Scalars['Float']>;
-};
-
-
-export type IQueryFetchStoriesByCommentArgs = {
-  categoryName: Scalars['String'];
-  page?: InputMaybe<Scalars['Float']>;
-};
-
-
-export type IQueryFetchStoriesByLikeArgs = {
-  categoryName: Scalars['String'];
-  page?: InputMaybe<Scalars['Float']>;
-};
-
-
-export type IQueryFetchStoriesByTimeArgs = {
-  categoryName: Scalars['String'];
-  page?: InputMaybe<Scalars['Float']>;
 };
 
 

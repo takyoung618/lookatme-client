@@ -200,6 +200,7 @@ export const FreeButton = styled.div`
 export const FilterWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 
   background-color: #f5f5f5;
@@ -207,11 +208,10 @@ export const FilterWrapper = styled.div`
   border-bottom: 1px solid #c5c5c5;
   width: 100%;
   height: 40px;
-  padding: 10px;
+  padding: 10px 5%;
 `;
 
 export const TimeFilterButton = styled.div`
-  width: 28%;
   font-size: 0.9375rem;
   font-weight: ${(props: ITimeButtonProps) => (props.time ? "900" : "600")};
   text-decoration: ${(props: ITimeButtonProps) => props.time && "underline"};
@@ -221,7 +221,6 @@ export const TimeFilterButton = styled.div`
 `;
 
 export const LikeFilterButton = styled.div`
-  width: 28%;
   font-size: 0.9375rem;
   font-weight: ${(props: ILikeButtonProps) => (props.like ? "900" : "600")};
   text-decoration: ${(props: ILikeButtonProps) => props.like && "underline"};
@@ -231,7 +230,6 @@ export const LikeFilterButton = styled.div`
 `;
 
 export const CommentFilterButton = styled.div`
-  width: 28%;
   font-size: 0.9375rem;
   font-weight: ${(props: ICommentButtonProps) =>
     props.comment ? "900" : "600"};

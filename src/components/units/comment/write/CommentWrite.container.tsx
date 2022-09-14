@@ -1,9 +1,9 @@
 import CommentWriteUI from "./CommentWrite.presenter";
 
-export default function CommentWrite(){
+export default function CommentWrite() {
 
     return (
-        <CommentWriteUI
+        <CommentWriteUI    
         />
     )
 }

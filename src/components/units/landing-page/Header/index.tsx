@@ -3,7 +3,7 @@ import useScrollFadeIn from "../../../../commons/libraries/useScrollFadeIn";
 
 const Container = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   border: 0.1px solid transparent;
   background-image: url("/landing/background.jpg");
   background-size: cover;
@@ -40,18 +40,30 @@ const Title = styled.span`
       bottom: 100px;
       font-size: 2.4rem;
     }
+
+    @media (min-width: 1000px) {
+      bottom: -100px;
+    }
   }
 `;
 
 const MouseImage = styled.div`
   width: 4rem;
   height: 4rem;
-  position: absolute;
-  left: 45%;
-  bottom: 0;
+  margin: 0 auto;
+  position: relative;
+  bottom: 30px;
   animation: mouseMove 0.7s ease-in 0s infinite alternate none running;
   background-image: url("/landing/mouse.png");
   background-size: cover;
+
+  @media (min-width: 390px) {
+    bottom: -150px;
+  }
+
+  @media (min-width: 1000px) {
+    bottom: -300px;
+  }
 
   @keyframes mouseMove {
     from {

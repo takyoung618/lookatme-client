@@ -1,10 +1,13 @@
 import styled from "@emotion/styled";
 import Description from "./Description";
 import Header from "./Header";
-import QuotePage from "./Quote";
+import QuoteUI from "./Quote";
 
 const Body = styled.div`
+  min-width: 320px;
+  max-width: 414px;
   height: 100vh;
+  margin: 0 auto;
   overflow-x: hidden;
   overflow-y: scroll;
   scrollbar-width: none;
@@ -21,7 +24,7 @@ export default function Landing() {
     <Body>
       <Header />
       <Description />
-      <QuotePage />
+      <QuoteUI />
     </Body>
   );
 }

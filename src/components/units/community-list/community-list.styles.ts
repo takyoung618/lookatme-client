@@ -1,4 +1,17 @@
 import styled from "@emotion/styled";
+import {
+  ICommentButtonProps,
+  ICommunityListUIProps,
+  IFamilyButtonProps,
+  IFreeButtonProps,
+  IJobButtonProps,
+  ILikeButtonProps,
+  ILoveButtonProps,
+  IMySelfButtonProps,
+  IPersonButtonProps,
+  ITimeButtonProps,
+  ITotalButtonProps,
+} from "./community-list.types";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -23,7 +36,7 @@ export const ButtonWrapper = styled.div`
   }
 `;
 
-export const Button = styled.div`
+export const TotalButton = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -32,7 +45,148 @@ export const Button = styled.div`
   color: rgba(42, 47, 61, 0.64);
   font-size: 1.0625rem;
   font-weight: 600;
-  background-color: #f5f7fa;
+  background-color: ${(props: ITotalButtonProps) =>
+    props.total ? "#73bea8" : "#f5f7fa"};
+  color: ${(props: ITotalButtonProps) =>
+    props.total ? "#fff" : "rgba(42, 47, 61, 0.64)"};
+  border-radius: 18px;
+  padding: 15px;
+  cursor: pointer;
+
+  :hover {
+    background-color: #73bea8;
+    color: #fff;
+  }
+`;
+
+export const JobButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  color: rgba(42, 47, 61, 0.64);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  background-color: ${(props: IJobButtonProps) =>
+    props.job ? "#73bea8" : "#f5f7fa"};
+  color: ${(props: IJobButtonProps) =>
+    props.job ? "#fff" : "rgba(42, 47, 61, 0.64)"};
+  border-radius: 18px;
+  padding: 15px;
+  cursor: pointer;
+
+  :hover {
+    background-color: #73bea8;
+    color: #fff;
+  }
+`;
+
+export const LoveButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  color: rgba(42, 47, 61, 0.64);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  background-color: ${(props: ILoveButtonProps) =>
+    props.love ? "#73bea8" : "#f5f7fa"};
+  color: ${(props: ILoveButtonProps) =>
+    props.love ? "#fff" : "rgba(42, 47, 61, 0.64)"};
+  border-radius: 18px;
+  padding: 15px;
+  cursor: pointer;
+
+  :hover {
+    background-color: #73bea8;
+    color: #fff;
+  }
+`;
+
+export const PersonButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  color: rgba(42, 47, 61, 0.64);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  background-color: ${(props: IPersonButtonProps) =>
+    props.person ? "#73bea8" : "#f5f7fa"};
+  color: ${(props: IPersonButtonProps) =>
+    props.person ? "#fff" : "rgba(42, 47, 61, 0.64)"};
+  border-radius: 18px;
+  padding: 15px;
+  cursor: pointer;
+
+  :hover {
+    background-color: #73bea8;
+    color: #fff;
+  }
+`;
+
+export const MySelfButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  color: rgba(42, 47, 61, 0.64);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  background-color: ${(props: IMySelfButtonProps) =>
+    props.mySelf ? "#73bea8" : "#f5f7fa"};
+  color: ${(props: IMySelfButtonProps) =>
+    props.mySelf ? "#fff" : "rgba(42, 47, 61, 0.64)"};
+  border-radius: 18px;
+  padding: 15px;
+  cursor: pointer;
+
+  :hover {
+    background-color: #73bea8;
+    color: #fff;
+  }
+`;
+
+export const FamilyButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  color: rgba(42, 47, 61, 0.64);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  background-color: ${(props: IFamilyButtonProps) =>
+    props.family ? "#73bea8" : "#f5f7fa"};
+  color: ${(props: IFamilyButtonProps) =>
+    props.family ? "#fff" : "rgba(42, 47, 61, 0.64)"};
+  border-radius: 18px;
+  padding: 15px;
+  cursor: pointer;
+
+  :hover {
+    background-color: #73bea8;
+    color: #fff;
+  }
+`;
+
+export const FreeButton = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  color: rgba(42, 47, 61, 0.64);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  background-color: ${(props: IFreeButtonProps) =>
+    props.free ? "#73bea8" : "#f5f7fa"};
+  color: ${(props: IFreeButtonProps) =>
+    props.free ? "#fff" : "rgba(42, 47, 61, 0.64)"};
   border-radius: 18px;
   padding: 15px;
   cursor: pointer;
@@ -56,10 +210,35 @@ export const FilterWrapper = styled.div`
   padding: 10px;
 `;
 
-export const FilterButton = styled.div`
+export const TimeFilterButton = styled.div`
   width: 28%;
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: ${(props: ITimeButtonProps) => (props.time ? "900" : "600")};
+  text-decoration: ${(props: ITimeButtonProps) => props.time && "underline"};
+  text-underline-position: ${(props: ITimeButtonProps) =>
+    props.time && "under"};
+  cursor: pointer;
+`;
+
+export const LikeFilterButton = styled.div`
+  width: 28%;
+  font-size: 0.9375rem;
+  font-weight: ${(props: ILikeButtonProps) => (props.like ? "900" : "600")};
+  text-decoration: ${(props: ILikeButtonProps) => props.like && "underline"};
+  text-underline-position: ${(props: ILikeButtonProps) =>
+    props.like && "under"};
+  cursor: pointer;
+`;
+
+export const CommentFilterButton = styled.div`
+  width: 28%;
+  font-size: 0.9375rem;
+  font-weight: ${(props: ICommentButtonProps) =>
+    props.comment ? "900" : "600"};
+  text-decoration: ${(props: ICommentButtonProps) =>
+    props.comment && "underline"};
+  text-underline-position: ${(props: ICommentButtonProps) =>
+    props.comment && "under"};
   cursor: pointer;
 `;
 

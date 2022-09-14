@@ -64,7 +64,7 @@ export const Title = styled.h1`
   margin-bottom: 20px;
 `;
 
-export const ReviewItem = styled.div`
+export const StoryItem = styled.div`
   width: 326px;
   height: 227px;
   background-color: #ffffff;
@@ -72,12 +72,12 @@ export const ReviewItem = styled.div`
   border-radius: 1.7rem;
 `;
 
-export const ExpertName = styled.h2`
+export const StoryTitle = styled.h2`
   font-size: 1.2rem;
   color: #2b2ab8;
 `;
 
-export const ReviewCont = styled.p`
+export const StoryCont = styled.p`
   font-size: 1rem;
   color: #c7c8cb;
   height: 100px;
@@ -102,9 +102,9 @@ export const MoveBtn = styled.span`
   background: none;
   font-size: 1rem;
   position: relative;
-  left: 150px;
   bottom: -30px;
   color: #99dce0;
+  cursor: pointer;
 `;
 
 export const Experts = styled.div`
@@ -123,7 +123,7 @@ export const SemiTitle = styled.h2`
 `;
 
 export const ExpertsItem = styled.div`
-  width: 250px;
+  width: 200px;
   height: 350px;
   box-shadow: 0 10px 20px #bee9eb;
   text-align: center;
@@ -143,13 +143,13 @@ export const ItemImage = styled.img`
   border: 8px solid white;
   position: relative;
   top: 145px;
-  left: 140px;
+  left: 200px;
   box-shadow: 0 2px 15px rgb(58, 54, 54);
   transform: rotate(-20deg);
 `;
 
 export const Shape = styled.div`
-  width: 350px;
+  width: 480px;
   height: 200px;
   background: linear-gradient(
     9deg,
@@ -183,7 +183,6 @@ export const Buttons = styled.div`
   text-shadow: 1px solid black;
   font-size: 1.2rem;
   font-weight: 900;
-  color: #99dce0;
 `;
 
 export const OfficialBtn = styled.button`

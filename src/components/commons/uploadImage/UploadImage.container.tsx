@@ -13,20 +13,20 @@ export default function UploadImageContainer(
 
   const fileRef = useRef<HTMLInputElement>(null);
 
-  console.log(fileRef);
-
   const onClickUpload = () => {
     fileRef.current?.click();
   };
 
   const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    // console.log("evnet.target.file" , event.target.files?.[0].name)
+    
     const file = checkValidationImage(event.target.files?.[0]);
-    if (!file) return;
-    console.log(file);
+    // if (!file) return;
 
     try {
       const result = await uploadFile({ variables: { file } });
-      props.onChangeFileUrls(result.data.uploadFile.url, props.index);
+      console.log(result)
+      props.onChangeFileUrls(result.data.uploadFile, props.index);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }

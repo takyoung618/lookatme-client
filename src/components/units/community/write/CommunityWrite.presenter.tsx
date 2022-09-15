@@ -1,37 +1,44 @@
 import * as S from "./CommunityWrite.styles"
 import { v4 as uuidv4 } from "uuid";
-import {IoIosArrowDown } from "react-icons/io"
 import UploadImageContainer from "../../../commons/uploadImage/UploadImage.container"
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { isEditState } from "../../../commons/store";
+import dynamic from "next/dynamic";
+// Toast 에디터
+import '@toast-ui/editor/dist/toastui-editor.css';
+
+const ToastEditor = dynamic(() => import("../../../commons/toast/Toast"), {
+    ssr: false,
+});
 
 export default function CommunityWriteUi(props){
-    const [defaultValue, setDefaultValue] = useState("");
-    const [isEdit, setIsEdit] = useRecoilState(isEditState);
+    // const [defaultValue, setDefaultValue] = useState("");
+    // const [isEdit, setIsEdit] = useRecoilState(isEditState);
 
-    useEffect(() => {
-        if (props.data?.fetchStory.text) {
-          setDefaultValue(props.data?.fetchStory.text);
-        }
-        setIsEdit(true);
-    }, [props.data?.fetchStory.text]);
-
+    // 솔직히 왜쓰는지 이해가 안가요,,
+    // useEffect(() => {
+    //     if (props.data?.fetchStory.title) {
+    //       setDefaultValue(props.data?.fetchStory);
+    //     }
+    //     setIsEdit(true);
+    // }, [props.data?.fetchStory]);
+    
     return (
         <form
         onSubmit={
-          props.isEdit
-            ? props.handleSubmit(props.onClickUpdate)
-            : props.handleSubmit(props.onClickCreate)
-        }
+            props.isEdit
+              ? props.handleSubmit(props.onClickUpdate)
+              : props.handleSubmit(props.onClickCreate)
+            }
         >  
         <S.Wrapper>
-            <S.Header>{props.isEdit ? "사연등록" : "사연수정"}</S.Header>
-            <S.CategoryWrapper name="categoryName"
+            <S.Header>{props.isEdit ? "사연수정" : "사연등록"}</S.Header>
+            <S.CategoryWrapper value={props.selected} onChange={props.onChangeSelect}
+            defaultValue={props.data?.fetchStory.category.name}
             >
-                <option value="" 
-                >카테고리</option>
-                <option {...props.register("category.name")}>직업,진로</option>
+                <option value="" >카테고리</option>
+                <option {...props.register("categoryName")}>직업,진로</option>
                 <option value="연애,결혼">연애,결혼</option>
                 <option value="대인관계">대인관계</option>
                 <option value="자아,성격">자아,성격</option>
@@ -47,33 +54,36 @@ export default function CommunityWriteUi(props){
                 >
                 </S.TitleInput>
             </S.TitleWrapper>
-            <S.TextWrapper>
+            <S.TextWrapper id="editor">
                 <S.Text
                 >
                 고민내용</S.Text>
-                <S.TextInput
-                {...props.register("text")}
-                placeholder="내용을 입력해주세요"
-                defaultValue={props.data?.fetchStory.title}
-                >
-                </S.TextInput>
             </S.TextWrapper>
+                <S.EditorWrapper>
+                    <ToastEditor
+                    {...props.register("text")}
+                    onChangeText={props.onChangeText}
+                    defaultValue={props.data?.fetchStory.text}
+                    />
+                </S.EditorWrapper> 
             <S.ImageWrapper>
             {props.fileUrls.map((el, index) => (
                 <UploadImageContainer
-                  key={uuidv4()}
-                  index={index}
-                   fileUrl={el}
-                   onChangeFileUrls={props.onChangeFileUrls}
+                    key={uuidv4()}
+                    index={index}
+                    fileUrl={el}
+                    onChangeFileUrls={props.onChangeFileUrls}
                 ></UploadImageContainer>
                ))}
             </S.ImageWrapper>
             <S.ButtonWrapper>
                 <S.ListButton onClick={props.onClickList}>목록으로</S.ListButton>
-                <S.CreateButton onClick={props.isEdit ? props.onClickUpdate : props.onClickCreate}>{props.isEdit ? "수정하기" : "등록하기"}</S.CreateButton>
+                <S.CreateButton >{props.isEdit ? "수정하기" : "등록하기"}</S.CreateButton>
             </S.ButtonWrapper>
         </S.Wrapper>
         </form>
     ) 
 }
+
+
 

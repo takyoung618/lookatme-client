@@ -4,6 +4,7 @@ import { IHeaderPresenterProps } from "./header.types";
 import { Drawer, Space } from "antd";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../../commons/store";
+import { getSpecialist } from "../../../../commons/libraries/getSpecialist";
 
 export default function HeaderPresenter(props: IHeaderPresenterProps) {
   const [accessToken] = useRecoilState(accessTokenState);
@@ -56,15 +57,17 @@ export default function HeaderPresenter(props: IHeaderPresenterProps) {
         <S.DrawerButton onClick={props.onClickExpert}>
           전문가 찾기
         </S.DrawerButton>
-        <S.LoginWrapper>
-          <S.LoginButton onClick={props.onClickMoveToExpert}>
-            전문가 로그인
-          </S.LoginButton>
-          <S.LoginLine>|</S.LoginLine>
-          <S.LoginButton onClick={props.onClickMoveToAdmin}>
-            관리자 로그인
-          </S.LoginButton>
-        </S.LoginWrapper>
+        {!accessToken && (
+          <S.LoginWrapper>
+            <S.LoginButton onClick={props.onClickMoveToExpert}>
+              전문가 로그인
+            </S.LoginButton>
+            <S.LoginLine>|</S.LoginLine>
+            <S.LoginButton onClick={props.onClickMoveToAdmin}>
+              관리자 로그인
+            </S.LoginButton>
+          </S.LoginWrapper>
+        )}
       </S.DrawerStyle>
     </S.Wrapper>
   );

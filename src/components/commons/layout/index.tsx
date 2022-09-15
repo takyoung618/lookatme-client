@@ -12,6 +12,8 @@ const LANDING_PAGE = "/";
 
 const LIVE_CHATING_PAGE = "/live-chat";
 
+const ADMIN_MY_PAGE = "/admin-my-page";
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,9 +32,11 @@ export default function Layout(props: ILayoutProps) {
 
   const liveChatingPage = router.asPath.includes(LIVE_CHATING_PAGE);
 
+  const adminMyPage = router.asPath.includes(ADMIN_MY_PAGE);
+
   return (
     <>
-      {!landingPage && !liveChatingPage && (
+      {!landingPage && !liveChatingPage && !adminMyPage && (
         <Wrapper>
           <HeaderContainer></HeaderContainer>
           <Body>{props.children}</Body>
@@ -47,6 +51,14 @@ export default function Layout(props: ILayoutProps) {
           <HeaderContainer></HeaderContainer>
           <Body>{props.children}</Body>
         </Wrapper>
+      )}
+
+      {adminMyPage && (
+        <div>
+          <HeaderContainer></HeaderContainer>
+          {props.children}
+          <FooterContainer></FooterContainer>
+        </div>
       )}
     </>
   );

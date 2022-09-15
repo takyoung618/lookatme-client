@@ -10,13 +10,14 @@ export const FETCH_SPECIALIST = gql`
       introduction
       career
       price
-      #   specialistReviews {
-      #     text
-      #     rate
-      #     user {
-      #       nickname
-      #     }
-      #   }
+      averageRate
+      specialistReviews {
+        text
+        rate
+        user {
+          nickname
+        }
+      }
     }
   }
 `;
@@ -25,6 +26,9 @@ export const CREATE_TICKET = gql`
   mutation createTicket($specialistId: String!) {
     createTicket(specialistId: $specialistId) {
       used
+      specialist {
+        price
+      }
     }
   }
 `;

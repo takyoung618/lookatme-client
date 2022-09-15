@@ -83,10 +83,10 @@ export const TopWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const Image = styled.div`
+export const Image = styled.img`
   width: 25%;
   height: 100px;
-  background-color: gray;
+  background-color: #bdbdbd;
   margin-left: 3%;
 `;
 

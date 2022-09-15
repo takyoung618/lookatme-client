@@ -55,7 +55,7 @@ export const RightContents = styled.div`
   width: 70%;
 `;
 
-export const ExpertPhoto = styled.div`
+export const ExpertPhoto = styled.img`
   width: 30%;
   height: 100px;
 
@@ -90,7 +90,7 @@ export const BottomWrapper = styled.div`
 export const CategoryWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 
   width: 100%;
@@ -109,6 +109,18 @@ export const CategoryTitle = styled.div`
   font-size: 1.031rem;
   font-weight: 600;
   color: #00428d;
+`;
+
+export const RateTitle = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0px 15px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #5d5d5d;
 `;
 
 export const ContentsWrapper = styled.div`

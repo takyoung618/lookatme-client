@@ -33,7 +33,9 @@ export default function ExpertListUi(props: IExpertListPresenterProps) {
             {props.timeData?.fetchSpecialists.map((el) => (
               <S.MapWrapper key={el.id}>
                 <S.TopWrapper onClick={props.onClickMoveToDetail} id={el.id}>
-                  <S.Image />
+                  <S.Image
+                    src={el.imgUrl ? "el.imgUrl" : "/expert-profile.png/"}
+                  ></S.Image>
                   <S.ProfileWrapper>
                     <S.NameWrapper>
                       <S.NameTitle>이름</S.NameTitle>
@@ -78,7 +80,9 @@ export default function ExpertListUi(props: IExpertListPresenterProps) {
             {props.reviewData?.fetchSpecialsitByRate.map((el) => (
               <S.MapWrapper key={el.id}>
                 <S.TopWrapper onClick={props.onClickMoveToDetail} id={el.id}>
-                  <S.Image />
+                  <S.Image
+                    src={el.imgUrl ? "el.imgUrl" : "/expert-profile.png/"}
+                  ></S.Image>
                   <S.ProfileWrapper>
                     <S.NameWrapper>
                       <S.NameTitle>이름</S.NameTitle>
@@ -123,7 +127,9 @@ export default function ExpertListUi(props: IExpertListPresenterProps) {
             {props.priceData?.fetchSpecialistByPrice.map((el) => (
               <S.MapWrapper key={el.id}>
                 <S.TopWrapper onClick={props.onClickMoveToDetail} id={el.id}>
-                  <S.Image />
+                  <S.Image
+                    src={el.imgUrl ? "el.imgUrl" : "/expert-profile.png/"}
+                  ></S.Image>
                   <S.ProfileWrapper>
                     <S.NameWrapper>
                       <S.NameTitle>이름</S.NameTitle>

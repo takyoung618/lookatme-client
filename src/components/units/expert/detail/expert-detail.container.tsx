@@ -23,13 +23,17 @@ export default function ExpertDetailContainer() {
     useMutation<Pick<IMutation, "createTicket">>(CREATE_TICKET);
 
   const onClickBuyTicket = async () => {
-    await createTicket({
-      variables: { specialistId: String(router.query.id) },
-    });
-    Modal.success({
-      content:
-        "상담 신청이 완료되었습니다. 마이페이지에서 전문가 목록을 확인해주세요.",
-    });
+    try {
+      await createTicket({
+        variables: { specialistId: String(router.query.expertId) },
+      });
+      Modal.success({
+        content:
+          "상담 신청이 완료되었습니다. 마이페이지에서 전문가 목록을 확인해주세요.",
+      });
+    } catch (error) {
+      if (error instanceof Error) Modal.error({ content: error.message });
+    }
   };
 
   const onClickMoveToList = () => {

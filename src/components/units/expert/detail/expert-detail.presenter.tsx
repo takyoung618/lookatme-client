@@ -1,5 +1,6 @@
 import * as S from "./expert-detail.styles";
 import { Rate } from "antd";
+import { AiFillStar } from "react-icons/ai";
 import { IExpertDetailPresenterProps } from "./expert-detail.types";
 import BasicButton from "../../../commons/button";
 
@@ -9,7 +10,13 @@ export default function ExpertDetailPresenter(
   return (
     <S.Wrapper>
       <S.TopWrapper>
-        <S.ExpertPhoto></S.ExpertPhoto>
+        <S.ExpertPhoto
+          src={
+            props.data?.fetchSpecialist.imgUrl
+              ? props.data?.fetchSpecialist.imgUrl
+              : "/expert-profile.png/"
+          }
+        ></S.ExpertPhoto>
         <S.TopRight>
           <S.RightWrapper>
             <S.InfoWrapper>
@@ -54,24 +61,29 @@ export default function ExpertDetailPresenter(
 
         <S.CategoryWrapper>
           <S.CategoryTitle>후기</S.CategoryTitle>
+          <S.RateTitle>
+            <AiFillStar
+              style={{
+                width: "20px",
+                height: "20px",
+                color: "#73bea8",
+                marginRight: "5px",
+              }}
+            />
+            {props.data?.fetchSpecialist.averageRate} 점
+          </S.RateTitle>
         </S.CategoryWrapper>
         <S.ContentsWrapper>
-          <S.ReviewWrapper>
-            <Rate
-              defaultValue={2}
-              disabled
-              style={{ marginBottom: "15px", color: "#73bea8" }}
-            />
-            내용내용내용
-          </S.ReviewWrapper>
-          <S.ReviewWrapper>
-            <Rate
-              defaultValue={2}
-              disabled
-              style={{ marginBottom: "15px", color: "#73bea8" }}
-            />
-            내용내용내용
-          </S.ReviewWrapper>
+          {props.data?.fetchSpecialist.specialistReviews.map((el) => (
+            <S.ReviewWrapper key={el.id}>
+              <Rate
+                defaultValue={el.rate}
+                disabled
+                style={{ marginBottom: "15px", color: "#73bea8" }}
+              />
+              {el.text}
+            </S.ReviewWrapper>
+          ))}
         </S.ContentsWrapper>
       </S.BottomWrapper>
 

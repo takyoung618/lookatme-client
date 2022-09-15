@@ -149,7 +149,13 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
           <S.CategoryWrapper>
             <S.ExpertWrapper>
               <S.ExpertBody>
-                <S.ExpertPhoto></S.ExpertPhoto>
+                <S.ExpertPhoto
+                  src={
+                    el.specialist.imgUrl
+                      ? el.specialist.imgUrl
+                      : "/expert-profile.png/"
+                  }
+                ></S.ExpertPhoto>
                 <S.ExpertDetail>
                   <S.ProfileBody>
                     <S.CategoryTitle>이름</S.CategoryTitle>
@@ -179,9 +185,9 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
               </S.ExpertButtonWrapper>
               <S.BottomWrapper>
                 <S.BottomInfoTitle>구매날짜 :</S.BottomInfoTitle>
-                <S.BottomInfo>{getDate(el.createdAt)}</S.BottomInfo>
+                <S.BottomInfo></S.BottomInfo>
                 <S.BottomInfoTitle>만료날짜 :</S.BottomInfoTitle>
-                <S.BottomInfo>{getDate(el.expired)}</S.BottomInfo>
+                <S.BottomInfo></S.BottomInfo>
               </S.BottomWrapper>
             </S.ExpertWrapper>
           </S.CategoryWrapper>

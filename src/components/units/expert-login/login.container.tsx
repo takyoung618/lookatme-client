@@ -6,13 +6,14 @@ import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/store";
-import { LOGIN } from "./login.queries";
 import {
   IMutation,
   IMutationLoginArgs,
+  IMutationSpecialistLoginArgs,
 } from "../../../commons/types/generated/types";
 import { Modal } from "antd";
 import "antd/dist/antd.css";
+import { SPECIALIST_LOGIN } from "./login.queries";
 
 const schema = yup.object({
   email: yup
@@ -35,9 +36,10 @@ export default function Login() {
   const router = useRouter();
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
-  const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
-    LOGIN
-  );
+  const [specialistLogin] = useMutation<
+    Pick<IMutation, "login">,
+    IMutationSpecialistLoginArgs
+  >(SPECIALIST_LOGIN);
 
   const { register, handleSubmit, formState } = useForm({
     mode: "onChange",
@@ -47,8 +49,8 @@ export default function Login() {
   const onClickLogin = async (data: any) => {
     if (!data.email && !data.password) return;
     try {
-      const result = await login({
-        variables: { email: data.email, password: data.password },
+      const result = await specialistLogin({
+        variables: { account: data.email, password: data.password },
       });
       const accessToken = result.data?.login;
       console.log(accessToken);

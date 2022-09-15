@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/store";
-import { LOGIN } from "./login.queries";
+import { ADMIN_LOGIN } from "./login.queries";
 import {
   IMutation,
   IMutationLoginArgs,
@@ -35,9 +35,10 @@ export default function Login() {
   const router = useRouter();
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
-  const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
-    LOGIN
-  );
+  const [adminLogin] = useMutation<
+    Pick<IMutation, "login">,
+    IMutationLoginArgs
+  >(ADMIN_LOGIN);
 
   const { register, handleSubmit, formState } = useForm({
     mode: "onChange",
@@ -47,7 +48,7 @@ export default function Login() {
   const onClickLogin = async (data: any) => {
     if (!data.email && !data.password) return;
     try {
-      const result = await login({
+      const result = await adminLogin({
         variables: { email: data.email, password: data.password },
       });
       const accessToken = result.data?.login;

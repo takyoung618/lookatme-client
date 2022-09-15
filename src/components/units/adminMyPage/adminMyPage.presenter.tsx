@@ -1,48 +1,78 @@
-import { GiSiren } from "react-icons/gi";
 import * as S from "./adminMyPage.styles";
 
 export default function AdminMyPageUI(props) {
   return (
     <S.Wrapper>
+      <S.Title style={{ textAlign: "center" }}>관리자 페이지</S.Title>
       <S.InnerWrapper>
-        <S.InnerHeader>
-          <S.Title>전문가 관리</S.Title>
-          <button>전문가 계정 생성하기</button>
-        </S.InnerHeader>
-        <S.Profile>
-          <S.ProfileImg />
-          <S.ProfileDetail>
-            <S.Name>이름</S.Name>
-            <S.Introduce>자기소개</S.Introduce>
-          </S.ProfileDetail>
-          <S.DeleteBtn>삭제하기</S.DeleteBtn>
-        </S.Profile>
+        <S.Title>명언 관리</S.Title>
+        <S.StartBtn onClick={props.onClickStart}>명언 시작 버튼</S.StartBtn>
+        <S.StopBtn onClick={props.onClickStop}>명언 정지 버튼</S.StopBtn>
+        <S.CreateBtn>명언 만들기 버튼</S.CreateBtn>
       </S.InnerWrapper>
       <S.InnerWrapper>
-        <S.InnerHeader>
-          <S.Title>신고 목록 관리</S.Title>
-        </S.InnerHeader>
-        <S.Report>
-          <S.ReportContents>내용내용내용내용내용내용</S.ReportContents>
-          <S.ReportDetail>
-            <div>
-              <GiSiren
-                style={{
-                  width: "25px",
-                  height: "25px",
-                  color: "red",
-                  marginRight: "9px",
-                  marginBottom: "5px",
-                }}
-              />
-              1명이 신고
-            </div>
-            <S.DeleteBtn>삭제하기</S.DeleteBtn>
-          </S.ReportDetail>
-        </S.Report>
+        <S.Title>신고 목록 관리</S.Title>
+        <S.Row>
+          <S.Column__Basic>번호</S.Column__Basic>
+          <S.Column__Title>제목</S.Column__Title>
+          <S.Column__Basic>작성자</S.Column__Basic>
+          <S.Column__Basic>날짜</S.Column__Basic>
+          <S.Column__Basic>삭제</S.Column__Basic>
+          <S.Column__Basic></S.Column__Basic>
+        </S.Row>
+        <S.Row>
+          <S.Column__Basic>1</S.Column__Basic>
+          <S.Column__Title>제목</S.Column__Title>
+          <S.Column__Basic>작성자</S.Column__Basic>
+          <S.Column__Basic>날짜</S.Column__Basic>
+          <S.Column__Basic>
+            <input type="checkbox" />
+          </S.Column__Basic>
+          <S.DeleteBtn>삭제</S.DeleteBtn>
+        </S.Row>
       </S.InnerWrapper>
-      <button onClick={props.onClickStart}>명언 시작 버튼</button>
-      <button onClick={props.onClickStop}>명언 정지 버튼</button>
+      <S.InnerWrapper>
+        <S.Title>전문가 관리</S.Title>
+        <S.Row>
+          <S.Column__Basic>번호</S.Column__Basic>
+          <S.Column__Title>제목</S.Column__Title>
+          <S.Column__Basic>작성자</S.Column__Basic>
+          <S.Column__Basic>날짜</S.Column__Basic>
+          <S.Column__Basic>삭제</S.Column__Basic>
+          <S.Column__Basic></S.Column__Basic>
+        </S.Row>
+        <S.Row>
+          <S.Column__Basic>1</S.Column__Basic>
+          <S.Column__Title>제목</S.Column__Title>
+          <S.Column__Basic>작성자</S.Column__Basic>
+          <S.Column__Basic>날짜</S.Column__Basic>
+          <S.Column__Basic>
+            <input type="checkbox" />
+          </S.Column__Basic>
+          <S.DeleteBtn>삭제</S.DeleteBtn>
+        </S.Row>
+      </S.InnerWrapper>
+      <S.InnerWrapper>
+        <S.Title>게시글 관리</S.Title>
+        <S.Row>
+          <S.Column__Basic>번호</S.Column__Basic>
+          <S.Column__Title>제목</S.Column__Title>
+          <S.Column__Basic>작성자</S.Column__Basic>
+          <S.Column__Basic>날짜</S.Column__Basic>
+          <S.Column__Basic>삭제</S.Column__Basic>
+          <S.Column__Basic></S.Column__Basic>
+        </S.Row>
+        <S.Row>
+          <S.Column__Basic>1</S.Column__Basic>
+          <S.Column__Title>제목</S.Column__Title>
+          <S.Column__Basic>작성자</S.Column__Basic>
+          <S.Column__Basic>날짜</S.Column__Basic>
+          <S.Column__Basic>
+            <input type="checkbox" />
+          </S.Column__Basic>
+          <S.DeleteBtn>삭제</S.DeleteBtn>
+        </S.Row>
+      </S.InnerWrapper>
     </S.Wrapper>
   );
 }

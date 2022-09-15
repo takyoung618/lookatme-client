@@ -1,104 +1,80 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 380px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-width: 1200px;
+  width: 100vw;
+  padding: 50px;
 `;
 
 export const InnerWrapper = styled.div`
-  width: 340px;
-  height: 277px;
-  border: 1px solid #9cd6ff;
-  box-shadow: 0px 5px 5px #9cd6ff;
-  margin: 30px 0 30px;
-  padding: 0 20px;
-`;
-
-export const InnerHeader = styled.div`
-  display: flex;
-  align-items: center;
-  border-bottom: 1px dashed black;
-  height: 60px;
-
-  & button {
-    height: 40px;
-    text-align: center;
-    padding: 12px 14px;
-    background-color: #9cd6ff;
-    border-radius: 40px;
-    margin-top: 32px;
-    color: white;
-    border: none;
-    margin: 30px 0 32px 5px;
-    cursor: pointer;
-    :hover {
-      background-color: #6fe5ff;
-    }
-  }
+  width: 100%;
+  height: 30%;
+  margin-bottom: 30px;
 `;
 
 export const Title = styled.h1`
-  font-family: "MiceGodic";
-  font-size: 1rem;
+  font-weight: 800;
+  font-size: 1.7rem;
+  margin-bottom: 30px;
 `;
 
-export const Profile = styled.div`
-  width: 290px;
+export const StartBtn = styled.button`
+  width: 150px;
+  height: 100px;
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 30px;
+  cursor: pointer;
+`;
+
+export const StopBtn = styled.button`
+  width: 150px;
+  height: 100px;
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 30px;
+  cursor: pointer;
+`;
+
+export const CreateBtn = styled.button`
+  width: 150px;
+  height: 100px;
+  border: none;
+  font-size: 1.2rem;
+  margin-right: 30px;
+  cursor: pointer;
+`;
+
+export const Row = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 30px;
-`;
-
-export const ProfileImg = styled.img`
-  width: 52px;
+  flex-direction: row;
   height: 52px;
+  line-height: 52px;
+  border-bottom: 1px solid gray;
 `;
 
-export const ProfileDetail = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-left: -60px;
+export const Column__Basic = styled.div`
+  width: 10%;
+  text-align: center;
+  cursor: pointer;
 `;
 
-export const Name = styled.span``;
-
-export const Introduce = styled.p``;
+export const Column__Title = styled.div`
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+`;
 
 export const DeleteBtn = styled.button`
-  height: 40px;
-  text-align: center;
-  padding: 12px 14px;
-  background-color: #9cd6ff;
-  border-radius: 40px;
-  color: white;
+  width: 113px;
+  height: 30px;
+  background-color: #73c7a0;
   border: none;
   cursor: pointer;
-  :hover {
-    background-color: #6fe5ff;
-  }
-`;
-
-export const Report = styled.div`
-  border-bottom: 1px dashed #bdbdbd;
-  padding-bottom: 10px;
-`;
-
-export const ReportContents = styled.p`
-  margin-top: 30px;
-`;
-
-export const ReportDetail = styled.div`
+  border-radius: 30px;
+  font-size: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 290px;
-  margin-top: 30px;
-
-  & div {
-    display: flex;
-    align-items: center;
-  }
+  margin-top: 10px;
 `;

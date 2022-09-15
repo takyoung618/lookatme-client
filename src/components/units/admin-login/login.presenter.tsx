@@ -27,28 +27,6 @@ export default function LoginUI(props: ILoginUIProps) {
           </S.InputWrapper>
           <button>로그인</button>
         </S.Main>
-        <S.Footer>
-          <S.InnerFooter>
-            멤버가 아니신가요?
-            <button type="button" onClick={props.onClickMoveToSignup}>
-              회원가입
-            </button>
-          </S.InnerFooter>
-          <S.InnerFooter>
-            <button type="button" onClick={props.onClickMoveToIdFind}>
-              아이디찾기
-            </button>
-            |
-            <button type="button" onClick={props.onClickMoveToPasswordFind}>
-              비밀번호찾기
-            </button>
-          </S.InnerFooter>
-          <S.ImgFooter>
-            <S.SocialImg src="/구글.png" />
-            <S.SocialImg src="/네이버.png" />
-            <S.SocialImg src="/카카오.png" />
-          </S.ImgFooter>
-        </S.Footer>
       </S.Wrapper>
     </form>
   );

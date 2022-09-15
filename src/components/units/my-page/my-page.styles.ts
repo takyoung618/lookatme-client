@@ -224,7 +224,7 @@ export const ExpertBody = styled.div`
   padding: 10px 3%;
 `;
 
-export const ExpertPhoto = styled.div`
+export const ExpertPhoto = styled.img`
   width: 25%;
   height: 100px;
 

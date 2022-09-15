@@ -24,13 +24,10 @@ export const IdFindBtn = styled.button`
 export const PwFindBtn = styled.button`
   width: 136px;
   height: 40px;
-  background: #9cd6ff;
+  background: #73c7a0;
   border: none;
   color: white;
   border-radius: 0 40px 40px 0;
-  &:hover {
-    background: #6fe5ff;
-  }
 `;
 
 export const Email = styled.input`
@@ -63,8 +60,22 @@ export const PhoneWrapper = styled.div`
   width: 345px;
 `;
 
+export const FrontNumber = styled.div`
+  width: 50px;
+  height: 48px;
+  background: #f6f6f6;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+`;
+
 export const PhoneNumber = styled.input`
-  width: 267px;
+  width: 180px;
   height: 48px;
   background: #f6f6f6;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
@@ -75,52 +86,61 @@ export const PhoneNumber = styled.input`
 `;
 
 export const AuthNumber = styled.input`
-  width: 225px;
+  width: 170px;
   height: 48px;
   background: #f6f6f6;
   border-radius: 4px;
   border: none;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+`;
+
+export const TokenTimer = styled.div`
+  width: 60px;
+  height: 48px;
+  background: #f6f6f6;
+  /* box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2); */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #73c7a9;
   margin-right: 32px;
 `;
 
 export const AuthBtn = styled.button`
   width: 140px;
   height: 40px;
-  background: #9cd6ff;
+  background: #73c7a0;
   border-radius: 40px;
   color: white;
   border: none;
-  font-size: 12px;
-  &:hover {
-    background: #6fe5ff;
-  }
+  font-size: 1rem;
 `;
 
 export const OkBtn = styled.button`
   width: 89px;
   height: 40px;
-  background: #9cd6ff;
+  background: #73c7a0;
   border-radius: 40px;
   color: white;
   border: none;
-  font-size: 12px;
-  &:hover {
-    background: #6fe5ff;
-  }
+  font-size: 1rem;
 `;
 
 export const FindBtn = styled.button`
   width: 333px;
   height: 40px;
-  background: #9cd6ff;
+  background: #73c7a0;
   border-radius: 40px;
   color: white;
   margin-bottom: 32px;
+  font-size: 1rem;
   border: none;
-  &:hover {
-    background: #6fe5ff;
-  }
+  cursor: pointer;
+  margin-top: 20px;
 `;
 
 export const Password = styled.input`
@@ -147,3 +167,12 @@ export const InputWrapper = styled.div`
 `;
 
 export const Footer = styled.div``;
+
+export const NewPassword = styled.input`
+  width: 340px;
+  height: 48px;
+  background: #f6f6f6;
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+`;

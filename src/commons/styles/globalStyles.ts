@@ -7,6 +7,13 @@ export const globalStyles = css`
     font-family: "NanumSquare";
   }
 
+  textarea {
+    resize: none;
+    :focus {
+      outline: 1px solid #73bea8;
+    }
+  }
+
   // prettier-ignore
   html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

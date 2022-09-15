@@ -1,14 +1,19 @@
-import { useMutation } from "@apollo/client";
-import { message } from "antd";
+import { useMutation, useQuery } from "@apollo/client";
+import { message, Modal } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ChangeEvent, SetStateAction, useState } from "react";
 import { useRecoilState } from "recoil";
 import { getUserInfo } from "../../../commons/libraries/getUserInfo";
 import { profileEditState, pwdEditState } from "../../../commons/store";
-import { IMutation } from "../../../commons/types/generated/types";
+import { IMutation, IQuery } from "../../../commons/types/generated/types";
 import MyPagePresenter from "./my-page.presenter";
-import { CREATE_PAYMENT, FETCH_LOGIN_USER } from "./my-page.queries";
+import {
+  CREATE_PAYMENT,
+  CREATE_SPECIALIST_REVIEW,
+  FETCH_LOGIN_USER,
+  FETCH_OWN_TICKETS,
+} from "./my-page.queries";
 
 declare const window: typeof globalThis & {
   IMP: any;
@@ -85,22 +90,60 @@ export default function MyPageContainer() {
     setPwdEdit(true);
   };
 
+  // 내 전문가 (티켓 목록)
+  const { data: TicketData } =
+    useQuery<Pick<IQuery, "fetchOwnTickets">>(FETCH_OWN_TICKETS);
+
   // 후기 작성 모달
   const [reviewModalIsOpen, setReviewModalIsOpen] = useState(false);
-  const [rate, setRate] = useState(0);
-  const [review, setReview] = useState("");
+  const [rate, setRate] = useState(5);
+  const [text, setText] = useState("");
+  const [textError, setTextError] = useState("");
   const [reviewIsActive, setReviewIsActive] = useState(false);
+
+  const [createSpecialistReview] = useMutation<
+    Pick<IMutation, "createSpecialistReview">
+  >(CREATE_SPECIALIST_REVIEW);
 
   const onChangeRate = (rate: SetStateAction<number>) => {
     setRate(rate);
+
+    if (rate && text) {
+      setReviewIsActive(true);
+    } else {
+      setReviewIsActive(false);
+    }
   };
 
   const onChangeReview = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setReview(event.target.value);
+    setText(event.target.value);
+
+    if (!event.target.value) {
+      setTextError("리뷰를 입력하세요");
+    } else {
+      setTextError("");
+    }
+
+    if (rate && event.target.value) {
+      setReviewIsActive(true);
+    } else {
+      setReviewIsActive(false);
+    }
   };
 
-  const onClickReviewSubmit = () => {
-    // 리뷰 작성
+  const onClickReviewSubmit = async () => {
+    try {
+      await createSpecialistReview({
+        variables: {
+          createSpecialistReviewInput: {
+            text,
+            rate,
+          },
+        },
+      });
+    } catch (error) {
+      Modal.error({ content: message.error });
+    }
   };
 
   return (
@@ -127,9 +170,11 @@ export default function MyPageContainer() {
         onClickEditButton={onClickEditButton}
         pwdEdit={pwdEdit}
         onClickPwdButton={onClickPwdButton}
+        TicketData={TicketData}
         reviewModalIsOpen={reviewModalIsOpen}
         setReviewModalIsOpen={setReviewModalIsOpen}
         rate={rate}
+        textError={textError}
         onChangeRate={onChangeRate}
         onChangeReview={onChangeReview}
         reviewIsActive={reviewIsActive}

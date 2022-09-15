@@ -8,6 +8,7 @@ import { IMyPagePresenterProps } from "./my-page.types";
 import UpdateProfileContainer from "./update-profile/update-profile.container";
 import BasicButton from "../../commons/button";
 import PwdUpdateContainer from "./pwd-update/pwd-update.container";
+import { getDate } from "../../../commons/libraries/utils";
 
 export default function MyPagePresenter(props: IMyPagePresenterProps) {
   return (
@@ -143,81 +144,99 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
       </S.ModalStyle>
 
       <S.MyPageSubTitle>내 전문가</S.MyPageSubTitle>
-      <S.CategoryWrapper>
-        <S.ExpertWrapper>
-          <S.ExpertBody>
-            <S.ExpertPhoto></S.ExpertPhoto>
-            <S.ExpertDetail>
-              <S.ProfileBody>
-                <S.CategoryTitle>이름</S.CategoryTitle>
-                <S.ProfileContents>김박사</S.ProfileContents>
-              </S.ProfileBody>
-              <S.ExpertDetailWrapper>
-                <S.CategoryTitle>소개</S.CategoryTitle>
-                <S.ProfileContents>
-                  내용내용내용내용내용내용내용내용내용내용내용내용
-                </S.ProfileContents>
-              </S.ExpertDetailWrapper>
-              <S.ProfileBody>
-                <S.CategoryTitle>비용</S.CategoryTitle>
-                <S.ProfileContents>10000원</S.ProfileContents>
-              </S.ProfileBody>
-            </S.ExpertDetail>
-          </S.ExpertBody>
+      {props.TicketData?.fetchOwnTickets.map((el) => (
+        <div key={el.id}>
+          <S.CategoryWrapper>
+            <S.ExpertWrapper>
+              <S.ExpertBody>
+                <S.ExpertPhoto></S.ExpertPhoto>
+                <S.ExpertDetail>
+                  <S.ProfileBody>
+                    <S.CategoryTitle>이름</S.CategoryTitle>
+                    <S.ProfileContents>{el.specialist.name}</S.ProfileContents>
+                  </S.ProfileBody>
+                  <S.ExpertDetailWrapper>
+                    <S.CategoryTitle>소개</S.CategoryTitle>
+                    <S.ProfileContents>
+                      {el.specialist.summary}
+                    </S.ProfileContents>
+                  </S.ExpertDetailWrapper>
+                  <S.ProfileBody>
+                    <S.CategoryTitle>비용</S.CategoryTitle>
+                    <S.ProfileContents>
+                      {el.specialist.price.toLocaleString()}원
+                    </S.ProfileContents>
+                  </S.ProfileBody>
+                </S.ExpertDetail>
+              </S.ExpertBody>
 
-          <S.ExpertButtonWrapper>
-            <BasicButton title="상담하기"></BasicButton>
-            <BasicButton
-              title="리뷰쓰기"
-              onClick={() => props.setReviewModalIsOpen(true)}
-            ></BasicButton>
-          </S.ExpertButtonWrapper>
-        </S.ExpertWrapper>
-      </S.CategoryWrapper>
+              <S.ExpertButtonWrapper>
+                <BasicButton title="상담하기"></BasicButton>
+                <BasicButton
+                  title="리뷰쓰기"
+                  onClick={() => props.setReviewModalIsOpen(true)}
+                ></BasicButton>
+              </S.ExpertButtonWrapper>
+              <S.BottomWrapper>
+                <S.BottomInfoTitle>구매날짜 :</S.BottomInfoTitle>
+                <S.BottomInfo>{getDate(el.createdAt)}</S.BottomInfo>
+                <S.BottomInfoTitle>만료날짜 :</S.BottomInfoTitle>
+                <S.BottomInfo>{getDate(el.expired)}</S.BottomInfo>
+              </S.BottomWrapper>
+            </S.ExpertWrapper>
+          </S.CategoryWrapper>
 
-      <S.ReviewModal isOpen={props.reviewModalIsOpen}>
-        <S.ReviewModalCloseButton>
-          <S.ReviewModalTitle>후기 작성하기</S.ReviewModalTitle>
-          <AiOutlineClose
-            style={{ width: "20px", height: "20px", cursor: "pointer" }}
-            onClick={() => props.setReviewModalIsOpen(false)}
-          />
-        </S.ReviewModalCloseButton>
-        <S.ModalBottomWrapper>
-          <S.ModalExpertBody>
-            <S.ExpertPhoto></S.ExpertPhoto>
-            <S.ModalExpertDetail>
-              <S.ModalExpertProfile>
-                <S.ModalExpertTitle>이름</S.ModalExpertTitle>
-                <S.ModalExpertContents>김박사</S.ModalExpertContents>
-              </S.ModalExpertProfile>
-              <S.ModalExpertProfile>
-                <S.ModalExpertTitle>소개</S.ModalExpertTitle>
-                <S.ModalExpertContents>
-                  내용내용내용내용내용내용내용내용내용내용내용내용내용
-                </S.ModalExpertContents>
-              </S.ModalExpertProfile>
-            </S.ModalExpertDetail>
-          </S.ModalExpertBody>
+          <S.ReviewModal isOpen={props.reviewModalIsOpen}>
+            <S.ReviewModalCloseButton>
+              <S.ReviewModalTitle>후기 작성하기</S.ReviewModalTitle>
+              <AiOutlineClose
+                style={{ width: "20px", height: "20px", cursor: "pointer" }}
+                onClick={() => props.setReviewModalIsOpen(false)}
+              />
+            </S.ReviewModalCloseButton>
+            <S.ModalBottomWrapper>
+              <S.ModalExpertBody>
+                <S.ExpertPhoto></S.ExpertPhoto>
+                <S.ModalExpertDetail>
+                  <S.ModalExpertProfile>
+                    <S.ModalExpertTitle>이름</S.ModalExpertTitle>
+                    <S.ModalExpertContents>
+                      {el.specialist.name}
+                    </S.ModalExpertContents>
+                  </S.ModalExpertProfile>
+                  <S.ModalExpertProfile>
+                    <S.ModalExpertTitle>소개</S.ModalExpertTitle>
+                    <S.ModalExpertContents>
+                      {el.specialist.summary}
+                    </S.ModalExpertContents>
+                  </S.ModalExpertProfile>
+                </S.ModalExpertDetail>
+              </S.ModalExpertBody>
 
-          <S.ModalExpertBody>
-            <S.ReviewWrapper>
-              <S.ReviewRate
-                allowHalf
-                onChange={props.onChangeRate}
-              ></S.ReviewRate>
-              <S.ReviewContents
-                onChange={props.onChangeReview}
-              ></S.ReviewContents>
-            </S.ReviewWrapper>
-          </S.ModalExpertBody>
-          <S.ModalButtonWrapper>
-            <S.ModalReviewButton isActive={props.reviewIsActive}>
-              작성하기
-            </S.ModalReviewButton>
-          </S.ModalButtonWrapper>
-        </S.ModalBottomWrapper>
-      </S.ReviewModal>
+              <S.ModalExpertBody>
+                <S.ReviewWrapper>
+                  <S.ReviewRate
+                    allowHalf
+                    onChange={props.onChangeRate}
+                  ></S.ReviewRate>
+                  <S.ReviewContents
+                    onChange={props.onChangeReview}
+                  ></S.ReviewContents>
+                  <S.ReviewError>{props.textError}</S.ReviewError>
+                </S.ReviewWrapper>
+              </S.ModalExpertBody>
+              <S.ModalButtonWrapper>
+                <S.ModalReviewButton
+                  isActive={props.reviewIsActive}
+                  onClick={props.onClickReviewSubmit}
+                >
+                  작성하기
+                </S.ModalReviewButton>
+              </S.ModalButtonWrapper>
+            </S.ModalBottomWrapper>
+          </S.ReviewModal>
+        </div>
+      ))}
 
       <S.MyPageSubTitle>활동 기록</S.MyPageSubTitle>
 

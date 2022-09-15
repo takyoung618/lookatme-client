@@ -13,7 +13,7 @@ export default function ExpertDetailPresenter(
         <S.ExpertPhoto
           src={
             props.data?.fetchSpecialist.imgUrl
-              ? "props.data?.fetchSpecialist.imgUrl"
+              ? props.data?.fetchSpecialist.imgUrl
               : "/expert-profile.png/"
           }
         ></S.ExpertPhoto>

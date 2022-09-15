@@ -1,143 +1,150 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    background-color: yellow;
-`
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+
+  max-width: 100%;
+  width: 100vw;
+`;
 
 export const Header = styled.div`
-    font-size: 30px;
-    margin-top: 20px;
-`
+  font-size: 1.46875rem;
+  font-weight: 800;
+  margin: 20px 0px;
+`;
 
-export const SpecialistWrapper =styled.div`
-    display: flex;
-    width: 958px;
-    height: 258px;
-    background-color: #f5f5f5;
-    border: 1px solid #c5c5c5;
-    margin-top: 20px;
-    margin-right: 300px;
-`
+export const SpecialistWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+`;
 
-export const Image =styled.div`
-    width: 200px;
-    height: 200px;
-    background-color: gray;
-`
+export const Image = styled.div`
+  width: 50%;
+  height: 200px;
+  background-color: gray;
+  margin-bottom: 20px;
+`;
 
-export const ProfileWrapper =styled.div`
+export const ProfileWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  padding: 10px 0px;
+`;
 
-`
+export const SummaryWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 80%;
+  padding: 10px 0px;
+`;
 
-export const IdWrapper =styled.div`
-    display: flex;
-`
+export const Title = styled.div`
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-right: 10%;
+  width: 15%;
+  text-align: end;
+`;
 
-export const IdTitle =styled.div`
+export const Contents = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: start;
 
-`
+  font-size: 1.1rem;
+  font-weight: 500;
+  width: 80%;
+`;
 
-export const Id =styled.div`
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 
-`
+  width: 100%;
+  margin-bottom: 40px;
+`;
 
-export const NameWrapper =styled.div`
-    display: flex;
-`
+export const ListTitle = styled.div`
+  display: flex;
+  flex-direction: row;
 
-export const NameTitle =styled.div`
+  width: 100%;
+  background-color: #f5f5f5;
+  border-top: 1px solid #c5c5c5;
+  border-bottom: 1px solid #c5c5c5;
+  padding: 10px 3%;
+  font-size: 0.9rem;
+  font-weight: 700;
+`;
 
-`
+export const ProgressWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 
-export const Name =styled.div`
+  width: 100%;
+  padding: 10px 0px;
+  margin-bottom: 50px;
+`;
 
-`
+export const ProgressButton = styled.div`
+  font-size: 0.87rem;
+  font-weight: 600;
+`;
 
-export const IntroduceWrapper =styled.div`
-    display: flex;
-`
+export const ProgressListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+`;
 
-export const IntroduceTitle =styled.div`
+export const CommentListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 2%;
+`;
 
-`
+export const CommentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-export const Introduce = styled.div`
-`
+  padding: 15px 5%;
+  background-color: #f5f5f5;
+  border: 1px solid #c5c5c5;
+  margin-bottom: 15px;
+  cursor: pointer;
+`;
 
-export const UserListWrapper =styled.div`
-    display: flex;
-    width: 958px;
-    background-color: #f5f5f5;
-    border: 1px solid #c5c5c5;
-    margin-top: 30px;
-`
-
-export const UserListTitle =styled.div`
-
-`
-
-
-export const ProgressWrapper =styled.div`
-
-`
-
-
-export const Progressing =styled.div`
-
-`
-
-
-export const Progressed =styled.div`
-
-`
-
-
-export const CommentListWrapper =styled.div`
-    display: flex;
-    width: 958px;
-    
-    background-color: #f5f5f5;
-    border: 1px solid #c5c5c5;
-    margin-top: 30px;
-    margin-bottom: 30px;
-`
-
-
-export const MyCommentTitle =styled.div`
-
-`
-export const CommentWrapper =styled.div`
-    background-color: white;
-    border-color: white;
-`
-
-export const Comment =styled.div`
-
-`
-
-
-export const Time =styled.div`
-
-`
+export const Comment = styled.div`
+  width: 100%;
+  text-align: start;
+  font-size: 0.9375rem;
+  font-weight: 500;
+`;
 
 export const SympathyWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    margin-left: 19px;
-`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding-top: 10px;
+`;
 
 export const Sympathy = styled.div`
-    color:  #7f7f7f;
-    margin-left: 7px;
-`
-
-
-
-
-
-
-
-
+  color: #7f7f7f;
+  font-weight: 500;
+  font-size: 0.9375rem;
+`;

@@ -11,9 +11,13 @@ export interface IMyPagePresenterProps {
   UserInfo: Pick<IQuery, "fetchLoginUser"> | undefined;
   profileEdit: boolean;
   onClickEditButton: () => void;
+  pwdEdit: boolean;
+  onClickPwdButton: () => void;
+  TicketData: Pick<IQuery, "fetchOwnTickets"> | undefined;
   reviewModalIsOpen: boolean;
   setReviewModalIsOpen: Dispatch<SetStateAction<boolean>>;
   rate: Number;
+  textError: string;
   onChangeRate: (rate: SetStateAction<number>) => void;
   onChangeReview: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   reviewIsActive: boolean;

@@ -14,6 +14,8 @@ export const ProfileWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
+  width: 100vw;
+  max-width: 100%;
   padding: 14px 0px;
 `;
 
@@ -134,7 +136,6 @@ export const ProfileBody = styled.div`
   align-items: center;
 
   width: 100%;
-  padding: 5px 5px 0px 25px;
 `;
 
 export const PointBody = styled.div`
@@ -143,7 +144,7 @@ export const PointBody = styled.div`
   align-items: center;
 
   width: 100%;
-  padding: 5px 5px 0px 25px;
+  padding: 5px 3% 0px 0px;
 `;
 
 export const CategoryTitle = styled.div`
@@ -165,7 +166,7 @@ export const ProfileContents = styled.div`
 
   width: 70%;
   font-size: 1.0625rem;
-  padding: 5px 13px;
+  padding: 5px 0px;
 `;
 
 export const PointContents = styled.div`
@@ -175,7 +176,7 @@ export const PointContents = styled.div`
 
   width: 30%;
   font-size: 1.0625rem;
-  padding: 5px 12px;
+  padding: 5px 5px;
 `;
 
 export const PointButtonWrapper = styled.div`
@@ -192,7 +193,7 @@ export const MyPageSubTitle = styled.div`
   background-color: #f5f5f5;
   border-top: 1px solid #c5c5c5;
   border-bottom: 1px solid #c5c5c5;
-  padding: 12px 0px 12px 30px;
+  padding: 12px 3%;
   font-size: 1.0625rem;
   font-weight: 700;
 `;
@@ -202,9 +203,10 @@ export const CategoryWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  width: 100%;
-  padding: 10px 23px;
-  margin-bottom: 20px;
+  max-width: 100%;
+  width: 100vw;
+  margin-top: 10px;
+  margin-bottom: 80px;
 `;
 
 export const ExpertWrapper = styled.div`
@@ -219,12 +221,12 @@ export const ExpertBody = styled.div`
   align-items: center;
 
   width: 100%;
-  padding: 10px;
+  padding: 10px 3%;
 `;
 
 export const ExpertPhoto = styled.div`
   width: 25%;
-  height: 87px;
+  height: 100px;
 
   background-color: #bdbdbd;
 `;
@@ -233,7 +235,7 @@ export const ExpertDetail = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 75%;
+  width: 70%;
 `;
 
 export const ExpertDetailWrapper = styled.div`
@@ -242,16 +244,6 @@ export const ExpertDetailWrapper = styled.div`
   align-items: flex-start;
 
   width: 100%;
-  padding: 5px 5px 0px 25px;
-`;
-
-export const CategoryContents = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-
-  font-size: 0.8125rem;
-  padding: 10px 13px;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -259,14 +251,43 @@ export const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 60%;
+  margin-top: 20px;
+  margin-bottom: 60px;
+`;
+
+export const BottomWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 10px;
+  height: 40px;
+  background-color: #f9f9f9;
+  border-top: 1px dashed #c5c5c5;
+  border-bottom: 1px dashed #c5c5c5;
+`;
+
+export const BottomInfoTitle = styled.div`
+  font-weight: 1rem;
+  font-weight: 700;
+  color: #7f7f7f;
+`;
+
+export const BottomInfo = styled.div`
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #7f7f7f;
 `;
 
 export const ExpertButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5px 65px;
+  padding: 5px 20% 5px 32%;
   width: 100%;
+  margin-bottom: 15px;
 `;
 
 export const ReviewModal = styled(Modal)`
@@ -378,6 +399,12 @@ export const ReviewContents = styled.textarea`
   height: 70px;
   margin: 10px 0px;
   border: 2px solid #73bea8;
+`;
+
+export const ReviewError = styled.div`
+  width: 100%;
+  margin: 10px 0px;
+  color: red;
 `;
 
 export const ModalButtonWrapper = styled.div`

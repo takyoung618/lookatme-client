@@ -22,16 +22,13 @@ export const Main = styled.div`
     height: 40px;
     text-align: center;
     padding: 12px 14px;
-    background-color: #9cd6ff;
+    background-color: #73c7a0;
     border-radius: 40px;
     margin-top: 32px;
     color: white;
     border: none;
     margin: 0 0 32px 5px;
     cursor: pointer;
-    :hover {
-      background-color: #6fe5ff;
-    }
   }
 `;
 
@@ -90,6 +87,14 @@ export const InnerFooter = styled.div`
     font-weight: 500;
     cursor: pointer;
   }
+`;
+
+export const SignUpBtn = styled.button`
+  border: none;
+  background: #73c7a0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
 `;
 
 export const ImgFooter = styled.div`

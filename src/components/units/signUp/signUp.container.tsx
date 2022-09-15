@@ -70,7 +70,7 @@ export default function SignUp() {
   const onClickSendToken = async (data: any) => {
     if (phoneNumber === "010" || phoneNumber.includes("-") === true) {
       Modal.error({
-        content: "핸드폰 번호를 입력해주세요",
+        content: "핸드폰 번호를 제대로 입력해주세요",
       });
       return;
     }
@@ -127,7 +127,7 @@ export default function SignUp() {
             email: data.email,
             password: data.password,
             nickname: data.name,
-            phone_number: data.phoneNumber,
+            phone_number: phoneNumber,
           },
         },
       });

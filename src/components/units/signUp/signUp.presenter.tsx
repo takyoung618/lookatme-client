@@ -1,4 +1,3 @@
-import { printIntrospectionSchema } from "graphql";
 import BasicButton from "../../commons/button";
 import * as S from "./signUp.styles";
 import { ISignUpUIProps } from "./signUp.types";

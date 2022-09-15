@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const FETCH_SPECIALISTS = gql`
-  query fetchSpecialists {
-    fetchSpecialists {
+  query fetchSpecialists($page: Int) {
+    fetchSpecialists(page: $page) {
       id
       name
       summary

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Modal } from "antd";
 
 export const Wrapper = styled.div`
   width: 335px;
@@ -20,12 +21,9 @@ export const IdFindBtn = styled.button`
   width: 136px;
   height: 40px;
   border: none;
-  background: #9cd6ff;
+  background: #73c7a0;
   color: white;
   border-radius: 40px 0 0 40px;
-  &:hover {
-    background: #6fe5ff;
-  }
 `;
 
 export const PwFindBtn = styled.button`
@@ -51,64 +49,70 @@ export const PhoneWrapper = styled.div`
   justify-content: space-between;
   width: 345px;
 `;
-
-export const PhoneNumber = styled.input`
-  width: 267px;
+export const FrontNumber = styled.div`
+  width: 50px;
   height: 48px;
   background: #f6f6f6;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   border: none;
-  margin-right: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+`;
+
+export const PhoneNumber = styled.input`
+  width: 170px;
+  height: 48px;
+  background: #f6f6f6;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: none;
+  padding-left: 10px;
 `;
 
 export const AuthNumber = styled.input`
-  width: 225px;
+  width: 120px;
   height: 48px;
   background: #f6f6f6;
   border-radius: 4px;
   border: none;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  padding-left: 10px;
 `;
 
 export const AuthBtn = styled.button`
-  width: 140px;
+  width: 100px;
   height: 40px;
-  background: #9cd6ff;
+  background: #73c7a0;
   border-radius: 40px;
   color: white;
   border: none;
-  font-size: 12px;
-  &:hover {
-    background: #6fe5ff;
-  }
+  font-size: 1rem;
 `;
 
 export const OkBtn = styled.button`
-  width: 89px;
+  width: 100px;
   height: 40px;
-  background: #9cd6ff;
+  background: #73c7a0;
   border-radius: 40px;
   color: white;
   border: none;
-  font-size: 12px;
-  &:hover {
-    background: #6fe5ff;
-  }
+  font-size: 1rem;
 `;
 
 export const FindBtn = styled.button`
   width: 333px;
   height: 40px;
-  background: #9cd6ff;
+  background: #73c7a0;
   border-radius: 40px;
   color: white;
   margin-bottom: 32px;
   border: none;
-  &:hover {
-    background: #6fe5ff;
-  }
+  margin-top: 20px;
 `;
 
 export const Footer = styled.div``;
@@ -124,3 +128,20 @@ export const Email = styled.input`
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
   border: none;
 `;
+
+export const TokenTimer = styled.div`
+  width: 100px;
+  height: 48px;
+  background: #f6f6f6;
+  /* box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2); */
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #73c7a9;
+`;
+
+export const FetchEmailModal = styled(Modal)``;

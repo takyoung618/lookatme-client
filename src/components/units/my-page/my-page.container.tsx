@@ -12,6 +12,9 @@ import {
   CREATE_PAYMENT,
   CREATE_SPECIALIST_REVIEW,
   FETCH_LOGIN_USER,
+  FETCH_OWN_COMMENTS,
+  FETCH_OWN_LIKED_STORIES,
+  FETCH_OWN_STORIES,
   FETCH_OWN_TICKETS,
 } from "./my-page.queries";
 
@@ -146,6 +149,116 @@ export default function MyPageContainer() {
     }
   };
 
+  // 활동기록
+  const [community, setCommunity] = useState(true);
+  const [comment, setComment] = useState(false);
+  const [like, setLike] = useState(false);
+
+  const {
+    data: communityData,
+    refetch: communityRefetch,
+    fetchMore: communityFetchMore,
+  } = useQuery<Pick<IQuery, "fetchOwnStories">>(FETCH_OWN_STORIES);
+
+  const FetchMoreCommunityData = () => {
+    if (!communityData) return;
+
+    communityFetchMore({
+      variables: {
+        page: Math.ceil(communityData.fetchOwnStories.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchOwnStories) {
+          return { fetchOwnStories: [...prev.fetchOwnStories] };
+        }
+
+        return {
+          fetchOwnStories: [
+            ...prev.fetchOwnStories,
+            ...fetchMoreResult.fetchOwnStories,
+          ],
+        };
+      },
+    });
+  };
+
+  const {
+    data: commentData,
+    refetch: commentRefetch,
+    fetchMore: commentFetchMore,
+  } = useQuery<Pick<IQuery, "fetchOwnComments">>(FETCH_OWN_COMMENTS);
+
+  const FetchMoreCommentData = () => {
+    if (!commentData) return;
+
+    commentFetchMore({
+      variables: {
+        page: Math.ceil(commentData?.fetchOwnComments.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchOwnComments) {
+          return { fetchOwnComments: [...prev.fetchOwnComments] };
+        }
+
+        return {
+          fetchOwnComments: [
+            ...prev.fetchOwnComments,
+            ...fetchMoreResult.fetchOwnComments,
+          ],
+        };
+      },
+    });
+  };
+
+  const {
+    data: likeData,
+    refetch: likeRefetch,
+    fetchMore: likeFetchMore,
+  } = useQuery<Pick<IQuery, "fetchOwnLikedStories">>(FETCH_OWN_LIKED_STORIES);
+
+  const FetchMoreLikeData = () => {
+    if (!likeData) return;
+
+    likeFetchMore({
+      variables: {
+        page: Math.ceil(likeData?.fetchOwnLikedStories.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchOwnLikedStories) {
+          return { fetchOwnLikedStories: [...prev.fetchOwnLikedStories] };
+        }
+
+        return {
+          fetchOwnLikedStories: [
+            ...prev.fetchOwnLikedStories,
+            ...fetchMoreResult.fetchOwnLikedStories,
+          ],
+        };
+      },
+    });
+  };
+
+  const onClickCommunity = () => {
+    communityRefetch();
+    setCommunity(true);
+    setComment(false);
+    setLike(false);
+  };
+
+  const onClickComment = () => {
+    commentRefetch();
+    setCommunity(false);
+    setComment(true);
+    setLike(false);
+  };
+
+  const onClickLike = () => {
+    likeRefetch();
+    setCommunity(false);
+    setComment(false);
+    setLike(true);
+  };
+
   return (
     <>
       <Head>
@@ -179,6 +292,18 @@ export default function MyPageContainer() {
         onChangeReview={onChangeReview}
         reviewIsActive={reviewIsActive}
         onClickReviewSubmit={onClickReviewSubmit}
+        community={community}
+        comment={comment}
+        like={like}
+        communityData={communityData}
+        FetchMoreCommunityData={FetchMoreCommunityData}
+        commentData={commentData}
+        FetchMoreCommentData={FetchMoreCommentData}
+        likeData={likeData}
+        FetchMoreLikeData={FetchMoreLikeData}
+        onClickCommunity={onClickCommunity}
+        onClickComment={onClickComment}
+        onClickLike={onClickLike}
       ></MyPagePresenter>
     </>
   );

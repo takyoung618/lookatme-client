@@ -56,3 +56,35 @@ export const CREATE_SPECIALIST_REVIEW = gql`
     }
   }
 `;
+
+export const FETCH_OWN_STORIES = gql`
+  query fetchOwnStories {
+    fetchOwnStories {
+      id
+      title
+      likes
+    }
+  }
+`;
+
+export const FETCH_OWN_COMMENTS = gql`
+  query fetchOwnComments {
+    fetchOwnComments {
+      id
+      text
+      story {
+        id
+      }
+    }
+  }
+`;
+
+export const FETCH_OWN_LIKED_STORIES = gql`
+  query fetchOwnLikedStories {
+    fetchOwnLikedStories {
+      id
+      title
+      likes
+    }
+  }
+`;

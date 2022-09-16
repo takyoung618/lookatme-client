@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import Modal from "react-modal";
 import { Rate } from "antd";
+import { ICommentProps, ICommunityProps, ILikeProps } from "./my-page.types";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -207,6 +208,7 @@ export const CategoryWrapper = styled.div`
   width: 100vw;
   margin-top: 10px;
   margin-bottom: 80px;
+  padding: 10px 3%;
 `;
 
 export const ExpertWrapper = styled.div`
@@ -439,20 +441,51 @@ export const HistoryCategoryWrapper = styled.div`
   justify-content: space-between;
 
   width: 100%;
-  padding: 10px 20px;
-  border-bottom: 1px dashed #c5c5c5;
-  margin-bottom: 10px;
+  padding: 15px 0px;
 `;
 
-export const HistoryButton = styled.div`
+export const CommunityButton = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
   width: 20%;
-  font-size: 1.0625rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: ${(props: ICommunityProps) => (props.community ? "900" : "600")};
+  text-decoration: ${(props: ICommunityProps) =>
+    props.community && "underline"};
+  text-underline-position: ${(props: ICommunityProps) =>
+    props.community && "under"};
+  cursor: pointer;
+`;
+
+export const CommentButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 20%;
+  font-size: 1rem;
+  font-weight: ${(props: ICommentProps) => (props.comment ? "900" : "600")};
+  text-decoration: ${(props: ICommentProps) => props.comment && "underline"};
+  text-underline-position: ${(props: ICommentProps) =>
+    props.comment && "under"};
+  cursor: pointer;
+`;
+
+export const LikeButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 20%;
+  font-size: 1rem;
+  font-weight: ${(props: ILikeProps) => (props.like ? "900" : "600")};
+  text-decoration: ${(props: ILikeProps) => props.like && "underline"};
+  text-underline-position: ${(props: ILikeProps) => props.like && "under"};
   cursor: pointer;
 `;
 

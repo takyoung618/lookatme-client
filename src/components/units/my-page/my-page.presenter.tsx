@@ -247,23 +247,67 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
       <S.MyPageSubTitle>활동 기록</S.MyPageSubTitle>
 
       <S.HistoryCategoryWrapper>
-        <S.HistoryButton>사연 목록</S.HistoryButton>
-        <S.HistoryButton>댓글 목록</S.HistoryButton>
-        <S.HistoryButton>공감 목록</S.HistoryButton>
+        <S.CommunityButton
+          community={props.community}
+          onClick={props.onClickCommunity}
+        >
+          사연 목록
+        </S.CommunityButton>
+        <S.CommentButton comment={props.comment} onClick={props.onClickComment}>
+          댓글 목록
+        </S.CommentButton>
+        <S.LikeButton like={props.like} onClick={props.onClickLike}>
+          공감 목록
+        </S.LikeButton>
       </S.HistoryCategoryWrapper>
-      <S.CategoryWrapper>
-        <S.HistoryBody>
-          <S.HistoryContents>
-            왜 자꾸 기분이 가라앉는지 모르겠어요...
-          </S.HistoryContents>
-          <S.HistoryInfoWrapper>
-            <FaHeartbeat
-              style={{ width: "27px", height: "23px", color: "#73bea8" }}
-            />
-            <S.HistoryInfo>1 명 공감</S.HistoryInfo>
-          </S.HistoryInfoWrapper>
-        </S.HistoryBody>
-      </S.CategoryWrapper>
+
+      {props.community && (
+        <S.CategoryWrapper>
+          {props.communityData?.fetchOwnStories.map((el) => (
+            <S.HistoryBody key={el.id}>
+              <S.HistoryContents>{el.title}</S.HistoryContents>
+              <S.HistoryInfoWrapper>
+                <FaHeartbeat
+                  style={{ width: "27px", height: "23px", color: "#73bea8" }}
+                />
+                <S.HistoryInfo>{el.likes} 명 공감</S.HistoryInfo>
+              </S.HistoryInfoWrapper>
+            </S.HistoryBody>
+          ))}
+        </S.CategoryWrapper>
+      )}
+
+      {props.comment && (
+        <S.CategoryWrapper>
+          {props.commentData?.fetchOwnComments.map((el) => (
+            <S.HistoryBody key={el.id}>
+              <S.HistoryContents>{el.text}</S.HistoryContents>
+              <S.HistoryInfoWrapper>
+                <FaHeartbeat
+                  style={{ width: "27px", height: "23px", color: "#73bea8" }}
+                />
+                <S.HistoryInfo>1 명 공감</S.HistoryInfo>
+              </S.HistoryInfoWrapper>
+            </S.HistoryBody>
+          ))}
+        </S.CategoryWrapper>
+      )}
+
+      {props.like && (
+        <S.CategoryWrapper>
+          {props.likeData?.fetchOwnLikedStories.map((el) => (
+            <S.HistoryBody key={el.id}>
+              <S.HistoryContents>{el.title}</S.HistoryContents>
+              <S.HistoryInfoWrapper>
+                <FaHeartbeat
+                  style={{ width: "27px", height: "23px", color: "#73bea8" }}
+                />
+                <S.HistoryInfo>{el.likes} 명 공감</S.HistoryInfo>
+              </S.HistoryInfoWrapper>
+            </S.HistoryBody>
+          ))}
+        </S.CategoryWrapper>
+      )}
     </S.Wrapper>
   );
 }

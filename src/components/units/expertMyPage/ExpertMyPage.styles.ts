@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { IEndButtonProps, IIngButtonProps } from "./ExpertMyPage.types";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -84,36 +85,60 @@ export const ListTitle = styled.div`
   border-top: 1px solid #c5c5c5;
   border-bottom: 1px solid #c5c5c5;
   padding: 10px 3%;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 700;
-`;
-
-export const ProgressWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-
-  width: 100%;
-  padding: 10px 0px;
-  margin-bottom: 50px;
-`;
-
-export const ProgressButton = styled.div`
-  font-size: 0.87rem;
-  font-weight: 600;
+  margin-bottom: 15px;
 `;
 
 export const ProgressListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 98%;
+  width: 95%;
+  margin-left: 2.5%;
+`;
+
+export const ProgressBody = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  background-color: #f5f5f5;
+  border: 1px solid #c5c5c5;
+  margin-bottom: 20px;
+  padding-right: 5%;
+`;
+
+export const TextBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5%;
+  width: 70%;
+`;
+
+export const ProgressContentsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 5px 0px;
+`;
+
+export const ProgressTitle = styled.div`
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: 10px;
+`;
+
+export const ProgressContents = styled.div`
+  font-size: 1rem;
+  font-weight: 500;
 `;
 
 export const CommentListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 20px 2%;
+  padding: 10px 2%;
 `;
 
 export const CommentWrapper = styled.div`

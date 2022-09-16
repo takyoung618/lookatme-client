@@ -51,8 +51,9 @@ export const NickNameWriter = styled.div`
 `;
 
 export const TextBoxWrapper = styled.div`
-  text-align: left;
-`;
+    text-align: left;
+    font-size: 1.25rem;
+`
 
 export const TextTitle = styled.div`
   margin: 20px 18px 0px 19px;

@@ -18,7 +18,7 @@ export default function CommunityDetailUi(props) {
           </S.TimeWrapper>
         </S.TitleWrapper>
         <S.NickNameWriter>
-          {props.data?.fetchStory.user.nickname}
+          
         </S.NickNameWriter>
       </S.HeaderWrapper>
       <S.TextBoxWrapper>
@@ -47,7 +47,7 @@ export default function CommunityDetailUi(props) {
             }}
           />
           <S.NickNameUser>
-            {props.UserInfo?.fetchLoginUser.nickname}
+            {props.data?.fetchStory.user.nickname}
           </S.NickNameUser>
         </S.UserWrapper>
       </S.FooterWrapper>

@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
 export const Header = styled.div`
     font-size: 1.438rem;
-    margin-top: 16px;
+    margin-top: 30px;
 `;
 
 export const CategoryWrapper = styled.select`
@@ -28,7 +28,7 @@ export const CategoryWrapper = styled.select`
     /* appearance: none; */
     /* background: url("/arrow.png/") no-repeat 95% 50%; */
 
-    margin-top: 7px;
+    margin-top: 20px;
     margin-left: 25px;
 
     ::-ms-expand {
@@ -46,7 +46,7 @@ export const TitleWrapper = styled.div`
 
 export const Title = styled.div`
     font-size: 1.063;
-    margin-top: 17px;
+    margin-top: 30px;
     margin-right: 215px;
 `
 
@@ -69,20 +69,11 @@ export const TextWrapper = styled.div`
 
 export const Text = styled.div`
     font-size: 1.063;
-    margin-top: 17px;
+    margin-top: 30px;
     margin-right: 215px;
 `
 
 export const TextInput = styled.textarea`
-    display: flex;
-    width: 85.5%;
-    height: 316px;
-    margin-top: 11px;
-    margin-left: 25px;
-    background-color: #f5f5f5;
-    border: solid 1px #c5c5c5;
-    text-align: start;
- 
     ::placeholder {
         color: #7f7f7f;
         text-indent: 8px;
@@ -98,7 +89,7 @@ export const ImageWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    margin-top: 10px;
+    margin-top: 50px;
     margin-left: 25px;
 `
 
@@ -107,7 +98,8 @@ export const ButtonWrapper = styled.div`
     text-align: center;
    
     margin-bottom: 35px;
-    margin-left: 55px;
+    margin-left: 70px;
+    margin-top: 30px;
 `
 
 export const ListButton = styled.button`
@@ -139,3 +131,8 @@ export const CreateButton = styled.button`
     color: #fff !important;
 `
 
+export const EditorWrapper = styled.div`
+    width: 85.5%;
+    margin-left: 25px;
+    margin-top: 15px;
+`

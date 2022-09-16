@@ -22,7 +22,7 @@ export default function CommunityDetail() {
     IMutationDeleteOwnStoryArgs
     >(DELETE_OWN_STORY);
 
-    // 사연 삭제
+    // 사연 삭제 - 아직 구현 안됐음
     const onClickDeleteStory = async () => {
         await deleteOwnStory({
             variables: { storyId: String(router.query.id) },

@@ -1,10 +1,38 @@
+import { gql, useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
+import { IQuery, IQueryFetchStoryArgs } from "../../../../src/commons/types/generated/types";
 import CommunityWrite from "../../../../src/components/units/community/write/CommunityWrite.container";
 
-export default function CommunityEditPage() {
-<<<<<<< HEAD
-  return <CommunityWrite />
-=======
+const FETCH_STORY = gql`
+    query fetchStory($storyId: String!){
+        fetchStory(storyId: $storyId){
+            id
+            likes
+            commentCounts
+            title
+            text
+            createAt
+            user {
+              nickname
+            }
+            category {
+              name
+            }
+    }   
+  }
+`
 
-  return <CommunityWrite isEdit={true} />
->>>>>>> 4f10740a601587342d37a91e60efd460e369b051
+
+
+export default function CommunityEditPage() {
+  const router = useRouter();
+
+  const { data } = useQuery<
+    Pick<IQuery, "fetchStory">,
+    IQueryFetchStoryArgs
+    >(FETCH_STORY, {
+        variables:  {storyId: String(router.query.communityId)}
+    });
+
+  return <CommunityWrite isEdit={true} data={data} />
 }

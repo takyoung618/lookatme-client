@@ -46,3 +46,13 @@ export const pwdEditState = atom({
   key: "pwdEditState",
   default: false,
 });
+
+export const isExpertCommentEditState = atom({
+  key: "isExpertCommentEditState",
+  default: false,
+});
+
+export const isUserCommentEditState = atom({
+  key: "isUserCommentEditState",
+  default: false,
+});

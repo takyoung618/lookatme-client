@@ -17,9 +17,7 @@ export default function CommunityDetailUi(props) {
             <S.Time>{getDate(props.data?.fetchStory.createAt)}</S.Time>
           </S.TimeWrapper>
         </S.TitleWrapper>
-        <S.NickNameWriter>
-          
-        </S.NickNameWriter>
+        <S.NickNameWriter></S.NickNameWriter>
       </S.HeaderWrapper>
       <S.TextBoxWrapper>
         <S.TextTitle>{props.data?.fetchStory.title}</S.TextTitle>

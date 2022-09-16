@@ -36,7 +36,7 @@ export default function Login() {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
   const [adminLogin] = useMutation<
-    Pick<IMutation, "login">,
+    Pick<IMutation, "adminLogin">,
     IMutationLoginArgs
   >(ADMIN_LOGIN);
 
@@ -51,7 +51,7 @@ export default function Login() {
       const result = await adminLogin({
         variables: { email: data.email, password: data.password },
       });
-      const accessToken = result.data?.login;
+      const accessToken = result.data?.adminLogin;
       console.log(accessToken);
       if (!accessToken) {
         Modal.info({ title: "로그인 실패" });

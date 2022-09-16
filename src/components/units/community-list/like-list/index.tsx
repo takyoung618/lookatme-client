@@ -33,7 +33,7 @@ export default function LikeList(props: ILikeListProps) {
           >
             <S.Category>{el.category.name}</S.Category>
             <S.Title>{el.title}</S.Title>
-            <S.Contents>{el.text}</S.Contents>
+            <S.Contents dangerouslySetInnerHTML={{ __html: (el.text)}}></S.Contents>
             <S.BodyBottomWrapper>
               <S.ContentsInfo>
                 <S.LikeButton>

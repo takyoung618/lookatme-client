@@ -7,6 +7,7 @@ import { useMutation } from "@apollo/client";
 import { LOGOUT } from "./header.queries";
 import { useRecoilState } from "recoil";
 import { logInStatusState } from "../../../../commons/store";
+import { getSpecialist } from "../../../../commons/libraries/getSpecialist";
 
 export default function HeaderContainer() {
   const router = useRouter();
@@ -76,9 +77,12 @@ export default function HeaderContainer() {
     window.location.reload();
   };
 
+  const isSpecialist = getSpecialist()?.isSpecialist;
+
   const onClickMyPage = () => {
     setOpen(false);
-    router.push("/my-page/");
+    isSpecialist && router.push("/expert-my-page");
+    isSpecialist || router.push("/my-page/");
   };
 
   const onClickCommunity = () => {

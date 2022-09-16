@@ -42,7 +42,7 @@ export const CREATE_SPECIALIST_COMMENT = gql`
   }
 `;
 
-export const UPDATE_SPECIALIST_COMMENT = gql`
+export const UPDATE_SPECIALIST_OWN_COMMENT = gql`
   mutation updateSpecialistComment(
     $updateSpecialistCommentInput: updateSpecialCommentInput!
   ) {

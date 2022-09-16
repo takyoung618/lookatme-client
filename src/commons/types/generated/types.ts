@@ -49,6 +49,8 @@ export type IComment = {
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   isReported: Scalars['Boolean'];
+  likedUsers: Array<IUser>;
+  likes: Scalars['Int'];
   story: IStory;
   text: Scalars['String'];
   updatedAt: Scalars['DateTime'];
@@ -74,7 +76,6 @@ export type ICreateQuoteInput = {
 export type ICreateSpecialistCommentInput = {
   storyId: Scalars['String'];
   text: Scalars['String'];
-  title: Scalars['String'];
 };
 
 export type ICreateSpecialistInput = {
@@ -144,6 +145,8 @@ export type IMutation = {
   createUnderComment: IUnderComment;
   /** 회원 가입 및 환영 이메일 전송 */
   createUser: IUser;
+  /** 댓글 좋아요 취소 */
+  deleteLikeComment: IComment;
   /** 사연 좋아요 취소 */
   deleteLikeStory: IStory;
   /** 로그인한 회원 탈퇴 */
@@ -170,6 +173,8 @@ export type IMutation = {
   deleteSpecialistOwnComment: Scalars['Boolean'];
   /** 관리자 권한으로 회원 삭제 */
   deleteUser: Scalars['Boolean'];
+  /** 댓글 좋아요 */
+  likeComment: IComment;
   /** 사연 좋아요 */
   likeStory: IStory;
   /** 로그인 */
@@ -200,10 +205,10 @@ export type IMutation = {
   updateOwnUnderComment: IUnderComment;
   /** 명언 수정 */
   updateQuote: IQuote;
-  /** 전문가 정보 수정 */
-  updateSpecialist: ISpecialist;
   /** 전문가 자신의 답변 수정 */
   updateSpecialistOwnComment: ISpecialistComment;
+  /** 전문가 자신의 정보 수정 */
+  updateSpecialistOwnProfile: ISpecialist;
   /** 사연 수정 */
   updateStory: IStory;
   /** 로그인한 회원 정보 변경 */
@@ -294,6 +299,11 @@ export type IMutationCreateUserArgs = {
 };
 
 
+export type IMutationDeleteLikeCommentArgs = {
+  commentId: Scalars['String'];
+};
+
+
 export type IMutationDeleteLikeStoryArgs = {
   storyId: Scalars['String'];
 };
@@ -351,6 +361,11 @@ export type IMutationDeleteSpecialistOwnCommentArgs = {
 
 export type IMutationDeleteUserArgs = {
   userId: Scalars['String'];
+};
+
+
+export type IMutationLikeCommentArgs = {
+  commentId: Scalars['String'];
 };
 
 
@@ -422,14 +437,13 @@ export type IMutationUpdateQuoteArgs = {
 };
 
 
-export type IMutationUpdateSpecialistArgs = {
-  id: Scalars['String'];
-  updateSpecialistInput: IUpdateSpecialistInput;
+export type IMutationUpdateSpecialistOwnCommentArgs = {
+  updateSpecialistCommentInput: IUpdateSpecialistCommentInput;
 };
 
 
-export type IMutationUpdateSpecialistOwnCommentArgs = {
-  updateSpecialistCommentInput: IUpdateSpecialistCommentInput;
+export type IMutationUpdateSpecialistOwnProfileArgs = {
+  updateSpecialistInput: IUpdateSpecialistInput;
 };
 
 
@@ -496,6 +510,7 @@ export type IQuery = {
   fetchOwnLikedStories: Array<IStory>;
   /** 회원의 사연 조회 */
   fetchOwnStories: Array<IStory>;
+  /** 유저 자신이 구매한 티켓 조회 */
   fetchOwnTickets: Array<ITicket>;
   /** 결제 목록 조회 */
   fetchPayments: Array<IPayment>;
@@ -517,6 +532,10 @@ export type IQuery = {
   fetchSpecialist: ISpecialist;
   /** 높은가격순 전문가 조회 */
   fetchSpecialistByPrice: Array<ISpecialist>;
+  /** 전문가 자신의 답변들 조회 */
+  fetchSpecialistOwnComments: Array<ISpecialistComment>;
+  /** 전문가 자신의 고객 조회 */
+  fetchSpecialistOwnCustomer: Array<ITicket>;
   /** 전문가 전체 목록 조회 */
   fetchSpecialists: Array<ISpecialist>;
   /** 별점순 전문가 조회 */
@@ -652,7 +671,6 @@ export type ISpecialistComment = {
   specialist: ISpecialist;
   story: IStory;
   text: Scalars['String'];
-  title: Scalars['String'];
 };
 
 export type ISpecialistReview = {
@@ -724,7 +742,6 @@ export type IUpdateQuoteInput = {
 export type IUpdateSpecialistCommentInput = {
   specialistCommentId: Scalars['String'];
   text?: InputMaybe<Scalars['String']>;
-  title?: InputMaybe<Scalars['String']>;
 };
 
 export type IUpdateSpecialistInput = {
@@ -764,6 +781,7 @@ export type IUser = {
   comments: Array<IComment>;
   email: Scalars['String'];
   id: Scalars['String'];
+  likedComments: Array<IComment>;
   likedStories: Array<IStory>;
   nickname: Scalars['String'];
   phone_number: Scalars['String'];

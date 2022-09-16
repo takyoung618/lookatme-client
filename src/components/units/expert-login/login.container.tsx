@@ -37,7 +37,7 @@ export default function Login() {
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
 
   const [specialistLogin] = useMutation<
-    Pick<IMutation, "login">,
+    Pick<IMutation, "specialistLogin">,
     IMutationSpecialistLoginArgs
   >(SPECIALIST_LOGIN);
 
@@ -52,7 +52,7 @@ export default function Login() {
       const result = await specialistLogin({
         variables: { account: data.email, password: data.password },
       });
-      const accessToken = result.data?.login;
+      const accessToken = result.data?.specialistLogin;
       console.log(accessToken);
       if (!accessToken) {
         Modal.info({ title: "로그인 실패" });

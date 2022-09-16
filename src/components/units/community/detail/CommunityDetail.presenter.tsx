@@ -23,11 +23,18 @@ export default function CommunityDetailUi(props) {
       </S.HeaderWrapper>
       <S.TextBoxWrapper>
         <S.TextTitle>{props.data?.fetchStory.title}</S.TextTitle>
-        <S.Text>{props.data?.fetchStory.text}</S.Text>
+        <S.DetailImage
+          src={
+            props.data?.fetchStory.storyImage?.[0] &&
+            `https://storage.googleapis.com/lookatme-storage/${props.data.fetchStory. storyImage.url?.[0]}`
+          }
+        ></S.DetailImage>
+        <S.Text dangerouslySetInnerHTML={{ __html: String(props.data?.fetchStory.text)}}></S.Text>
       </S.TextBoxWrapper>
       <S.FooterWrapper>
         <S.SympathyWrapper>
           <FaHeartbeat
+            onClick={props.onClickHeart}
             style={{
               width: "27px",
               height: "23px",
@@ -65,7 +72,7 @@ export default function CommunityDetailUi(props) {
           onClick={props.onClickDeleteStory}
         ></BasicButton>
       </S.ButtonWrapper>
-
+      
       <CommentWriteContainer></CommentWriteContainer>
 
       <CommentListContainer></CommentListContainer>

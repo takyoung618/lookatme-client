@@ -1,5 +1,4 @@
 import { IQuery } from "../../../../commons/types/generated/types";
-// import { Editor } from "@toast-ui/react-editor";
 
 export interface ICreateUsedItemContainerProps {
     isEdit: boolean;

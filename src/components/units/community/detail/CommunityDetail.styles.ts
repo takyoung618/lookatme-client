@@ -63,6 +63,9 @@ export const Text = styled.div`
   margin: 20px 18px 20px 18px;
 `;
 
+export const DetailImage = styled.div`
+`
+
 export const FooterWrapper = styled.div`
   display: flex;
   align-items: center;

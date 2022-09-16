@@ -1,7 +1,5 @@
 import { gql } from "@apollo/client"
 
-
-
 export const FETCH_STORY = gql`
     query fetchStory($storyId: String!){
         fetchStory(storyId: $storyId){
@@ -14,6 +12,9 @@ export const FETCH_STORY = gql`
             user {
                 nickname
             }
+            storyImage {
+            url
+            }
             category {
                 name
             }
@@ -21,25 +22,14 @@ export const FETCH_STORY = gql`
     }
 `
 
-// export const FETCH_STORIES = gql`
-//     query fetchStories($page: int) {
-//         fetchStories(page: $page) {
-//             id
-//             likes
-//             commentCounts
-//             title
-//             text
-//             user {
-//                 nickname
-//             }
-//             isReported
-//             category {
-//                 id
-//                 name
-//             }
-//         }
-//     }
-// `
+export const LIKE_STORY = gql`
+    mutation likeStory($storyId: String!){
+        likeStory(storyId: $storyId){
+            likes
+        }
+    }
+`
+
 
 export const DELETE_OWN_STORY = gql`
     mutation deleteOwnStory($id: String!) {

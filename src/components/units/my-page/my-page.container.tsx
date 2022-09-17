@@ -94,8 +94,31 @@ export default function MyPageContainer() {
   };
 
   // 내 전문가 (티켓 목록)
-  const { data: TicketData } =
-    useQuery<Pick<IQuery, "fetchOwnTickets">>(FETCH_OWN_TICKETS);
+  const { data: TicketData, fetchMore: ticketFetchMore } = useQuery<
+    Pick<IQuery, "fetchOwnTickets">
+  >(FETCH_OWN_TICKETS, { variables: { page: 0 } });
+
+  const FetchMoreTicketData = () => {
+    if (!TicketData) return;
+
+    ticketFetchMore({
+      variables: {
+        page: Math.ceil(TicketData.fetchOwnTickets.length / 10) + 1,
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchOwnTickets) {
+          return { fetchOwnTickets: [...prev.fetchOwnTickets] };
+        }
+
+        return {
+          fetchOwnTickets: [
+            ...prev.fetchOwnTickets,
+            ...fetchMoreResult.fetchOwnTickets,
+          ],
+        };
+      },
+    });
+  };
 
   // 후기 작성 모달
   const [reviewModalIsOpen, setReviewModalIsOpen] = useState(false);
@@ -158,7 +181,9 @@ export default function MyPageContainer() {
     data: communityData,
     refetch: communityRefetch,
     fetchMore: communityFetchMore,
-  } = useQuery<Pick<IQuery, "fetchOwnStories">>(FETCH_OWN_STORIES);
+  } = useQuery<Pick<IQuery, "fetchOwnStories">>(FETCH_OWN_STORIES, {
+    variables: { page: 0 },
+  });
 
   const FetchMoreCommunityData = () => {
     if (!communityData) return;
@@ -186,7 +211,9 @@ export default function MyPageContainer() {
     data: commentData,
     refetch: commentRefetch,
     fetchMore: commentFetchMore,
-  } = useQuery<Pick<IQuery, "fetchOwnComments">>(FETCH_OWN_COMMENTS);
+  } = useQuery<Pick<IQuery, "fetchOwnComments">>(FETCH_OWN_COMMENTS, {
+    variables: { page: 0 },
+  });
 
   const FetchMoreCommentData = () => {
     if (!commentData) return;
@@ -214,7 +241,9 @@ export default function MyPageContainer() {
     data: likeData,
     refetch: likeRefetch,
     fetchMore: likeFetchMore,
-  } = useQuery<Pick<IQuery, "fetchOwnLikedStories">>(FETCH_OWN_LIKED_STORIES);
+  } = useQuery<Pick<IQuery, "fetchOwnLikedStories">>(FETCH_OWN_LIKED_STORIES, {
+    variables: { page: 0 },
+  });
 
   const FetchMoreLikeData = () => {
     if (!likeData) return;
@@ -284,6 +313,7 @@ export default function MyPageContainer() {
         pwdEdit={pwdEdit}
         onClickPwdButton={onClickPwdButton}
         TicketData={TicketData}
+        FetchMoreTicketData={FetchMoreTicketData}
         reviewModalIsOpen={reviewModalIsOpen}
         setReviewModalIsOpen={setReviewModalIsOpen}
         rate={rate}

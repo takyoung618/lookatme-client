@@ -4,6 +4,7 @@ import UploadImageContainer from "../../../commons/uploadImage/UploadImage.conta
 
 
 export default function CommunityWriteUi(props){
+    console.log('CommunityWrite',props.data)
     return (
         <form
         onSubmit={
@@ -18,7 +19,7 @@ export default function CommunityWriteUi(props){
             defaultValue={props.data?.fetchStory.category.name}
             >
                 <option value="" 
-                >카테고리 선택</option>
+                >{props.data && props.data.fetchStory.category.name || "카테고리"}</option>
                 <option {...props.register("categoryName")}>직업,진로</option>
                 <option value="연애,결혼">연애,결혼</option>
                 <option value="대인관계">대인관계</option>
@@ -35,6 +36,7 @@ export default function CommunityWriteUi(props){
                 {...props.register("title")}
                 placeholder="제목을 입력해주세요"
                 defaultValue={props.data?.fetchStory.title}
+                
                 >
                 </S.TitleInput>
             </S.TitleWrapper>
@@ -43,12 +45,22 @@ export default function CommunityWriteUi(props){
             </S.ErrorMessage>
             <S.Text>고민내용</S.Text>
             <S.TextWrapper>
-                <S.TextStory
+              {props.isEdit ? (
+                props.data && (<S.TextStory
                     onChange={props.onChangeContents}
                     placeholder="내용을 입력해주세요."
-                    defaultValue={props.data?.fetchStory.text}
-                />
-            </S.TextWrapper>
+                    defaultValue={
+                        props.data.fetchStory.text || ""
+                    }
+                />)
+              ) : (
+                <S.TextStory
+                onChange={props.onChangeContents}
+                placeholder="내용을 입력해주세요."
+                defaultValue={props.data && props.data.fetchStory.text || ""}
+                />    
+              )}
+            </S.TextWrapper>   
             <S.ErrorMessage>
             {props.formState.errors.text?.message}
             </S.ErrorMessage> 

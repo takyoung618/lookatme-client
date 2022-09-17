@@ -122,6 +122,7 @@ export default function CommunityWrite(props: ICreateStoryProps){
 
     return (
         <CommunityWriteUi
+        data ={props.data}
         register={register}
         handleSubmit={handleSubmit}
         formState={formState}

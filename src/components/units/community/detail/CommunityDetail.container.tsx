@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { message, Modal } from "antd";
+import { message } from "antd";
 import { useRouter } from "next/router";
 import { getUserInfo } from "../../../../commons/libraries/getUserInfo";
 import { IMutation, IMutationDeleteOwnStoryArgs, IMutationLikeStoryArgs, IQuery, IQueryFetchStoryArgs} from "../../../../commons/types/generated/types";

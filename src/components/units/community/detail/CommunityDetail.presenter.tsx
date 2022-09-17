@@ -5,6 +5,7 @@ import { FaHeartbeat } from "react-icons/fa";
 import { BsFillPersonFill } from "react-icons/bs";
 import CommentListContainer from "../../comment/comment-list/comment-list.container";
 import CommentWriteContainer from "../../comment/comment-write/CommentWrite.container";
+import Dompurify from "dompurify";
 
 export default function CommunityDetailUi(props) {
   return (
@@ -27,7 +28,9 @@ export default function CommunityDetailUi(props) {
             `https://storage.googleapis.com/lookatme-storage/${props.data.fetchStory. storyImage.url?.[0]}`
           }
         ></S.DetailImage>
-        <S.Text dangerouslySetInnerHTML={{ __html: String(props.data?.fetchStory.text)}}></S.Text>
+      {typeof window !== "undefined" && (
+         <S.Text dangerouslySetInnerHTML={{ __html: Dompurify.sanitize(props.data?.fetchStory.text)}}></S.Text>
+      )}
       </S.TextBoxWrapper>
       <S.FooterWrapper>
         <S.SympathyWrapper>

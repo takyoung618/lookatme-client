@@ -15,7 +15,9 @@ export default function CommunityWriteUi(props){
         >  
         <S.Wrapper>
             <S.Header>{props.isEdit ? "사연수정" : "사연등록"}</S.Header>
-            <S.CategoryWrapper value={props.selected} onChange={props.onChangeSelect}
+            <S.categoryWrapper>
+            
+            <S.Category value={props.selected} onChange={props.onChangeSelect}
             defaultValue={props.data?.fetchStory.category.name}
             >
                 <option value="" 
@@ -26,10 +28,12 @@ export default function CommunityWriteUi(props){
                 <option value="자아,성격">자아,성격</option>
                 <option value="가족">가족</option>
                 <option value="자유주제">자유주제</option>
-            </S.CategoryWrapper>
+            </S.Category>
             <S.ErrorMessage>
             {props.formState.errors.catagoryName?.message}
             </S.ErrorMessage>
+            </S.categoryWrapper>
+            <S.BoxWrapper>
             <S.TitleWrapper>
                 <S.Title>고민제목</S.Title>
                 <S.TitleInput type="text"
@@ -39,11 +43,12 @@ export default function CommunityWriteUi(props){
                 
                 >
                 </S.TitleInput>
+                <S.Text>고민내용</S.Text>
             </S.TitleWrapper>
             <S.ErrorMessage>
             {props.formState.errors.title?.message}
             </S.ErrorMessage>
-            <S.Text>고민내용</S.Text>
+            
             <S.TextWrapper>
               {props.isEdit ? (
                 props.data && (<S.TextStory
@@ -79,6 +84,9 @@ export default function CommunityWriteUi(props){
                 <S.ListButton onClick={props.onClickList}>목록으로</S.ListButton>
                 <S.CreateButton >{props.isEdit ? "수정하기" : "등록하기"}</S.CreateButton>
             </S.ButtonWrapper>
+            
+            </S.BoxWrapper>      
+            
         </S.Wrapper>
         </form>
     ) 

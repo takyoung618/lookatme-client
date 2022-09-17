@@ -60,6 +60,7 @@ export default function CommunityWriteUi(props){
                 defaultValue={props.data && props.data.fetchStory.text || ""}
                 />    
               )}
+              
             </S.TextWrapper>   
             <S.ErrorMessage>
             {props.formState.errors.text?.message}

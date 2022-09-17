@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Welcome Template</title>
+  </head>
+  <body>
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 200px;
+          background-color: #73c7a9;
+        "
+      >
+        <img
+          height="150px"
+          src="https://storage.googleapis.com/lookatme-storage/2022/9/17/ed789817-832f-4b2d-827b-e280f2c1f7be/origin/look_at_me.png"
+          alt="banner"
+        />
+      </div>
+      <div>
+        <h1>${nickname}님 가입을 환영합니다!!!</h1>
+        <hr />
+        <div>가입일: ${getToday()}</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -154,7 +154,7 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
         <S.InfiniteWrapper>
           {props.TicketData?.fetchOwnTickets.map((el) => (
             <div key={el.id}>
-              <S.CategoryWrapper>
+              <S.ExpertListWrapper>
                 <S.ExpertWrapper>
                   <S.ExpertBody>
                     <S.ExpertPhoto
@@ -200,7 +200,7 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
                     <S.BottomInfo>{getDate(el.expired)}</S.BottomInfo>
                   </S.BottomWrapper>
                 </S.ExpertWrapper>
-              </S.CategoryWrapper>
+              </S.ExpertListWrapper>
 
               <S.ReviewModal isOpen={props.reviewModalIsOpen}>
                 <S.ReviewModalCloseButton>

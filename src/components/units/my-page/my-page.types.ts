@@ -22,7 +22,7 @@ export interface IMyPagePresenterProps {
   onChangeRate: (rate: SetStateAction<number>) => void;
   onChangeReview: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   reviewIsActive: boolean;
-  onClickReviewSubmit: () => void;
+  onClickReviewSubmit: (event: MouseEvent<HTMLDivElement>) => void;
   community: boolean;
   comment: boolean;
   like: boolean;
@@ -35,6 +35,7 @@ export interface IMyPagePresenterProps {
   onClickCommunity: () => void;
   onClickComment: () => void;
   onClickLike: () => void;
+  onClickMoveToDetailCommunity: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
 export interface ICommunityProps {

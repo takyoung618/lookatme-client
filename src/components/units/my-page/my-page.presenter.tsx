@@ -288,7 +288,10 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
         >
           <S.CategoryWrapper>
             {props.communityData?.fetchOwnStories.map((el) => (
-              <S.HistoryBody key={el.id}>
+              <S.HistoryBody
+                key={el.id}
+                onClick={props.onClickMoveToDetailCommunity}
+              >
                 <S.HistoryContents>{el.title}</S.HistoryContents>
                 <S.HistoryInfoWrapper>
                   <FaHeartbeat
@@ -311,7 +314,10 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
         >
           <S.CategoryWrapper>
             {props.commentData?.fetchOwnComments.map((el) => (
-              <S.HistoryBody key={el.id}>
+              <S.HistoryBody
+                key={el.id}
+                onClick={props.onClickMoveToDetailCommunity}
+              >
                 <S.HistoryContents>{el.text}</S.HistoryContents>
                 <S.HistoryInfoWrapper>
                   <FaHeartbeat
@@ -334,7 +340,10 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
         >
           <S.CategoryWrapper>
             {props.likeData?.fetchOwnLikedStories.map((el) => (
-              <S.HistoryBody key={el.id}>
+              <S.HistoryBody
+                key={el.id}
+                onClick={props.onClickMoveToDetailCommunity}
+              >
                 <S.HistoryContents>{el.title}</S.HistoryContents>
                 <S.HistoryInfoWrapper>
                   <FaHeartbeat

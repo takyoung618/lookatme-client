@@ -4,6 +4,7 @@ import { BsFillPersonFill } from "react-icons/bs";
 import { IQuery, IStory } from "../../../../commons/types/generated/types";
 import InfiniteScroll from "react-infinite-scroller";
 import { useRouter } from "next/router";
+import Dompurify from "dompurify";
 
 interface ITimeListProps {
   timeData: Pick<IQuery, "fetchStoriesByTime"> | undefined;
@@ -33,7 +34,9 @@ export default function TimeList(props: ITimeListProps) {
           >
             <S.Category>{el.category.name}</S.Category>
             <S.Title>{el.title}</S.Title>
-            <S.Contents dangerouslySetInnerHTML={{ __html: (el.text)}}></S.Contents> 
+            {typeof window !== "undefined" && (
+            <S.Contents dangerouslySetInnerHTML={{ __html: Dompurify.sanitize(el.text)}}></S.Contents>
+            )}
             <S.BodyBottomWrapper>
               <S.ContentsInfo>
                 <S.LikeButton>

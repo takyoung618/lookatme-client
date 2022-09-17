@@ -7,31 +7,31 @@ export const Wrapper = styled.div`
     width: 100%;
     display: flex;
     text-align: center;
+    justify-content: center;
     flex-direction: column;
 `;
 
-
-export const EditorWrapper = styled.div`
-    width: 85.5%;
-    margin-left: 25px;
-    margin-top: 15px;
-`
-
 export const TextStory = styled(ReactQuill)`
-  width: 85.5%;
   height: 550px;
-  margin-left: 30px;
   margin-top: 10px;
 
   padding-bottom: 40px;
 `;
+
+export const categoryWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+`
 
 export const Header = styled.div`
     font-size: 1.438rem;
     margin-top: 30px;
 `;
 
-export const CategoryWrapper = styled.select`
+export const Category = styled.select`
     width: 85.5%;
     display: flex;
     justify-content: space-between;
@@ -46,11 +46,15 @@ export const CategoryWrapper = styled.select`
     background-color: #73bea8;
     text-indent: 22px;
     margin-top: 20px;
-    margin-left: 30px;
 
     ::-ms-expand {
     display: none;
   }
+`
+
+export const BoxWrapper = styled.div`
+    width: 85.5%;
+    margin-left: 30px;
 `
 
 export const DropDown = styled.div`
@@ -58,17 +62,19 @@ export const DropDown = styled.div`
 `
 
 export const TitleWrapper = styled.div`
-    flex-direction:column;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
 `
 
 export const Title = styled.div`
+    display: flex;
     font-size: 1.063;
     margin-top: 30px;
-    margin-right: 285px;
 `
 
 export const TitleInput = styled.input`
-    width: 85.5%;
+    width: 100%;
     height: 40px;
     margin-top: 11px;
     background-color: #f5f5f5;
@@ -85,9 +91,9 @@ export const TextWrapper = styled.div`
 `
 
 export const Text = styled.div`
+    display: flex;
     font-size: 1.063;
     margin-top: 30px;
-    margin-right: 285px;
 `
 
 export const TextInput = styled.textarea`
@@ -99,7 +105,6 @@ export const TextInput = styled.textarea`
 `
 
 export const ImageWrapper = styled.div`
-    width: 85.5%;
     display: flex;
     text-align: center;
     flex-direction: row;
@@ -107,15 +112,14 @@ export const ImageWrapper = styled.div`
     align-items: center;
 
     margin-top: 50px;
-    margin-left: 30px;
 `
 
 export const ButtonWrapper = styled.div`
     display: flex;
     text-align: center;
+    justify-content: center;
    
     margin-bottom: 35px;
-    margin-left: 95px;
     margin-top: 30px;
 `
 
@@ -125,7 +129,7 @@ export const ListButton = styled.button`
     font-size: 17px;
     border-radius: 20px;
     margin-top: 15px;
-    margin-right: 30px;
+    margin-right: 20px;
 
     font-size: 1.063;
     background-color: #73bea8;

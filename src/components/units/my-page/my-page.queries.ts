@@ -42,14 +42,10 @@ export const FETCH_OWN_TICKETS = gql`
 
 export const CREATE_SPECIALIST_REVIEW = gql`
   mutation createSpecialistReview(
-    $text: String!
-    $rate: Float!
-    $specialistId: String!
+    $createSpecialistReviewInput: CreateSpecialistReviewInput!
   ) {
     createSpecialistReview(
-      text: $text
-      rate: $rate
-      specialistId: $specialistId
+      createSpecialistReviewInput: $createSpecialistReviewInput
     ) {
       text
       rate

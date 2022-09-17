@@ -6,6 +6,7 @@ import {
   IQuery,
   IQueryFetchSpecialistArgs,
 } from "../../../../commons/types/generated/types";
+import { FETCH_LOGIN_USER } from "../../my-page/my-page.queries";
 import ExpertDetailPresenter from "./expert-detail.presenter";
 import { CREATE_TICKET, FETCH_SPECIALIST } from "./expert-detail.queries";
 
@@ -26,6 +27,7 @@ export default function ExpertDetailContainer() {
     try {
       await createTicket({
         variables: { specialistId: String(router.query.expertId) },
+        refetchQueries: [{ query: FETCH_LOGIN_USER }],
       });
       Modal.success({
         content:

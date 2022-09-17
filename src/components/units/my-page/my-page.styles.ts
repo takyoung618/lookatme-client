@@ -200,7 +200,21 @@ export const MyPageSubTitle = styled.div`
 `;
 
 export const InfiniteWrapper = styled.div`
-  height: 300px;
+  height: 500px;
+  overflow: auto;
+  margin-bottom: 80px;
+`;
+
+export const ExpertListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 100%;
+  width: 100vw;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px 3%;
 `;
 
 export const CategoryWrapper = styled.div`

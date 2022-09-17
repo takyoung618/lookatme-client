@@ -157,13 +157,14 @@ export default function MyPageContainer() {
     }
   };
 
-  const onClickReviewSubmit = async () => {
+  const onClickReviewSubmit = async (specialistId: string) => {
     try {
       await createSpecialistReview({
         variables: {
           createSpecialistReviewInput: {
             text,
             rate,
+            specialistId: (specialistId: string) => {},
           },
         },
       });

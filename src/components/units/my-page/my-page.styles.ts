@@ -321,7 +321,7 @@ export const ReviewModal = styled(Modal)`
   min-width: 320px;
   width: 100%;
 
-  background-color: #73bea8;
+  background-color: #c3efdf;
   border: 1px solid #c5c5c5;
   box-shadow: 7.1px 7.1px 12px 0 rgba(0, 0, 0, 0.31);
   border-radius: 18px;
@@ -345,22 +345,18 @@ export const ReviewModalCloseButton = styled.div`
   height: 45px;
   padding: 15px;
   border-radius: 17px 17px 0px 0px;
-  background-color: #fff;
 `;
 
 export const ReviewModalTitle = styled.div`
   width: 40%;
   font-size: 1.0625rem;
   font-weight: 700;
-  padding: 0px 10px;
 `;
 
 export const ModalBottomWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  height: 310px;
 `;
 
 export const ModalExpertBody = styled.div`
@@ -370,7 +366,7 @@ export const ModalExpertBody = styled.div`
   align-items: center;
 
   width: 100%;
-  padding: 10px 10px 0px 10px;
+  padding: 20px 10px 10px 10px;
 `;
 
 export const ModalExpertDetail = styled.div`
@@ -386,7 +382,6 @@ export const ModalExpertProfile = styled.div`
   flex-direction: row;
   align-items: flex-start;
 
-  background-color: #fff;
   padding: 5px 0px 5px 5px;
   margin-bottom: 10px;
 `;
@@ -396,13 +391,11 @@ export const ReviewWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 10px;
-  background-color: #fff;
-  margin-bottom: 10px;
 `;
 
 export const ModalExpertTitle = styled.div`
-  color: #7f7f7f;
-  font-size: 0.9375rem;
+  font-size: 1rem;
+  font-weight: 700;
   width: 20%;
   margin-right: 10px;
 `;
@@ -425,7 +418,7 @@ export const ReviewContents = styled.textarea`
 
 export const ReviewError = styled.div`
   width: 100%;
-  margin: 10px 0px;
+  margin: 3px 2%;
   color: red;
 `;
 
@@ -436,6 +429,7 @@ export const ModalButtonWrapper = styled.div`
   align-items: center;
 
   width: 100%;
+  margin-bottom: 20px;
 `;
 
 export const ModalReviewButton = styled.div`

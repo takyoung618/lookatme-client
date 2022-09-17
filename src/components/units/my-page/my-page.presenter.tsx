@@ -9,6 +9,7 @@ import UpdateProfileContainer from "./update-profile/update-profile.container";
 import BasicButton from "../../commons/button";
 import PwdUpdateContainer from "./pwd-update/pwd-update.container";
 import { getDate } from "../../../commons/libraries/utils";
+import InfiniteScroll from "react-infinite-scroller";
 
 export default function MyPagePresenter(props: IMyPagePresenterProps) {
   return (
@@ -144,108 +145,118 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
       </S.ModalStyle>
 
       <S.MyPageSubTitle>내 전문가</S.MyPageSubTitle>
-      {props.TicketData?.fetchOwnTickets.map((el) => (
-        <div key={el.id}>
-          <S.CategoryWrapper>
-            <S.ExpertWrapper>
-              <S.ExpertBody>
-                <S.ExpertPhoto
-                  src={
-                    el.specialist.imgUrl
-                      ? el.specialist.imgUrl
-                      : "/expert-profile.png/"
-                  }
-                ></S.ExpertPhoto>
-                <S.ExpertDetail>
-                  <S.ProfileBody>
-                    <S.CategoryTitle>이름</S.CategoryTitle>
-                    <S.ProfileContents>{el.specialist.name}</S.ProfileContents>
-                  </S.ProfileBody>
-                  <S.ExpertDetailWrapper>
-                    <S.CategoryTitle>소개</S.CategoryTitle>
-                    <S.ProfileContents>
-                      {el.specialist.summary}
-                    </S.ProfileContents>
-                  </S.ExpertDetailWrapper>
-                  <S.ProfileBody>
-                    <S.CategoryTitle>비용</S.CategoryTitle>
-                    <S.ProfileContents>
-                      {el.specialist.price.toLocaleString()}원
-                    </S.ProfileContents>
-                  </S.ProfileBody>
-                </S.ExpertDetail>
-              </S.ExpertBody>
+      <InfiniteScroll
+        pageStart={0}
+        loadMore={props.FetchMoreTicketData}
+        hasMore={true}
+        useWindow={false}
+      >
+        <S.InfiniteWrapper>
+          {props.TicketData?.fetchOwnTickets.map((el) => (
+            <div key={el.id}>
+              <S.CategoryWrapper>
+                <S.ExpertWrapper>
+                  <S.ExpertBody>
+                    <S.ExpertPhoto
+                      src={
+                        el.specialist.imgUrl
+                          ? el.specialist.imgUrl
+                          : "/expert-profile.png/"
+                      }
+                    ></S.ExpertPhoto>
+                    <S.ExpertDetail>
+                      <S.ProfileBody>
+                        <S.CategoryTitle>이름</S.CategoryTitle>
+                        <S.ProfileContents>
+                          {el.specialist.name}
+                        </S.ProfileContents>
+                      </S.ProfileBody>
+                      <S.ExpertDetailWrapper>
+                        <S.CategoryTitle>소개</S.CategoryTitle>
+                        <S.ProfileContents>
+                          {el.specialist.summary}
+                        </S.ProfileContents>
+                      </S.ExpertDetailWrapper>
+                      <S.ProfileBody>
+                        <S.CategoryTitle>비용</S.CategoryTitle>
+                        <S.ProfileContents>
+                          {el.specialist.price.toLocaleString()}원
+                        </S.ProfileContents>
+                      </S.ProfileBody>
+                    </S.ExpertDetail>
+                  </S.ExpertBody>
 
-              <S.ExpertButtonWrapper>
-                <BasicButton title="상담하기"></BasicButton>
-                <BasicButton
-                  title="리뷰쓰기"
-                  onClick={() => props.setReviewModalIsOpen(true)}
-                ></BasicButton>
-              </S.ExpertButtonWrapper>
-              <S.BottomWrapper>
-                <S.BottomInfoTitle>구매날짜 :</S.BottomInfoTitle>
-                <S.BottomInfo></S.BottomInfo>
-                <S.BottomInfoTitle>만료날짜 :</S.BottomInfoTitle>
-                <S.BottomInfo></S.BottomInfo>
-              </S.BottomWrapper>
-            </S.ExpertWrapper>
-          </S.CategoryWrapper>
+                  <S.ExpertButtonWrapper>
+                    <BasicButton title="상담하기"></BasicButton>
+                    <BasicButton
+                      title="리뷰쓰기"
+                      onClick={() => props.setReviewModalIsOpen(true)}
+                    ></BasicButton>
+                  </S.ExpertButtonWrapper>
+                  <S.BottomWrapper>
+                    <S.BottomInfoTitle>구매날짜 :</S.BottomInfoTitle>
+                    <S.BottomInfo>{getDate(el.createdAt)}</S.BottomInfo>
+                    <S.BottomInfoTitle>만료날짜 :</S.BottomInfoTitle>
+                    <S.BottomInfo>{getDate(el.expired)}</S.BottomInfo>
+                  </S.BottomWrapper>
+                </S.ExpertWrapper>
+              </S.CategoryWrapper>
 
-          <S.ReviewModal isOpen={props.reviewModalIsOpen}>
-            <S.ReviewModalCloseButton>
-              <S.ReviewModalTitle>후기 작성하기</S.ReviewModalTitle>
-              <AiOutlineClose
-                style={{ width: "20px", height: "20px", cursor: "pointer" }}
-                onClick={() => props.setReviewModalIsOpen(false)}
-              />
-            </S.ReviewModalCloseButton>
-            <S.ModalBottomWrapper>
-              <S.ModalExpertBody>
-                <S.ExpertPhoto></S.ExpertPhoto>
-                <S.ModalExpertDetail>
-                  <S.ModalExpertProfile>
-                    <S.ModalExpertTitle>이름</S.ModalExpertTitle>
-                    <S.ModalExpertContents>
-                      {el.specialist.name}
-                    </S.ModalExpertContents>
-                  </S.ModalExpertProfile>
-                  <S.ModalExpertProfile>
-                    <S.ModalExpertTitle>소개</S.ModalExpertTitle>
-                    <S.ModalExpertContents>
-                      {el.specialist.summary}
-                    </S.ModalExpertContents>
-                  </S.ModalExpertProfile>
-                </S.ModalExpertDetail>
-              </S.ModalExpertBody>
+              <S.ReviewModal isOpen={props.reviewModalIsOpen}>
+                <S.ReviewModalCloseButton>
+                  <S.ReviewModalTitle>후기 작성하기</S.ReviewModalTitle>
+                  <AiOutlineClose
+                    style={{ width: "20px", height: "20px", cursor: "pointer" }}
+                    onClick={() => props.setReviewModalIsOpen(false)}
+                  />
+                </S.ReviewModalCloseButton>
+                <S.ModalBottomWrapper>
+                  <S.ModalExpertBody>
+                    <S.ExpertPhoto></S.ExpertPhoto>
+                    <S.ModalExpertDetail>
+                      <S.ModalExpertProfile>
+                        <S.ModalExpertTitle>이름</S.ModalExpertTitle>
+                        <S.ModalExpertContents>
+                          {el.specialist.name}
+                        </S.ModalExpertContents>
+                      </S.ModalExpertProfile>
+                      <S.ModalExpertProfile>
+                        <S.ModalExpertTitle>소개</S.ModalExpertTitle>
+                        <S.ModalExpertContents>
+                          {el.specialist.summary}
+                        </S.ModalExpertContents>
+                      </S.ModalExpertProfile>
+                    </S.ModalExpertDetail>
+                  </S.ModalExpertBody>
 
-              <S.ModalExpertBody>
-                <S.ReviewWrapper>
-                  <S.ReviewRate
-                    allowHalf
-                    onChange={props.onChangeRate}
-                  ></S.ReviewRate>
-                  <S.ReviewContents
-                    onChange={props.onChangeReview}
-                  ></S.ReviewContents>
-                  <S.ReviewError>{props.textError}</S.ReviewError>
-                </S.ReviewWrapper>
-              </S.ModalExpertBody>
-              <S.ModalButtonWrapper>
-                <S.ModalReviewButton
-                  isActive={props.reviewIsActive}
-                  onClick={props.onClickReviewSubmit}
-                >
-                  작성하기
-                </S.ModalReviewButton>
-              </S.ModalButtonWrapper>
-            </S.ModalBottomWrapper>
-          </S.ReviewModal>
-        </div>
-      ))}
+                  <S.ModalExpertBody>
+                    <S.ReviewWrapper>
+                      <S.ReviewRate
+                        allowHalf
+                        onChange={props.onChangeRate}
+                      ></S.ReviewRate>
+                      <S.ReviewContents
+                        onChange={props.onChangeReview}
+                      ></S.ReviewContents>
+                      <S.ReviewError>{props.textError}</S.ReviewError>
+                    </S.ReviewWrapper>
+                  </S.ModalExpertBody>
+                  <S.ModalButtonWrapper>
+                    <S.ModalReviewButton
+                      isActive={props.reviewIsActive}
+                      onClick={props.onClickReviewSubmit}
+                    >
+                      작성하기
+                    </S.ModalReviewButton>
+                  </S.ModalButtonWrapper>
+                </S.ModalBottomWrapper>
+              </S.ReviewModal>
+            </div>
+          ))}
+        </S.InfiniteWrapper>
+      </InfiniteScroll>
 
       <S.MyPageSubTitle>활동 기록</S.MyPageSubTitle>
-
       <S.HistoryCategoryWrapper>
         <S.CommunityButton
           community={props.community}
@@ -262,51 +273,72 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
       </S.HistoryCategoryWrapper>
 
       {props.community && (
-        <S.CategoryWrapper>
-          {props.communityData?.fetchOwnStories.map((el) => (
-            <S.HistoryBody key={el.id}>
-              <S.HistoryContents>{el.title}</S.HistoryContents>
-              <S.HistoryInfoWrapper>
-                <FaHeartbeat
-                  style={{ width: "27px", height: "23px", color: "#73bea8" }}
-                />
-                <S.HistoryInfo>{el.likes} 명 공감</S.HistoryInfo>
-              </S.HistoryInfoWrapper>
-            </S.HistoryBody>
-          ))}
-        </S.CategoryWrapper>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={props.FetchMoreCommunityData}
+          hasMore={true}
+          useWindow={false}
+        >
+          <S.CategoryWrapper>
+            {props.communityData?.fetchOwnStories.map((el) => (
+              <S.HistoryBody key={el.id}>
+                <S.HistoryContents>{el.title}</S.HistoryContents>
+                <S.HistoryInfoWrapper>
+                  <FaHeartbeat
+                    style={{ width: "27px", height: "23px", color: "#73bea8" }}
+                  />
+                  <S.HistoryInfo>{el.likes} 명 공감</S.HistoryInfo>
+                </S.HistoryInfoWrapper>
+              </S.HistoryBody>
+            ))}
+          </S.CategoryWrapper>
+        </InfiniteScroll>
       )}
 
       {props.comment && (
-        <S.CategoryWrapper>
-          {props.commentData?.fetchOwnComments.map((el) => (
-            <S.HistoryBody key={el.id}>
-              <S.HistoryContents>{el.text}</S.HistoryContents>
-              <S.HistoryInfoWrapper>
-                <FaHeartbeat
-                  style={{ width: "27px", height: "23px", color: "#73bea8" }}
-                />
-                <S.HistoryInfo>1 명 공감</S.HistoryInfo>
-              </S.HistoryInfoWrapper>
-            </S.HistoryBody>
-          ))}
-        </S.CategoryWrapper>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={props.FetchMoreCommentData}
+          hasMore={true}
+          useWindow={false}
+        >
+          <S.CategoryWrapper>
+            {props.commentData?.fetchOwnComments.map((el) => (
+              <S.HistoryBody key={el.id}>
+                <S.HistoryContents>{el.text}</S.HistoryContents>
+                <S.HistoryInfoWrapper>
+                  <FaHeartbeat
+                    style={{ width: "27px", height: "23px", color: "#73bea8" }}
+                  />
+                  <S.HistoryInfo>1 명 공감</S.HistoryInfo>
+                </S.HistoryInfoWrapper>
+              </S.HistoryBody>
+            ))}
+          </S.CategoryWrapper>
+        </InfiniteScroll>
       )}
 
       {props.like && (
-        <S.CategoryWrapper>
-          {props.likeData?.fetchOwnLikedStories.map((el) => (
-            <S.HistoryBody key={el.id}>
-              <S.HistoryContents>{el.title}</S.HistoryContents>
-              <S.HistoryInfoWrapper>
-                <FaHeartbeat
-                  style={{ width: "27px", height: "23px", color: "#73bea8" }}
-                />
-                <S.HistoryInfo>{el.likes} 명 공감</S.HistoryInfo>
-              </S.HistoryInfoWrapper>
-            </S.HistoryBody>
-          ))}
-        </S.CategoryWrapper>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={props.FetchMoreLikeData}
+          hasMore={true}
+          useWindow={false}
+        >
+          <S.CategoryWrapper>
+            {props.likeData?.fetchOwnLikedStories.map((el) => (
+              <S.HistoryBody key={el.id}>
+                <S.HistoryContents>{el.title}</S.HistoryContents>
+                <S.HistoryInfoWrapper>
+                  <FaHeartbeat
+                    style={{ width: "27px", height: "23px", color: "#73bea8" }}
+                  />
+                  <S.HistoryInfo>{el.likes} 명 공감</S.HistoryInfo>
+                </S.HistoryInfoWrapper>
+              </S.HistoryBody>
+            ))}
+          </S.CategoryWrapper>
+        </InfiniteScroll>
       )}
     </S.Wrapper>
   );

@@ -14,6 +14,7 @@ export interface IMyPagePresenterProps {
   pwdEdit: boolean;
   onClickPwdButton: () => void;
   TicketData: Pick<IQuery, "fetchOwnTickets"> | undefined;
+  FetchMoreTicketData: () => void;
   reviewModalIsOpen: boolean;
   setReviewModalIsOpen: Dispatch<SetStateAction<boolean>>;
   rate: Number;

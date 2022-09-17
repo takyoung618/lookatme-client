@@ -199,6 +199,10 @@ export const MyPageSubTitle = styled.div`
   font-weight: 700;
 `;
 
+export const InfiniteWrapper = styled.div`
+  height: 300px;
+`;
+
 export const CategoryWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -206,9 +210,11 @@ export const CategoryWrapper = styled.div`
 
   max-width: 100%;
   width: 100vw;
+  height: 500px;
   margin-top: 10px;
   margin-bottom: 80px;
   padding: 10px 3%;
+  overflow: auto;
 `;
 
 export const ExpertWrapper = styled.div`

@@ -19,16 +19,16 @@ export const FETCH_LOGIN_USER = gql`
 `;
 
 export const FETCH_OWN_TICKETS = gql`
-  query fetchOwnTickets {
-    fetchOwnTickets {
+  query fetchOwnTickets($page: Int!) {
+    fetchOwnTickets(page: $page) {
       id
       createdAt
       expired
       used
-      chatRoom {
-        id
-        room
-      }
+      # chatRoom {
+      #   id
+      #   room
+      # }
       specialist {
         id
         name
@@ -58,8 +58,8 @@ export const CREATE_SPECIALIST_REVIEW = gql`
 `;
 
 export const FETCH_OWN_STORIES = gql`
-  query fetchOwnStories {
-    fetchOwnStories {
+  query fetchOwnStories($page: Int!) {
+    fetchOwnStories(page: $page) {
       id
       title
       likes
@@ -68,8 +68,8 @@ export const FETCH_OWN_STORIES = gql`
 `;
 
 export const FETCH_OWN_COMMENTS = gql`
-  query fetchOwnComments {
-    fetchOwnComments {
+  query fetchOwnComments($page: Int!) {
+    fetchOwnComments(page: $page) {
       id
       text
       story {
@@ -80,8 +80,8 @@ export const FETCH_OWN_COMMENTS = gql`
 `;
 
 export const FETCH_OWN_LIKED_STORIES = gql`
-  query fetchOwnLikedStories {
-    fetchOwnLikedStories {
+  query fetchOwnLikedStories($page: Int!) {
+    fetchOwnLikedStories(page: $page) {
       id
       title
       likes

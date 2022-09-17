@@ -1,10 +1,29 @@
 import styled from "@emotion/styled";
+import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const Wrapper = styled.div`
     width: 100%;
     display: flex;
     text-align: center;
     flex-direction: column;
+`;
+
+
+export const EditorWrapper = styled.div`
+    width: 85.5%;
+    margin-left: 25px;
+    margin-top: 15px;
+`
+
+export const TextStory = styled(ReactQuill)`
+  width: 85.5%;
+  height: 550px;
+  margin-left: 30px;
+  margin-top: 10px;
+
+  padding-bottom: 40px;
 `;
 
 export const Header = styled.div`
@@ -18,18 +37,16 @@ export const CategoryWrapper = styled.select`
     justify-content: space-between;
     flex-direction: row;
     height: 43px;
-    background-color: #73bea8;
     border: 1px solid #73bea8;
     border-radius: 20px;
     font-size: 1.063;
     color: #fff;
-    /* -webkit-appearance: none; */
-    /* -moz-appearance: none; */
-    /* appearance: none; */
-    /* background: url("/arrow.png/") no-repeat 95% 50%; */
-
+    -webkit-appearance: none;
+    background: url("/arrow.png/") no-repeat 95% 50%;
+    background-color: #73bea8;
+    text-indent: 22px;
     margin-top: 20px;
-    margin-left: 25px;
+    margin-left: 30px;
 
     ::-ms-expand {
     display: none;
@@ -47,7 +64,7 @@ export const TitleWrapper = styled.div`
 export const Title = styled.div`
     font-size: 1.063;
     margin-top: 30px;
-    margin-right: 215px;
+    margin-right: 285px;
 `
 
 export const TitleInput = styled.input`
@@ -70,7 +87,7 @@ export const TextWrapper = styled.div`
 export const Text = styled.div`
     font-size: 1.063;
     margin-top: 30px;
-    margin-right: 215px;
+    margin-right: 285px;
 `
 
 export const TextInput = styled.textarea`
@@ -90,7 +107,7 @@ export const ImageWrapper = styled.div`
     align-items: center;
 
     margin-top: 50px;
-    margin-left: 25px;
+    margin-left: 30px;
 `
 
 export const ButtonWrapper = styled.div`
@@ -98,7 +115,7 @@ export const ButtonWrapper = styled.div`
     text-align: center;
    
     margin-bottom: 35px;
-    margin-left: 70px;
+    margin-left: 95px;
     margin-top: 30px;
 `
 
@@ -130,9 +147,9 @@ export const CreateButton = styled.button`
     cursor: pointer;
     color: #fff !important;
 `
-
-export const EditorWrapper = styled.div`
-    width: 85.5%;
-    margin-left: 25px;
-    margin-top: 15px;
+export const ErrorMessage = styled.div`
+    margin-top: 10px;
+    font-size: 15px;
+    color: red;
+    margin-right: 150px;
 `

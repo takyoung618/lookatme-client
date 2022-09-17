@@ -1,28 +1,21 @@
 import { useMutation } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
-import { createRef, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { Editor } from "@toast-ui/react-editor";
-
 import CommunityWriteUi from "./CommunityWrite.presenter";
 import { CREATE_STORY, UPDATE_STORY } from "./CommunityWrite.queries";
 import { ICreateStoryProps } from "./CommunityWrite.types";
 import { useRecoilState } from "recoil";
 import { isEditState } from "../../../commons/store";
-// import dynamic from "next/dynamic";
-
-
-// const ToastEditor = dynamic(() => import("../../../commons/toast/Toast"), {
-//     ssr: false,
-// });
+import { message} from "antd";
 
 
 const schema = yup.object({
-    categoryName: yup.string().required("카테고리를 선택해주세요."),
+    // categoryName: yup.string().required("카테고리를 선택해주세요."),
     title: yup.string().required("제목을 작성해주세요."),
-    // text: yup.string().required("내용을 작성해주세요.")
+    text: yup.string().required("내용을 작성해주세요.")
 });
 
 // fetchStory에 이미지를 받아올 수 없음 => api 나오면 고치기
@@ -46,14 +39,12 @@ export default function CommunityWrite(props: ICreateStoryProps){
     }, [props.data])
 
     const router = useRouter();
-    const { register, handleSubmit, formState, setValue, trigger, reset } = useForm({
+    const { register, handleSubmit, formState, reset, setValue, trigger } = useForm({
         resolver: yupResolver(schema),
         mode: "onChange",
     });
 
     const [selected, setSelected] = useState("");
-
-    const [isActive, setIsActive] = useState(false);
 
     const [createStory] = useMutation(CREATE_STORY);
     const [updateStory] = useMutation(UPDATE_STORY);
@@ -62,30 +53,15 @@ export default function CommunityWrite(props: ICreateStoryProps){
 
     const [isEdit, setIsEdit] = useRecoilState(isEditState);
 
-    const [text, setText] = useState("")
-
     // 카테고리 선택
     const onChangeSelect = (event: any) => {
         setSelected(event.target.value);
     };
 
-    // toastUI defaultValue
-    // useEffect(() => {
-    //     const html: any = props.data?.fetchStory.text;
-    //     editorRef.current?.getInstance().setHTML(html);
-    // }, [props.data]);
-
-    // toastUi editor 
-    // const onChangeText = (value: any) => {
-    //     setValue("text", value === "<br>" ? "" : value)
-    //     trigger("text")
-    //     console.log(text)
-    // };
-    const onChangeText = (event: any) => {
-        setText(event.target.value);
-        console.log(selected)
+    const onChangeContents = (value: string) => {
+        setValue("text", value === "<p><br></p>" ? "" : value);
+        trigger("text")
     };
-   
 
     // 이미지 업로드
     const onChangeFileUrls = (fileUrl: string, index: number) => {
@@ -94,16 +70,14 @@ export default function CommunityWrite(props: ICreateStoryProps){
         setFileUrls(newFileUrls);
     };
 
-    
-      
     // 등록 버튼
     const onClickCreate = async (data:any) => {
-        console.log(onClickCreate)
+        
         const result = await createStory({
             variables: {
                 createStoryInput: {
                     title: data.title,
-                    text,
+                    text: data.text,
                     imgUrl: [...fileUrls],
                     categoryName: selected
                 }
@@ -111,30 +85,31 @@ export default function CommunityWrite(props: ICreateStoryProps){
         })
         console.log(result);
         console.log(data);
-        alert("게시글 등록이 완료되었습니다.")
-        router.push(`/community/${result.data?.createUseditem._id}`);
+        message.success("게시글 등록이 완료되었습니다.");
+        
+        router.push(`/community/${result.data?.createStory.id}`);
     }
 
     // 수정 버튼
     const onClickUpdate = async (data:any) => {
         const result = await updateStory({
             variables: {
-                createStoryInput: {
+                updateStoryId: String(router.query.communityId),
+                updateStoryInput: {
                     title: data.title,
                     text: data.text,
                     imgUrl: [...fileUrls],
-                    categoryName: String(data.categoryName)
+                    categoryName: selected
                 }
+                
             }
         })
         console.log(result)
         console.log(data);
         alert("게시글 수정이 완료되었습니다.")
-        router.push(`/community/${router.query.communityId}`)
+        router.push(`/community/${result.data?.createStory.id}`)
     }
 
-
-    
     // 페이지 이동
     const onClickList = () => {
         router.push("/community")
@@ -147,6 +122,7 @@ export default function CommunityWrite(props: ICreateStoryProps){
 
     return (
         <CommunityWriteUi
+        data ={props.data}
         register={register}
         handleSubmit={handleSubmit}
         formState={formState}
@@ -159,7 +135,7 @@ export default function CommunityWrite(props: ICreateStoryProps){
         onClickToDetail={onClickToDetail}
         onChangeSelect={onChangeSelect}
         isEdit={props.isEdit}
-        onChangeText={onChangeText}
+        onChangeContents={onChangeContents}
         />
     )
 }

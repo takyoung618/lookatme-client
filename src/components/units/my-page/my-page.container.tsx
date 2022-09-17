@@ -291,6 +291,10 @@ export default function MyPageContainer() {
     setLike(true);
   };
 
+  const onClickMoveToDetailCommunity = (event: MouseEvent<HTMLDivElement>) => {
+    router.push(`/community/${event.currentTarget.id}`);
+  };
+
   return (
     <>
       <Head>
@@ -337,6 +341,7 @@ export default function MyPageContainer() {
         onClickCommunity={onClickCommunity}
         onClickComment={onClickComment}
         onClickLike={onClickLike}
+        onClickMoveToDetailCommunity={onClickMoveToDetailCommunity}
       ></MyPagePresenter>
     </>
   );

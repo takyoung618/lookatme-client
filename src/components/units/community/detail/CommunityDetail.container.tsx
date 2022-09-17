@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { message } from "antd";
+import { message, Modal } from "antd";
 import { useRouter } from "next/router";
 import { getUserInfo } from "../../../../commons/libraries/getUserInfo";
 import { IMutation, IMutationDeleteOwnStoryArgs, IMutationLikeStoryArgs, IQuery, IQueryFetchStoryArgs} from "../../../../commons/types/generated/types";
@@ -30,15 +30,19 @@ export default function CommunityDetail() {
 
     // 사연 삭제 - 아직 구현 안됐음
     const onClickDeleteStory = async () => {
-        try {
-          await deleteOwnStory({
-            variables: { storyId: String(router.query.communityId)},
-          });
-          message.success(`${data?.fetchStory.nickname}님 삭제가 완료되었습니다.`);
+      try {
+        await deleteOwnStory({
+          variables: { id: String(router.query.communityId)},
+        });
+          if(data?.fetchStory.user.nickname !== UserInfo?.fetchLoginUser.nickname){
+            message.error("다른 사람이 쓴 글은 삭제할 수 없습니다.")
+          } else {
+          message.success(`${UserInfo?.fetchLoginUser.nickname}님 삭제가 완료되었습니다.`);
           router.push("/community");
-        } catch (error) {
-          if (error instanceof Error) console.log(error.message);
-        }
+        }   
+      } catch (error) {
+        if (error instanceof Error) Modal.error({ content: error.message });
+      } 
     };
 
     // 공감 버튼

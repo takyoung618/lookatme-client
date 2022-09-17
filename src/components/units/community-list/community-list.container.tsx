@@ -37,7 +37,7 @@ export default function CommunityListContainer() {
   } = useQuery<
     Pick<IQuery, "fetchStoriesByTime">,
     IQueryFetchStoriesByTimeArgs
-  >(FETCH_STORIES_BY_TIME);
+  >(FETCH_STORIES_BY_TIME, { variables: { page: 0 } });
 
   const FetchMoreTimeData = () => {
     if (!timeData) return;
@@ -75,7 +75,7 @@ export default function CommunityListContainer() {
   } = useQuery<
     Pick<IQuery, "fetchStoriesByLike">,
     IQueryFetchStoriesByLikeArgs
-  >(FETCH_STORIES_BY_LIKE);
+  >(FETCH_STORIES_BY_LIKE, { variables: { page: 0 } });
 
   const FetchMoreLikeData = () => {
     if (!likeData) return;
@@ -113,7 +113,7 @@ export default function CommunityListContainer() {
   } = useQuery<
     Pick<IQuery, "fetchStoriesByComment">,
     IQueryFetchStoriesByCommentArgs
-  >(FETCH_STORIES_BY_COMMENT);
+  >(FETCH_STORIES_BY_COMMENT, { variables: { page: 0 } });
 
   const FetchMoreCommentData = () => {
     if (!commentData) return;

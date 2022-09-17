@@ -157,17 +157,19 @@ export default function MyPageContainer() {
     }
   };
 
-  const onClickReviewSubmit = async (specialistId: string) => {
+  const onClickReviewSubmit = async (event: MouseEvent<HTMLDivElement>) => {
     try {
       await createSpecialistReview({
         variables: {
           createSpecialistReviewInput: {
             text,
             rate,
-            specialistId: (specialistId: string) => {},
+            specialistId: event.target.id,
           },
         },
       });
+      setReviewModalIsOpen(false);
+      message.success("후기가 작성되었습니다. 감사합니다.");
     } catch (error) {
       Modal.error({ content: message.error });
     }

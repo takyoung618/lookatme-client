@@ -212,7 +212,13 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
                 </S.ReviewModalCloseButton>
                 <S.ModalBottomWrapper>
                   <S.ModalExpertBody>
-                    <S.ExpertPhoto></S.ExpertPhoto>
+                    <S.ExpertPhoto
+                      src={
+                        el.specialist.imgUrl
+                          ? el.specialist.imgUrl
+                          : "/expert-profile.png/"
+                      }
+                    ></S.ExpertPhoto>
                     <S.ModalExpertDetail>
                       <S.ModalExpertProfile>
                         <S.ModalExpertTitle>이름</S.ModalExpertTitle>
@@ -243,6 +249,7 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
                   </S.ModalExpertBody>
                   <S.ModalButtonWrapper>
                     <S.ModalReviewButton
+                      id={el.specialist.id}
                       isActive={props.reviewIsActive}
                       onClick={props.onClickReviewSubmit}
                     >

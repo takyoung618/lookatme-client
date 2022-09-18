@@ -4,7 +4,6 @@ import UploadImageContainer from "../../../commons/uploadImage/UploadImage.conta
 
 
 export default function CommunityWriteUi(props){
-    console.log('CommunityWrite',props.data)
     return (
         <form
         onSubmit={
@@ -17,18 +16,32 @@ export default function CommunityWriteUi(props){
             <S.Header>{props.isEdit ? "사연수정" : "사연등록"}</S.Header>
             <S.categoryWrapper>
             
-            <S.Category value={props.selected} onChange={props.onChangeSelect}
-            defaultValue={props.data?.fetchStory.category.name}
+            <S.Category value={props.selected} onChange={(v) => {props.onChangeSelect(v)}}
+            // defaultValue={props.data?.fetchStory.category.name}
             >
-                <option value="" 
-                >{props.data && props.data.fetchStory.category.name || "카테고리"}</option>
-                <option {...props.register("categoryName")}>직업,진로</option>
+                <option value=""
+                >카테고리</option>
+                <option value="직업,진로">직업,진로</option>
                 <option value="연애,결혼">연애,결혼</option>
                 <option value="대인관계">대인관계</option>
                 <option value="자아,성격">자아,성격</option>
                 <option value="가족">가족</option>
                 <option value="자유주제">자유주제</option>
             </S.Category>
+
+            {/* <S.Category value={props.selected} onChange={props.onChangeSelect}
+            defaultValue={props.data?.fetchStory.category.name}
+            >
+                <option value="">카테고리</option>
+                <option value="직업,진로">직업,진로</option>
+                <option value="연애,결혼">연애,결혼</option>
+                <option value="대인관계">대인관계</option>
+                <option value="자아,성격">자아,성격</option>
+                <option value="가족">가족</option>
+                <option value="자유주제">자유주제</option>
+            </S.Category> */}
+
+
             <S.ErrorMessage>
             {props.formState.errors.catagoryName?.message}
             </S.ErrorMessage>
@@ -40,14 +53,14 @@ export default function CommunityWriteUi(props){
                 {...props.register("title")}
                 placeholder="제목을 입력해주세요"
                 defaultValue={props.data?.fetchStory.title}
-                
                 >
                 </S.TitleInput>
+                <S.ErrorMessage>
+                {props.formState.errors.title?.message}
+                </S.ErrorMessage>
                 <S.Text>고민내용</S.Text>
             </S.TitleWrapper>
-            <S.ErrorMessage>
-            {props.formState.errors.title?.message}
-            </S.ErrorMessage>
+           
             
             <S.TextWrapper>
               {props.isEdit ? (
@@ -64,8 +77,7 @@ export default function CommunityWriteUi(props){
                 placeholder="내용을 입력해주세요."
                 defaultValue={props.data && props.data.fetchStory.text || ""}
                 />    
-              )}
-              
+              )}   
             </S.TextWrapper>   
             <S.ErrorMessage>
             {props.formState.errors.text?.message}
@@ -84,9 +96,7 @@ export default function CommunityWriteUi(props){
                 <S.ListButton onClick={props.onClickList}>목록으로</S.ListButton>
                 <S.CreateButton >{props.isEdit ? "수정하기" : "등록하기"}</S.CreateButton>
             </S.ButtonWrapper>
-            
             </S.BoxWrapper>      
-            
         </S.Wrapper>
         </form>
     ) 

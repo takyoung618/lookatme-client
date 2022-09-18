@@ -24,19 +24,12 @@ export default function CommentEditUserContainer(
   const [editUserContents, setEditUserContents] = useState("");
   const [editUserContentsLength, setEditUserContentsLength] = useState(0);
 
+  const [deleteOwnComment] =
+    useMutation<Pick<IMutation, "deleteOwnComment">>(DELETE_OWN_COMMENT);
+
   const onClickUserEdit = () => {
     setIsUserCommentEdit(true);
   };
-
-  const onChangeEditUserContents = (
-    event: ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setEditUserContents(event.target.value);
-    setEditUserContentsLength(event.target.value.length);
-  };
-
-  const [deleteOwnComment] =
-    useMutation<Pick<IMutation, "deleteOwnComment">>(DELETE_OWN_COMMENT);
 
   const onClickUserDelete = async () => {
     try {
@@ -57,6 +50,13 @@ export default function CommentEditUserContainer(
     }
   };
 
+  const onChangeEditUserContents = (
+    event: ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setEditUserContents(event.target.value);
+    setEditUserContentsLength(event.target.value.length);
+  };
+
   return (
     <CommentEditUserPresenter
       isUserCommentEdit={isUserCommentEdit}
@@ -64,6 +64,7 @@ export default function CommentEditUserContainer(
       editUserContents={editUserContents}
       onClickUserEdit={onClickUserEdit}
       onClickUserDelete={onClickUserDelete}
+      onChangeEditUserContents={onChangeEditUserContents}
       UserCommentEl={props.UserCommentEl}
       UserCommentData={props.UserCommentData}
       userInfo={userInfo}

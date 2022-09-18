@@ -14,19 +14,23 @@ import {
   UPDATE_SPECIALIST_OWN_COMMENT,
 } from "./CommentWrite.queries";
 import { getSpecialist } from "../../../../commons/libraries/getSpecialist";
-import { FETCH_COMMENTS_WITH_STORY_ID } from "../comment-list/comment-list.queries";
-import { useRecoilState } from "recoil";
-import { isUserCommentEditState } from "../../../../commons/store";
+import {
+  FETCH_COMMENTS_WITH_STORY_ID,
+  FETCH_SPECIALIST_COMMENTS_WITH_STORY_ID,
+} from "../comment-list/comment-list.queries";
+import { ICommentWriteContainerProps } from "./CommentWrite.types";
 
-export default function CommentWriteContainer(props) {
-  const [comment, setComment] = useState("");
-  const [commentError, setCommentError] = useState("");
-  const [commentLength, setCommentLength] = useState(0);
+export default function CommentWriteContainer(
+  props: ICommentWriteContainerProps
+) {
+  const [text, setText] = useState("");
+  const [textError, setTextError] = useState("");
+  const [textLength, setTextLength] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
   const router = useRouter();
 
-  const isSpecialist = getSpecialist();
+  const isSpecialist = getSpecialist()?.isSpecialist;
 
   const [createComment] =
     useMutation<Pick<IMutation, "createComment">>(CREATE_COMMENT);
@@ -43,23 +47,23 @@ export default function CommentWriteContainer(props) {
   >(UPDATE_SPECIALIST_OWN_COMMENT);
 
   const onChangeComment = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setComment(event.target.value);
+    setText(event.target.value);
     event.target.value
-      ? setCommentError("")
-      : setCommentError("댓글을 입력해주세요.");
+      ? setTextError("")
+      : setTextError("댓글을 입력해주세요.");
     event.target.value ? setIsActive(true) : setIsActive(false);
-    setCommentLength(event.target.value.length);
+    setTextLength(event.target.value.length);
   };
 
   const onClickUserCommentButton = async () => {
-    comment ? setCommentError("") : setCommentError("댓글을 입력해주세요.");
+    text ? setTextError("") : setTextError("댓글을 입력해주세요.");
 
-    if (comment) {
+    if (text) {
       try {
         await createComment({
           variables: {
             createCommentInput: {
-              text: comment,
+              text,
               storyId: router.query.communityId,
             },
           },
@@ -70,26 +74,27 @@ export default function CommentWriteContainer(props) {
             },
           ],
         });
+        message.success("댓글 입력이 완료되었습니다.");
       } catch (error) {
         if (error instanceof Error) Modal.error({ content: error.message });
       }
-      setComment("");
+      setText("");
     }
   };
 
   const onClickUserCommentEditButton = async () => {
-    if (!comment) {
+    if (!text) {
       message.warning("수정한 내용이 없습니다.");
       return;
     }
 
     try {
-      const updateUserCommentInput: IUpdateCommentInput = {};
-      if (comment) updateUserCommentInput.text = comment;
-
       await updateComment({
         variables: {
-          updateCommentInput: updateUserCommentInput,
+          updateCommentInput: {
+            text,
+            commentId: props.UserCommentEl.id,
+          },
         },
         refetchQueries: [
           {
@@ -105,49 +110,52 @@ export default function CommentWriteContainer(props) {
   };
 
   const onClickSpecialistCommentButton = async () => {
-    comment ? setCommentError("") : setCommentError("댓글을 입력해주세요.");
+    text ? setTextError("") : setTextError("댓글을 입력해주세요.");
 
-    if (comment) {
+    if (text) {
       try {
         await createSpecialistComment({
           variables: {
             createSpecialistCommentInput: {
-              text: comment,
+              text,
               storyId: router.query.communityId,
             },
           },
-          // refetchQueries: [
-          //   {
-          //     query: ,
-          //     variables: { storyId: router.query.communityId },
-          //   },
-          // ],
+          refetchQueries: [
+            {
+              query: FETCH_SPECIALIST_COMMENTS_WITH_STORY_ID,
+              variables: { storyId: router.query.communityId },
+            },
+          ],
         });
+        message.success("댓글 입력이 완료되었습니다.");
       } catch (error) {
         if (error instanceof Error) Modal.error({ content: error.message });
       }
-      setComment("");
+      setText("");
     }
   };
 
   const onClickSpecialistCommentEditButton = async () => {
-    if (!comment) {
+    if (!text) {
       message.warning("수정한 내용이 없습니다.");
       return;
     }
 
     try {
-      const updateSpecialistCommentInput: IUpdateCommentInput = {};
-      if (comment) updateSpecialistCommentInput.text = comment;
-
       await updateSpecialistOwnComment({
         variables: {
-          updateSpecialistCommentInput,
+          updateSpecialistCommentInput: {
+            text,
+            specialistCommentId: props.SpecialistCommentEl.id,
+          },
         },
-        // refetchQueries: [
-        //   {query:
-        //   variables: {}}
-        // ]
+        refetchQueries: [
+          {
+            query: FETCH_SPECIALIST_COMMENTS_WITH_STORY_ID,
+            variables: { storyId: router.query.communityId },
+          },
+        ],
       });
       message.success("댓글이 수정되었습니다.");
     } catch (error) {
@@ -158,14 +166,17 @@ export default function CommentWriteContainer(props) {
   return (
     <CommentWritePresenter
       isSpecialist={isSpecialist}
-      comment={comment}
-      commentError={commentError}
-      commentLength={commentLength}
+      text={text}
+      textError={textError}
+      textLength={textLength}
       onChangeComment={onChangeComment}
       onClickUserCommentButton={onClickUserCommentButton}
       onClickUserCommentEditButton={onClickUserCommentEditButton}
       onClickSpecialistCommentButton={onClickSpecialistCommentButton}
       onClickSpecialistCommentEditButton={onClickSpecialistCommentEditButton}
+      isExpertCommentEdit={props.isExpertCommentEdit}
+      SpecialistCommentEl={props.SpecialistCommentEl}
+      isUserCommentEdit={props.isUserCommentEdit}
       UserCommentEl={props.UserCommentEl}
     />
   );

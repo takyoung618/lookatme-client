@@ -107,6 +107,11 @@ export type ICreateUnderCommentInput = {
   contents: Scalars['String'];
 };
 
+export type ICreateUnderSpecialistCommentInput = {
+  contents: Scalars['String'];
+  specialistCommentId: Scalars['String'];
+};
+
 export type ICreateUserInput = {
   email: Scalars['String'];
   nickname: Scalars['String'];
@@ -140,9 +145,12 @@ export type IMutation = {
   createSpecialistReview: ISpecialistReview;
   /** 사연 등록 */
   createStory: IStory;
+  /** 전문가 ID로 티켓 구매 */
   createTicket: ITicket;
   /** 대댓글 등록 */
   createUnderComment: IUnderComment;
+  /** 전문가 답변 대댓글 등록 */
+  createUnderSpecialistComment: IUnderSpecialistComment;
   /** 회원 가입 및 환영 이메일 전송 */
   createUser: IUser;
   /** 댓글 좋아요 취소 */
@@ -213,11 +221,13 @@ export type IMutation = {
   updateStory: IStory;
   /** 로그인한 회원 정보 변경 */
   updateUser: IUser;
+  /** 무료 포인트 지급 */
+  updateUserPoint: IUser;
   /** 로그인한 회원 비밀번호 변경 */
   updateUserPwd: IUser;
   /** 이메일로 회원 비밀번호 변경 */
   updateUserPwdWithEmail: IUser;
-  /** 관리자 권한으로 모든 회원정보 수정 */
+  /** 관리자 권한으로 회원정보 수정 */
   updateUserWithAdminAccess: IUser;
   /** 이미지 업로드 API */
   uploadFile: Scalars['String'];
@@ -291,6 +301,11 @@ export type IMutationCreateTicketArgs = {
 
 export type IMutationCreateUnderCommentArgs = {
   createUnderCommentInput: ICreateUnderCommentInput;
+};
+
+
+export type IMutationCreateUnderSpecialistCommentArgs = {
+  createUnderSpecialistCommentInput: ICreateUnderSpecialistCommentInput;
 };
 
 
@@ -458,6 +473,13 @@ export type IMutationUpdateUserArgs = {
 };
 
 
+export type IMutationUpdateUserPointArgs = {
+  amount: Scalars['Int'];
+  isSum: Scalars['Boolean'];
+  userId: Scalars['String'];
+};
+
+
 export type IMutationUpdateUserPwdArgs = {
   newPassword: Scalars['String'];
 };
@@ -502,6 +524,8 @@ export type IQuery = {
   fetchChatLogs: Array<IChatMessage>;
   /** 사연에 달린 댓글들 조회 */
   fetchCommentsWithStoryId: Array<IComment>;
+  /** 로그인한 전문가 자신의 프로필 조회 */
+  fetchLoginSpecialist: ISpecialist;
   /** 로그인한 회원 정보 조회 */
   fetchLoginUser: IUser;
   /** 자신의 댓글 목록 조회 */
@@ -532,10 +556,14 @@ export type IQuery = {
   fetchSpecialist: ISpecialist;
   /** 높은가격순 전문가 조회 */
   fetchSpecialistByPrice: Array<ISpecialist>;
+  /** 사연에 달린 전문가 답변들 조회 */
+  fetchSpecialistCommentsWithStoryId: Array<ISpecialistComment>;
   /** 전문가 자신의 답변들 조회 */
   fetchSpecialistOwnComments: Array<ISpecialistComment>;
   /** 전문가 자신의 고객 조회 */
   fetchSpecialistOwnCustomer: Array<ITicket>;
+  /** 전문가에게 달린 리뷰들 조회 */
+  fetchSpecialistReviewsWithSpecialistId: Array<ISpecialistReview>;
   /** 전문가 전체 목록 조회 */
   fetchSpecialists: Array<ISpecialist>;
   /** 별점순 전문가 조회 */
@@ -550,6 +578,8 @@ export type IQuery = {
   fetchStory: IStory;
   /** 댓글에 달린 대댓글 조회 */
   fetchUnderCommentsWithCommentId: Array<IUnderComment>;
+  /** 전문가 답변에 달린 대댓글들 조회 */
+  fetchUnderSpecialistCommentWithId: Array<IUnderSpecialistComment>;
   /** 이메일로 회원 조회 */
   fetchUserWithEmail: IUser;
   /** 전화번호로 회원 조회 */
@@ -568,17 +598,63 @@ export type IQuery = {
 
 
 export type IQueryFetchChatLogsArgs = {
-  room: Scalars['String'];
+  ticketId: Scalars['String'];
 };
 
 
 export type IQueryFetchCommentsWithStoryIdArgs = {
+  page: Scalars['Int'];
   storyId: Scalars['String'];
+};
+
+
+export type IQueryFetchOwnCommentsArgs = {
+  page: Scalars['Int'];
+};
+
+
+export type IQueryFetchOwnLikedStoriesArgs = {
+  page: Scalars['Int'];
+};
+
+
+export type IQueryFetchOwnStoriesArgs = {
+  page: Scalars['Int'];
+};
+
+
+export type IQueryFetchOwnTicketsArgs = {
+  page: Scalars['Int'];
+};
+
+
+export type IQueryFetchPaymentsArgs = {
+  page: Scalars['Int'];
 };
 
 
 export type IQueryFetchQuoteArgs = {
   id: Scalars['String'];
+};
+
+
+export type IQueryFetchQuotesArgs = {
+  page: Scalars['Int'];
+};
+
+
+export type IQueryFetchReportedCommentsArgs = {
+  page: Scalars['Int'];
+};
+
+
+export type IQueryFetchReportedSpecialistCommentsArgs = {
+  page: Scalars['Int'];
+};
+
+
+export type IQueryFetchReportedStoriesArgs = {
+  page: Scalars['Int'];
 };
 
 
@@ -589,6 +665,26 @@ export type IQueryFetchSpecialistArgs = {
 
 export type IQueryFetchSpecialistByPriceArgs = {
   page?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type IQueryFetchSpecialistCommentsWithStoryIdArgs = {
+  storyId: Scalars['String'];
+};
+
+
+export type IQueryFetchSpecialistOwnCommentsArgs = {
+  page: Scalars['Int'];
+};
+
+
+export type IQueryFetchSpecialistOwnCustomerArgs = {
+  page: Scalars['Int'];
+};
+
+
+export type IQueryFetchSpecialistReviewsWithSpecialistIdArgs = {
+  specialistId: Scalars['String'];
 };
 
 
@@ -604,19 +700,19 @@ export type IQueryFetchSpecialsitByRateArgs = {
 
 export type IQueryFetchStoriesByCommentArgs = {
   categoryName?: InputMaybe<Scalars['String']>;
-  page?: InputMaybe<Scalars['Int']>;
+  page: Scalars['Int'];
 };
 
 
 export type IQueryFetchStoriesByLikeArgs = {
   categoryName?: InputMaybe<Scalars['String']>;
-  page?: InputMaybe<Scalars['Int']>;
+  page: Scalars['Int'];
 };
 
 
 export type IQueryFetchStoriesByTimeArgs = {
   categoryName?: InputMaybe<Scalars['String']>;
-  page?: InputMaybe<Scalars['Int']>;
+  page: Scalars['Int'];
 };
 
 
@@ -630,6 +726,11 @@ export type IQueryFetchUnderCommentsWithCommentIdArgs = {
 };
 
 
+export type IQueryFetchUnderSpecialistCommentWithIdArgs = {
+  specialistCommentId: Scalars['String'];
+};
+
+
 export type IQueryFetchUserWithEmailArgs = {
   email: Scalars['String'];
 };
@@ -637,6 +738,16 @@ export type IQueryFetchUserWithEmailArgs = {
 
 export type IQueryFetchUserWithPhoneNumberArgs = {
   phoneNumber: Scalars['String'];
+};
+
+
+export type IQueryFetchUsersArgs = {
+  page: Scalars['Int'];
+};
+
+
+export type IQueryFetchUsersWithDeletedArgs = {
+  page: Scalars['Int'];
 };
 
 export type IQuote = {
@@ -671,6 +782,7 @@ export type ISpecialistComment = {
   specialist: ISpecialist;
   story: IStory;
   text: Scalars['String'];
+  underSpecialistComments: Array<IUnderSpecialistComment>;
 };
 
 export type ISpecialistReview = {
@@ -701,6 +813,7 @@ export type IStory = {
 
 export type IStoryImage = {
   __typename?: 'StoryImage';
+  deletedAt: Scalars['DateTime'];
   story: IStory;
   url: Scalars['String'];
 };
@@ -725,6 +838,17 @@ export type IUnderComment = {
   deletedAt: Scalars['DateTime'];
   id: Scalars['String'];
   isReported: Scalars['Boolean'];
+  updatedAt: Scalars['DateTime'];
+  user: IUser;
+};
+
+export type IUnderSpecialistComment = {
+  __typename?: 'UnderSpecialistComment';
+  contents: Scalars['String'];
+  createdAt: Scalars['DateTime'];
+  deletedAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  specialistComment: ISpecialistComment;
   updatedAt: Scalars['DateTime'];
   user: IUser;
 };

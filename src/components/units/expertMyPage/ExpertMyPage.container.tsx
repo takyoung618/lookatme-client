@@ -1,15 +1,27 @@
 import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
 import { IQuery } from "../../../commons/types/generated/types";
 import ExpertMyPageUI from "./ExpertMyPage.presenter";
 import {
+  FETCH_LOGIN_SPECIALIST,
   FETCH_SPECIALIST_OWN_COMMENTS,
   FETCH_SPECIALIST_OWN_CUSTOMER,
 } from "./ExpertMyPage.queries";
 
 export default function ExpertMyPagePage() {
+  const router = useRouter();
+
+  const { data: SpecialistData } = useQuery<
+    Pick<IQuery, "fetchLoginSpecialist">
+  >(FETCH_LOGIN_SPECIALIST);
+
+  const onClickEditProfile = () => {
+    router.push("/expert-my-page/edit");
+  };
+
   const { data: customerData, fetchMore: customerFetchMore } = useQuery<
     Pick<IQuery, "fetchSpecialistOwnCustomer">
-  >(FETCH_SPECIALIST_OWN_CUSTOMER);
+  >(FETCH_SPECIALIST_OWN_CUSTOMER, { variables: { page: 0 } });
 
   const FetchMoreCustomerData = () => {
     if (!customerData) return;
@@ -38,7 +50,7 @@ export default function ExpertMyPagePage() {
 
   const { data: commentsData, fetchMore: commentsFetchMore } = useQuery<
     Pick<IQuery, "fetchSpecialistOwnComments">
-  >(FETCH_SPECIALIST_OWN_COMMENTS);
+  >(FETCH_SPECIALIST_OWN_COMMENTS, { variables: { page: 0 } });
 
   const FetchMoreCommentsData = () => {
     if (!commentsData) return;
@@ -67,6 +79,8 @@ export default function ExpertMyPagePage() {
 
   return (
     <ExpertMyPageUI
+      SpecialistData={SpecialistData}
+      onClickEditProfile={onClickEditProfile}
       customerData={customerData}
       FetchMoreCustomerData={FetchMoreCustomerData}
       commentsData={commentsData}

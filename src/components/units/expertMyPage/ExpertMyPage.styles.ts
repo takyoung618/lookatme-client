@@ -24,7 +24,7 @@ export const SpecialistWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
-export const Image = styled.div`
+export const Image = styled.img`
   width: 50%;
   height: 200px;
   background-color: gray;
@@ -94,7 +94,9 @@ export const ProgressListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 95%;
+  height: 500px;
   margin-left: 2.5%;
+  overflow: auto;
 `;
 
 export const ProgressBody = styled.div`
@@ -123,6 +125,12 @@ export const ProgressContentsWrapper = styled.div`
   padding: 5px 0px;
 `;
 
+export const ProgressNickNameTitle = styled.div`
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: 25px;
+`;
+
 export const ProgressTitle = styled.div`
   font-size: 1rem;
   font-weight: 700;
@@ -138,6 +146,7 @@ export const CommentListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 500px;
   padding: 10px 2%;
 `;
 

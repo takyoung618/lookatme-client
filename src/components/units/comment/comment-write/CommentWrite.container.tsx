@@ -74,6 +74,7 @@ export default function CommentWriteContainer(
             },
           ],
         });
+
         message.success("댓글 입력이 완료되었습니다.");
       } catch (error) {
         if (error instanceof Error) Modal.error({ content: error.message });
@@ -103,6 +104,7 @@ export default function CommentWriteContainer(
           },
         ],
       });
+      props.setIsUserCommentEdit?.(false);
       message.success("댓글이 수정되었습니다.");
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
@@ -157,6 +159,7 @@ export default function CommentWriteContainer(
           },
         ],
       });
+      props.setIsExpertCommentEdit?.(false);
       message.success("댓글이 수정되었습니다.");
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });

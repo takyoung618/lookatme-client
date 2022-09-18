@@ -40,7 +40,7 @@ export default function CommentEditUserContainer(
         refetchQueries: [
           {
             query: FETCH_COMMENTS_WITH_STORY_ID,
-            variables: { storyId: router.query.communityId },
+            variables: { page: 0, storyId: router.query.communityId },
           },
         ],
       });

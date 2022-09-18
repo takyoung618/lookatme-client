@@ -70,7 +70,7 @@ export default function CommentWriteContainer(
           refetchQueries: [
             {
               query: FETCH_COMMENTS_WITH_STORY_ID,
-              variables: { storyId: router.query.communityId },
+              variables: { storyId: router.query.communityId, page: 0 },
             },
           ],
         });
@@ -93,13 +93,13 @@ export default function CommentWriteContainer(
         variables: {
           updateCommentInput: {
             text,
-            commentId: props.UserCommentEl.id,
+            commentId: props.UserCommentEl?.id,
           },
         },
         refetchQueries: [
           {
             query: FETCH_COMMENTS_WITH_STORY_ID,
-            variables: { storyId: router.query.communityId },
+            variables: { storyId: router.query.communityId, page: 0 },
           },
         ],
       });
@@ -124,7 +124,7 @@ export default function CommentWriteContainer(
           refetchQueries: [
             {
               query: FETCH_SPECIALIST_COMMENTS_WITH_STORY_ID,
-              variables: { storyId: router.query.communityId },
+              variables: { storyId: router.query.communityId, page: 0 },
             },
           ],
         });
@@ -153,7 +153,7 @@ export default function CommentWriteContainer(
         refetchQueries: [
           {
             query: FETCH_SPECIALIST_COMMENTS_WITH_STORY_ID,
-            variables: { storyId: router.query.communityId },
+            variables: { storyId: router.query.communityId, page: 0 },
           },
         ],
       });

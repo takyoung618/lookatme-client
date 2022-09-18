@@ -10,37 +10,57 @@ export default function ExpertMyPageUI(props: IExpertMyPageUIProps) {
     <S.Wrapper>
       <S.Header>전문가 마이페이지</S.Header>
       <S.SpecialistWrapper>
-        <S.Image></S.Image>
+        <S.Image
+          src={
+            props.SpecialistData?.fetchLoginSpecialist.imgUrl
+              ? props.SpecialistData?.fetchLoginSpecialist.imgUrl
+              : "/expert-profile.png/"
+          }
+        ></S.Image>
         <S.ProfileWrapper>
           <S.Title>계정</S.Title>
-          <S.Contents>dsfskldsf</S.Contents>
+          <S.Contents>
+            {props.SpecialistData?.fetchLoginSpecialist.account}
+          </S.Contents>
         </S.ProfileWrapper>
         <S.ProfileWrapper>
           <S.Title>이름</S.Title>
-          <S.Contents>박박디라라</S.Contents>
+          <S.Contents>
+            {props.SpecialistData?.fetchLoginSpecialist.name}
+          </S.Contents>
         </S.ProfileWrapper>
         <S.ProfileWrapper>
           <S.Title>요약</S.Title>
-          <S.Contents>안녕하세요안녕하세요</S.Contents>
+          <S.Contents>
+            {props.SpecialistData?.fetchLoginSpecialist.summary}
+          </S.Contents>
         </S.ProfileWrapper>
         <S.SummaryWrapper>
           <S.Title>소개</S.Title>
           <S.Contents>
-            소개이구요 소개입니다소개이구요 소개입니다소개이구요 소개입니다
+            {props.SpecialistData?.fetchLoginSpecialist.introduction}
           </S.Contents>
         </S.SummaryWrapper>
         <S.ProfileWrapper>
           <S.Title>약력</S.Title>
-          <S.Contents>무슨대학교 무슨학과 박사임</S.Contents>
+          <S.Contents>
+            {props.SpecialistData?.fetchLoginSpecialist.career}
+          </S.Contents>
         </S.ProfileWrapper>
         <S.ProfileWrapper>
-          <S.Title>상담비</S.Title>
-          <S.Contents>1000원</S.Contents>
+          <S.Title>가격</S.Title>
+          <S.Contents>
+            {props.SpecialistData?.fetchLoginSpecialist.price.toLocaleString()}
+            원
+          </S.Contents>
         </S.ProfileWrapper>
       </S.SpecialistWrapper>
 
       <S.ButtonWrapper>
-        <BasicButton title="프로필 수정"></BasicButton>
+        <BasicButton
+          title="프로필 수정"
+          onClick={props.onClickEditProfile}
+        ></BasicButton>
       </S.ButtonWrapper>
 
       <S.ListTitle>상담회원 목록</S.ListTitle>
@@ -55,7 +75,7 @@ export default function ExpertMyPageUI(props: IExpertMyPageUIProps) {
             <S.ProgressBody key={el.id}>
               <S.TextBody>
                 <S.ProgressContentsWrapper>
-                  <S.ProgressTitle>닉네임</S.ProgressTitle>
+                  <S.ProgressNickNameTitle>닉네임 </S.ProgressNickNameTitle>
                   <S.ProgressContents>{el.user.nickname}</S.ProgressContents>
                 </S.ProgressContentsWrapper>
                 <S.ProgressContentsWrapper>
@@ -67,6 +87,12 @@ export default function ExpertMyPageUI(props: IExpertMyPageUIProps) {
                 <S.ProgressContentsWrapper>
                   <S.ProgressTitle>만료날짜</S.ProgressTitle>
                   <S.ProgressContents>{getDate(el.expired)}</S.ProgressContents>
+                </S.ProgressContentsWrapper>
+                <S.ProgressContentsWrapper>
+                  <S.ProgressTitle>상담여부</S.ProgressTitle>
+                  <S.ProgressContents>
+                    {el.used ? "상담완료" : "상담미완료"}
+                  </S.ProgressContents>
                 </S.ProgressContentsWrapper>
               </S.TextBody>
               <BasicButton title="상담하기"></BasicButton>

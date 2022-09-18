@@ -33,11 +33,12 @@ export default function UploadImagePresenter(
       {props.fileUrl ? (
         <PhotoUpload
           onClick={props.onClickUpload}
-          src={`https://storage.googleapis.com/lookatme-storage/${props.fileUrl}`}
+          src={props.fileUrl}
         ></PhotoUpload>
       ) : (
         <PhotoInput onClick={props.onClickUpload} type="button">
-          <img src="/사진업로드.png/"
+          <img
+            src="/사진업로드.png/"
             style={{
               width: "27px",
               height: "28px",

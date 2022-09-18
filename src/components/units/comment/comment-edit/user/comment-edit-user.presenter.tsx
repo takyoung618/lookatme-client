@@ -11,9 +11,6 @@ export default function CommentEditUserPresenter(
 ) {
   return (
     <>
-      <S.HeaderWrapper>
-        <S.UserHeader>일반 댓글</S.UserHeader>
-      </S.HeaderWrapper>
       {!props.isUserCommentEdit && (
         <S.CommentBodyWrapper>
           <S.CommentWrapper>
@@ -56,6 +53,7 @@ export default function CommentEditUserPresenter(
                   marginRight: "2%",
                   cursor: "pointer",
                 }}
+                onClick={props.onClickUserEdit}
               />
               <AiFillDelete
                 style={{
@@ -77,6 +75,7 @@ export default function CommentEditUserPresenter(
 
       {props.isUserCommentEdit && (
         <CommentWriteContainer
+          isUserCommentEdit={true}
           setIsUserCommentEdit={props.setIsUserCommentEdit}
           UserCommentEl={props.UserCommentEl}
         ></CommentWriteContainer>

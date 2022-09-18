@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import { SetterOrUpdater } from "recoil";
 import { IComment, IQuery } from "../../../../../commons/types/generated/types";
 
@@ -12,6 +13,7 @@ export interface ICommentEditUserPresenter {
   editUserContents: string;
   onClickUserEdit: () => void;
   onClickUserDelete: () => void;
+  onChangeEditUserContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   UserCommentEl: IComment;
   UserCommentData: Pick<IQuery, "fetchCommentsWithStoryId"> | undefined;
   userInfo: Pick<IQuery, "fetchLoginUser"> | undefined;

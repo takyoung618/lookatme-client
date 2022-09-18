@@ -1,15 +1,31 @@
-import { ChangeEvent } from "react";
-import { IComment, IQuery } from "../../../../commons/types/generated/types";
+import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { SetterOrUpdater } from "recoil";
+import {
+  IComment,
+  ISpecialistComment,
+} from "../../../../commons/types/generated/types";
+
+export interface ICommentWriteContainerProps {
+  isExpertCommentEdit: boolean;
+  setIsExpertCommentEdit: Dispatch<SetStateAction<string>>;
+  SpecialistCommentEl: ISpecialistComment;
+  isUserCommentEdit: boolean;
+  setIsUserCommentEdit: SetterOrUpdater<boolean>;
+  UserCommentEl: IComment;
+}
 
 export interface ICommentWritePresenterProps {
-  isSpecialist: Pick<IQuery, "isSpecialist"> | undefined;
-  comment: string;
-  commentError: string;
-  commentLength: number;
+  isSpecialist: boolean | undefined;
+  text: string;
+  textError: string;
+  textLength: number;
   onChangeComment: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onClickUserCommentButton: () => void;
   onClickUserCommentEditButton: () => void;
   onClickSpecialistCommentButton: () => void;
   onClickSpecialistCommentEditButton: () => void;
+  isExpertCommentEdit: boolean;
+  SpecialistCommentEl: ISpecialistComment;
+  isUserCommentEdit: boolean;
   UserCommentEl: IComment;
 }

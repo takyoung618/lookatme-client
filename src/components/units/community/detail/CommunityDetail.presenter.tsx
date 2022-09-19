@@ -7,10 +7,7 @@ import CommentListContainer from "../../comment/comment-list/comment-list.contai
 import CommentWriteContainer from "../../comment/comment-write/CommentWrite.container";
 import Dompurify from "dompurify";
 
-
 export default function CommunityDetailUi(props) {
-  console.log("el", props.data?.fetchStory.storyImage.filter(el => el.url).map(el => el.url)[0])
-
   return (
     <S.Wrapper>
       <S.HeaderWrapper>
@@ -25,19 +22,20 @@ export default function CommunityDetailUi(props) {
       </S.HeaderWrapper>
       <S.TextBoxWrapper>
         <S.TextTitle>{props.data?.fetchStory.title}</S.TextTitle>
-           <S.ImageWrapper>
-            {props.data?.fetchStory.storyImage
-            ?.filter((el: string) => el.url)
-            .map((el: string, index) => (
-              <S.DetailImage
-                key={el}
-                src={`${el.url}`}
-              />
+        <S.ImageWrapper>
+          {props.data?.fetchStory.storyImage
+            ?.filter((el: any) => el.url)
+            .map((el: any, index: number) => (
+              <S.DetailImage key={el} src={`${el.url}`} />
             ))}
-          </S.ImageWrapper>
-      {typeof window !== "undefined" && (
-         <S.Text dangerouslySetInnerHTML={{ __html: Dompurify.sanitize(props.data?.fetchStory.text)}}></S.Text>
-      )}
+        </S.ImageWrapper>
+        {typeof window !== "undefined" && (
+          <S.Text
+            dangerouslySetInnerHTML={{
+              __html: Dompurify.sanitize(props.data?.fetchStory.text),
+            }}
+          ></S.Text>
+        )}
       </S.TextBoxWrapper>
       <S.FooterWrapper>
         <S.SympathyWrapper>
@@ -80,7 +78,7 @@ export default function CommunityDetailUi(props) {
           onClick={props.onClickDeleteStory}
         ></BasicButton>
       </S.ButtonWrapper>
-      
+
       <CommentWriteContainer></CommentWriteContainer>
 
       <CommentListContainer></CommentListContainer>

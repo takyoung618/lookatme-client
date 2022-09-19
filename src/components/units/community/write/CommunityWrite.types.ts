@@ -1,28 +1,28 @@
+import { ChangeEvent } from "react";
+import {
+  FieldValues,
+  FormState,
+  UseFormHandleSubmit,
+  UseFormRegister,
+} from "react-hook-form";
 import { IQuery } from "../../../../commons/types/generated/types";
 
-export interface ICreateUsedItemContainerProps {
-    isEdit: boolean;
-    data?: Pick<IQuery, "fetchStories">;
-}
-
-export interface ICreateUsedItemUIProps {
-    onClickList: () => void;
-}
-
-export interface ICommunityNewUIProps {
-    editData?: {
-        fetchStory: {
-          categoryName: string;
-          title: string;
-          text: string;
-        //   imgUrl: string;
-        };
-    };
-
-    getHTML(): string;
-}
-
 export interface ICreateStoryProps {
-    isEdit: boolean;
-    data?: Pick<IQuery, "fetchStory">;
-  }
+  isEdit: boolean;
+  data: Pick<IQuery, "fetchStory"> | undefined;
+}
+
+export interface ICommunityWritePresenterProps {
+  data: Pick<IQuery, "fetchStory"> | undefined;
+  register: UseFormRegister<FieldValues>;
+  handleSubmit: UseFormHandleSubmit<FieldValues>;
+  formState: FormState<FieldValues>;
+  onClickCreate: (data: any) => Promise<void>;
+  fileUrls: string[];
+  onChangeFileUrls: (fileUrl: string, index: number) => void;
+  onClickUpdate: (data: any) => Promise<void>;
+  onClickList: () => void;
+  onClickToDetail: () => void;
+  isEdit: boolean;
+  onChangeContents: (value: string) => void;
+}

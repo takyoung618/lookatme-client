@@ -56,6 +56,7 @@ export const CommentLengthInfo = styled.div`
 export const CommentButton = styled.button`
   width: 20%;
   height: 40px;
+  padding: 0px 1%;
   background-color: #73bea8;
   border: 1px solid #73bea8;
   color: #fff;

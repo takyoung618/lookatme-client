@@ -21,16 +21,22 @@ export const HeaderWrapper = styled.div`
 
 export const TitleWrapper = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   text-align: center;
-  margin-left: 19px;
+  width: 50%;
+  margin-left: 5%;
 `;
 
-export const Title = styled.div``;
+export const Title = styled.div`
+  font-size: 1rem;
+  font-weight: 700;
+  color: #7f7f7f;
+`;
 
 export const TimeWrapper = styled.div`
   display: flex;
   text-align: center;
-  margin-left: 11px;
 `;
 
 export const Circle = styled.div`
@@ -43,24 +49,24 @@ export const Circle = styled.div`
 
 export const Time = styled.div`
   margin-left: 6px;
+  font-size: 0.97rem;
+  font-weight: 500;
   color: #7f7f7f;
 `;
 
-export const NickNameWriter = styled.div`
-  margin-right: 20px;
+export const TextBoxWrapper = styled.div`
+  text-align: left;
 `;
 
-export const TextBoxWrapper = styled.div`
-    text-align: left;
-    font-size: 1.25rem;
-`
-
 export const TextTitle = styled.div`
-  margin: 20px 18px 0px 19px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 20px 5%;
 `;
 
 export const Text = styled.div`
-  margin: 20px 18px 20px 18px;
+  font-size: 1rem;
+  margin: 20px 5% 0px 5%;
 `;
 
 export const ImageWrapper = styled.div`
@@ -68,14 +74,16 @@ export const ImageWrapper = styled.div`
   flex-direction: column;
   text-align: center;
   align-items: center;
-`
+  margin-bottom: 40px;
+`;
 
 export const DetailImage = styled.img`
-  width: 300px;
-  height: 300px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-`
+  max-width: 100%;
+  width: 100vw;
+  height: 30%;
+  margin-top: 30px;
+  padding: 30px 5% 0px 5%;
+`;
 
 export const FooterWrapper = styled.div`
   display: flex;
@@ -86,13 +94,14 @@ export const FooterWrapper = styled.div`
   border-top: 1px solid #c5c5c5;
   border-bottom: 1px solid #c5c5c5;
   background-color: #f5f5f5;
-  font-size: 1.031rem;
+  font-size: 1rem;
+  font-weight: 600;
 `;
 
 export const SympathyWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 19px;
+  margin-left: 5%;
 `;
 
 export const Sympathy = styled.div`
@@ -117,14 +126,9 @@ export const NickNameUser = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
+  margin-left: 5%;
   margin-top: 70px;
-  justify-content: space-around;
-`;
-
-export const CommentWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 37px 0px 13px 0px;
+  justify-content: space-between;
 `;

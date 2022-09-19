@@ -18,17 +18,10 @@ export default function CommunityDetailUi(props) {
             <S.Time>{getDate(props.data?.fetchStory.createAt)}</S.Time>
           </S.TimeWrapper>
         </S.TitleWrapper>
-        <S.NickNameWriter></S.NickNameWriter>
       </S.HeaderWrapper>
+
       <S.TextBoxWrapper>
         <S.TextTitle>{props.data?.fetchStory.title}</S.TextTitle>
-        <S.ImageWrapper>
-          {props.data?.fetchStory.storyImage
-            ?.filter((el: any) => el.url)
-            .map((el: any, index: number) => (
-              <S.DetailImage key={el} src={`${el.url}`} />
-            ))}
-        </S.ImageWrapper>
         {typeof window !== "undefined" && (
           <S.Text
             dangerouslySetInnerHTML={{
@@ -36,6 +29,13 @@ export default function CommunityDetailUi(props) {
             }}
           ></S.Text>
         )}
+        <S.ImageWrapper>
+          {props.data?.fetchStory.storyImage
+            ?.filter((el: any) => el.url)
+            .map((el: any, index: number) => (
+              <S.DetailImage key={el} src={`${el.url}`} />
+            ))}
+        </S.ImageWrapper>
       </S.TextBoxWrapper>
       <S.FooterWrapper>
         <S.SympathyWrapper>
@@ -46,6 +46,7 @@ export default function CommunityDetailUi(props) {
               height: "23px",
               color: "#73bea8",
               marginRight: "5px",
+              cursor: "pointer",
             }}
           />
           <S.Sympathy>{props.data?.fetchStory.likes}명 공감</S.Sympathy>
@@ -64,6 +65,7 @@ export default function CommunityDetailUi(props) {
           </S.NickNameUser>
         </S.UserWrapper>
       </S.FooterWrapper>
+
       <S.ButtonWrapper>
         <BasicButton
           onClick={props.onClickMoveToList}

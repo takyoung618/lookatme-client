@@ -24,13 +24,6 @@ const schema = yup.object({
 function CommunityWrite(props: ICreateStoryProps) {
   const router = useRouter();
 
-  const { data: userData } = useQuery<Pick<IQuery, "isUser">>(IS_USER);
-
-  if (!userData?.isUser) {
-    Modal.error({ content: "일반 유저 계정으로 로그인해주세요." });
-    router.push(`/community/`);
-  }
-
   useEffect(() => {
     if (props.data !== undefined) {
       reset({

@@ -1,17 +1,16 @@
 import * as S from "./header.styles";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IHeaderPresenterProps } from "./header.types";
-import { Drawer, Space } from "antd";
+import { Space } from "antd";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../../commons/store";
-import { getSpecialist } from "../../../../commons/libraries/getSpecialist";
 
 export default function HeaderPresenter(props: IHeaderPresenterProps) {
   const [accessToken] = useRecoilState(accessTokenState);
 
   return (
     <S.Wrapper>
-      <S.ButtonWrapper>
+      <S.ButtonWrapper adminMyPage={props.adminMyPage}>
         <S.Logo>
           <S.LogoImage
             src="/logo.png/"

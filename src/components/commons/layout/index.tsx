@@ -55,9 +55,8 @@ export default function Layout(props: ILayoutProps) {
 
       {adminMyPage && (
         <div>
-          <HeaderContainer></HeaderContainer>
+          <HeaderContainer adminMyPage={adminMyPage}></HeaderContainer>
           {props.children}
-          <FooterContainer></FooterContainer>
         </div>
       )}
     </>

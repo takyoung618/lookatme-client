@@ -25,6 +25,12 @@ export default function CommentListContainer() {
           Math.ceil(UserCommentData.fetchCommentsWithStoryId.length / 10) + 1,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchCommentsWithStoryId) {
+          return {
+            fetchCommentsWithStoryId: [...prev.fetchCommentsWithStoryId],
+          };
+        }
+
         return {
           fetchCommentsWithStoryId: [
             ...prev.fetchCommentsWithStoryId,
@@ -54,6 +60,14 @@ export default function CommentListContainer() {
           ) + 1,
       },
       updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchSpecialistCommentsWithStoryId) {
+          return {
+            fetchSpecialistCommentsWithStoryId: [
+              ...prev.fetchSpecialistCommentsWithStoryId,
+            ],
+          };
+        }
+
         return {
           fetchSpecialistCommentsWithStoryId: [
             ...prev.fetchSpecialistCommentsWithStoryId,

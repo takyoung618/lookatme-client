@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Drawer } from "antd";
+import { IButtonWrapperProps } from "./header.types";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -18,9 +19,12 @@ export const ButtonWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 98vw;
-  max-width: 414px;
-  min-width: 320px;
+  width: ${(props: IButtonWrapperProps) =>
+    props.adminMyPage ? "93vw" : "98vw"};
+  max-width: ${(props: IButtonWrapperProps) =>
+    props.adminMyPage ? "1920px" : "414px"};
+  min-width: ${(props: IButtonWrapperProps) =>
+    props.adminMyPage ? "320px" : "320px"};
 `;
 
 export const Logo = styled.div`

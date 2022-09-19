@@ -10,10 +10,9 @@ import { ICreateStoryProps } from "./CommunityWrite.types";
 import { useRecoilState } from "recoil";
 import { isEditState } from "../../../commons/store";
 import { message} from "antd";
-
+import { FETCH_STORY } from "../detail/CommunityDetail.queries";
 
 const schema = yup.object({
-    // categoryName: yup.string().required("카테고리를 선택해주세요."),
     title: yup.string().required("제목을 작성해주세요."),
     text: yup.string().required("내용을 작성해주세요.")
 });
@@ -25,15 +24,10 @@ export default function CommunityWrite(props: ICreateStoryProps){
           reset({
             title: props.data.fetchStory.title,
             text: props.data.fetchStory.text,
-            // imgUrl: props.data.fetchStory.contents,
-            categoryName: {
-              name: props.data.fetchStory.category?.name,
+            storyImage: {
+                url: props.data.fetchStory.storyImage?.url
             },
           });
-
-        //   if (props.data?.fetchStory.images?.length) {
-        //     setFileUrls([...props.data.fetchUseditem.images]);
-        //   }
         }
         setIsEdit(true);
     }, [props.data])
@@ -56,6 +50,7 @@ export default function CommunityWrite(props: ICreateStoryProps){
     // 카테고리 선택
     const onChangeSelect = (event: any) => {
         setSelected(event.target.value);
+        console.log(selected)
     };
 
     const onChangeContents = (value: string) => {
@@ -83,8 +78,7 @@ export default function CommunityWrite(props: ICreateStoryProps){
                 }
             }
         })
-        console.log(result);
-        console.log(data);
+        console.log(result)
         message.success("게시글 등록이 완료되었습니다.");
         
         router.push(`/community/${result.data?.createStory.id}`);
@@ -100,14 +94,19 @@ export default function CommunityWrite(props: ICreateStoryProps){
                     text: data.text,
                     imgUrl: [...fileUrls],
                     categoryName: selected
-                }
-                
-            }
+                }  
+            },
+            refetchQueries: [
+                {
+                  query: FETCH_STORY,
+                  variables: { storyId: router.query.communityId },
+                },
+              ],
         })
         console.log(result)
         console.log(data);
-        alert("게시글 수정이 완료되었습니다.")
-        router.push(`/community/${result.data?.createStory.id}`)
+        message.success("게시글 수정이 완료되었습니다.")
+        router.push(`/community/${result.data?.updateStory.id}`)
     }
 
     // 페이지 이동
@@ -118,7 +117,6 @@ export default function CommunityWrite(props: ICreateStoryProps){
     const onClickToDetail = () => {
         router.push(`/community/${router.query.communityId}`);
     };
-
 
     return (
         <CommunityWriteUi

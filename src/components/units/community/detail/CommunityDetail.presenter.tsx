@@ -7,7 +7,10 @@ import CommentListContainer from "../../comment/comment-list/comment-list.contai
 import CommentWriteContainer from "../../comment/comment-write/CommentWrite.container";
 import Dompurify from "dompurify";
 
+
 export default function CommunityDetailUi(props) {
+  console.log("el", props.data?.fetchStory.storyImage.filter(el => el.url).map(el => el.url)[0])
+
   return (
     <S.Wrapper>
       <S.HeaderWrapper>
@@ -22,12 +25,16 @@ export default function CommunityDetailUi(props) {
       </S.HeaderWrapper>
       <S.TextBoxWrapper>
         <S.TextTitle>{props.data?.fetchStory.title}</S.TextTitle>
-        <S.DetailImage
-          src={
-            props.data?.fetchStory.storyImage?.[0] &&
-            `https://storage.googleapis.com/lookatme-storage/${props.data.fetchStory. storyImage.url?.[0]}`
-          }
-        ></S.DetailImage>
+           <S.ImageWrapper>
+            {props.data?.fetchStory.storyImage
+            ?.filter((el: string) => el.url)
+            .map((el: string, index) => (
+              <S.DetailImage
+                key={el}
+                src={`${el.url}`}
+              />
+            ))}
+          </S.ImageWrapper>
       {typeof window !== "undefined" && (
          <S.Text dangerouslySetInnerHTML={{ __html: Dompurify.sanitize(props.data?.fetchStory.text)}}></S.Text>
       )}

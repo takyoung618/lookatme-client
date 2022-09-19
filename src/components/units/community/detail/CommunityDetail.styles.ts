@@ -63,7 +63,18 @@ export const Text = styled.div`
   margin: 20px 18px 20px 18px;
 `;
 
-export const DetailImage = styled.div`
+export const ImageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+`
+
+export const DetailImage = styled.img`
+  width: 300px;
+  height: 300px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 `
 
 export const FooterWrapper = styled.div`
@@ -106,11 +117,10 @@ export const NickNameUser = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 65%;
+  width: 100%;
   display: flex;
-  margin-top: 8px;
+  margin-top: 70px;
   justify-content: space-around;
-  margin-left: 58px;
 `;
 
 export const CommentWrapper = styled.div`

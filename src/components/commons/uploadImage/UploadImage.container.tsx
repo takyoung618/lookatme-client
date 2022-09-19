@@ -15,6 +15,7 @@ export default function UploadImageContainer(
 
   const onClickUpload = () => {
     fileRef.current?.click();
+    console.log(uploadFile)
   };
 
   const onChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {

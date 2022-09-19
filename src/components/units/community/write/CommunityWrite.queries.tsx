@@ -22,16 +22,8 @@ export const UPDATE_STORY = gql`
             title
             text
             isReported
-            user {
-                id
-                nickname
-            }
             category {
-                id
                 name
-                story {
-                    id
-                }
             }
         }
     }

@@ -152,8 +152,9 @@ export const CreateButton = styled.button`
     color: #fff !important;
 `
 export const ErrorMessage = styled.div`
+    display: flex;
     margin-top: 10px;
     font-size: 15px;
     color: red;
-    margin-right: 150px;
+    margin-right: 0px;
 `

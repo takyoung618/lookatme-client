@@ -5,7 +5,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  width: 100%;
+  max-width: 100%;
+  width: 100vw;
 `;
 
 export const TopWrapper = styled.div`

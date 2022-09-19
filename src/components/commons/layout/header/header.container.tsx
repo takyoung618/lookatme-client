@@ -8,8 +8,13 @@ import { LOGOUT } from "./header.queries";
 import { useRecoilState } from "recoil";
 import { logInStatusState } from "../../../../commons/store";
 import { getSpecialist } from "../../../../commons/libraries/getSpecialist";
+import { getAdmin } from "../../../../commons/libraries/getAdmin";
 
-export default function HeaderContainer() {
+interface IHeaderContainerProps {
+  adminMyPage: boolean;
+}
+
+export default function HeaderContainer(props: IHeaderContainerProps) {
   const router = useRouter();
 
   const UserInfo = getUserInfo();
@@ -78,11 +83,13 @@ export default function HeaderContainer() {
   };
 
   const isSpecialist = getSpecialist()?.isSpecialist;
+  const isAdmin = getAdmin()?.isAdmin;
 
   const onClickMyPage = () => {
     setOpen(false);
     isSpecialist && router.push("/expert-my-page");
-    isSpecialist || router.push("/my-page/");
+    isAdmin && router.push("/admin-my-page");
+    !isSpecialist && !isAdmin && router.push("/my-page/");
   };
 
   const onClickCommunity = () => {
@@ -122,6 +129,7 @@ export default function HeaderContainer() {
       onClickExpert={onClickExpert}
       onClickMoveToAdmin={onClickMoveToAdmin}
       onClickMoveToExpert={onClickMoveToExpert}
+      adminMyPage={props.adminMyPage}
     ></HeaderPresenter>
   );
 }

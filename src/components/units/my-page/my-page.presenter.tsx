@@ -131,7 +131,7 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
           onChange={props.onChangeSelectedPoint}
         >
           <option value="">충전 포인트 선택</option>
-          <option value={100}>5000 포인트</option>
+          <option value={5000}>5000 포인트</option>
           <option value={10000}>10,000 포인트</option>
           <option value={50000}>50,000 포인트</option>
           <option value={100000}>100,000 포인트</option>

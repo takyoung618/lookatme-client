@@ -34,7 +34,7 @@ export default function ExpertListUi(props: IExpertListPresenterProps) {
               <S.MapWrapper key={el.id}>
                 <S.TopWrapper onClick={props.onClickMoveToDetail} id={el.id}>
                   <S.Image
-                    src={el.imgUrl ? "el.imgUrl" : "/expert-profile.png/"}
+                    src={el.imgUrl ? el.imgUrl : "/expert-profile.png/"}
                   ></S.Image>
                   <S.ProfileWrapper>
                     <S.NameWrapper>

@@ -1,15 +1,18 @@
 import { gql } from "@apollo/client";
 
 export const FETCH_CHAT_LOGS = gql`
-  query fetchChatLogs($room: String!) {
-    fetchChatLogs(room: $room) {
+  query fetchChatLogs($ticketId: String!) {
+    fetchChatLogs(ticketId: $ticketId) {
+      author
+      nickname
       message
-      user {
-        nickname
-      }
-      room {
-        id
-      }
+      createdAt
     }
+  }
+`;
+
+export const IS_SPECIALIST = gql`
+  query isSpecialist {
+    isSpecialist
   }
 `;

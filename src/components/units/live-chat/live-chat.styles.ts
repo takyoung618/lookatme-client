@@ -5,15 +5,18 @@ export const Wrapper = styled.div`
   flex-direction: column;
   max-width: 100%;
   width: 100vw;
-  height: 600px;
-  padding: 10px 20px;
+  height: 790px;
+  padding: 20px 20px;
   background-color: #c1e9de;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  margin-bottom: -15px;
 `;
 
 export const LeftWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 export const NickName = styled.div`
@@ -39,7 +42,7 @@ export const RightWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 export const RightMessage = styled.div`

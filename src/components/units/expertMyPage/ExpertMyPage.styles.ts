@@ -119,6 +119,22 @@ export const TextBody = styled.div`
   width: 70%;
 `;
 
+export const ChatButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 15px;
+  border: none;
+  background-color: #73bea8;
+  color: #fff;
+  border-radius: 13px;
+  height: 30px;
+  cursor: pointer;
+`;
+
 export const ProgressContentsWrapper = styled.div`
   display: flex;
   flex-direction: row;

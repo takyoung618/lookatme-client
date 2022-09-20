@@ -25,9 +25,9 @@ export const FETCH_OWN_TICKETS = gql`
       createdAt
       expired
       used
-      # chatRoom {
+      refunded
+      # user {
       #   id
-      #   room
       # }
       specialist {
         id
@@ -35,6 +35,12 @@ export const FETCH_OWN_TICKETS = gql`
         summary
         imgUrl
         price
+      }
+      chatMessages {
+        message
+      }
+      specialistChatMessages {
+        message
       }
     }
   }

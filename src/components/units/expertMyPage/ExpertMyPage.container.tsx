@@ -1,6 +1,8 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
 import { IQuery } from "../../../commons/types/generated/types";
+import { TicketState } from "../../commons/store";
 import ExpertMyPageUI from "./ExpertMyPage.presenter";
 import {
   FETCH_LOGIN_SPECIALIST,
@@ -77,6 +79,15 @@ export default function ExpertMyPagePage() {
     });
   };
 
+  // 채팅
+  const [ticketId, setTicketId] = useRecoilState(TicketState);
+
+  const onClickTicket = (event: MouseEvent<HTMLElement>) => {
+    const EventId = event.target.id;
+    setTicketId(EventId);
+    router.push(`/live-chat/${EventId}`);
+  };
+
   return (
     <ExpertMyPageUI
       SpecialistData={SpecialistData}
@@ -85,6 +96,7 @@ export default function ExpertMyPagePage() {
       FetchMoreCustomerData={FetchMoreCustomerData}
       commentsData={commentsData}
       FetchMoreCommentsData={FetchMoreCommentsData}
+      onClickTicket={onClickTicket}
     />
   );
 }

@@ -2,11 +2,21 @@ import { useMutation, useQuery } from "@apollo/client";
 import { message, Modal } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { ChangeEvent, SetStateAction, useState } from "react";
-import { useRecoilState } from "recoil";
+import {
+  ChangeEvent,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { useForm } from "react-hook-form";
+import { RecoilState, useRecoilState } from "recoil";
+import { io } from "socket.io-client";
 import { getUserInfo } from "../../../commons/libraries/getUserInfo";
 import { profileEditState, pwdEditState } from "../../../commons/store";
 import { IMutation, IQuery } from "../../../commons/types/generated/types";
+import { TicketState } from "../../commons/store";
+import { FETCH_CHAT_LOGS } from "../live-chat/live-chat.queries";
 import MyPagePresenter from "./my-page.presenter";
 import {
   CREATE_PAYMENT,
@@ -91,6 +101,14 @@ export default function MyPageContainer() {
 
   const onClickPwdButton = () => {
     setPwdEdit(true);
+  };
+
+  // 채팅
+  const [ticketId, setTicketId] = useRecoilState(TicketState);
+
+  const onClickTicket = (event: MouseEvent<HTMLElement>) => {
+    setTicketId(event.target.id);
+    router.push(`/live-chat/${event.target.id}`);
   };
 
   // 내 전문가 (티켓 목록)
@@ -342,6 +360,7 @@ export default function MyPageContainer() {
         onClickComment={onClickComment}
         onClickLike={onClickLike}
         onClickMoveToDetailCommunity={onClickMoveToDetailCommunity}
+        onClickTicket={onClickTicket}
       ></MyPagePresenter>
     </>
   );

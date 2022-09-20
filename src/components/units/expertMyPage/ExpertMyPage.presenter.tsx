@@ -72,7 +72,7 @@ export default function ExpertMyPageUI(props: IExpertMyPageUIProps) {
           useWindow={false}
         >
           {props.customerData?.fetchSpecialistOwnCustomer.map((el) => (
-            <S.ProgressBody key={el.id}>
+            <S.ProgressBody key={el.id} id={el.id}>
               <S.TextBody>
                 <S.ProgressContentsWrapper>
                   <S.ProgressNickNameTitle>닉네임 </S.ProgressNickNameTitle>
@@ -95,7 +95,9 @@ export default function ExpertMyPageUI(props: IExpertMyPageUIProps) {
                   </S.ProgressContents>
                 </S.ProgressContentsWrapper>
               </S.TextBody>
-              <BasicButton title="상담하기"></BasicButton>
+              <S.ChatButton id={el.id} onClick={props.onClickTicket}>
+                상담하기
+              </S.ChatButton>
             </S.ProgressBody>
           ))}
         </InfiniteScroll>

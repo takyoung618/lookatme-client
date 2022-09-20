@@ -14,6 +14,11 @@ export type Scalars = {
   Upload: any;
 };
 
+export enum IAuthor {
+  Specialist = 'SPECIALIST',
+  User = 'USER'
+}
+
 export type IAdmin = {
   __typename?: 'Admin';
   email: Scalars['String'];
@@ -28,20 +33,21 @@ export type ICategory = {
   story: IStory;
 };
 
+export type IChatList = {
+  __typename?: 'ChatList';
+  author: IAuthor;
+  createdAt: Scalars['DateTime'];
+  message: Scalars['String'];
+  nickname: Scalars['String'];
+};
+
 export type IChatMessage = {
   __typename?: 'ChatMessage';
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   message: Scalars['String'];
-  room: IChatRoom;
-  user: IUser;
-};
-
-export type IChatRoom = {
-  __typename?: 'ChatRoom';
-  id: Scalars['String'];
-  room: Scalars['String'];
   ticket: ITicket;
+  user: IUser;
 };
 
 export type IComment = {
@@ -521,7 +527,7 @@ export type IQuery = {
   /** 베스트 사연 5개 조회 */
   fetchBestStories: Array<IStory>;
   /** 채팅 기록 조회 */
-  fetchChatLogs: Array<IChatMessage>;
+  fetchChatLogs: Array<IChatList>;
   /** 사연에 달린 댓글들 조회 */
   fetchCommentsWithStoryId: Array<IComment>;
   /** 로그인한 전문가 자신의 프로필 조회 */
@@ -669,6 +675,7 @@ export type IQueryFetchSpecialistByPriceArgs = {
 
 
 export type IQueryFetchSpecialistCommentsWithStoryIdArgs = {
+  page: Scalars['Int'];
   storyId: Scalars['String'];
 };
 
@@ -774,6 +781,15 @@ export type ISpecialist = {
   tickets: Array<ITicket>;
 };
 
+export type ISpecialistChatMessage = {
+  __typename?: 'SpecialistChatMessage';
+  createdAt: Scalars['DateTime'];
+  id: Scalars['String'];
+  message: Scalars['String'];
+  specialist: ISpecialist;
+  ticket: ITicket;
+};
+
 export type ISpecialistComment = {
   __typename?: 'SpecialistComment';
   createdAt: Scalars['DateTime'];
@@ -820,12 +836,13 @@ export type IStoryImage = {
 
 export type ITicket = {
   __typename?: 'Ticket';
-  chatRoom: IChatRoom;
+  chatMessages: Array<IChatMessage>;
   createdAt: Scalars['DateTime'];
   expired: Scalars['DateTime'];
   id: Scalars['String'];
   refunded: Scalars['Boolean'];
   specialist: ISpecialist;
+  specialistChatMessages: Array<ISpecialistChatMessage>;
   used: Scalars['Boolean'];
   user: IUser;
 };

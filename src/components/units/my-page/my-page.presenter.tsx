@@ -152,7 +152,7 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
         useWindow={false}
       >
         <S.InfiniteWrapper>
-          {props.TicketData?.fetchOwnTickets.map((el) => (
+          {props.TicketData?.fetchOwnTickets.map((el, index) => (
             <div key={el.id}>
               <S.ExpertListWrapper>
                 <S.ExpertWrapper>
@@ -187,7 +187,13 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
                   </S.ExpertBody>
 
                   <S.ExpertButtonWrapper>
-                    <BasicButton title="상담하기"></BasicButton>
+                    <div
+                      id={el.id}
+                      title="상담하기"
+                      onClick={props.onClickTicket}
+                    >
+                      상담하기
+                    </div>
                     <BasicButton
                       title="리뷰쓰기"
                       onClick={() => props.setReviewModalIsOpen(true)}

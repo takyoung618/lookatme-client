@@ -4,6 +4,7 @@ import { gql } from "@apollo/client";
 export const CREATE_COMMENT = gql`
   mutation createComment($createCommentInput: CreateCommentInput!) {
     createComment(createCommentInput: $createCommentInput) {
+      id
       text
       createdAt
       user {
@@ -16,6 +17,7 @@ export const CREATE_COMMENT = gql`
 export const UPDATE_COMMENT = gql`
   mutation updateComment($updateCommentInput: UpdateCommentInput!) {
     updateComment(updateCommentInput: $updateCommentInput) {
+      id
       text
       createdAt
       user {
@@ -28,11 +30,12 @@ export const UPDATE_COMMENT = gql`
 // 전문가 댓글
 export const CREATE_SPECIALIST_COMMENT = gql`
   mutation createSpecialistComment(
-    $createSpecialistCommentInput: CreateSpecialCommentInput!
+    $createSpecialistCommentInput: CreateSpecialistCommentInput!
   ) {
     createSpecialistComment(
       createSpecialistCommentInput: $createSpecialistCommentInput
     ) {
+      id
       text
       createdAt
       specialist {
@@ -43,12 +46,13 @@ export const CREATE_SPECIALIST_COMMENT = gql`
 `;
 
 export const UPDATE_SPECIALIST_OWN_COMMENT = gql`
-  mutation updateSpecialistComment(
-    $updateSpecialistCommentInput: updateSpecialCommentInput!
+  mutation updateSpecialistOwnComment(
+    $updateSpecialistCommentInput: UpdateSpecialistCommentInput!
   ) {
-    updateSpecialistComment(
+    updateSpecialistOwnComment(
       updateSpecialistCommentInput: $updateSpecialistCommentInput
     ) {
+      id
       text
       createdAt
       specialist {

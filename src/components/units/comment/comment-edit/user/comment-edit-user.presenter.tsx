@@ -5,6 +5,9 @@ import { AiFillDelete } from "react-icons/ai";
 import { ICommentEditUserPresenter } from "./comment-edit-user.types";
 import { BeforeDate } from "../../../../../commons/libraries/utils";
 import CommentWriteContainer from "../../comment-write/CommentWrite.container";
+import UserReplyListContainer from "../../../comment-reply/user-reply/reply-list/reply-list.container";
+import UserReplyWriteContainer from "../../../comment-reply/user-reply/reply-write/reply-write.container";
+import { Modal } from "antd";
 
 export default function CommentEditUserPresenter(
   props: ICommentEditUserPresenter
@@ -35,15 +38,18 @@ export default function CommentEditUserPresenter(
           </S.CommentWrapper>
           <S.FooterWrapper>
             <S.SympathyWrapper>
+              <S.Comment onClick={props.onClickUserReply}>답글 쓰기</S.Comment>
               <FaHeartbeat
                 style={{
                   width: "20%",
                   height: "23px",
                   color: "#73bea8",
+                  cursor: "pointer",
                 }}
+                id={props.UserCommentEl.id}
+                onClick={props.onClickLikeComment}
               />
-              <S.Sympathy>0명 공감</S.Sympathy>
-              <S.Comment>답글 쓰기</S.Comment>
+              <S.Sympathy>{props.UserCommentEl.likes}명 공감</S.Sympathy>
             </S.SympathyWrapper>
             <S.BottomRightWrapper>
               <BsFillPencilFill
@@ -65,10 +71,17 @@ export default function CommentEditUserPresenter(
                 }}
                 onClick={props.onClickUserDelete}
               />
-              <S.SirenWrapper>
+              <S.SirenWrapper onClick={props.showReportModal}>
                 <img src="/사이렌.png" />
               </S.SirenWrapper>
             </S.BottomRightWrapper>
+            <Modal
+              open={props.isReportModalOpen}
+              onOk={props.onClickReportComment(props.UserCommentEl.id)}
+              onCancel={props.closeShowReportModal}
+            >
+              <p>댓글을 신고하시겠습니까?</p>
+            </Modal>
           </S.FooterWrapper>
         </S.CommentBodyWrapper>
       )}
@@ -80,6 +93,16 @@ export default function CommentEditUserPresenter(
           UserCommentEl={props.UserCommentEl}
         ></CommentWriteContainer>
       )}
+
+      {props.isUserReply && (
+        <UserReplyWriteContainer
+          UserCommentEl={props.UserCommentEl}
+          setIsUnderReply={props.setIsUserReply}
+        ></UserReplyWriteContainer>
+      )}
+      <UserReplyListContainer
+        UserCommentEl={props.UserCommentEl}
+      ></UserReplyListContainer>
     </>
   );
 }

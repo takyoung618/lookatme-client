@@ -23,4 +23,11 @@ export interface ICommentEditExpertPresenterProps {
   SpecialistCommentData:
     | Pick<IQuery, "fetchSpecialistCommentsWithStoryId">
     | undefined;
+  isSpecialistReply: boolean;
+  setIsSpecialistReply: Dispatch<SetStateAction<boolean>>;
+  onClickSpecialistReply: () => void;
+  isReportModalOpen: boolean;
+  showReportModal: () => void;
+  closeShowReportModal: () => void;
+  onClickReportSpecialistComment: (SpecialistCommentId: string) => () => void;
 }

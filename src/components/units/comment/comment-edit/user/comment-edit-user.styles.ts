@@ -57,7 +57,9 @@ export const CommentBody = styled.div`
 
 export const Comment = styled.div`
   margin-left: 5%;
+  margin-right: 5%;
   font-size: 1rem;
+  font-weight: 700;
   cursor: pointer;
 `;
 
@@ -89,7 +91,7 @@ export const FooterWrapper = styled.div`
   width: 93%;
   height: 40px;
   font-size: 1rem;
-  margin-left: 4%;
+  margin-left: 3%;
   margin-top: 10px;
 `;
 

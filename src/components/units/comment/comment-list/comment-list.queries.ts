@@ -9,6 +9,7 @@ export const FETCH_COMMENTS_WITH_STORY_ID = gql`
       user {
         nickname
       }
+      likes
     }
   }
 `;

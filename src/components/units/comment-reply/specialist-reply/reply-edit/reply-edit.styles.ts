@@ -21,8 +21,9 @@ export const ExpertHeader = styled.div`
 export const CommentBodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   margin-bottom: 20px;
+  margin-left: 10%;
 `;
 
 export const CommentWrapper = styled.div`
@@ -51,14 +52,13 @@ export const NickNameUser = styled.div`
 `;
 
 export const CommentBody = styled.div`
-  width: 93%;
-  margin-left: 5%;
+  width: 90%;
+  margin-left: 11%;
 `;
 
 export const Comment = styled.div`
   margin-left: 5%;
   font-size: 1rem;
-  font-weight: 700;
   cursor: pointer;
 `;
 
@@ -86,24 +86,12 @@ export const Time = styled.div`
 export const FooterWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 93%;
   height: 40px;
   font-size: 1rem;
-  margin-left: 3%;
+  margin-left: 4%;
   margin-top: 10px;
-`;
-
-export const SympathyWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  width: 50%;
-`;
-
-export const Sympathy = styled.div`
-  color: #7f7f7f;
 `;
 
 export const BottomRightWrapper = styled.div`
@@ -111,7 +99,7 @@ export const BottomRightWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 27%;
+  width: 32%;
   height: 23px;
 `;
 

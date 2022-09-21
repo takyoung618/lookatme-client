@@ -95,15 +95,6 @@ export const InnerFooter = styled.div`
   }
 `;
 
-export const ImgFooter = styled.div`
-  width: 200px;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 30px;
-`;
-
-export const SocialImg = styled.img``;
-
 export const Error = styled.div`
   padding-top: 10px;
   font-size: 14px;

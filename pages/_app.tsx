@@ -12,6 +12,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>LookAtMe</title>
+        <link
+          rel="icon"
+          href="https://storage.googleapis.com/lookatme-storage/2022/9/21/13dd1314-332c-4482-8d42-65ae7ee88356/origin/title-logo.png"
+        ></link>
         <meta property="og:lookatme" content="2030을 위한 심리상담소"></meta>
         <meta
           property="og:description"

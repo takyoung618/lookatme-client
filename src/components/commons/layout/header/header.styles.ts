@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Drawer } from "antd";
+import { Drawer, Modal } from "antd";
 import { IButtonWrapperProps } from "./header.types";
 
 export const Wrapper = styled.div`
@@ -109,3 +109,5 @@ export const LoginLine = styled.div`
   font-weight: 600;
   color: #7f7f7f;
 `;
+
+export const LogoutModal = styled(Modal)``;

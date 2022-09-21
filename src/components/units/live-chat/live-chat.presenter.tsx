@@ -1,8 +1,9 @@
 import * as S from "./live-chat.styles";
 import { FiSend } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
+import { ILiveChatProps } from "./live-chat.types";
 
-export default function LiveChatPresenter(props) {
+export default function LiveChatPresenter(props: ILiveChatProps) {
   return (
     <>
       <form
@@ -58,7 +59,7 @@ export default function LiveChatPresenter(props) {
             onKeyDown={props.onKeyDown}
             {...props.register("contents", { required: true })}
           ></S.MessageInput>
-          <S.SendButton type="submit">
+          <S.SendButton>
             <FiSend style={{ width: "20px", height: "20px", color: "#fff" }} />
           </S.SendButton>
         </S.BottomWrapper>

@@ -41,8 +41,16 @@ export default function Description() {
       </div>
       <Title {...firstAnimated}>룩앳미란?</Title>
       <Text {...secondAnimated}>
-        본인의 고민, 정신적인 문제를 온라인에서 실시간 채팅으로 편하게 상담받을
-        수 있는 플랫폼입니다.
+        LookAtMe(룩앳미)는
+        <br />
+        본인의 심리적인 고민, 문제를
+        <br />
+        온라인 커뮤니티를 통해 부담없이
+        <br />
+        공유하는 플랫폼입니다.
+        <br /> <br />
+        또한, 심리 전문가와 장소 구애없이 <br />
+        실시간 채팅으로 상담받을 수 있는 <br /> 서비스를 제공합니다.
       </Text>
     </Container>
   );

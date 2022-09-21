@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import * as S from "./main.styles";
 import { IMainUIProps } from "./main.types";
 import { getDate } from "../../../commons/libraries/utils";
+import { FaHeartbeat } from "react-icons/fa";
 
 export default function MainUI(props: IMainUIProps) {
   const settings = {
@@ -66,11 +67,23 @@ export default function MainUI(props: IMainUIProps) {
           {props.data?.fetchBestStories?.map((el) => (
             <S.StoryItem key={el.id}>
               <S.StoryTitle>{el.title}</S.StoryTitle>
-              <S.StoryCont>{el.text}</S.StoryCont>
               <S.UserProfile>
-                <S.NickName>{el.user.nickname}</S.NickName>
+                <S.NickName>작성자: {el.user.nickname}</S.NickName>
                 <S.CreatedAt>{getDate(el.createAt)}</S.CreatedAt>
               </S.UserProfile>
+              <S.CommentsCont>
+                <FaHeartbeat
+                  style={{
+                    width: "22px",
+                    height: "20px",
+                    color: "#73bea8",
+                    marginRight: "5px",
+                    cursor: "pointer",
+                  }}
+                />
+                <S.Sympathy>{el.likes}명 공감</S.Sympathy>
+                <S.Comment>댓글 {el.commentCounts}개</S.Comment>
+              </S.CommentsCont>
               <S.MoveBtn id={el.id} onClick={props.onClickMoveToDetail}>
                 해당 사연 보러 가기
               </S.MoveBtn>
@@ -102,14 +115,14 @@ export default function MainUI(props: IMainUIProps) {
         </Slider>
       </S.Experts>
       <S.Buttons>
-        <div>
+        <S.ButtonItem>
           <S.OfficialBtn></S.OfficialBtn>
           <span>공지사항</span>
-        </div>
-        <div>
+        </S.ButtonItem>
+        <S.ButtonItem>
           <S.FaqBtn onClick={props.onClickMoveToFAQ}></S.FaqBtn>
           <span>FAQ</span>
-        </div>
+        </S.ButtonItem>
       </S.Buttons>
     </S.Wrapper>
   );

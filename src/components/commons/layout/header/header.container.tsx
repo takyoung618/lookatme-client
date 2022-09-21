@@ -23,6 +23,8 @@ export default function HeaderContainer(props: IHeaderContainerProps) {
 
   const [logInStatus, setLogInStatus] = useRecoilState(logInStatusState);
 
+  const [isVisible, setIsVisible] = useState(false);
+
   const deleteCookie = (name) => {
     document.cookie =
       name + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=C.kr;path=/;";
@@ -74,7 +76,7 @@ export default function HeaderContainer(props: IHeaderContainerProps) {
       deleteCookie("refreshToken");
       setOpen(false);
       setLogInStatus(false);
-      Modal.success({ content: "로그아웃 되었습니다." });
+      setIsVisible(true);
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
@@ -112,6 +114,14 @@ export default function HeaderContainer(props: IHeaderContainerProps) {
     router.push("/login/expert");
   };
 
+  const handleVisible = () => {
+    setIsVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsVisible(false);
+  };
+
   return (
     <HeaderPresenter
       UserInfo={UserInfo}
@@ -130,6 +140,9 @@ export default function HeaderContainer(props: IHeaderContainerProps) {
       onClickMoveToAdmin={onClickMoveToAdmin}
       onClickMoveToExpert={onClickMoveToExpert}
       adminMyPage={props.adminMyPage}
+      isVisible={isVisible}
+      handleCancel={handleCancel}
+      handleVisible={handleVisible}
     ></HeaderPresenter>
   );
 }

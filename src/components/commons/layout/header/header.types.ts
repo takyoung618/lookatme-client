@@ -18,6 +18,9 @@ export interface IHeaderPresenterProps {
   onClickMoveToAdmin: () => void;
   onClickMoveToExpert: () => void;
   adminMyPage: boolean;
+  isVisible: boolean;
+  handleCancel: () => void;
+  handleVisible: () => void;
 }
 
 export interface IButtonWrapperProps {

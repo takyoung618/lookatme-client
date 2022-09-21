@@ -22,9 +22,7 @@ export default function CommentEditUserContainer(
 
   const userInfo = getUserInfo();
 
-  const [isUserCommentEdit, setIsUserCommentEdit] = useRecoilState(
-    isUserCommentEditState
-  );
+  const [isUserCommentEdit, setIsUserCommentEdit] = useState(false);
   const [editUserContents, setEditUserContents] = useState("");
   const [editUserContentsLength, setEditUserContentsLength] = useState(0);
 
@@ -86,30 +84,6 @@ export default function CommentEditUserContainer(
     }
   };
 
-  const [reportComment] =
-    useMutation<Pick<IMutation, "reportComment">>(REPORT_COMMENT);
-
-  const [isReportModalOpen, setIsReportModalOpen] = useState(false);
-  const showReportModal = () => {
-    setIsReportModalOpen(true);
-  };
-
-  const closeShowReportModal = () => {
-    setIsReportModalOpen(false);
-  };
-
-  const onClickReportComment = (commentId: string) => async () => {
-    try {
-      await reportComment({
-        variables: { commentId },
-      });
-      setIsReportModalOpen(false);
-      message.success("신고가 완료되었습니다.");
-    } catch (error) {
-      if (error instanceof Error) Modal.error({ content: error.message });
-    }
-  };
-
   return (
     <CommentEditUserPresenter
       isUserCommentEdit={isUserCommentEdit}
@@ -125,10 +99,6 @@ export default function CommentEditUserContainer(
       setIsUserReply={setIsUserReply}
       onClickUserReply={onClickUserReply}
       onClickLikeComment={onClickLikeComment}
-      isReportModalIsOpen={isReportModalOpen}
-      showReportModal={showReportModal}
-      closeShowReportModal={closeShowReportModal}
-      onClickReportComment={onClickReportComment}
     ></CommentEditUserPresenter>
   );
 }

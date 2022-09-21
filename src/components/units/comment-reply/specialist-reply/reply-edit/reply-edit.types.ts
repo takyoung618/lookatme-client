@@ -20,8 +20,4 @@ export interface ISpecialistReplyEditPresenterProps {
   onClickDeleteSpecialistUnderComment: () => void;
   SpecialistUnderCommentEl: IUnderSpecialistComment;
   SpecialistUnderCommentData: Pick<IQuery, "fetchUnderSpecialistCommentWithId">;
-  isReportModalOpen: boolean;
-  showReportModal: () => void;
-  closeShowReportModal: () => void;
-  onClickReportUnderComment: (underCommentId: string) => () => void;
 }

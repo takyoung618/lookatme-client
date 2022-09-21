@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   swcMinify: true,
   trailingSlash: true,
   generateBuildId: () => "lookatme",
@@ -20,9 +23,6 @@ const nextConfig = {
     "/sign-up": { page: "/sign-up" },
     "/404": { page: "/404" },
   }),
-  typescript: {
-    ignoreBuildErrors: true,
-  },
 };
 
 module.exports = nextConfig;

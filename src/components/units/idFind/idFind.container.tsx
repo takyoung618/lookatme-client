@@ -26,7 +26,7 @@ const schema = yup.object({
 export default function IdFind() {
   const [sendTokenToSMS] = useMutation(SEND_TOKEN_TO_SMS);
   const [checkToken] = useMutation(CHECK_TOKEN);
-  const [valid, setValid] = useState(false);
+  const [, setValid] = useState(false);
   const [isStart, setIsStart] = useState(false);
 
   const { register, handleSubmit, formState, watch } = useForm({

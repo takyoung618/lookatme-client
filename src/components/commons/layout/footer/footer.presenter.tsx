@@ -1,3 +1,4 @@
+import Link from "next/link";
 import * as S from "./footer.styles";
 
 export default function FooterPresenter() {
@@ -5,9 +6,16 @@ export default function FooterPresenter() {
     <S.Wrapper>
       <S.FooterBody>
         <S.TopWrapper>
-          <S.FooterButton>이용약관</S.FooterButton>
-          <S.FooterButton>개인정보 취급방침</S.FooterButton>
-          <S.FooterButton>공지사항</S.FooterButton>
+          <Link href={"/customer-center/agreement/service"}>
+            <S.FooterButton>이용약관</S.FooterButton>
+          </Link>
+
+          <Link href={"/customer-center/agreement/privacy"}>
+            <S.FooterButton>개인정보 취급방침</S.FooterButton>
+          </Link>
+          <Link href={"/customer-center/official"}>
+            <S.FooterButton>공지사항</S.FooterButton>
+          </Link>
         </S.TopWrapper>
 
         <S.BottomWrapper>

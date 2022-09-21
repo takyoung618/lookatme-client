@@ -7,7 +7,7 @@ import {
 
 export interface ICommentWriteContainerProps {
   isExpertCommentEdit: boolean;
-  setIsExpertCommentEdit: Dispatch<SetStateAction<string>>;
+  setIsExpertCommentEdit: Dispatch<SetStateAction<boolean>>;
   SpecialistCommentEl: ISpecialistComment;
   isUserCommentEdit: boolean;
   setIsUserCommentEdit: SetterOrUpdater<boolean>;

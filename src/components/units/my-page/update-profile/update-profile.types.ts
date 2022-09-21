@@ -11,6 +11,6 @@ export interface IUpdateProfilePresenterProps {
   register: UseFormRegister<FieldValues>;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   formState: FormState<FieldValues>;
-  onClickProfileEditButton: (data) => void;
+  onClickProfileEditButton: (data: any) => void;
   onClickBackButton: () => void;
 }

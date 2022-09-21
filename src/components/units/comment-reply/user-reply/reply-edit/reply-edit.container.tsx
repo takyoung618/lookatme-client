@@ -13,10 +13,7 @@ export default function UserReplyEditContainer(
   const [isEdit, setIsEdit] = useState(false);
   const [userUnderCommentsEditContents, setUserUnderCommentsEditContents] =
     useState("");
-  const [
-    userUnderCommentsEditContentsLength,
-    setUserUnderCommentsEditContentsLength,
-  ] = useState(0);
+  const [, setUserUnderCommentsEditContentsLength] = useState(0);
 
   const onClickUserUnderCommentEdit = () => {
     setIsEdit(true);

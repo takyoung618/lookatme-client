@@ -116,7 +116,7 @@ export default function MainUI(props: IMainUIProps) {
       </S.Experts>
       <S.Buttons>
         <S.ButtonItem>
-          <S.OfficialBtn></S.OfficialBtn>
+          <S.OfficialBtn onClick={props.onClickMoveToOfficial}></S.OfficialBtn>
           <span>공지사항</span>
         </S.ButtonItem>
         <S.ButtonItem>

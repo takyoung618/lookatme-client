@@ -26,6 +26,10 @@ export default function Main() {
     router.push("/customer-center/faq");
   };
 
+  const onClickMoveToOfficial = () => {
+    router.push("/customer-center/official");
+  };
+
   const onClickMoveToDetail = (event: MouseEvent<HTMLDivElement>) => {
     if (!(event.target instanceof Element)) return;
     router.push(`/community/${event.currentTarget.id}`);
@@ -45,6 +49,7 @@ export default function Main() {
       onClickMoveToDetail={onClickMoveToDetail}
       data={data}
       SpecialListData={SpecialListData}
+      onClickMoveToOfficial={onClickMoveToOfficial}
     />
   );
 }

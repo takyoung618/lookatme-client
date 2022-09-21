@@ -9,6 +9,6 @@ export interface IPwdUpdatePresenterProps {
   register: UseFormRegister<FieldValues>;
   handleSubmit: UseFormHandleSubmit<FieldValues>;
   formState: FormState<FieldValues>;
-  onClickPwdEditButton: (data) => void;
+  onClickPwdEditButton: (data: any) => void;
   onClickBackButton: () => void;
 }

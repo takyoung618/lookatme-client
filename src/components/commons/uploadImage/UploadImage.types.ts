@@ -8,7 +8,7 @@ export interface IUploadImageContainerProps {
 
 export interface IUploadImagePresenterProps {
   fileRef: RefObject<HTMLInputElement>;
-  fileUrl: String;
+  fileUrl: string;
   onClickUpload: () => void;
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
 }

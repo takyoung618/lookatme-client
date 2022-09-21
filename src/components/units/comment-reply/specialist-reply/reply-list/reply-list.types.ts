@@ -8,5 +8,7 @@ export interface ISpecialistReplyListContainerProps {
 }
 
 export interface ISpecialistReplyListPresenterProps {
-  SpecialistUnderCommentData: Pick<IQuery, "fetchUnderSpecialistCommentWithId">;
+  SpecialistUnderCommentData:
+    | Pick<IQuery, "fetchUnderSpecialistCommentWithId">
+    | undefined;
 }

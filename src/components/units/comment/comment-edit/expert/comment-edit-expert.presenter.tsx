@@ -1,5 +1,4 @@
 import * as S from "./comment-edit-expert.styles";
-import { FaHeartbeat } from "react-icons/fa";
 import { BsFillPersonFill, BsFillPencilFill } from "react-icons/bs";
 import { AiFillDelete } from "react-icons/ai";
 import { ICommentEditExpertPresenterProps } from "./comment-edit-expert.types";
@@ -7,7 +6,6 @@ import { BeforeDate } from "../../../../../commons/libraries/utils";
 import CommentWriteContainer from "../../comment-write/CommentWrite.container";
 import SpecialistReplyWriteContainer from "../../../comment-reply/specialist-reply/reply-write/reply-write.container";
 import SpecialistReplyListContainer from "../../../comment-reply/specialist-reply/reply-list/reply-list.container";
-import { Modal } from "antd";
 
 export default function CommentEditExpertPresenter(
   props: ICommentEditExpertPresenterProps

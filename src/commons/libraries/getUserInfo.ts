@@ -9,25 +9,6 @@ const FETCH_LOGIN_USER = gql`
       nickname
       point
       phone_number
-      # likedStories {
-      #   likes
-      #   text
-      # }
-      # stories {
-      #   text
-      # }
-      # tickets {
-      #   specialist {
-      #     name
-      #     imgUrl
-      #     price
-      #   }
-      #   createdAt
-      #   expired
-      # }
-      # comments {
-      #   text
-      # }
     }
   }
 `;

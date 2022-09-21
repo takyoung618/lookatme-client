@@ -8,7 +8,6 @@ import { AiFillDelete } from "react-icons/ai";
 import { IUserReplyEditPresenterProps } from "./reply-edit.types";
 import UserReplyWriteContainer from "../reply-write/reply-write.container";
 import { BeforeDate } from "../../../../../commons/libraries/utils";
-import { Modal } from "antd";
 
 export default function UserReplyEditPresenter(
   props: IUserReplyEditPresenterProps

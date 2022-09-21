@@ -7,7 +7,6 @@ import { BeforeDate } from "../../../../../commons/libraries/utils";
 import CommentWriteContainer from "../../comment-write/CommentWrite.container";
 import UserReplyListContainer from "../../../comment-reply/user-reply/reply-list/reply-list.container";
 import UserReplyWriteContainer from "../../../comment-reply/user-reply/reply-write/reply-write.container";
-import { Modal } from "antd";
 
 export default function CommentEditUserPresenter(
   props: ICommentEditUserPresenter

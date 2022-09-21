@@ -42,7 +42,6 @@ export default function PwFind() {
   const [checkToken] = useMutation(CHECK_TOKEN);
   const [valid, setValid] = useState(false);
   const [isStart, setIsStart] = useState(false);
-  const [newPassword, setNewPassword] = useState("");
   const [updateUserPwdWithEmail] = useMutation(UPDATE_USER_PWD_WITH_EMAIL);
 
   const { register, handleSubmit, formState, watch } = useForm({

@@ -46,13 +46,15 @@ export default function AdminMyPageContainer() {
   };
 
   const onClickStart = () => {
-    axios.post("https://x0ng120x.shop/batches/start/quote").then((res) => {
-      console.log(res);
-    });
+    axios
+      .post("https://lookatmeserver.shop/batches/start/quote")
+      .then((res) => {
+        console.log(res);
+      });
   };
 
   const onClickStop = () => {
-    axios.post("https://x0ng120x.shop/batches/stop/quote").then((res) => {
+    axios.post("https://lookatmeserver.shop/batches/stop/quote").then((res) => {
       console.log(res);
     });
   };
@@ -187,7 +189,7 @@ export default function AdminMyPageContainer() {
   };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+  const [, setIsActive] = useState(false);
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");

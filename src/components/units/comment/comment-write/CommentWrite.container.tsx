@@ -2,10 +2,7 @@ import { useMutation } from "@apollo/client";
 import { message, Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
-import {
-  IMutation,
-  IUpdateCommentInput,
-} from "../../../../commons/types/generated/types";
+import { IMutation } from "../../../../commons/types/generated/types";
 import CommentWritePresenter from "./CommentWrite.presenter";
 import {
   CREATE_COMMENT,
@@ -26,7 +23,7 @@ export default function CommentWriteContainer(
   const [text, setText] = useState("");
   const [textError, setTextError] = useState("");
   const [textLength, setTextLength] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [, setIsActive] = useState(false);
 
   const router = useRouter();
 

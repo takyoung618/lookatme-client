@@ -7,4 +7,5 @@ export interface IExpertMyPageUIProps {
   FetchMoreCustomerData: () => void;
   commentsData: Pick<IQuery, "fetchSpecialistOwnComments"> | undefined;
   FetchMoreCommentsData: () => void;
+  onClickTicket: (event: MouseEvent<HTMLElement>) => void;
 }

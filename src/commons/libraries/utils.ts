@@ -9,8 +9,8 @@ export const getDate = (value: string) => {
 
 // 00전 형식으로 자르기
 export const BeforeDate = (value: string) => {
-  const start = new Date(value);
-  const end = new Date(); // 현재 날짜
+  const start: Date = new Date(value);
+  const end: Date = new Date(); // 현재 날짜
 
   const diff = end - start; // 경과 시간
 

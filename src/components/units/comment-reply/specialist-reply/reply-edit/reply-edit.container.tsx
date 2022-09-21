@@ -4,10 +4,7 @@ import { ChangeEvent, useState } from "react";
 import { IMutation } from "../../../../../commons/types/generated/types";
 import { FETCH_UNDER_SPECIALIST_COMMENT_WITH_ID } from "../reply-list/reply-list.queries";
 import SpecialistReplyEditPresenter from "./reply-edit.presenter";
-import {
-  DELETE_UNDER_SPECIALIST_COMMENT,
-  REPORT_UNDER_COMMENT,
-} from "./reply-edit.queries";
+import { DELETE_UNDER_SPECIALIST_COMMENT } from "./reply-edit.queries";
 import { ISpecialistReplyEditContainerProps } from "./reply-edit.types";
 
 export default function SpecialistReplyEditContainer(
@@ -18,10 +15,7 @@ export default function SpecialistReplyEditContainer(
     specialistUnderCommentsEditContents,
     setSpecialistUnderCommentsEditContents,
   ] = useState("");
-  const [
-    specialistUnderCommentsEditContentsLength,
-    setSpecialistUnderCommentsEditContentsLength,
-  ] = useState(0);
+  const [, setSpecialistUnderCommentsEditContentsLength] = useState(0);
 
   const onClickSpecialistUnderCommentEdit = () => {
     setIsEdit(true);

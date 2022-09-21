@@ -1,17 +1,12 @@
-import { Modal } from "antd";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { useRecoilState, useRecoilValueLoadable } from "recoil";
-import {
-  accessTokenState,
-  isLoadedState,
-  restoreAccessTokenLoadable,
-} from "../../../commons/store";
+import { useRecoilState } from "recoil";
+import { accessTokenState, isLoadedState } from "../../../commons/store";
 
-export const withAuth = (Component) => (props) => {
+export const withAuth = (Component: any) => (props: any) => {
   const router = useRouter();
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-  const [isLoaded, setIsLoaded] = useRecoilState(isLoadedState);
+  const [accessToken] = useRecoilState(accessTokenState);
+  const [isLoaded] = useRecoilState(isLoadedState);
 
   useEffect(() => {
     if (isLoaded && !accessToken) {

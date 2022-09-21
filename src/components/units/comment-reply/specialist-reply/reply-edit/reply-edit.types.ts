@@ -6,7 +6,9 @@ import {
 
 export interface ISpecialistReplyEditContainerProps {
   SpecialistUnderCommentEl: IUnderSpecialistComment;
-  SpecialistUnderCommentData: Pick<IQuery, "fetchUnderSpecialistCommentWithId">;
+  SpecialistUnderCommentData:
+    | Pick<IQuery, "fetchUnderSpecialistCommentWithId">
+    | undefined;
 }
 
 export interface ISpecialistReplyEditPresenterProps {

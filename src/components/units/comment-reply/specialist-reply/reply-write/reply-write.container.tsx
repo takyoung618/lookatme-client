@@ -1,6 +1,5 @@
 import { useMutation } from "@apollo/client";
 import { message, Modal } from "antd";
-import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { IMutation } from "../../../../../commons/types/generated/types";
 import { FETCH_UNDER_SPECIALIST_COMMENT_WITH_ID } from "../reply-list/reply-list.queries";

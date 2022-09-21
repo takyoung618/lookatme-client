@@ -12,12 +12,12 @@ const url = "https://lookatmeserver.shop/chat";
 
 export default function LiveChatContainer() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [ticketId, setTicketId] = useRecoilState(TicketState);
-  const [userId, setUserId] = useState<string | undefined>("");
+  const [ticketId] = useRecoilState(TicketState);
+  const [userId] = useState<string | undefined>("");
   const [resultMsg, setResultMsg] = useState<string[]>([]);
-  const [nickname, setNickName] = useState<string | undefined>("");
-  const [specialistName, setSpecialistName] = useState<string | undefined>("");
-  const [receive, setReceive] = useState("");
+  const [nickname] = useState<string | undefined>("");
+  const [specialistName] = useState<string | undefined>("");
+  const [receive] = useState("");
 
   const { data } = useQuery<Pick<IQuery, "fetchChatLogs">>(FETCH_CHAT_LOGS, {
     variables: {

@@ -28,7 +28,7 @@ export default function HeaderPresenter(props: IHeaderPresenterProps) {
             ></S.LogoImage>
           </S.Logo>
           <Space>
-            <S.MenuButton type="primary" onClick={props.showMenu}>
+            <S.MenuButton onClick={props.showMenu}>
               <GiHamburgerMenu
                 style={{ width: "25px", height: "25px", color: "white" }}
               />

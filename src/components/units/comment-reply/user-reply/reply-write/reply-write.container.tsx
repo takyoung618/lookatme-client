@@ -1,8 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { message, Modal } from "antd";
-import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
-import { getSpecialist } from "../../../../../commons/libraries/getSpecialist";
 import { IMutation } from "../../../../../commons/types/generated/types";
 import { FETCH_UNDER_COMMENTS_WITH_COMMENT_ID } from "../reply-list/reply-list.queries";
 import UserReplyWritePresenter from "./reply-write.presenter";

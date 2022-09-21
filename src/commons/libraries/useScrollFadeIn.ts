@@ -1,26 +1,17 @@
-import { useRef, useEffect, useCallback, MutableRefObject } from "react";
-
-interface ScrollFadeIn {
-  // 반환 타입 정의
-  ref?: MutableRefObject<HTMLDivElement>;
-  style: {
-    opacity: number;
-    transform: string;
-  };
-}
+import { useRef, useEffect, useCallback } from "react";
 
 const useScrollFadeIn = (
   direction = "up", // default parameter
   duration = 1,
   delay = 0
-): ScrollFadeIn => {
+) => {
   // Ref는 포커스, 미디어 재생 또는 애니메이션을 직접적으로 실행 시키기 위해
   // 외부에서 DOM(또는 React Component)을 제어 할 수 있게 도와줍니다.
-  const dom = useRef<HTMLDivElement>(null);
+  const dom = useRef(null);
 
   // name이 up이면 아래서 위로 올라오는 모션
   // stay는 움직임 없이 투명도에 변화만 주고싶을때 사용
-  const handleDirection = (name: string) => {
+  const handleDirection = (name) => {
     switch (name) {
       case "up":
         return "translate3d(0, 50%, 0)";
@@ -63,7 +54,7 @@ const useScrollFadeIn = (
   );
 
   useEffect(() => {
-    let observer: any;
+    let observer;
     const { current } = dom;
 
     if (current) {

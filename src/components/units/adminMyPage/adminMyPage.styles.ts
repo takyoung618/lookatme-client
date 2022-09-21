@@ -77,25 +77,25 @@ export const Row = styled.div`
   border-bottom: 1px solid gray;
 `;
 
-export const Column__Basic = styled.div`
+export const ColumnBasic = styled.div`
   width: 10%;
   text-align: center;
   cursor: pointer;
 `;
 
-export const Column__Title = styled.div`
+export const ColumnTitle = styled.div`
   width: 50%;
   text-align: center;
   cursor: pointer;
 `;
 
-export const Column__Quote__Title = styled.div`
+export const ColumnQuoteTitle = styled.div`
   width: 60%;
   text-align: center;
   cursor: pointer;
 `;
 
-export const Column__Quote = styled.div`
+export const ColumnQuote = styled.div`
   width: 60%;
   text-align: start;
   cursor: pointer;

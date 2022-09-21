@@ -1,5 +1,4 @@
 import BasicButton from "../../../commons/button";
-import UploadImageContainer from "../../../commons/uploadImage/UploadImage.container";
 import * as S from "./expert-my-page-edit.styles";
 import { IExpertMyPageEditPresenterProps } from "./expert-my-page-edit.types";
 

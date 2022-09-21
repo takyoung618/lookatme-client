@@ -5,9 +5,3 @@ export const DELETE_OWN_UNDER_COMMENT = gql`
     deleteOwnUnderComment(underCommentId: $underCommentId)
   }
 `;
-
-export const REPORT_UNDER_COMMENT = gql`
-  mutation reportUnderComment($underCommentId: String!) {
-    reportUnderComment(underCommentId: $underCommentId)
-  }
-`;

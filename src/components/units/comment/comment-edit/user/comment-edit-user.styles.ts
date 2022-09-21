@@ -110,9 +110,9 @@ export const Sympathy = styled.div`
 export const BottomRightWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  width: 27%;
+  width: 30%;
   height: 23px;
 `;
 

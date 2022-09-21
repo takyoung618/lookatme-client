@@ -5,9 +5,3 @@ export const DELETE_SPECIALIST_OWN_COMMENT = gql`
     deleteSpecialistOwnComment(specialistCommentId: $specialistCommentId)
   }
 `;
-
-export const REPORT_SPECIALIST_COMMENT = gql`
-  mutation reportSpecialistComment($specialistCommentId: String!) {
-    reportSpecialistComment(specialistCommentId: $specialistCommentId)
-  }
-`;

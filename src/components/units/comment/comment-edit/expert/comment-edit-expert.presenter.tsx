@@ -49,7 +49,7 @@ export default function CommentEditExpertPresenter(
                 style={{
                   width: "23%",
                   height: "17px",
-                  marginRight: "2%",
+                  marginRight: "10%",
                   cursor: "pointer",
                 }}
                 onClick={props.onClickExpertEdit}
@@ -58,25 +58,13 @@ export default function CommentEditExpertPresenter(
                 style={{
                   width: "25%",
                   height: "23px",
-                  marginRight: "5%",
                   color: "#808080",
                   cursor: "pointer",
+                  marginRight: "2%",
                 }}
                 onClick={props.onClickSpecialistDelete}
               />
-              <S.SirenWrapper onClick={props.showReportModal}>
-                <img src="/사이렌.png" />
-              </S.SirenWrapper>
             </S.BottomRightWrapper>
-            <Modal
-              open={props.isReportModalOpen}
-              onOk={props.onClickReportSpecialistComment(
-                props.SpecialistCommentEl.id
-              )}
-              onCancel={props.closeShowReportModal}
-            >
-              <p>댓글을 신고하시겠습니까?</p>
-            </Modal>
           </S.FooterWrapper>
         </S.CommentBodyWrapper>
       )}

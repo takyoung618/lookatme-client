@@ -25,8 +25,4 @@ export interface IUserReplyEditPresenterProps {
   onChangeEditUserUnderComment: (
     event: ChangeEvent<HTMLTextAreaElement>
   ) => void;
-  isReportModalOpen: boolean;
-  showReportModal: () => void;
-  closeShowReportModal: () => void;
-  onClickReportUnderComment: (underCommentId: string) => () => void;
 }

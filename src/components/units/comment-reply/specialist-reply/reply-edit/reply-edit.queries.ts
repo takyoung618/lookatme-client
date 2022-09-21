@@ -7,9 +7,3 @@ export const DELETE_UNDER_SPECIALIST_COMMENT = gql`
     )
   }
 `;
-
-export const REPORT_UNDER_COMMENT = gql`
-  mutation reportUnderComment($underCommentId: String!) {
-    reportUnderComment(underCommentId: $underCommentId)
-  }
-`;

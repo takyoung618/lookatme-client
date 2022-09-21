@@ -52,27 +52,6 @@ export default function UserReplyEditContainer(
     setUserUnderCommentsEditContentsLength(event.target.value.length);
   };
 
-  const [isReportModalOpen, setIsReportModalOpen] = useState(false);
-  const showReportModal = () => {
-    setIsReportModalOpen(true);
-  };
-
-  const closeShowReportModal = () => {
-    setIsReportModalOpen(false);
-  };
-
-  const onClickReportUnderComment = (underCommentId: string) => async () => {
-    try {
-      await reportUnderComment({
-        variables: { underCommentId },
-      });
-      setIsReportModalOpen(false);
-      message.success("신고가 완료되었습니다.");
-    } catch (error) {
-      if (error instanceof Error) Modal.error({ content: error.message });
-    }
-  };
-
   return (
     <UserReplyEditPresenter
       UserUnderCommentEl={props.UserUnderCommentEl}
@@ -83,10 +62,6 @@ export default function UserReplyEditContainer(
       onClickUserUnderCommentEdit={onClickUserUnderCommentEdit}
       onClickDeleteUserUnderComment={onClickDeleteUserUnderComment}
       onChangeEditUserUnderComment={onChangeEditUserUnderComment}
-      isReportModalIsOpen={isReportModalOpen}
-      showReportModal={showReportModal}
-      closeShowReportModal={closeShowReportModal}
-      onClickReportUnderComment={onClickReportUnderComment}
     ></UserReplyEditPresenter>
   );
 }

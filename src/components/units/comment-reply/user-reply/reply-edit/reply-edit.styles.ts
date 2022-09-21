@@ -97,7 +97,7 @@ export const FooterWrapper = styled.div`
 export const BottomRightWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   width: 32%;
   height: 23px;

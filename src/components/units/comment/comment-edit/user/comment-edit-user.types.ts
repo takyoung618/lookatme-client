@@ -21,8 +21,4 @@ export interface ICommentEditUserPresenter {
   setIsUserReply: SetterOrUpdater<boolean>;
   onClickUserReply: () => void;
   onClickLikeComment: (event: MouseEvent<HTMLDivElement>) => void;
-  isReportModalOpen: boolean;
-  showReportModal: () => void;
-  closeShowReportModal: () => void;
-  onClickReportComment: (commentId: string) => () => void;
 }

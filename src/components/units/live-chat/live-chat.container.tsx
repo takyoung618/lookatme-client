@@ -3,25 +3,17 @@ import { useQuery } from "@apollo/client";
 import { IQuery } from "../../../commons/types/generated/types";
 import LiveChatPresenter from "./live-chat.presenter";
 import { FETCH_CHAT_LOGS, IS_SPECIALIST } from "./live-chat.queries";
-import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
-import { getUserInfo } from "../../../commons/libraries/getUserInfo";
 import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
 import { TicketState } from "../../commons/store";
-import { getSpecialistInfo } from "../../../commons/libraries/getSpecialistInfo";
 
 const url = "https://lookatmeserver.shop/chat";
 
 export default function LiveChatContainer() {
-  const router = useRouter();
-  const userInfo = getUserInfo();
-  const specialistInfo = getSpecialistInfo();
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
   const [ticketId, setTicketId] = useRecoilState(TicketState);
   const [userId, setUserId] = useState<string | undefined>("");
-  const [specialistId, setSpecialistId] = useState<string | undefined>("");
   const [resultMsg, setResultMsg] = useState<string[]>([]);
   const [nickname, setNickName] = useState<string | undefined>("");
   const [specialistName, setSpecialistName] = useState<string | undefined>("");
@@ -38,8 +30,6 @@ export default function LiveChatContainer() {
 
   const socket: Socket = io(url, { transports: ["websocket"] });
 
-  // const socket = io("https://lookatmeserver.shop/chat");
-
   const delay = (ms: number) => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   };
@@ -52,29 +42,11 @@ export default function LiveChatContainer() {
   });
 
   useEffect(() => {
-    setUserId(userInfo?.fetchLoginUser.id);
-    setSpecialistId(specialistInfo?.fetchLoginSpecialist.id);
-    setNickName(userInfo?.fetchLoginUser.nickname);
-  }, [ticketId, userInfo, setReceive]);
-
-  useEffect(() => {
-    if (!SpecialistData?.isSpecialist) {
-      socket.emit("user_enter", ticketId);
-    } else {
-      socket.emit("specialist_enter", ticketId);
-    }
-
-    socket.on("connect", () => {
-      // send
-      socket.on(ticketId, (data) => {
-        setResultMsg((prev) => [...prev, data]);
-      });
-      // enter
-      socket.on("receive" + ticketId, (receive) => {
-        setReceive(receive);
-      });
+    // send
+    socket.on(ticketId, (data) => {
+      setResultMsg((prev) => [...prev, data]);
     });
-  }, [setResultMsg]);
+  }, [ticketId]);
 
   const onClickSendMessage = async (data) => {
     const message = await data.contents;

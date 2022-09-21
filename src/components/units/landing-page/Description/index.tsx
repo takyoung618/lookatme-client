@@ -37,7 +37,7 @@ export default function Description() {
   return (
     <Container>
       <div>
-        <Image src="/landing/logo.png" />
+        <Image src="https://storage.googleapis.com/lookatme-storage/2022/9/21/a69ae0a4-ca17-4df0-af23-c10c68ea1e28/origin/logo.png" />
       </div>
       <Title {...firstAnimated}>룩앳미란?</Title>
       <Text {...secondAnimated}>

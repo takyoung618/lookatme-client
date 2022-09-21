@@ -34,7 +34,11 @@ export default function ExpertListUi(props: IExpertListPresenterProps) {
               <S.MapWrapper key={el.id}>
                 <S.TopWrapper onClick={props.onClickMoveToDetail} id={el.id}>
                   <S.Image
-                    src={el.imgUrl ? el.imgUrl : "/expert-profile.png/"}
+                    src={
+                      el.imgUrl
+                        ? el.imgUrl
+                        : "https://storage.googleapis.com/lookatme-storage/2022/9/21/4d0a31bd-9cc7-4e13-bc9c-cf07cd98070a/origin/expert-profile.png"
+                    }
                   ></S.Image>
                   <S.ProfileWrapper>
                     <S.NameWrapper>

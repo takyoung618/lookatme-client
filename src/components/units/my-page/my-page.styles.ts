@@ -89,7 +89,8 @@ export const ModalSelect = styled.select`
   padding: 5px;
   border: 1px solid #c5c5c5;
   border-radius: 5px;
-  background: url("/modal-arrow.jpeg/") no-repeat 98% 50%;
+  background: url("https://storage.googleapis.com/lookatme-storage/2022/9/21/9a7c9d11-44ff-4620-b740-d1843f52e86b/origin/modal-arrow.jpeg")
+    no-repeat 98% 50%;
   background-color: #fff;
   -webkit-appearance: none;
   -moz-appearance: none;

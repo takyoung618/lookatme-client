@@ -27,32 +27,32 @@ export default function MainUI(props: IMainUIProps) {
       >
         <div>
           <S.SliderItem1>
-            <img src="/main/메인1.png" />
-            <img src="/main/사람1.png" />
+            <img src="https://storage.googleapis.com/lookatme-storage/2022/9/21/676cf8d6-1f89-47e4-a507-6162c49d6be8/origin/main1.png" />
+            <img src="https://storage.googleapis.com/lookatme-storage/2022/9/21/96d67d5e-6b6f-4407-b2a1-25b69ab5c2bc/origin/human1.png" />
           </S.SliderItem1>
         </div>
         <div>
           <S.SliderItem2>
-            <img src="/main/메인2.png" />
-            <img src="/main/사람2.png" />
+            <img src="https://storage.googleapis.com/lookatme-storage/2022/9/21/c379f549-b0a3-41f7-b75d-3d57e2f53dd4/origin/main2.png" />
+            <img src="https://storage.googleapis.com/lookatme-storage/2022/9/21/e9c80d06-7f6b-4386-bec5-6fed1af1a862/origin/human2.png" />
           </S.SliderItem2>
         </div>
       </Slider>
       <S.Category>
         <div onClick={props.onClickMoveToExpert}>
-          <img src="/main/icon1.png" />
+          <img src="https://storage.googleapis.com/lookatme-storage/2022/9/21/32685526-3eeb-4d26-aaab-c244347de9b9/origin/icon1.png" />
           <span>전문가 상담</span>
         </div>
         <div onClick={props.onClickMoveToCommunity}>
-          <img src="/main/icon2.png" />
+          <img src="https://storage.googleapis.com/lookatme-storage/2022/9/21/2ec1a89b-7815-4294-b1f4-4cc155bcbc67/origin/icon2.png" />
           <span>커뮤니티</span>
         </div>
         <div onClick={props.onClickMoveToMyPage}>
-          <img src="/main/icon3.png" />
+          <img src="https://storage.googleapis.com/lookatme-storage/2022/9/21/cf8a3327-f4b5-4201-afc0-8f6de4e350e2/origin/icon3.png" />
           <span>마이페이지</span>
         </div>
         <div onClick={props.onClickMoveToPostIt}>
-          <img src="/main/icon4.png" />
+          <img src="https://storage.googleapis.com/lookatme-storage/2022/9/21/0fed45ee-2b24-4e65-a453-0620771973ce/origin/icon4.png" />
           <span>포스트잇</span>
         </div>
       </S.Category>
@@ -105,7 +105,13 @@ export default function MainUI(props: IMainUIProps) {
           {props.SpecialListData?.fetchSpecialists?.map((el) => (
             <S.ExpertsItem key={el.id}>
               <S.Shape>
-                <S.ItemImage src="/main/오박사.jpeg" />
+                <S.ItemImage
+                  src={
+                    el.imgUrl
+                      ? el.imgUrl
+                      : "https://storage.googleapis.com/lookatme-storage/2022/9/21/4d0a31bd-9cc7-4e13-bc9c-cf07cd98070a/origin/expert-profile.png"
+                  }
+                />
               </S.Shape>
               <h3>{el.name}</h3>
               <S.Job>{el.career}</S.Job>

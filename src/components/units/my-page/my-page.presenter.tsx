@@ -187,13 +187,13 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
                   </S.ExpertBody>
 
                   <S.ExpertButtonWrapper>
-                    <div
+                    <S.ConsultButton
                       id={el.id}
                       title="상담하기"
                       onClick={props.onClickTicket}
                     >
                       상담하기
-                    </div>
+                    </S.ConsultButton>
                     <BasicButton
                       title="리뷰쓰기"
                       onClick={() => props.setReviewModalIsOpen(true)}

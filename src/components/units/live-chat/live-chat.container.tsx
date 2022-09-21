@@ -6,7 +6,7 @@ import { FETCH_CHAT_LOGS, IS_SPECIALIST } from "./live-chat.queries";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
-import { TicketState } from "../../commons/store";
+import { TicketState } from "../../../commons/store";
 
 const url = "https://lookatmeserver.shop/chat";
 
@@ -43,12 +43,12 @@ export default function LiveChatContainer() {
 
   useEffect(() => {
     // send
-    socket.on(ticketId, (data) => {
+    socket.on(ticketId, (data: any) => {
       setResultMsg((prev) => [...prev, data]);
     });
   }, [ticketId]);
 
-  const onClickSendMessage = async (data) => {
+  const onClickSendMessage = async (data: any) => {
     const message = await data.contents;
     socket.emit("user_send", ticketId, message);
     resetField("contents");
@@ -59,7 +59,7 @@ export default function LiveChatContainer() {
     });
   };
 
-  const onClickSendSpecialMessage = async (data) => {
+  const onClickSendSpecialMessage = async (data: any) => {
     const message = await data.contents;
     socket.emit("specialist_send", ticketId, message);
     resetField("contents");
@@ -70,7 +70,7 @@ export default function LiveChatContainer() {
     });
   };
 
-  const onKeyDown = (event: KeyboardEvent) => (data) => {
+  const onKeyDown = (event: KeyboardEvent) => (data: any) => {
     if (event.key === "Enter") {
       if (SpecialistData?.isSpecialist) {
         onClickSendSpecialMessage(data);

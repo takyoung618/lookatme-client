@@ -83,7 +83,8 @@ const Quote = styled.div`
   & div {
     width: 100%;
     height: 500px;
-    background: url("/landing/quote.png/") no-repeat center center;
+    background: url("https://storage.googleapis.com/lookatme-storage/2022/9/21/ec0c1c90-c4df-4800-86b5-6b58b15d238c/origin/quote.png")
+      no-repeat center center;
     background-size: cover;
     display: flex;
     flex-direction: column;

@@ -120,7 +120,9 @@ export const Footer = styled.div``;
 export const Email = styled.input`
   width: 345px;
   height: 48px;
-  background: #f6f6f6 url("/mail.png") no-repeat left;
+  background: #f6f6f6
+    url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0f9b52fc-b8b5-42ec-97e4-9254f43ab9d3/origin/mail.png")
+    no-repeat left;
   background-position-x: 10px;
   background-position-y: 13px;
   padding: 10px 35px;

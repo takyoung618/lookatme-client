@@ -19,7 +19,7 @@ export const SliderItem1 = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: url("/main/배경1.png");
+  background-image: url("https://storage.googleapis.com/lookatme-storage/2022/9/21/ee546781-2a22-4f2d-8656-ce937d7504a9/origin/background1.png");
 `;
 
 export const SliderItem2 = styled.div`
@@ -27,7 +27,7 @@ export const SliderItem2 = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-image: url("/main/배경2.png");
+  background-image: url("https://storage.googleapis.com/lookatme-storage/2022/9/21/c2abe781-fbec-4d4b-8392-c8b3b1c9639e/origin/background2.png");
 `;
 
 export const Category = styled.div`
@@ -216,7 +216,8 @@ export const OfficialBtn = styled.button`
   height: 8rem;
   margin-bottom: 1.2rem;
 
-  background: url("/main/공지사항.jpg") center center no-repeat;
+  background: url("https://storage.googleapis.com/lookatme-storage/2022/9/21/82b30606-7d60-4ff8-a4f0-990bddf4740d/origin/official.jpg")
+    center center no-repeat;
   background-size: cover;
 `;
 

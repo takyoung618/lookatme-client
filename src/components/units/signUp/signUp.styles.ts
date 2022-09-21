@@ -41,7 +41,9 @@ export const Input = styled.input`
 export const Name = styled.input`
   width: 345px;
   height: 48px;
-  background: #f6f6f6 url("/user.png") no-repeat left;
+  background: #f6f6f6
+    url("https://storage.googleapis.com/lookatme-storage/2022/9/21/03decc1c-aed1-4f55-b3d3-616adad1937d/origin/user.png")
+    no-repeat left;
   background-position-x: 10px;
   background-position-y: 13px;
   padding: 10px 35px;
@@ -53,7 +55,9 @@ export const Name = styled.input`
 export const Email = styled.input`
   width: 345px;
   height: 48px;
-  background: #f6f6f6 url("/mail.png") no-repeat left;
+  background: #f6f6f6
+    url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0f9b52fc-b8b5-42ec-97e4-9254f43ab9d3/origin/mail.png")
+    no-repeat left;
   background-position-x: 10px;
   background-position-y: 13px;
   padding: 10px 35px;
@@ -65,7 +69,9 @@ export const Email = styled.input`
 export const Password = styled.input`
   width: 345px;
   height: 48px;
-  background: #f6f6f6 url("/lock.png") no-repeat left;
+  background: #f6f6f6
+    url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0bffb939-8e50-42a2-a17b-480dae272b51/origin/lock.png")
+    no-repeat left;
   background-position-x: 10px;
   background-position-y: 13px;
   padding: 10px 35px;

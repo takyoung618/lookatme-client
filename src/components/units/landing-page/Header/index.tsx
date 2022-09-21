@@ -5,7 +5,7 @@ const Container = styled.div`
   height: 100vh;
   width: 100%;
   border: 0.1px solid transparent;
-  background-image: url("/landing/background.jpg");
+  background-image: url("https://storage.googleapis.com/lookatme-storage/2022/9/21/bd5d74b8-b522-47f5-9eed-1ad2ccd67833/origin/background.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -31,7 +31,7 @@ const MouseImage = styled.div`
   position: relative;
   bottom: 70px;
   animation: mouseMove 0.7s ease-in 0s infinite alternate none running;
-  background-image: url("/landing/mouse.png");
+  background-image: url("https://storage.googleapis.com/lookatme-storage/2022/9/21/6869b8a3-c39f-4b23-9736-6614bf7d14b8/origin/mouse.png");
   background-size: cover;
 
   @media (min-width: 390px) {
@@ -77,7 +77,10 @@ export default function Header() {
   return (
     <Container>
       <ImgWrapper {...firstAnimated}>
-        <Img src="/landing/logo.png" alt="로고 이미지" />
+        <Img
+          src="https://storage.googleapis.com/lookatme-storage/2022/9/21/a69ae0a4-ca17-4df0-af23-c10c68ea1e28/origin/logo.png"
+          alt="로고 이미지"
+        />
       </ImgWrapper>
       <Wrapper></Wrapper>
       <MouseImage />

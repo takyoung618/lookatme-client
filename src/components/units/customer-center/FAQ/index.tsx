@@ -47,7 +47,10 @@ export default function FaqUI() {
   return (
     <Wrapper>
       <ImageWrapper>
-        <img src="/main/FAQ.jpg" alt="" />
+        <img
+          src="https://storage.googleapis.com/lookatme-storage/2022/9/21/e5777e87-57bd-4c90-8726-89758bf7e179/origin/FAQ.jpg"
+          alt=""
+        />
       </ImageWrapper>
       <Title>자주 묻는 질문</Title>
       <FAQ>

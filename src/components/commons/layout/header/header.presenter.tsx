@@ -23,7 +23,7 @@ export default function HeaderPresenter(props: IHeaderPresenterProps) {
         <S.ButtonWrapper adminMyPage={props.adminMyPage}>
           <S.Logo>
             <S.LogoImage
-              src="/logo.png/"
+              src="https://storage.googleapis.com/lookatme-storage/2022/9/21/e8c979e5-c0a3-4081-b764-b52a7064760f/origin/logo.png"
               onClick={props.onClickLogo}
             ></S.LogoImage>
           </S.Logo>

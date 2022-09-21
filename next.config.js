@@ -20,11 +20,9 @@ const nextConfig = {
     "/sign-up": { page: "/sign-up" },
     "/404": { page: "/404" },
   }),
-};
-
-module.exports = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  nextConfig,
 };
+
+module.exports = nextConfig;

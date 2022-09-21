@@ -1,5 +1,6 @@
 import { atom, selector } from "recoil";
 import { getAccessToken } from "../libraries/getAccessToken";
+import { recoilPersist } from "recoil-persist";
 
 export const isEditState = atom({
   key: "isEditState",
@@ -55,4 +56,22 @@ export const isExpertCommentEditState = atom({
 export const isUserCommentEditState = atom({
   key: "isUserCommentEditState",
   default: false,
+});
+
+export const TodayState = atom({
+  key: "TodayState",
+  default: false,
+});
+
+export const PointState = atom({
+  key: "PointState",
+  default: false,
+});
+
+const { persistAtom } = recoilPersist();
+
+export const TicketState = atom({
+  key: "TicketState",
+  default: "",
+  effects_UNSTABLE: [persistAtom],
 });

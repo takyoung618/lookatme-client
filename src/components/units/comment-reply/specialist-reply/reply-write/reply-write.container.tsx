@@ -14,12 +14,10 @@ import { ISpecialistReplyWriteContainer } from "./reply-write.types";
 export default function SpecialistReplyWriteContainer(
   props: ISpecialistReplyWriteContainer
 ) {
-  const router = useRouter();
-
   const [contents, setContents] = useState("");
   const [contentsError, setContentsError] = useState("");
   const [contentsLength, setContentsLength] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [, setIsActive] = useState(false);
 
   const [createUnderSpecialistComment] = useMutation<
     Pick<IMutation, "createUnderSpecialistComment">

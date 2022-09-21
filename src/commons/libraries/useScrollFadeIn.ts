@@ -63,7 +63,7 @@ const useScrollFadeIn = (
   );
 
   useEffect(() => {
-    let observer;
+    let observer: any;
     const { current } = dom;
 
     if (current) {

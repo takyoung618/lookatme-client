@@ -15,14 +15,10 @@ import { IUserReplyWriteContainerProps } from "./reply-write.types";
 export default function UserReplyWriteContainer(
   props: IUserReplyWriteContainerProps
 ) {
-  const router = useRouter();
-
   const [contents, setContents] = useState("");
   const [contentsError, setContentsError] = useState("");
   const [contentsLength, setContentsLength] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-
-  const isSpecialist = getSpecialist()?.isSpecialist;
+  const [, setIsActive] = useState(false);
 
   const [createUnderComment] =
     useMutation<Pick<IMutation, "createUnderComment">>(CREATE_UNDER_COMMENT);

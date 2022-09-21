@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   margin-bottom: 30px;
   text-align: center;
-  font-family: "MiceGodic";
   font-size: 1.6rem;
 `;
 

@@ -2,17 +2,11 @@ import { useMutation } from "@apollo/client";
 import { message, Modal } from "antd";
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
-import { useRecoilState } from "recoil";
 import { getUserInfo } from "../../../../../commons/libraries/getUserInfo";
-import { isUserCommentEditState } from "../../../../../commons/store";
 import { IMutation } from "../../../../../commons/types/generated/types";
 import { FETCH_COMMENTS_WITH_STORY_ID } from "../../comment-list/comment-list.queries";
 import CommentEditUserPresenter from "./comment-edit-user.presenter";
-import {
-  DELETE_OWN_COMMENT,
-  LIKE_COMMENT,
-  REPORT_COMMENT,
-} from "./comment-edit-user.queries";
+import { DELETE_OWN_COMMENT, LIKE_COMMENT } from "./comment-edit-user.queries";
 import { ICommentEditUserContainer } from "./comment-edit-user.types";
 
 export default function CommentEditUserContainer(
@@ -24,7 +18,7 @@ export default function CommentEditUserContainer(
 
   const [isUserCommentEdit, setIsUserCommentEdit] = useState(false);
   const [editUserContents, setEditUserContents] = useState("");
-  const [editUserContentsLength, setEditUserContentsLength] = useState(0);
+  const [, setEditUserContentsLength] = useState(0);
 
   const [isUserReply, setIsUserReply] = useState(false);
 

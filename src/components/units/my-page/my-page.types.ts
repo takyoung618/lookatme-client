@@ -36,6 +36,7 @@ export interface IMyPagePresenterProps {
   onClickComment: () => void;
   onClickLike: () => void;
   onClickMoveToDetailCommunity: (event: MouseEvent<HTMLDivElement>) => void;
+  onClickTicket: (event: any) => void;
 }
 
 export interface ICommunityProps {

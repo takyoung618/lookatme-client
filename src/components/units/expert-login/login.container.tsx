@@ -8,7 +8,6 @@ import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/store";
 import {
   IMutation,
-  IMutationLoginArgs,
   IMutationSpecialistLoginArgs,
 } from "../../../commons/types/generated/types";
 import { Modal } from "antd";
@@ -34,7 +33,7 @@ const schema = yup.object({
 
 export default function Login() {
   const router = useRouter();
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+  const [, setAccessToken] = useRecoilState(accessTokenState);
 
   const [specialistLogin] = useMutation<
     Pick<IMutation, "specialistLogin">,

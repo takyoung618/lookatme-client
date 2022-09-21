@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import {
   ICommentButtonProps,
-  ICommunityListUIProps,
   IFamilyButtonProps,
   IFreeButtonProps,
   IJobButtonProps,

@@ -80,7 +80,7 @@ export default function ExpertMyPagePage() {
   };
 
   // 채팅
-  const [ticketId, setTicketId] = useRecoilState(TicketState);
+  const [, setTicketId] = useRecoilState(TicketState);
 
   const onClickTicket = (event: MouseEvent<HTMLElement>) => {
     const EventId = event.target.id;

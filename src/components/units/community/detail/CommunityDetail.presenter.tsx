@@ -6,8 +6,9 @@ import { BsFillPersonFill } from "react-icons/bs";
 import CommentListContainer from "../../comment/comment-list/comment-list.container";
 import CommentWriteContainer from "../../comment/comment-write/CommentWrite.container";
 import Dompurify from "dompurify";
+import { ICommunityDetailUiProps } from "./CommunityDetail.types";
 
-export default function CommunityDetailUi(props) {
+export default function CommunityDetailUi(props: ICommunityDetailUiProps) {
   return (
     <S.Wrapper>
       <S.HeaderWrapper>

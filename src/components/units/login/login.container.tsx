@@ -34,9 +34,8 @@ const schema = yup.object({
 
 export default function Login() {
   const router = useRouter();
-  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
-  const [logInStatus, setLogInStatus] = useRecoilState(logInStatusState);
-  const UserInfo = getUserInfo();
+  const [, setAccessToken] = useRecoilState(accessTokenState);
+  const [, setLogInStatus] = useRecoilState(logInStatusState);
 
   const [login] = useMutation<Pick<IMutation, "login">, IMutationLoginArgs>(
     LOGIN

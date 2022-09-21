@@ -1,6 +1,4 @@
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import BasicButton from "../../commons/button";
 
 export const Wrapper = styled.div`
   width: 335px;
@@ -15,7 +13,6 @@ export const Title = styled.h1`
   margin-bottom: 30px;
   font-size: 1.6rem;
   text-align: center;
-  font-family: "MiceGodic";
 `;
 
 export const Main = styled.div`

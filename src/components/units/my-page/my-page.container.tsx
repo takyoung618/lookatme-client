@@ -2,21 +2,15 @@ import { useMutation, useQuery } from "@apollo/client";
 import { message, Modal } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import {
-  ChangeEvent,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import { useForm } from "react-hook-form";
-import { RecoilState, useRecoilState } from "recoil";
-import { io } from "socket.io-client";
+import { ChangeEvent, SetStateAction, useState } from "react";
+import { useRecoilState } from "recoil";
 import { getUserInfo } from "../../../commons/libraries/getUserInfo";
-import { profileEditState, pwdEditState } from "../../../commons/store";
+import {
+  profileEditState,
+  pwdEditState,
+  TicketState,
+} from "../../../commons/store";
 import { IMutation, IQuery } from "../../../commons/types/generated/types";
-import { TicketState } from "../../commons/store";
-import { FETCH_CHAT_LOGS } from "../live-chat/live-chat.queries";
 import MyPagePresenter from "./my-page.presenter";
 import {
   CREATE_PAYMENT,
@@ -104,7 +98,7 @@ export default function MyPageContainer() {
   };
 
   // 채팅
-  const [ticketId, setTicketId] = useRecoilState(TicketState);
+  const [, setTicketId] = useRecoilState(TicketState);
 
   const onClickTicket = (event: MouseEvent<HTMLElement>) => {
     setTicketId(event.target.id);

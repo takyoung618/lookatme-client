@@ -457,7 +457,7 @@ export type IMutationUpdateStoryArgs = {
 
 
 export type IMutationUpdateUnderSpecialistCommentArgs = {
-  updateSpecialistCommentInput: IUpdateUnderSpecialistCommentInput;
+  updateUnderSpecialistCommentInput: IUpdateUnderSpecialistCommentInput;
 };
 
 
@@ -788,6 +788,7 @@ export type ISpecialistReview = {
   rate: Scalars['Float'];
   specialist: ISpecialist;
   text: Scalars['String'];
+  ticket: ITicket;
   user: IUser;
 };
 
@@ -824,6 +825,7 @@ export type ITicket = {
   refunded: Scalars['Boolean'];
   specialist: ISpecialist;
   specialistChatMessages: Array<ISpecialistChatMessage>;
+  specialistReview: ISpecialistReview;
   used: Scalars['Boolean'];
   user: IUser;
 };
@@ -914,4 +916,6 @@ export type IUser = {
   specialistReviews: Array<ISpecialistReview>;
   stories: Array<IStory>;
   tickets: Array<ITicket>;
+  underComments: Array<IUnderComment>;
+  underSpecialistComments: Array<IUnderSpecialistComment>;
 };

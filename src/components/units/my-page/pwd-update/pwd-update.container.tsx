@@ -10,7 +10,7 @@ import { UPDATE_USER_PWD } from "./pwd-update.queries";
 import { schema } from "./pwd-update.schema";
 
 export default function PwdUpdateContainer() {
-  const [pwdEdit, setPwdEdit] = useRecoilState(pwdEditState);
+  const [, setPwdEdit] = useRecoilState(pwdEditState);
   const [updateUserPwd] =
     useMutation<Pick<IMutation, "updateUserPwd">>(UPDATE_USER_PWD);
 
@@ -19,7 +19,7 @@ export default function PwdUpdateContainer() {
     mode: "onChange",
   });
 
-  const onClickPwdEditButton = async (data) => {
+  const onClickPwdEditButton = async (data: any) => {
     try {
       await updateUserPwd({
         variables: {

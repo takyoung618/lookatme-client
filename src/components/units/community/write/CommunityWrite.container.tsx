@@ -1,17 +1,14 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import CommunityWriteUi from "./CommunityWrite.presenter";
-import { CREATE_STORY, IS_USER, UPDATE_STORY } from "./CommunityWrite.queries";
+import { CREATE_STORY, UPDATE_STORY } from "./CommunityWrite.queries";
 import { message, Modal } from "antd";
 import { withAuth } from "../../../commons/hocs/withAuth";
-import {
-  IQuery,
-  IUpdateStoryInput,
-} from "../../../../commons/types/generated/types";
+import { IUpdateStoryInput } from "../../../../commons/types/generated/types";
 import { ICreateStoryProps } from "./CommunityWrite.types";
 import { FETCH_STORY } from "../detail/CommunityDetail.queries";
 

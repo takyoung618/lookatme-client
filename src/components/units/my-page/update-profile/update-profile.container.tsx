@@ -1,7 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { message, Modal } from "antd";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
 import { getUserInfo } from "../../../../commons/libraries/getUserInfo";
@@ -9,12 +8,12 @@ import { profileEditState } from "../../../../commons/store";
 import { IMutation } from "../../../../commons/types/generated/types";
 import { FETCH_LOGIN_USER } from "../my-page.queries";
 import UpdateProfilePresenter from "./update-profile.presenter";
-import { UPDATE_USER, UPDATE_USER_PWD } from "./update-profile.queries";
+import { UPDATE_USER } from "./update-profile.queries";
 import { schema } from "./update-profile.schema";
 
 export default function UpdateProfileContainer() {
   const UserInfo = getUserInfo();
-  const [profileEdit, setProfileEdit] = useRecoilState(profileEditState);
+  const [, setProfileEdit] = useRecoilState(profileEditState);
 
   const [updateUser] = useMutation<Pick<IMutation, "updateUser">>(UPDATE_USER);
 
@@ -23,7 +22,7 @@ export default function UpdateProfileContainer() {
     mode: "onChange",
   });
 
-  const onClickProfileEditButton = async (data) => {
+  const onClickProfileEditButton = async (data: any) => {
     try {
       await updateUser({
         variables: {

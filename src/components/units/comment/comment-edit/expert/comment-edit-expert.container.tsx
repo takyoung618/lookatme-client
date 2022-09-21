@@ -15,8 +15,7 @@ export default function CommentEditExpertContainer(
 
   const [isExpertCommentEdit, setIsExpertCommentEdit] = useState(false);
   const [editSpecialistContents, setIsEditSpecialistContents] = useState("");
-  const [editSpecialistContentsLength, setIsEditSpecialistContentsLength] =
-    useState(0);
+  const [, setIsEditSpecialistContentsLength] = useState(0);
 
   const [isSpecialistReply, setIsSpecialistReply] = useState(false);
 

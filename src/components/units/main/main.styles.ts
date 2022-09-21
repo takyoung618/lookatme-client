@@ -224,7 +224,8 @@ export const OfficialBtn = styled.button`
 export const FaqBtn = styled.button`
   width: 9rem;
   height: 8rem;
-  background: url("/main/FAQ.jpg") center center no-repeat;
+  background: url("https://storage.googleapis.com/lookatme-storage/2022/9/21/6ebc4d28-7d6e-4810-b700-2e9058bee62a/origin/FAQ.jpg")
+    center center no-repeat;
   background-size: cover;
   margin-bottom: 1.2rem;
 `;

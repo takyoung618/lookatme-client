@@ -44,11 +44,6 @@ export default function LoginUI(props: ILoginUIProps) {
               비밀번호찾기
             </button>
           </S.InnerFooter>
-          <S.ImgFooter>
-            <S.SocialImg src="/구글.png" />
-            <S.SocialImg src="/네이버.png" />
-            <S.SocialImg src="/카카오.png" />
-          </S.ImgFooter>
         </S.Footer>
       </S.Wrapper>
     </form>

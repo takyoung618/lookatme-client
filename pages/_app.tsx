@@ -12,10 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>LookAtMe</title>
-        <meta
-          property="og:lookatme"
-          content="2030 심리상담 커뮤니티 룩앳미"
-        ></meta>
+        <meta property="og:lookatme" content="2030을 위한 심리상담소"></meta>
         <meta
           property="og:description"
           content="온라인 커뮤니티를 통해 심리적 고민, 문제를 공유해보세요. 장소 구애없이 채팅으로 상담도 받을 수 있습니다."

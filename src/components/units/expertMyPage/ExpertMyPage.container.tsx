@@ -1,8 +1,9 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
+import { TicketState } from "../../../commons/store";
 import { IQuery } from "../../../commons/types/generated/types";
-import { TicketState } from "../../commons/store";
+
 import ExpertMyPageUI from "./ExpertMyPage.presenter";
 import {
   FETCH_LOGIN_SPECIALIST,

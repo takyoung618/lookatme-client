@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 335px;
+  max-width: 100vw;
+  width: 100%;
   height: 448px;
   display: flex;
   flex-direction: column;
@@ -16,12 +17,11 @@ export const Title = styled.h1`
 `;
 
 export const Main = styled.div`
-  margin: 0 auto;
   & button {
-    width: 18rem;
+    max-width: 100vw;
+    width: 100%;
     height: 40px;
     text-align: center;
-    padding: 12px 14px;
     background-color: #9cd6ff;
     border-radius: 40px;
     color: white;
@@ -35,6 +35,8 @@ export const Main = styled.div`
 `;
 
 export const InputWrapper = styled.div`
+  max-width: 100vw;
+  width: 100%;
   margin-bottom: 32px;
 `;
 
@@ -46,28 +48,28 @@ export const Label = styled.div`
 `;
 
 export const Email = styled.input`
-  width: 18rem;
+  width: 98%;
+  margin-left: 1%;
   height: 48px;
   background: #f6f6f6
     url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0f9b52fc-b8b5-42ec-97e4-9254f43ab9d3/origin/mail.png")
     no-repeat left;
   background-position-x: 10px;
   background-position-y: 13px;
-  padding: 10px 35px;
   border-radius: 4px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
   border: none;
 `;
 
 export const Password = styled.input`
-  width: 18rem;
+  width: 98%;
+  margin-left: 1%;
   height: 48px;
   background: #f6f6f6
     url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0bffb939-8e50-42a2-a17b-480dae272b51/origin/lock.png")
     no-repeat left;
   background-position-x: 10px;
   background-position-y: 13px;
-  padding: 10px 35px;
   border-radius: 4px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
   border: none;

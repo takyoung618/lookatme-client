@@ -7,7 +7,6 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
 import { TicketState } from "../../../commons/store";
-import { useRouter } from "next/router";
 
 const url = "https://lookatmeserver.shop/chat";
 

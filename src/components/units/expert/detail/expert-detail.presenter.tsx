@@ -3,6 +3,7 @@ import { Rate } from "antd";
 import { AiFillStar } from "react-icons/ai";
 import { IExpertDetailPresenterProps } from "./expert-detail.types";
 import BasicButton from "../../../commons/button";
+import InfiniteScroll from "react-infinite-scroller";
 
 export default function ExpertDetailPresenter(
   props: IExpertDetailPresenterProps
@@ -74,16 +75,26 @@ export default function ExpertDetailPresenter(
           </S.RateTitle>
         </S.CategoryWrapper>
         <S.ContentsWrapper>
-          {props.data?.fetchSpecialist.specialistReviews.map((el) => (
-            <S.ReviewWrapper key={el.id}>
-              <Rate
-                defaultValue={el.rate}
-                disabled
-                style={{ marginBottom: "15px", color: "#73bea8" }}
-              />
-              {el.text}
-            </S.ReviewWrapper>
-          ))}
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={props.FetchMoreReview}
+            hasMore={true}
+            useWindow={false}
+            style={{ height: "250px" }}
+          >
+            {props.ReviewData?.fetchSpecialistReviewsWithSpecialistId.map(
+              (el) => (
+                <S.ReviewWrapper key={el.id}>
+                  <Rate
+                    defaultValue={el.rate}
+                    disabled
+                    style={{ marginBottom: "15px", color: "#73bea8" }}
+                  />
+                  {el.text}
+                </S.ReviewWrapper>
+              )
+            )}
+          </InfiniteScroll>
         </S.ContentsWrapper>
       </S.BottomWrapper>
 

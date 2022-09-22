@@ -76,6 +76,8 @@ export const ChatButton = styled.div`
   font-weight: 700;
   color: #fff;
   border-radius: 20px;
+  margin-top: 30px;
+  margin-bottom: 50px;
   cursor: pointer;
 `;
 

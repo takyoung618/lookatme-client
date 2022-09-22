@@ -11,12 +11,24 @@ export const FETCH_SPECIALIST = gql`
       career
       price
       averageRate
-      specialistReviews {
-        text
-        rate
-        user {
-          nickname
-        }
+    }
+  }
+`;
+
+export const FETCH_SPECIALIST_REVIEWS_WITH_SPECIALIST_ID = gql`
+  query fetchSpecialistReviewsWithSpecialistId(
+    $specialistId: String!
+    $page: Int!
+  ) {
+    fetchSpecialistReviewsWithSpecialistId(
+      specialistId: $specialistId
+      page: $page
+    ) {
+      id
+      text
+      rate
+      user {
+        nickname
       }
     }
   }

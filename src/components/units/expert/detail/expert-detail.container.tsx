@@ -8,7 +8,11 @@ import {
 } from "../../../../commons/types/generated/types";
 import { FETCH_LOGIN_USER } from "../../my-page/my-page.queries";
 import ExpertDetailPresenter from "./expert-detail.presenter";
-import { CREATE_TICKET, FETCH_SPECIALIST } from "./expert-detail.queries";
+import {
+  CREATE_TICKET,
+  FETCH_SPECIALIST,
+  FETCH_SPECIALIST_REVIEWS_WITH_SPECIALIST_ID,
+} from "./expert-detail.queries";
 
 export default function ExpertDetailContainer() {
   const router = useRouter();
@@ -19,6 +23,42 @@ export default function ExpertDetailContainer() {
   >(FETCH_SPECIALIST, {
     variables: { id: String(router.query.expertId) },
   });
+
+  const { data: ReviewData, fetchMore: ReviewFetchMore } = useQuery<
+    Pick<IQuery, "fetchSpecialistReviewsWithSpecialistId">
+  >(FETCH_SPECIALIST_REVIEWS_WITH_SPECIALIST_ID, {
+    variables: { specialistId: String(router.query.expertId), page: 0 },
+  });
+
+  const FetchMoreReview = () => {
+    if (!ReviewData) return;
+
+    ReviewFetchMore({
+      variables: {
+        page:
+          Math.ceil(
+            ReviewData?.fetchSpecialistReviewsWithSpecialistId.length / 10
+          ) + 1,
+      },
+
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchSpecialistReviewsWithSpecialistId) {
+          return {
+            fetchSpecialistReviewsWithSpecialistId: [
+              ...prev.fetchSpecialistReviewsWithSpecialistId,
+            ],
+          };
+        }
+
+        return {
+          fetchSpecialistReviewsWithSpecialistId: [
+            ...prev.fetchSpecialistReviewsWithSpecialistId,
+            ...fetchMoreResult.fetchSpecialistReviewsWithSpecialistId,
+          ],
+        };
+      },
+    });
+  };
 
   const [createTicket] =
     useMutation<Pick<IMutation, "createTicket">>(CREATE_TICKET);
@@ -47,6 +87,8 @@ export default function ExpertDetailContainer() {
       data={data}
       onClickBuyTicket={onClickBuyTicket}
       onClickMoveToList={onClickMoveToList}
+      ReviewData={ReviewData}
+      FetchMoreReview={FetchMoreReview}
     ></ExpertDetailPresenter>
   );
 }

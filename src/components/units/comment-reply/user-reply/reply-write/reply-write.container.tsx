@@ -27,7 +27,7 @@ export default function UserReplyWriteContainer(
     variables: {
       updateUnderCommentInput: {
         contents,
-        underCommentId: props.UserUnderCommentEl.id,
+        underCommentId: props.UserUnderCommentEl?.id,
       },
     },
   });
@@ -60,6 +60,7 @@ export default function UserReplyWriteContainer(
             },
           ],
         });
+        props.setIsUnderReply(false);
       } catch (error) {
         if (error instanceof Error) Modal.error({ content: error.message });
       }

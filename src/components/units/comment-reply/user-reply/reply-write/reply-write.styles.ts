@@ -61,6 +61,7 @@ export const CommentButton = styled.button`
   border: 1px solid #73bea8;
   color: #fff;
   font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
 `;
 

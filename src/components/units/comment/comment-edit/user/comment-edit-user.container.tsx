@@ -33,7 +33,7 @@ export default function CommentEditUserContainer(
     try {
       await deleteOwnComment({
         variables: {
-          id: props.UserCommentEl.id,
+          commentId: props.UserCommentEl.id,
         },
         refetchQueries: [
           {
@@ -62,10 +62,10 @@ export default function CommentEditUserContainer(
   const [likeComment] =
     useMutation<Pick<IMutation, "likeComment">>(LIKE_COMMENT);
 
-  const onClickLikeComment = async (event: MouseEvent<HTMLDivElement>) => {
+  const onClickLikeComment = (UserCommentId: string) => async () => {
     try {
       await likeComment({
-        variables: { commentId: event.target.id },
+        variables: { commentId: UserCommentId },
         refetchQueries: [
           {
             query: FETCH_COMMENTS_WITH_STORY_ID,

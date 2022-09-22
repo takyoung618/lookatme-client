@@ -74,6 +74,7 @@ export const FETCH_OWN_COMMENTS = gql`
     fetchOwnComments(page: $page) {
       id
       text
+      likes
       story {
         id
       }

@@ -40,13 +40,12 @@ export default function CommentEditUserPresenter(
               <S.Comment onClick={props.onClickUserReply}>답글 쓰기</S.Comment>
               <FaHeartbeat
                 style={{
-                  width: "20%",
+                  width: "18%",
                   height: "23px",
                   color: "#73bea8",
                   cursor: "pointer",
                 }}
-                id={props.UserCommentEl.id}
-                onClick={props.onClickLikeComment}
+                onClick={props.onClickLikeComment(props.UserCommentEl.id)}
               />
               <S.Sympathy>{props.UserCommentEl.likes}명 공감</S.Sympathy>
             </S.SympathyWrapper>

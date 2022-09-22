@@ -56,11 +56,12 @@ export const CommentBody = styled.div`
 `;
 
 export const Comment = styled.div`
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 3.5%;
+  margin-right: 4%;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
+  width: 33%;
 `;
 
 export const UserHeader = styled.div`
@@ -99,12 +100,13 @@ export const SympathyWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  width: 50%;
+  text-align: start;
+  width: 65%;
 `;
 
 export const Sympathy = styled.div`
   color: #7f7f7f;
+  width: 40%;
 `;
 
 export const BottomRightWrapper = styled.div`
@@ -112,7 +114,7 @@ export const BottomRightWrapper = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  width: 30%;
+  width: 25%;
   height: 23px;
 `;
 

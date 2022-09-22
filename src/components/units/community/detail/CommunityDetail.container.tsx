@@ -9,6 +9,7 @@ import {
   IQuery,
   IQueryFetchStoryArgs,
 } from "../../../../commons/types/generated/types";
+import { withAuth } from "../../../commons/hocs/withAuth";
 import { FETCH_STORIES_BY_TIME } from "../../community-list/community-list.queries";
 import CommunityDetailUi from "./CommunityDetail.presenter";
 import {
@@ -17,7 +18,7 @@ import {
   LIKE_STORY,
 } from "./CommunityDetail.queries";
 
-export default function CommunityDetail() {
+function CommunityDetail() {
   const router = useRouter();
   const UserInfo = getUserInfo();
   const { data } = useQuery<Pick<IQuery, "fetchStory">, IQueryFetchStoryArgs>(
@@ -103,3 +104,5 @@ export default function CommunityDetail() {
     />
   );
 }
+
+export default withAuth(CommunityDetail);

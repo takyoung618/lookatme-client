@@ -84,10 +84,9 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
                 </S.PointContents>
                 <S.PointButtonWrapper>
                   <BasicButton
-                    title="충전"
+                    title="충전하기"
                     onClick={() => props.setModalIsOpen(true)}
                   ></BasicButton>
-                  <BasicButton title="환불"></BasicButton>
                 </S.PointButtonWrapper>
               </S.PointBody>
             </S.ProfileContentsWrapper>
@@ -296,7 +295,7 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
             {props.communityData?.fetchOwnStories.map((el) => (
               <S.HistoryBody
                 key={el.id}
-                onClick={props.onClickMoveToDetailCommunity}
+                onClick={props.onClickMoveToDetailCommunity(el.id)}
               >
                 <S.HistoryContents>{el.title}</S.HistoryContents>
                 <S.HistoryInfoWrapper>
@@ -322,14 +321,14 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
             {props.commentData?.fetchOwnComments.map((el) => (
               <S.HistoryBody
                 key={el.id}
-                onClick={props.onClickMoveToDetailCommunity}
+                onClick={props.onClickMoveToDetailCommunity(el.story.id)}
               >
                 <S.HistoryContents>{el.text}</S.HistoryContents>
                 <S.HistoryInfoWrapper>
                   <FaHeartbeat
                     style={{ width: "27px", height: "23px", color: "#73bea8" }}
                   />
-                  <S.HistoryInfo>1 명 공감</S.HistoryInfo>
+                  <S.HistoryInfo>{el.likes} 명 공감</S.HistoryInfo>
                 </S.HistoryInfoWrapper>
               </S.HistoryBody>
             ))}
@@ -348,7 +347,7 @@ export default function MyPagePresenter(props: IMyPagePresenterProps) {
             {props.likeData?.fetchOwnLikedStories.map((el) => (
               <S.HistoryBody
                 key={el.id}
-                onClick={props.onClickMoveToDetailCommunity}
+                onClick={props.onClickMoveToDetailCommunity(el.id)}
               >
                 <S.HistoryContents>{el.title}</S.HistoryContents>
                 <S.HistoryInfoWrapper>

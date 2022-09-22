@@ -51,8 +51,9 @@ export default function AdminMyPageContainer() {
 
   const onClickStart = async () => {
     try {
-      await startQuote;
+      await startQuote();
       Modal.success({ content: "명언 시작" });
+      console.log("123");
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });
     }
@@ -60,7 +61,7 @@ export default function AdminMyPageContainer() {
 
   const onClickStop = async () => {
     try {
-      await stopQuote;
+      await stopQuote();
       Modal.success({ content: "명언 정지" });
     } catch (error) {
       if (error instanceof Error) Modal.error({ content: error.message });

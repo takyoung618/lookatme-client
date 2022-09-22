@@ -1,16 +1,19 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 335px;
+  max-width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   padding-top: 54px;
   margin-bottom: 80px;
 `;
 
 export const Main = styled.div`
+  max-width: 100vw;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 5%;
 `;
 
 export const Title = styled.h1`
@@ -20,6 +23,8 @@ export const Title = styled.h1`
 `;
 
 export const InputWrapper = styled.div`
+  max-width: 100vw;
+  width: 100%;
   margin-bottom: 32px;
 `;
 
@@ -28,19 +33,12 @@ export const Label = styled.div`
   line-height: 17px;
   color: #222222;
   margin-bottom: 5px;
-`;
-
-export const Input = styled.input`
-  height: 48px;
-  background: #f6f6f6;
-  padding: 10px;
-  border-radius: 4px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-  border: none;
+  margin-left: 1%;
 `;
 
 export const Name = styled.input`
-  width: 18rem;
+  width: 98%;
+  margin-left: 1%;
   height: 48px;
   background: #f6f6f6
     url("https://storage.googleapis.com/lookatme-storage/2022/9/21/03decc1c-aed1-4f55-b3d3-616adad1937d/origin/user.png")
@@ -54,7 +52,8 @@ export const Name = styled.input`
 `;
 
 export const Email = styled.input`
-  width: 18rem;
+  width: 98%;
+  margin-left: 1%;
   height: 48px;
   background: #f6f6f6
     url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0f9b52fc-b8b5-42ec-97e4-9254f43ab9d3/origin/mail.png")
@@ -68,7 +67,8 @@ export const Email = styled.input`
 `;
 
 export const Password = styled.input`
-  width: 18rem;
+  width: 98%;
+  margin-left: 1%;
   height: 48px;
   background: #f6f6f6
     url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0bffb939-8e50-42a2-a17b-480dae272b51/origin/lock.png")
@@ -83,11 +83,12 @@ export const Password = styled.input`
 
 export const PhoneWrapper = styled.div`
   display: flex;
-  width: 18rem;
+  width: 98%;
+  margin-left: 1%;
 `;
 
 export const FrontNumber = styled.div`
-  width: 5rem;
+  width: 20%;
   height: 48px;
   background: #f6f6f6;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
@@ -101,7 +102,7 @@ export const FrontNumber = styled.div`
 `;
 
 export const PhoneNumber = styled.input`
-  width: 16rem;
+  width: 60%;
   height: 48px;
   background: #f6f6f6;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
@@ -113,7 +114,8 @@ export const PhoneNumber = styled.input`
 
 export const Footer = styled.div`
   & button {
-    width: 18rem;
+    width: 98%;
+    margin-left: 1%;
     height: 40px;
     text-align: center;
     padding: 12px 14px;
@@ -136,7 +138,7 @@ export const Error = styled.div`
 `;
 
 export const AuthButton = styled.button`
-  width: 5rem;
+  width: 20%;
   border: none;
   background: #73c7a9;
   cursor: pointer;
@@ -146,11 +148,12 @@ export const AuthButton = styled.button`
 export const TokenWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 18rem;
+  width: 98%;
+  margin-left: 1%;
   margin-top: 30px;
 
   & button {
-    width: 5.5rem;
+    width: 25%;
     border: none;
     background: #73c7a9;
     cursor: pointer;
@@ -160,7 +163,7 @@ export const TokenWrapper = styled.div`
 `;
 
 export const Token = styled.input`
-  width: 240px;
+  width: 75%;
   height: 48px;
   background: #f6f6f6;
   /* box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.2); */
@@ -170,7 +173,7 @@ export const Token = styled.input`
 `;
 
 export const TokenTimer = styled.div`
-  width: 100px;
+  width: 6rem;
   height: 48px;
   background: #f6f6f6;
   /* box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2); */

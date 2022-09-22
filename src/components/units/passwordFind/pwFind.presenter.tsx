@@ -50,7 +50,7 @@ export default function PwFindUI(props: IFindPwProps) {
           </S.InputWrapper>
           <S.InputWrapper>
             <S.Label>새로운 비밀번호 입력</S.Label>
-            <S.NewPassword type="text" {...props.register("newPassword")} />
+            <S.NewPassword type="password" {...props.register("newPassword")} />
           </S.InputWrapper>
           <S.FindBtn>비밀번호 변경</S.FindBtn>
         </S.Main>

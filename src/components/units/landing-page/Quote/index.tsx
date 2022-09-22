@@ -15,7 +15,6 @@ const ZoominOut = keyframes`
 `;
 
 const Container = styled.section`
-  background-color: #f7f9f3;
   display: flex;
   width: 100%;
   max-height: 100vh;
@@ -37,7 +36,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px;
   width: 100%;
 `;
 
@@ -64,6 +62,8 @@ const Button = styled.button`
 
 const ImageContainer = styled.div`
   width: 100%;
+  max-height: 100vh;
+  height: 100%;
   margin-bottom: 50px;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -75,7 +75,10 @@ const ImageContainer = styled.div`
 `;
 
 const Quote = styled.div`
+  max-width: 100vw;
   width: 100%;
+  max-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,6 +86,7 @@ const Quote = styled.div`
   line-height: 2;
 
   & div {
+    max-width: 100vw;
     width: 100%;
     height: 500px;
     background: url("https://storage.googleapis.com/lookatme-storage/2022/9/21/ec0c1c90-c4df-4800-86b5-6b58b15d238c/origin/quote.png")
@@ -93,7 +97,7 @@ const Quote = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 5rem;
+    padding: 4rem;
   }
 `;
 

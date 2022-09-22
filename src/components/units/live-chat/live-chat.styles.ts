@@ -5,12 +5,12 @@ export const Wrapper = styled.div`
   flex-direction: column;
   max-width: 100%;
   width: 100vw;
-  height: 790px;
+  height: 90%;
   padding: 20px 20px;
   background-color: #c1e9de;
   overflow: scroll;
   -ms-overflow-style: none;
-  margin-bottom: -15px;
+  /* margin-bottom: -15px; */
 `;
 
 export const LeftWrapper = styled.div`
@@ -62,7 +62,8 @@ export const BottomWrapper = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 40px;
+
+  height: 10%;
   border: 1px solid #c5c5c5;
 `;
 
@@ -72,13 +73,13 @@ export const MessageInput = styled.input`
   border: none;
 `;
 
-export const SendButton = styled.div`
+export const SendButton = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
   width: 15%;
   background-color: #73c0a9;
   cursor: pointer;
+  border: none;
 `;

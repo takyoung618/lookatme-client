@@ -7,7 +7,7 @@ export interface IHeaderPresenterProps {
   showMenu: () => void;
   onClose: () => void;
   onChangeMenu: (e: RadioChangeEvent) => void;
-  placement: Placement | undefined;
+  placement: any;
   open: boolean;
   onClickLogin: () => void;
   onClickSignUp: () => void;

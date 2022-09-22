@@ -16,9 +16,9 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
           명언 만들기 버튼
         </S.CreateBtn>
         <S.Row>
-          <S.Column__Basic>번호</S.Column__Basic>
-          <S.Column__Quote__Title>명언</S.Column__Quote__Title>
-          <S.Column__Basic>이름</S.Column__Basic>
+          <S.ColumnBasic>번호</S.ColumnBasic>
+          <S.ColumnQuoteTitle>명언</S.ColumnQuoteTitle>
+          <S.ColumnBasic>이름</S.ColumnBasic>
         </S.Row>
         <InfiniteScroll
           pageStart={0}
@@ -29,9 +29,9 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
         >
           {props.QuoteData?.fetchQuotes.map((el, index) => (
             <S.Row key={el.id}>
-              <S.Column__Basic>{index + 1}</S.Column__Basic>
-              <S.Column__Quote>{el.message}</S.Column__Quote>
-              <S.Column__Basic>{el.author}</S.Column__Basic>
+              <S.ColumnBasic>{index + 1}</S.ColumnBasic>
+              <S.ColumnQuote>{el.message}</S.ColumnQuote>
+              <S.ColumnBasic>{el.author}</S.ColumnBasic>
               <S.DeleteBtn id={el.id} onClick={props.onClickDeleteQuote}>
                 삭제
               </S.DeleteBtn>
@@ -64,10 +64,10 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
       <S.InnerWrapper>
         <S.Title>신고 목록 관리</S.Title>
         <S.Row>
-          <S.Column__Basic>번호</S.Column__Basic>
-          <S.Column__Title>제목</S.Column__Title>
-          <S.Column__Basic>작성자</S.Column__Basic>
-          <S.Column__Basic>날짜</S.Column__Basic>
+          <S.ColumnBasic>번호</S.ColumnBasic>
+          <S.ColumnTitle>제목</S.ColumnTitle>
+          <S.ColumnBasic>작성자</S.ColumnBasic>
+          <S.ColumnBasic>날짜</S.ColumnBasic>
         </S.Row>
         <InfiniteScroll
           pageStart={0}
@@ -78,10 +78,10 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
         >
           {props.ReportedData?.fetchReportedStories.map((el, index) => (
             <S.Row key={el.id}>
-              <S.Column__Basic>{index + 1}</S.Column__Basic>
-              <S.Column__Title>{el.title}</S.Column__Title>
-              <S.Column__Basic>{el.user.nickname}</S.Column__Basic>
-              <S.Column__Basic>{getDate(el.createAt)}</S.Column__Basic>
+              <S.ColumnBasic>{index + 1}</S.ColumnBasic>
+              <S.ColumnTitle>{el.title}</S.ColumnTitle>
+              <S.ColumnBasic>{el.user.nickname}</S.ColumnBasic>
+              <S.ColumnBasic>{getDate(el.createAt)}</S.ColumnBasic>
               <S.DeleteBtn
                 id={el.id}
                 onClick={props.onClickDeleteReportedStory}
@@ -101,10 +101,10 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
           </S.ExpertCreateButton>
         </S.TitleWrapper>
         <S.Row>
-          <S.Column__Basic>번호</S.Column__Basic>
-          <S.Column__Title>계정</S.Column__Title>
-          <S.Column__Basic>이름</S.Column__Basic>
-          <S.Column__Basic>가격</S.Column__Basic>
+          <S.ColumnBasic>번호</S.ColumnBasic>
+          <S.ColumnTitle>계정</S.ColumnTitle>
+          <S.ColumnBasic>이름</S.ColumnBasic>
+          <S.ColumnBasic>가격</S.ColumnBasic>
         </S.Row>
         <InfiniteScroll
           pageStart={0}
@@ -115,10 +115,10 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
         >
           {props.SpecialistData?.fetchSpecialists.map((el, index) => (
             <S.Row key={el.id}>
-              <S.Column__Basic>{index + 1}</S.Column__Basic>
-              <S.Column__Title>{el.account}</S.Column__Title>
-              <S.Column__Basic>{el.name}</S.Column__Basic>
-              <S.Column__Basic>{el.price}</S.Column__Basic>
+              <S.ColumnBasic>{index + 1}</S.ColumnBasic>
+              <S.ColumnTitle>{el.account}</S.ColumnTitle>
+              <S.ColumnBasic>{el.name}</S.ColumnBasic>
+              <S.ColumnBasic>{el.price}</S.ColumnBasic>
               <S.DeleteBtn id={el.id} onClick={props.onClickDeleteSpecialist}>
                 삭제
               </S.DeleteBtn>
@@ -179,10 +179,10 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
       <S.InnerWrapper>
         <S.Title>게시글 관리</S.Title>
         <S.Row>
-          <S.Column__Basic>번호</S.Column__Basic>
-          <S.Column__Title>제목</S.Column__Title>
-          <S.Column__Basic>작성자</S.Column__Basic>
-          <S.Column__Basic>날짜</S.Column__Basic>
+          <S.ColumnBasic>번호</S.ColumnBasic>
+          <S.ColumnTitle>제목</S.ColumnTitle>
+          <S.ColumnBasic>작성자</S.ColumnBasic>
+          <S.ColumnBasic>날짜</S.ColumnBasic>
         </S.Row>
         <InfiniteScroll
           pageStart={0}
@@ -193,10 +193,10 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
         >
           {props.CommunityData?.fetchStoriesByTime.map((el, index) => (
             <S.Row key={el.id}>
-              <S.Column__Basic>{index + 1}</S.Column__Basic>
-              <S.Column__Title>{el.title}</S.Column__Title>
-              <S.Column__Basic>{el.user.nickname}</S.Column__Basic>
-              <S.Column__Basic>{getDate(el.createAt)}</S.Column__Basic>
+              <S.ColumnBasic>{index + 1}</S.ColumnBasic>
+              <S.ColumnTitle>{el.title}</S.ColumnTitle>
+              <S.ColumnBasic>{el.user.nickname}</S.ColumnBasic>
+              <S.ColumnBasic>{getDate(el.createAt)}</S.ColumnBasic>
               <S.DeleteBtn id={el.id} onClick={props.onClickDeleteCommunity}>
                 삭제
               </S.DeleteBtn>

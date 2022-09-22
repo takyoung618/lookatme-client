@@ -35,7 +35,7 @@ export interface IMyPagePresenterProps {
   onClickCommunity: () => void;
   onClickComment: () => void;
   onClickLike: () => void;
-  onClickMoveToDetailCommunity: (event: MouseEvent<HTMLDivElement>) => void;
+  onClickMoveToDetailCommunity: (CommunityId: string) => () => void;
   onClickTicket: (event: any) => void;
 }
 

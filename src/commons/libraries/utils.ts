@@ -1,5 +1,5 @@
 // 0000-00-00 형식으로 자르기
-export const getDate = (value: string) => {
+export const getDate = (value) => {
   const date = new Date(value);
   const yyyy = date.getFullYear();
   const mm = String(date.getMonth() + 1).padStart(2, "0");
@@ -8,9 +8,9 @@ export const getDate = (value: string) => {
 };
 
 // 00전 형식으로 자르기
-export const BeforeDate = (value: string) => {
-  const start: Date = new Date(value);
-  const end: Date = new Date(); // 현재 날짜
+export const BeforeDate = (value) => {
+  const start = new Date(value);
+  const end = new Date(); // 현재 날짜
 
   const diff = end - start; // 경과 시간
 

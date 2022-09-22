@@ -303,8 +303,8 @@ export default function MyPageContainer() {
     setLike(true);
   };
 
-  const onClickMoveToDetailCommunity = (event: MouseEvent<HTMLDivElement>) => {
-    router.push(`/community/${event.currentTarget.id}`);
+  const onClickMoveToDetailCommunity = (CommunityId: string) => () => {
+    router.push(`/community/${CommunityId}`);
   };
 
   return (

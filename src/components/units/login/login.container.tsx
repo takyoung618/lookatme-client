@@ -13,7 +13,6 @@ import {
 } from "../../../commons/types/generated/types";
 import { Modal } from "antd";
 import "antd/dist/antd.css";
-import { getUserInfo } from "../../../commons/libraries/getUserInfo";
 
 const schema = yup.object({
   email: yup

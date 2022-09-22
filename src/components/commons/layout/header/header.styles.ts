@@ -93,19 +93,18 @@ export const LoginWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
-  width: 65%;
-  font-size: 1.4375rem;
+  width: 80%;
 `;
 
 export const LoginButton = styled.div`
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #7f7f7f;
   cursor: pointer;
 `;
 
 export const LoginLine = styled.div`
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #7f7f7f;
 `;

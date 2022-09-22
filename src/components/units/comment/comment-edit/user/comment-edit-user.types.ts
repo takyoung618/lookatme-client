@@ -20,5 +20,5 @@ export interface ICommentEditUserPresenter {
   isUserReply: boolean;
   setIsUserReply: SetterOrUpdater<boolean>;
   onClickUserReply: () => void;
-  onClickLikeComment: (event: MouseEvent<HTMLDivElement>) => void;
+  onClickLikeComment: (UserCommentId: string) => () => void;
 }

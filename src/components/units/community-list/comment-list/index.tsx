@@ -35,7 +35,13 @@ export default function CommentList(props: ICommentListProps) {
             <S.Category>{el.category.name}</S.Category>
             <S.Title>{el.title}</S.Title>
             {typeof window !== "undefined" && (
-            <S.Contents dangerouslySetInnerHTML={{ __html: Dompurify.sanitize(el.text)}}></S.Contents>
+              <S.Contents
+                dangerouslySetInnerHTML={{
+                  __html: Dompurify.sanitize(
+                    el.text.length >= 20 && el.text.substr(0, 100) + "..."
+                  ),
+                }}
+              ></S.Contents>
             )}
             <S.BodyBottomWrapper>
               <S.ContentsInfo>

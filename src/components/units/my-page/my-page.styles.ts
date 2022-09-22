@@ -184,9 +184,10 @@ export const PointContents = styled.div`
 export const PointButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
 
-  width: 40%;
+  width: 30%;
+  margin-left: 10%;
 `;
 
 export const MyPageSubTitle = styled.div`
@@ -273,7 +274,7 @@ export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 60%;
+  width: 70%;
   margin-top: 20px;
   margin-bottom: 60px;
 `;

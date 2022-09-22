@@ -25,7 +25,7 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
           loadMore={props.FetchMoreQuote}
           hasMore={true}
           useWindow={false}
-          style={{ height: "300px" }}
+          style={{ height: "300px", overflow: "auto" }}
         >
           {props.QuoteData?.fetchQuotes.map((el, index) => (
             <S.Row key={el.id}>
@@ -74,7 +74,7 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
           loadMore={props.FetchMoreReported}
           hasMore={true}
           useWindow={false}
-          style={{ height: "300px" }}
+          style={{ height: "300px", overflow: "auto" }}
         >
           {props.ReportedData?.fetchReportedStories.map((el, index) => (
             <S.Row key={el.id}>
@@ -111,7 +111,7 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
           loadMore={props.FetchMoreSpecialist}
           hasMore={true}
           useWindow={false}
-          style={{ height: "300px" }}
+          style={{ height: "300px", overflow: "auto" }}
         >
           {props.SpecialistData?.fetchSpecialists.map((el, index) => (
             <S.Row key={el.id}>
@@ -189,7 +189,7 @@ export default function AdminMyPageUI(props: AdminMyPageUIProps) {
           loadMore={props.FetchMoreCommunityFetchMore}
           hasMore={true}
           useWindow={false}
-          style={{ height: "300px" }}
+          style={{ height: "300px", overflow: "auto" }}
         >
           {props.CommunityData?.fetchStoriesByTime.map((el, index) => (
             <S.Row key={el.id}>

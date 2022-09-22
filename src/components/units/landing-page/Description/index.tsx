@@ -7,27 +7,29 @@ export default function Description() {
 
   const Container = styled.div`
     width: 100%;
-    height: 1000px;
+    max-height: 100vh;
+    height: 100%;
     background-color: #73c0a9;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 90px 20px 100px 20px;
+    /* padding: 90px 20px 100px 20px; */
     color: #fff;
     border-bottom: 1px solid #73c0a9;
   `;
 
   const Image = styled.img`
     width: 200px;
-    height: 200px;
+    height: 100%;
   `;
 
   const Title = styled.div`
     font-size: 1.7rem;
-    margin-bottom: 2.7rem;
+    margin-bottom: 20%;
   `;
 
   const Text = styled.div`
+    height: 100%;
     white-space: pre-wrap;
     text-align: center;
     font-size: 1.2rem;

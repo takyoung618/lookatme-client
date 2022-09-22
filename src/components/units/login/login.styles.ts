@@ -59,6 +59,7 @@ export const Email = styled.input`
   border-radius: 4px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
   border: none;
+  padding-left: 12%;
 `;
 
 export const Password = styled.input`
@@ -73,6 +74,7 @@ export const Password = styled.input`
   border-radius: 4px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
   border: none;
+  padding-left: 12%;
 `;
 
 export const Footer = styled.div`
@@ -101,4 +103,5 @@ export const Error = styled.div`
   padding-top: 10px;
   font-size: 14px;
   color: red;
+  margin-left: 2%;
 `;

@@ -1,3 +1,4 @@
+import BasicButton from "../../commons/button";
 import * as S from "./login.styles";
 import { ILoginUIProps } from "./login.types";
 
@@ -25,7 +26,7 @@ export default function LoginExpertUI(props: ILoginUIProps) {
             />
             <S.Error>{props.formState.errors.password?.message}</S.Error>
           </S.InputWrapper>
-          <button onClick={props.onClickLogin}>로그인</button>
+          <BasicButton title={"로그인"} isBig />
         </S.Main>
       </S.Wrapper>
     </form>

@@ -18,6 +18,7 @@ const Container = styled.section`
   background-color: #f7f9f3;
   display: flex;
   width: 100%;
+  height: 900px;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
@@ -91,7 +92,7 @@ const Quote = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2.5rem;
+    padding: 5.3rem;
   }
 `;
 

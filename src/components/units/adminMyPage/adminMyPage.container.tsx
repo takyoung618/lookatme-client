@@ -1,6 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
-import axios from "axios";
 import { ChangeEvent, useState } from "react";
 import { IMutation, IQuery } from "../../../commons/types/generated/types";
 import AdminMyPageUI from "./adminMyPage.presenter";
@@ -14,11 +13,16 @@ import {
   FETCH_REPORTED_STORIES,
   FETCH_SPECIALISTS,
   FETCH_STORIES_BY_TIME,
+  START_QUOTE,
+  STOP_QUOTE,
   UPLOAD_FILE,
 } from "./adminMyPage.queries";
 
 export default function AdminMyPageContainer() {
   // 명언
+
+  const [startQuote] = useMutation(START_QUOTE);
+  const [stopQuote] = useMutation(STOP_QUOTE);
 
   const { data: QuoteData, fetchMore: QuoteFetchMore } = useQuery<
     Pick<IQuery, "fetchQuotes">
@@ -45,18 +49,22 @@ export default function AdminMyPageContainer() {
     });
   };
 
-  const onClickStart = () => {
-    axios
-      .post("https://lookatmeserver.shop/batches/start/quote")
-      .then((res) => {
-        console.log(res);
-      });
+  const onClickStart = async () => {
+    try {
+      await startQuote;
+      Modal.success({ content: "명언 시작" });
+    } catch (error) {
+      if (error instanceof Error) Modal.error({ content: error.message });
+    }
   };
 
-  const onClickStop = () => {
-    axios.post("https://lookatmeserver.shop/batches/stop/quote").then((res) => {
-      console.log(res);
-    });
+  const onClickStop = async () => {
+    try {
+      await stopQuote;
+      Modal.success({ content: "명언 정지" });
+    } catch (error) {
+      if (error instanceof Error) Modal.error({ content: error.message });
+    }
   };
 
   const [quoteModalIsOpen, setQuoteModalIsOpen] = useState(false);

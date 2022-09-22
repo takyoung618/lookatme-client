@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
 import { TicketState } from "../../../commons/store";
+import { useRouter } from "next/router";
 
 const url = "https://lookatmeserver.shop/chat";
 
@@ -47,6 +48,14 @@ export default function LiveChatContainer() {
       setResultMsg((prev) => [...prev, data]);
     });
   }, [ticketId]);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+  });
 
   const onClickSendMessage = async (data: any) => {
     const message = await data.contents;

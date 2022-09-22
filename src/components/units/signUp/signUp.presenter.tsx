@@ -68,7 +68,7 @@ export default function SignUpUI(props: ISignUpUIProps) {
                 </S.TokenTimer>
 
                 <button onClick={props.onClickCheckToken} type="button">
-                  인증 완료
+                  완료
                 </button>
               </S.TokenWrapper>
             </S.InputWrapper>

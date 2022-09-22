@@ -9,7 +9,9 @@ export const Wrapper = styled.div`
   margin-bottom: 80px;
 `;
 
-export const Main = styled.div``;
+export const Main = styled.div`
+  margin: 0 auto;
+`;
 
 export const Title = styled.h1`
   margin-bottom: 30px;
@@ -29,7 +31,6 @@ export const Label = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 345px;
   height: 48px;
   background: #f6f6f6;
   padding: 10px;
@@ -39,7 +40,7 @@ export const Input = styled.input`
 `;
 
 export const Name = styled.input`
-  width: 345px;
+  width: 18rem;
   height: 48px;
   background: #f6f6f6
     url("https://storage.googleapis.com/lookatme-storage/2022/9/21/03decc1c-aed1-4f55-b3d3-616adad1937d/origin/user.png")
@@ -53,7 +54,7 @@ export const Name = styled.input`
 `;
 
 export const Email = styled.input`
-  width: 345px;
+  width: 18rem;
   height: 48px;
   background: #f6f6f6
     url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0f9b52fc-b8b5-42ec-97e4-9254f43ab9d3/origin/mail.png")
@@ -67,7 +68,7 @@ export const Email = styled.input`
 `;
 
 export const Password = styled.input`
-  width: 345px;
+  width: 18rem;
   height: 48px;
   background: #f6f6f6
     url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0bffb939-8e50-42a2-a17b-480dae272b51/origin/lock.png")
@@ -82,11 +83,11 @@ export const Password = styled.input`
 
 export const PhoneWrapper = styled.div`
   display: flex;
-  width: 345px;
+  width: 18rem;
 `;
 
 export const FrontNumber = styled.div`
-  width: 100px;
+  width: 5rem;
   height: 48px;
   background: #f6f6f6;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
@@ -96,11 +97,11 @@ export const FrontNumber = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
 export const PhoneNumber = styled.input`
-  width: 345px;
+  width: 16rem;
   height: 48px;
   background: #f6f6f6;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
@@ -112,7 +113,7 @@ export const PhoneNumber = styled.input`
 
 export const Footer = styled.div`
   & button {
-    width: 333px;
+    width: 18rem;
     height: 40px;
     text-align: center;
     padding: 12px 14px;
@@ -135,7 +136,7 @@ export const Error = styled.div`
 `;
 
 export const AuthButton = styled.button`
-  width: 100px;
+  width: 5rem;
   border: none;
   background: #73c7a9;
   cursor: pointer;
@@ -145,15 +146,16 @@ export const AuthButton = styled.button`
 export const TokenWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 345px;
+  width: 18rem;
   margin-top: 30px;
 
   & button {
-    width: 100px;
+    width: 5.5rem;
     border: none;
     background: #73c7a9;
     cursor: pointer;
     color: white;
+    font-size: 1rem;
   }
 `;
 
@@ -178,6 +180,6 @@ export const TokenTimer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #73c7a9;
 `;

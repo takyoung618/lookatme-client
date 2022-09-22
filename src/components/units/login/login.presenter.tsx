@@ -26,7 +26,7 @@ export default function LoginUI(props: ILoginUIProps) {
             />
             <S.Error>{props.formState.errors.password?.message}</S.Error>
           </S.InputWrapper>
-          <BasicButton title={"로그인"} onClick={props.onClickLogin} isBig />
+          <BasicButton title={"로그인"} isBig />
         </S.Main>
         <S.Footer>
           <S.InnerFooter>

@@ -91,3 +91,15 @@ export const FETCH_STORIES_BY_TIME = gql`
     }
   }
 `;
+
+export const START_QUOTE = gql`
+  mutation startQuote {
+    startQuote
+  }
+`;
+
+export const STOP_QUOTE = gql`
+  mutation stopQuote {
+    stopQuote
+  }
+`;

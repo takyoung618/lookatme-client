@@ -16,17 +16,17 @@ export const Title = styled.h1`
 `;
 
 export const Main = styled.div`
+  margin: 0 auto;
   & button {
-    width: 333px;
+    width: 18rem;
     height: 40px;
     text-align: center;
     padding: 12px 14px;
     background-color: #73c7a0;
     border-radius: 40px;
-    margin-top: 32px;
     color: white;
     border: none;
-    margin: 0 0 32px 5px;
+    margin: 0 auto;
     cursor: pointer;
   }
 `;
@@ -43,7 +43,7 @@ export const Label = styled.div`
 `;
 
 export const Email = styled.input`
-  width: 345px;
+  width: 18rem;
   height: 48px;
   background: #f6f6f6
     url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0f9b52fc-b8b5-42ec-97e4-9254f43ab9d3/origin/mail.png")
@@ -57,7 +57,7 @@ export const Email = styled.input`
 `;
 
 export const Password = styled.input`
-  width: 345px;
+  width: 18rem;
   height: 48px;
   background: #f6f6f6
     url("https://storage.googleapis.com/lookatme-storage/2022/9/21/0bffb939-8e50-42a2-a17b-480dae272b51/origin/lock.png")

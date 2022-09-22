@@ -7,7 +7,7 @@ export default function Description() {
 
   const Container = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 1000px;
     background-color: #73c0a9;
     display: flex;
     flex-direction: column;

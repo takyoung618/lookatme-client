@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  look_at_me:
+  look_at_me_final:
     build:
       context: .
       dockerfile: Dockerfile

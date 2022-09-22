@@ -26,7 +26,7 @@ const SubTitle = styled.div`
   margin-bottom: 70px;
 `;
 
-export default function OfficialContainer() {
+export default function PostItContainer() {
   return (
     <>
       <Title>

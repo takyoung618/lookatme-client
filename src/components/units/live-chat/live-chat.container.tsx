@@ -41,20 +41,18 @@ export default function LiveChatContainer() {
     },
   });
 
+  messagesEndRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "end",
+    inline: "nearest",
+  });
+
   useEffect(() => {
     // send
     socket.on(ticketId, (data: any) => {
       setResultMsg((prev) => [...prev, data]);
     });
   }, [ticketId]);
-
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "end",
-      inline: "nearest",
-    });
-  });
 
   const onClickSendMessage = async (data: any) => {
     const message = await data.contents;

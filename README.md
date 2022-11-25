@@ -2,7 +2,6 @@ LookAtMe - 2030 심리커뮤니티 간단 채팅 상담 플랫폼
 ===========================================
 
 <p align="center">
-<img src="https://storage.googleapis.com/lookatme-storage/2022/9/21/13dd1314-332c-4482-8d42-65ae7ee88356/origin/title-logo.png">
 </p>
 
 
